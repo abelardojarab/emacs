@@ -154,7 +154,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   (message " checkers off"))
 #+END_SRC
 
-*** Flycheck
+*** flycheck
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-flycheck-mode (:color blue :hint nil :foreign-keys run)
   "
