@@ -1,4 +1,10 @@
 #+PROPERTY: header-args :tangle yes
+# -*- mode: org; fill-column:
+#+STARTUP: content
+#+TITLE: Título
+#+AUTHOR: Davi Ramos
+#+OPTIONS: toc:3
+#+OPTIONS: num:1
 
 * Contents                                                                :toc:
 - [[#about][About]]
