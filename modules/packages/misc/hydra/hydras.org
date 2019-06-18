@@ -1,5 +1,7 @@
 #+PROPERTY: header-args :tangle yes
 
+* About
+This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/misc/hydra/hydras.el][hydras.el]], which contain all my Hydras. Many of the functions called here are to non-builtin packages, and some were made or customized by me. You'll find most of them on this repository. If you cannot find a function or package configuration, that's because I deleted it and forgot to remove the hydra call.
 * programming
 ** python
 #+BEGIN_SRC emacs-lisp
