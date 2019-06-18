@@ -2,49 +2,26 @@
 
 * Contents                                                                :toc:
 - [[#about][About]]
-- [[#programming][Programming]]
-  - [[#python][python]]
-  - [[#prog][prog]]
-  - [[#java][java]]
-  - [[#flycheck][Flycheck]]
-  - [[#prog-modes][prog modes]]
-  - [[#yasnippet][yasnippet]]
-  - [[#shell][shell]]
-  - [[#projectile][projectile]]
-  - [[#tangle][tangle]]
-  - [[#indent][indent]]
-- [[#spelling][Spelling]]
-- [[#killing][Killing]]
-- [[#vertigo][Vertigo]]
-- [[#window][Window]]
-- [[#modes][Modes]]
-- [[#eval][Eval]]
-- [[#packages][Packages]]
-- [[#commands][Commands]]
-  - [[#main][main]]
-  - [[#quick][quick]]
-  - [[#text][text]]
-  - [[#motions][motions]]
-  - [[#more-text][more text]]
-  - [[#org-text][org text]]
-- [[#searching][Searching]]
-  - [[#main-1][main]]
-  - [[#online][online]]
-- [[#org-mode][Org Mode]]
-  - [[#main-2][main]]
-  - [[#clock][clock]]
-  - [[#agenda][agenda]]
-- [[#help][Help]]
-- [[#files][Files]]
-  - [[#main-3][main]]
-  - [[#emacs][emacs]]
-  - [[#scratches][scratches]]
-  - [[#dotfiles][dotfiles]]
+- [[#hydras][Hydras]]
+  - [[#programming][Programming]]
+  - [[#spelling][Spelling]]
+  - [[#killing][Killing]]
+  - [[#vertigo][Vertigo]]
+  - [[#window][Window]]
+  - [[#modes][Modes]]
+  - [[#eval][Eval]]
+  - [[#packages][Packages]]
+  - [[#commands][Commands]]
+  - [[#searching][Searching]]
+  - [[#org-mode][Org Mode]]
+  - [[#help][Help]]
+  - [[#files][Files]]
 
 * About
 This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/misc/hydra/hydras.el][hydras.el]], which contain all my Hydras. Many of the functions called here are to non-builtin packages, and some were made or customized by me. You'll find most of them on this repository. If you cannot find a function or package configuration, that's because I deleted it and forgot to remove the hydra call.
-* Programming
-** python
+* Hydras
+** Programming
+*** python
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-python-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -78,7 +55,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("e" my/ex-run-python-macro))
 #+END_SRC
 
-** prog
+*** prog
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-prog-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -125,7 +102,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   (message " checkers off"))
 #+END_SRC
 
-** java
+*** java
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-java-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -174,7 +151,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   (message " checkers off"))
 #+END_SRC
 
-** Flycheck
+*** Flycheck
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-flycheck-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -200,7 +177,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("g" flycheck-clear)
   ("h" flycheck-mode))
 #+END_SRC
-** prog modes
+*** prog modes
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-prog-modes (:color blue :hint nil :foreign-keys run)
   "
@@ -230,7 +207,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("e" my/prog-mode-on)
   ("d" my/prog-mode-off))
 #+END_SRC
-** yasnippet
+*** yasnippet
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-yasnippet (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -251,7 +228,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("l" my/yas-load-other-window))
 #+END_SRC
 
-** shell
+*** shell
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-shell (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -275,7 +252,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("p" my/python-botright)
   ("a" my/execute-python-program-shell))
 #+END_SRC
-** projectile
+*** projectile
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-projectile-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -303,7 +280,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("p" counsel-projectile-switch-project))
 #+END_SRC
 
-** tangle
+*** tangle
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-tangle (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -325,7 +302,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("e" my/tangle-this-file))
 #+END_SRC
 
-** indent
+*** indent
 #+BEGIN_SRC emacs-lisp
 (defhydra my/indent-tools-hydra (:color red :hint nil)
   "
@@ -365,7 +342,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("f" yafolding-toggle-element)
   ("q" nil))
 #+END_SRC
-* Spelling
+** Spelling
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-spell (:color blue :hint nil)
   "
@@ -393,7 +370,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("n" flyspell-goto-next-error :color pink)
   ("d" my/ispell-show-dictionary))
 #+END_SRC
-* Killing
+** Killing
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-kill (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -420,7 +397,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("g" delete-window))
 #+END_SRC
 
-* Vertigo
+** Vertigo
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-vertigo (:color blue :hint nil)
   "
@@ -437,7 +414,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("." vertigo-visible-jump-down)
   ("," vertigo-visible-jump-up))
 #+END_SRC
-* Window
+** Window
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-window (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -473,7 +450,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("x" zoom-mode)
   ("r" my/evil-botright))
 #+END_SRC
-* Modes
+** Modes
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-modes (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -510,7 +487,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("r" wc-mode)
   ("s" line-no-numbers))
 #+END_SRC
-* Eval
+** Eval
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-eval (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -537,7 +514,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("n" my/eval-next-sexp-macro))
 #+END_SRC
 
-* Packages
+** Packages
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-packages (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -561,8 +538,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("f" package-install-file)
   ("e" describe-package))
 #+END_SRC
-* Commands
-** main
+** Commands
+*** main
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -604,7 +581,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("p" hydra-packages/body))
 #+END_SRC
 
-** quick
+*** quick
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-quick-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -635,7 +612,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("t" my/indent-src-block-function))
 #+END_SRC
 
-** text
+*** text
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-text-main (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -667,7 +644,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("l" auto-capitalize-mode)
   )
 #+END_SRC
-** motions
+*** motions
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
   "
@@ -704,7 +681,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("x" cool-moves/sexp-forward)
   ("X" cool-moves/sexp-backward))
 #+END_SRC
-** more text
+*** more text
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-text-commands (:color blue :hint nil)
   "
@@ -741,7 +718,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("d" my/disable-auto-agg-fill))
 #+END_SRC
 
-** org text
+*** org text
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-org-text-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -770,8 +747,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("lr" afs/org-remove-link)
   ("li" org-web-tools-insert-link-for-url))
 #+END_SRC
-* Searching
-** main
+** Searching
+*** main
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-search (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -815,7 +792,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   (counsel-fzf nil "~/org"))
 #+END_SRC
 
-** online
+*** online
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-search-online (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -841,8 +818,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("O" engine/search-wiki-en)
   ("P" engine/search-wiki-pt))
 #+END_SRC
-* Org Mode
-** main
+** Org Mode
+*** main
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -880,7 +857,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("f" my/agenda-files))
 #+END_SRC
 
-** clock
+*** clock
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -908,7 +885,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("e" my/org-done))
 #+END_SRC
 
-** agenda
+*** agenda
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -936,7 +913,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("u" my/update-agenda-files))
 #+END_SRC
 
-* Help
+** Help
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
 
@@ -973,8 +950,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("d" apropos-documentation)
   ("i" info))
 #+END_SRC
-* Files
-** main
+** Files
+*** main
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-find-file (:hint nil :foreign-keys nil :exit t)
 
@@ -1005,7 +982,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("g" my/find-godot-notes))
 #+END_SRC
 
-** emacs
+*** emacs
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-find-emacs-files (:hint nil :foreign-keys nil :exit t)
   "
@@ -1066,7 +1043,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 
 #+END_SRC
 
-** scratches
+*** scratches
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-find-scratches (:hint nil :foreign-keys nil :exit t)
 
@@ -1085,7 +1062,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("o" find-scratch-org)
   ("e" find-scratch-elisp))
 #+END_SRC
-** dotfiles
+*** dotfiles
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-find-dotfiles (:hint nil :color blue)
   "
