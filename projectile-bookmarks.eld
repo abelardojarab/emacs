@@ -1,0 +1,1 @@
+("/home/Documents/Studying/Prog/Godot/" "~/scripts/" "~/pta/" "~/maps/" "~/dotfiles/" "~/.vim/" "~/.tmux/" "~/.pyenv/" "~/.fzf/" "~/.emacs.d/" "~/.e/")

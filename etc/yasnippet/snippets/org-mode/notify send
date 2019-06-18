@@ -1,0 +1,4 @@
+# key: notify
+# name: notify send
+# --
+; exec notify-send --expire-time=${1:1000} '${2:message}'$0

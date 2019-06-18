@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: add local variable
+# key: filevar
+# --
+# Local Variables:
+# eval: (${1:local-variable})
+# End:
+$0

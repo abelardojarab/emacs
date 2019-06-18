@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: godot begin block
+# key: begg
+# --
+#+BEGIN_SRC godot-gdscript

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tangle header argument
+# key: tanglep
+# --
+#+PROPERTY: header-args :tangle yes

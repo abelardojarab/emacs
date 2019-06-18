@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: System.out.println formatted
+# key: souf
+# --
+System.out.println("$1");$0

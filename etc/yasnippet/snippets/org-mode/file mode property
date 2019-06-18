@@ -1,0 +1,4 @@
+# key: mode
+# name: file mode property
+# --
+# -*- mode: ${1:mode}${2:; ${3:mode variable}: ${4: value}} -*-

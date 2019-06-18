@@ -1,0 +1,10 @@
+# key: usep
+# name: use package with heading
+# --
+* ${1:package}
+#+BEGIN_SRC emacs-lisp
+(use-package $1
+:defer t
+:ensure t${3:
+:config}$0)
+#+END_SRC

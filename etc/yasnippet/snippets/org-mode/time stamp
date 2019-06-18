@@ -1,0 +1,4 @@
+# key: st
+# name: time stamp
+# --
+<2019-0${1:mês}-${2:dia}>$0 

@@ -1,0 +1,4 @@
+# key: a
+# name: array
+# --
+var ${name} = [$0]

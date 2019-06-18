@@ -1,0 +1,15 @@
+# key: hydra
+# name: hydra
+# --
+(defhydra hydra-${1:name} (${2::color blue :hint nil})
+  "
+  ^
+       ^${1:$(capitalize yas-text)}^
+       ---------------------
+       _a_: $3
+"
+  ("<escape>" nil)
+
+("a" $3)
+$0
+)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: todo com deadline
+# key: td
+# --
+** TODO ${1: Compromisso}
+DEADLINE: <2019-0${2:4}-${3:01} sex>

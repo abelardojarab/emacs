@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: deadline com todo
+# key: dd
+# From https://emacs.stackexchange.com/a/48014:
+# expand-env: ((yas-after-exit-snippet-hook #'org-ctrl-c-ctrl-c))
+# --
+** TODO ${1:Compromisso}
+DEADLINE: <2019-${2:$$(yas-choose-value '("04" "05"))04}-${3:`(format-time-string "%d")`}>$0

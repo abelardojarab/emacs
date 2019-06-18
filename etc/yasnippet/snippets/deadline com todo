@@ -1,0 +1,5 @@
+# key: td
+# name: deadline com todo
+# --
+** TODO ${1:Compromisso}
+DEADLINE: <2019-0${2:mês}-${3:dia} sex>

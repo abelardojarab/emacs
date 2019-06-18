@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: godot src block
+# key: <g
+# --
+#+BEGIN_SRC godot-gdscript
+$0
+#+END_SRC

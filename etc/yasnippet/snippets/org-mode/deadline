@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: deadline
+# key: d
+# --
+DEADLINE: <2019-0${1:mês}-${2:dia}>

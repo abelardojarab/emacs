@@ -1,0 +1,233 @@
+#+STARTUP: overview
+#+PROPERTY: header-args :tangle yes
+
+* saving
+** save all
+#+BEGIN_SRC emacs-lisp
+(defun my/save-all ()
+  (interactive)
+  (setq current-prefix-arg '(4))
+  (call-interactively 'save-some-buffers))
+#+END_SRC
+** quiet save
+#+BEGIN_SRC emacs-lisp
+(defun my/quiet-save-buffer () (interactive)
+       (save-excursion
+	 (evil-ex-nohighlight)
+	 (let ((inhibit-message t))
+	   (delete-trailing-whitespace)
+	   (save-buffer))))
+
+(defun my/quiet-save-buffer-markdown () (interactive)
+       (save-excursion
+	 (evil-ex-nohighlight)
+	 (let ((inhibit-message t))
+	   (save-buffer))))
+
+#+END_SRC
+* motions
+** my move line
+#+BEGIN_SRC emacs-lisp
+(defun my/move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun my/move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+  #+END_SRC
+** widen to center
+#+BEGIN_SRC emacs-lisp
+(defun widenToCenter ()
+  (interactive)
+  (save-excursion
+    (widen)
+    (recenter)))
+#+END_SRC
+** my paragraph
+#+BEGIN_SRC emacs-lisp
+(defun my/paragraph-backwards ()
+  (interactive)
+  (previous-line)
+  (backward-paragraph)
+  (next-line)
+  (back-to-indentation))
+
+(defun my/paragraph-forward ()
+  (interactive)
+  (forward-paragraph)
+  (next-line)
+  (back-to-indentation))
+#+END_SRC
+** my markdown paragraph
+#+BEGIN_SRC emacs-lisp
+(defun my/markdown-forward-paragraph ()
+(interactive)
+(markdown-forward-paragraph)
+(forward-to-indentation))
+#+END_SRC
+** last-buffer
+Alternates between the current and the previous buffer.
+#+BEGIN_SRC emacs-lisp
+(defun last-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+#+END_SRC
+* misc
+** measure time
+[[https://stackoverflow.com/questions/23622296/emacs-timing-execution-of-function-calls-in-emacs-lisp][Source]]
+#+BEGIN_SRC emacs-lisp
+(defmacro measure-time (&rest body)
+  "Measure the time it takes to evaluate BODY."
+  `(let ((time (current-time)))
+     ,@body
+     (message "%.06f" (float-time (time-since time)))))
+#+END_SRC
+** date
+#+BEGIN_SRC emacs-lisp
+(defun my/date ()
+  (interactive)
+  (save-excursion
+    (shell-command "date")))
+#+END_SRC
+** show major mode
+#+BEGIN_SRC emacs-lisp
+(defun show-major-mode ()
+  (interactive)
+  (describe-variable 'major-mode))
+#+END_SRC
+** show server
+#+BEGIN_SRC emacs-lisp
+(defun show-server ()
+  (interactive)
+  (describe-variable 'server-name))
+#+END_SRC
+** show fill colum
+#+BEGIN_SRC emacs-lisp
+(defun show-fill-column ()
+  (interactive)
+  (describe-variable 'fill-column))
+#+END_SRC
+** delete file and buffer
+#+BEGIN_SRC emacs-lisp
+(defun delete-file-and-buffer ()
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+   (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))
+#+END_SRC
+** trash file
+#+BEGIN_SRC emacs-lisp
+
+(defun my/move-file-to-trash ()
+  (interactive)
+  (move-file-to-trash (buffer-name))
+  (kill-buffer)
+  (delete-window))
+
+(defun my/move-file-to-trash-close-ws ()
+  (interactive)
+  (move-file-to-trash (buffer-name))
+  (kill-buffer)
+  (eyebrowse-close-window-config))
+
+#+END_SRC
+** toggle cursor
+#+BEGIN_SRC emacs-lisp
+(defun enable-cursor ()
+  (interactive)
+  (setq cursor-type t))
+
+(defun disable-cursor ()
+  (interactive)
+  (setq cursor-type nil))
+#+END_SRC
+** eval block
+#+BEGIN_SRC emacs-lisp
+(defun eval-src-block ()
+  (interactive)
+  (org-edit-special nil)
+  (eval-buffer)
+  (org-edit-src-exit))
+#+END_SRC
+
+** eval buffer
+#+BEGIN_SRC emacs-lisp
+(defun my/eval-buffer ()
+  (interactive)
+  (eval-buffer)
+  (indent-buffer)
+  (message " buffer evaluated"))
+#+END_SRC
+** misc
+#+BEGIN_SRC emacs-lisp
+(setq mouse-autoselect-window t)
+(defalias 'org 'org-mode)
+(defalias 'evil 'evil-mode)
+(defalias 'par 'package-delete)
+(defalias 'pai 'package-install)
+(defalias 'cug 'customize-group)
+(defalias 'path 'prelude-copy-file-name-to-clipboard)
+
+(put 'narrow-to-region 'disabled nil)
+
+(setq scroll-step 0)
+(setq scroll-conservatively 0)
+
+(defun my/scroll-conservatively-five ()
+(interactive)
+(setq scroll-conservatively 5)
+(message " scroll-conservatively 5"))
+
+(defun my/scroll-conservatively-zero ()
+(interactive)
+(setq scroll-conservatively 0)
+(message " scroll-conservatively 0"))
+
+(defun my/scroll-conservatively-ten ()
+(interactive)
+(setq scroll-conservatively 10)
+(message " scroll-conservatively 10"))
+
+(setq-default display-line-numbers nil)
+(setq visible-bell nil)
+(setq calc-display-trail nil)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
+(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
+(setq apropos-do-all t)
+(setq debug-on-error nil)
+(setq use-dialog-box nil)
+(setq window-resize-pixelwise t)
+(add-hook 'after-change-major-mode-hook 'line-numbers)
+(setq fill-column 60)
+#+END_SRC
+
+* external
+** my/ranger
+#+BEGIN_SRC emacs-lisp
+(defun my/ranger ()
+  (interactive)
+  (my/copy-dir)
+  (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger"))
+#+END_SRC
+** my/terminal
+#+BEGIN_SRC emacs-lisp
+(defun my/terminal ()
+  (interactive)
+  (my/copy-dir)
+  (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-term"))
+#+END_SRC

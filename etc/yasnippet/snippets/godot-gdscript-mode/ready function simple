@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ready function simple
+# key: ready
+# --
+func _ready():
+	$0

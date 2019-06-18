@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: array casting
+# key: aa
+# --
+${name} = [$0]
