@@ -42,6 +42,7 @@
 
 (general-nvmap
   :keymaps 'python-mode-map
+  "<C-return>" 'elpy-goto-definition
   "C--" 'quickrun
   "C-." 'my/indent-tools-hydra/body
   "<tab>" 'hs-toggle-hiding
@@ -56,14 +57,11 @@
   "<" 'python-indent-shift-left
   ">" 'python-indent-shift-right
   "gj" 'outline-forward-same-level
-  "gk" 'outline-backward-same-level
-  "<C-return>" 'python-open-two-line
-  "<backspace>" 'hydra-prog-mode/body)
+  "gk" 'outline-backward-same-level)
 
 (general-imap
   :keymaps 'python-mode-map
   "C--" 'my/my-quickrun
   "M-e" 'python-nav-forward-statement
   "M-a" 'python-nav-backward-statement
-  "<S-backspace>" 'python-indent-dedent-line-backspace
   "<M-return>" 'indent-buffer-python)

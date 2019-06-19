@@ -29,21 +29,24 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 (defhydra hydra-python-mode (:color blue :hint nil :foreign-keys run)
   "
   ^
-       ^Python^      ^Flycheck^  ^Flymake^
-       ------------------------------
-       _q_: qrun     _f_: first  _k_: prev
-       _s_: qshell   _p_: prev   _j_: next
-       _x_: shell    _n_: next   _M_: mode
-       _g_: gotodef  _m_: mode
+       ^Python^         ^Flycheck^  ^Flymake^
+       --------------------------------
+       _r_: quickrun    _f_: first  _k_: prev
+       _s_: quickshell  _p_: prev   _j_: next
+       _e_: run ext.    _n_: next
+       _RET_: goto def.
+       _<C-return>_: goto assign.
 
 "
   ("<escape>" nil)
-  ("RET" hydra-prog-mode/body)
 
-  ("q" quickrun)
+  ("r" quickrun)
   ("s" quickrun-shell)
+  ("e" my/run-python-external)
 
-  ("g" elpy-goto-definition)
+  ("RET" my/elpy-goto-definition)
+  ("<C-return>" pop-tag-mark)
+
   ("a" dumb-jump-go)
 
   ("f" flycheck-first-error)
@@ -54,8 +57,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("k" flymake-goto-prev-error)
   ("j" flymake-goto-next-error)
   ("M" flymake-mode)
-  ("x" my/run-python-external)
-  ("e" my/ex-run-python-macro))
+
+)
 #+END_SRC
 
 *** prog

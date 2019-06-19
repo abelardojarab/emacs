@@ -72,6 +72,12 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   (add-hook 'python-mode-hook #'evil-swap-keys-swap-colon-semicolon)
   (add-hook 'python-mode-hook #'evil-swap-keys-swap-double-single-quotes)
   :config
+
+  (defun my/elpy-goto-definition ()
+    (interactive)
+    (elpy-goto-definition)
+    (recenter))
+
   (auto-fill-mode 1)
   (setq comment-auto-fill-only-comments t)
   (defun my/python-save-buffer () (interactive)
@@ -83,6 +89,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 #+END_SRC
+
 ** importmagic
 #+BEGIN_SRC emacs-lisp
 (use-package importmagic

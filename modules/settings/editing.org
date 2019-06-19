@@ -237,13 +237,6 @@
   (comint-send-input))
 
 #+END_SRC
-* my/company-yasnippet
-#+BEGIN_SRC emacs-lisp
-(defun my/company-yasnippet ()
-  (interactive)
-  (company-abort)
-  (yas-expand))
-#+END_SRC
 * my evil substitute
 #+BEGIN_SRC emacs-lisp
 (defun my/evil-substitute ()

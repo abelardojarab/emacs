@@ -206,10 +206,12 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   (setq-default company-idle-delay 0.3)
   (setq company-tooltip-limit 10)
   (setq company-minimum-prefix-length 2)
-  (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
-  (advice-add 'company-complete-common :after (lambda ()
-						(when (equal my/company-point (point))
-						  (yas-expand))))
+
+  ;; (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
+
+  ;; (advice-add 'company-complete-common :after (lambda ()
+  ;; 						(when (equal my/company-point (point))
+  ;; 						  (yas-expand))))
   (general-define-key
    :keymaps 'company-active-map
    "1" 'company-complete-number
@@ -225,7 +227,7 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
    "M-f" 'company-filter-candidates
    "M-d" 'my/company-complete-paren
    "M-h" 'company-quickhelp-manual-begin
-   ;; "M-h" nil
+   "M-r" 'my/company-yasnippet
    "M-k" nil
    "M-l" nil
    ;; "M-w" 'company-select-next
@@ -334,10 +336,10 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 #+END_SRC
 * yasnippets packages
 - Run command after expansion (snipped specific):
-#+BEGIN_SRC snippet-mode
+#+BEGIN_EXAMPLE
 # -*- mode: snippet -*-
 # expand-env: ((yas-after-exit-snippet-hook #'my/function))
-#+END_SRC
+#+END_EXAMPLE
 [[https://emacs.stackexchange.com/a/48014][source]]
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
@@ -352,6 +354,12 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)
   (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
   :config
+
+(defun my/company-yas-snippet ()
+(interactive)
+(company-abort)
+(evil-insert-state)
+(yas-expand))
 
 (general-imap
    "M-r" 'yas-expand)

@@ -218,11 +218,6 @@
   (comint-send-input))
 
 
-(defun my/company-yasnippet ()
-  (interactive)
-  (company-abort)
-  (yas-expand))
-
 (defun my/evil-substitute ()
   (interactive)
 (evil-ex "%s/"))

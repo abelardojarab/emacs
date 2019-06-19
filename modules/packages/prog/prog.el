@@ -170,10 +170,12 @@
   (setq-default company-idle-delay 0.3)
   (setq company-tooltip-limit 10)
   (setq company-minimum-prefix-length 2)
-  (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
-  (advice-add 'company-complete-common :after (lambda ()
-						(when (equal my/company-point (point))
-						  (yas-expand))))
+
+  ;; (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
+
+  ;; (advice-add 'company-complete-common :after (lambda ()
+  ;; 						(when (equal my/company-point (point))
+  ;; 						  (yas-expand))))
   (general-define-key
    :keymaps 'company-active-map
    "1" 'company-complete-number
@@ -203,6 +205,7 @@
    ;; "<return>" 'company-complete
    "M-j" 'my/company-complete-first-add-space
    "M-o" 'my/company-yasnippet)
+
 
   (general-define-key
    :keymaps 'company-filter-map
@@ -292,6 +295,12 @@
   (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)
   (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
   :config
+
+(defun my/company-yas-expand ()
+(interactive)
+(company-abort)
+(evil-insert-state)
+(yas-expand))
 
 (general-imap
    "M-r" 'yas-expand)
