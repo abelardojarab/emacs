@@ -1,3 +1,4 @@
+
 (fset 'org-code
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([escape 96 60 105 126 escape 96 62 97 126 escape] 0 "%d") arg)))
 

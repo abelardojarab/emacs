@@ -34,7 +34,6 @@
 ;; 		      (outline-flag-region start (point-at-eol) t)
 ;; 		    (user-error msg))))))))))
 
-
 (defun my/agenda-files ()
   (interactive)
   (ranger-find-file "/home/Documents/Org/Agenda"))
@@ -68,6 +67,10 @@
 (defun my/org-done ()
   (interactive)
   (org-todo "DONE"))
+
+(defun my/org-todo ()
+  (interactive)
+  (org-todo "TODO"))
 
 (defun my/make-return-python ()
   (interactive)

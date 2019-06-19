@@ -1,5 +1,5 @@
 # name: todo
-# binding: C-c t
+# binding: M-t
 # key: t
 # --
-** TODO $0
+TODO $0

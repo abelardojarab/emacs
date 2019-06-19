@@ -520,7 +520,7 @@
        _f_: def abbrev       _n_: name macro
        _F_: def mode abbrev  _m_: edit macro
        _e_: eddit abbrevs    _i_: insert macro
-       _t_: indent block
+       _t_: indent block     _x_: texpander
        _d_: hydra eval
   "
   ("<escape>" nil nil)
@@ -538,7 +538,8 @@
   ("n" name-last-kbd-macro)
   ("m" edit-named-kbd-macro)
   ("i" insert-kbd-macro)
-  ("t" my/indent-src-block-function))
+  ("t" my/indent-src-block-function)
+  ("x" my/new-texpander-abbreviation))
 
 (defhydra hydra-text-main (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -734,48 +735,47 @@
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-    ^Org^
-    --------------------------------------------------
-    _g_: my archive    _a_: agenda         _t_: todo
-    _G_: archive       _h_: agenda hydra   _s_: tags
-    _B_: list bullets  _i_: agenda proj    _u_: insert url
-    _c_: captur        _f_: agenda files   _l_: store link
-    _d_: deadline      _S_: schedule       _n_: indent mode
-    _p_: properties    _y_: tsamp overlay  _b_: indent block
-                                       _r_: refile
+    ^Org^                           ^Agenda^
+    -----------------------------------------
+    _r_: archive     _t_: todo        _a_: agenda
+    _g_: my archive  _i_: tags        _h_: hydra
+    _c_: capture     _u_: insert url  _f_: files
+    _d_: deadline    _l_: store link  _o_: agenda.org
+    _s_: schedule    _y_: overlay
+
 "
   ("<escape>" nil)
 
+  ("r" org-archive-subtree-default)
   ("g" my/org-archive)
-  ("G" org-archive-subtree-default)
-  ("B" org-cycle-list-bullet)
+
+  ("a" my/org-agenda)
   ("c" counsel-org-capture)
   ("d" org-deadline)
-  ("S" org-schedule)
-  ("a" my/org-agenda)
+  ("s" org-schedule)
   ("h" hydra-org-agenda/body)
   ("l" org-store-link)
-  ("p" my/org-property-commands)
-  ("r" org-refile)
   ("t" org-todo)
-  ("s" counsel-org-tag)
+  ("i" counsel-org-tag)
+  ("o" my/find-org-agenda-file)
   ("u" org-web-tools-insert-link-for-url)
   ("y" org-toggle-time-stamp-overlays)
-  ("i" my/org-projectile-agenda)
-  ("n" org-indent-mode)
-  ("b" indent-block)
   ("f" my/agenda-files))
+
+(defun my/find-org-agenda-file ()
+(interactive)
+(find-file "~/org/Agenda/agenda.org"))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-   ^Org Clock^
+   ^Clock^                   Todo States
    ------------------------------------
-   _i_: in    _r_: report  _m_: clock recent ^^
-   _o_: out   _c_: cancel  _e_: done
-   _l_: last  _d_: display
-   _s_: start _h_: history
-
+   _i_: in       _m_: recent   _t_: todo
+   _o_: out      _c_: cancel   _s_: started
+   _l_: last     _y_: display  _d_: done
+   _h_: history
+   _r_: report
   "
   ("q" nil)
   ("<escape>" nil)
@@ -783,13 +783,14 @@
   ("i" org-clock-in)
   ("o" org-clock-out)
   ("l" org-clock-in-last)
-  ("s" my/org-started)
   ("r" org-clock-report)
   ("c" org-clock-cancel)
-  ("d" org-clock-display)
+  ("y" org-clock-display)
   ("h" org-clock-history)
   ("m" org-mru-clock-in)
-  ("e" my/org-done))
+  ("s" my/org-started)
+  ("d" my/org-done)
+  ("t" my/org-todo))
 
 (defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -858,26 +859,24 @@
      ^Scratches^    ^Others^
      -------------------------
      _a_: main      _d_: dotfiles
-     _o_: org       _e_: emacs
-     _i_: elisp     _u_: modules
-     _m_: markdown  _j_: java
-     _g_: godot
-
+     _r_: org       _e_: emacs
+     _m_: markdown  _u_: modules
+     _i_: elisp     _o_: agenda.org
 "
   ("<escape>" nil)
 
   ("a" my/goto-scratch-buffer)
-  ("o" find-scratch-org)
+  ("r" find-scratch-org)
+  ("o" my/find-org-agenda-file)
+  ("C-o" my/find-org-agenda-file)
+
   ("i" find-scratch-elisp)
   ("m" find-scratch-markdown)
 
   ("d" hydra-find-dotfiles/body)
   ("e" hydra-find-emacs-files/body)
   ("C-u" my/counsel-fzf-modules)
-  ("u" my/counsel-fzf-modules)
-  ("j" my/find-java-scratch)
-  ("C-j" my/find-java-scratch)
-  ("g" my/find-godot-notes))
+  ("u" my/counsel-fzf-modules))
 
 (defhydra hydra-find-emacs-files (:hint nil :foreign-keys nil :exit t)
   "

@@ -56,59 +56,6 @@
   (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 
-;; elpy-autopep8-fix-code
-;; elpy-format-code
-;; elpy-black-fix-code
-
-;; elpy-enable
-;; elpy-disable
-
-;; elpy-doc
-
-;; elpy-find-file
-
-;; elpy-flymake-next-error
-;; elpy-flymake-previous-error
-;; elpy-flymake-show-error
-
-;; elpy-goto-assignment
-;; elpy-goto-assignment-other-window
-;; elpy-goto-definition
-;; elpy-goto-definition-other-window
-
-;; elpy-multiedit
-;; elpy-multiedit-add-overlay
-;; elpy-multiedit-python-symbol-at-point
-;; elpy-multiedit-stop
-
-;; elpy-nav-backward-block
-;; elpy-nav-backward-indent
-;; elpy-nav-expand-to-indentation
-;; elpy-nav-forward-block
-;; elpy-nav-forward-indent
-
-;; elpy-nav-indent-shift-left
-;; elpy-nav-indent-shift-right
-;; elpy-nav-move-line-or-region-down
-;; elpy-nav-move-line-or-region-up
-
-;; elpy-news
-
-;; elpy-occur-definitions
-
-;; elpy-refactor-mode
-;; elpy-refactor-options
-
-;; elpy-rgrep-symbol
-;; elpy-set-project-root
-;; elpy-set-project-variable
-
-;; elpy-shell-switch-to-buffer
-;; elpy-shell-switch-to-buffer-in-current-window
-;; elpy-shell-switch-to-shell
-;; elpy-shell-switch-to-shell-in-current-window
-;; elpy-shell-toggle-dedicated-shell
-
 (use-package importmagic
 :defer t
 :ensure t)

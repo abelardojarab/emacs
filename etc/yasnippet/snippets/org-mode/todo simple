@@ -1,5 +1,4 @@
 # key: tt
-# binding: C-t
 # name: todo second level
 # --
-*** TODO $0
+** TODO $0

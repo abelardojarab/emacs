@@ -185,9 +185,11 @@
   :after (evil general)
   :ensure t
   :config
-  (setq evil-exchange-key "cx")
+  (setq evil-exchange-key "gx")
   (general-nvmap
-    "gx" 'evil-exchange)
+    "gx" 'evil-exchange
+    "gX" 'evil-exchange-cancel)
+
   (evil-exchange-cx-install))
 
 (use-package evil-numbers

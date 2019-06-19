@@ -11,7 +11,7 @@
 (setq ranger-width-parents 0.20)
 (setq ranger-max-preview-size 0.1)
 (setq ranger-cleanup-on-disable t)
-(setq ranger-return-to-ranger t)
+(setq ranger-return-to-ranger nil)
 (setq ranger-deer-show-details nil)
 (setq ranger-max-parent-width 0.45)
 (setq ranger-excluded-extensions '("mkv" "iso" "mp4" "bin" "exe" "msi" "pdf" "doc" "docx"))

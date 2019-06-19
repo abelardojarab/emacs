@@ -214,9 +214,9 @@
    ;; "RET" 'company-complete
    "RET" nil)
 
-  (general-define-key
-   :keymaps 'company-mode-map
-   "C-x m" 'my/company-show-options)
+  ;; (general-define-key
+  ;;  :keymaps 'company-mode-map
+  ;;  "C-x m" 'my/company-show-options)
 
   (general-imap
     :keymaps 'company-mode-map

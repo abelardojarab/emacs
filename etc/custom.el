@@ -10,4 +10,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages '(use-package))
- '(safe-local-variable-values '((eval sh-mode nil) (eval sh-mode t))))
+ '(safe-local-variable-values '((eval sh-mode t))))
