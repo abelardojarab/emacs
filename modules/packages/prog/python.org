@@ -1,16 +1,20 @@
 #+PROPERTY: header-args :tangle yes
+#+OPTIONS: toc:3
+#+OPTIONS: num:1
 
 * Contents                                                                :toc:
 - [[#about][About]]
-- [[#elpy][elpy]]
-- [[#blacken][blacken]]
-- [[#pyenv][pyenv]]
-- [[#python-mode][python mode]]
-- [[#importmagic][importmagic]]
+- [[#packages][Packages]]
+  - [[#elpy][elpy]]
+  - [[#blacken][blacken]]
+  - [[#pyenv][pyenv]]
+  - [[#python-mode][python mode]]
+  - [[#importmagic][importmagic]]
 
 * About
 This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/prog/python.el][python.el]].
-* elpy
+* Packages
+** elpy
 #+BEGIN_SRC emacs-lisp
 (use-package elpy
   :ensure t
@@ -34,7 +38,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
     :with 'ignore
     [remap elpy-shell-send-statement-and-step]))
 #+END_SRC
-* blacken
+** blacken
 #+BEGIN_SRC emacs-lisp
 (use-package blacken
   :unless window-system
@@ -43,7 +47,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   :config
   (setq blacken-line-length 70))
 #+END_SRC
-* pyenv
+** pyenv
 #+BEGIN_SRC emacs-lisp
 (use-package pyenv-mode
   :defer t
@@ -53,7 +57,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
 (general-unbind 'pyenv-mode-map
   "C-c C-s"))
 #+END_SRC
-* python mode
+** python mode
 #+BEGIN_SRC emacs-lisp
 (use-package python
   :defer t
@@ -130,7 +134,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
 ;; elpy-shell-toggle-dedicated-shell
 #+END_SRC
 
-* importmagic
+** importmagic
 #+BEGIN_SRC emacs-lisp
 (use-package importmagic
 :defer t
