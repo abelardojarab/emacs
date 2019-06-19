@@ -358,19 +358,6 @@
   ("." vertigo-visible-jump-down)
   ("," vertigo-visible-jump-up))
 
-(defhydra hydra-loading (:color blue :hint nil)
-  "
-  ^
-       ^Loading^
-       ---------------------
-       _a_: command
-"
-  ("<escape>" nil)
-
-  ("a" command)
-
-  )
-
 (defhydra hydra-window (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
@@ -529,27 +516,28 @@
   "
   ^
        ^Quick Commands^
-       -----------------------------------------
+       ------------------------------------
        _f_: def abbrev       _n_: name macro
        _F_: def mode abbrev  _m_: edit macro
        _e_: eddit abbrevs    _i_: insert macro
-       _l_: enable theme     _s_: local set key
-       _L_: disable theme    _t_: indent block
+       _t_: indent block
        _d_: hydra eval
   "
-  ("<escape>" nil)
+  ("<escape>" nil nil)
+
+  ("a" tangle-and-eval-block)
+  ("b" eval-region)
+  ("c" my/eval-buffer)
+  ("d" eval-line)
+  ("d" hydra-eval/body)
 
   ("f" define-global-abbrev)
   ("F" define-mode-abbrev)
   ("e" edit-abbrevs)
-  ("d" hydra-eval/body)
-  ("l" load-theme)
-  ("L" disable-theme)
 
   ("n" name-last-kbd-macro)
   ("m" edit-named-kbd-macro)
   ("i" insert-kbd-macro)
-  ("s" local-set-key)
   ("t" my/indent-src-block-function))
 
 (defhydra hydra-text-main (:color blue :hint nil :exit nil :foreign-keys nil)

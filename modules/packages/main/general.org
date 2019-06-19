@@ -181,7 +181,6 @@
 *** Quick Keys
 #+BEGIN_SRC emacs-lisp
 ;;;; QUICK KEYS ;;;;
-"C-c t" 'my/toggle-transparency
 "M-c" nil
 "M-c" 'treemacs
 "C-x l" nil

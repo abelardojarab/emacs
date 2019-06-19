@@ -50,9 +50,9 @@
 (defun my/python-mode-hooks ()
   (interactive)
   (electric-operator-mode 1)
-  ;; (my/company-idle-one-prefix-one-quiet)
+  (my/company-idle-one-prefix-one-quiet)
   ;; (my/company-idle-two-prefix-two-quiet)
-  (my/company-idle-one-prefix-two-quiet)
+  ;; (my/company-idle-one-prefix-two-quiet)
   (importmagic-mode 1)
   (blacken-mode 1))
 

@@ -1,5 +1,15 @@
 #+PROPERTY: header-args :tangle yes
 
+* Contents                                                                :toc:
+- [[#about][About]]
+- [[#elpy][elpy]]
+- [[#blacken][blacken]]
+- [[#pyenv][pyenv]]
+- [[#python-mode][python mode]]
+- [[#importmagic][importmagic]]
+
+* About
+This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/prog/python.el][python.el]].
 * elpy
 #+BEGIN_SRC emacs-lisp
 (use-package elpy

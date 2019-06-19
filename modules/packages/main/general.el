@@ -145,7 +145,6 @@
 "C-c a" 'align-regexp
 
 ;;;; QUICK KEYS ;;;;
-"C-c t" 'my/toggle-transparency
 "M-c" nil
 "M-c" 'treemacs
 "C-x l" nil

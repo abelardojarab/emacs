@@ -204,9 +204,9 @@
 :config
  (general-define-key
   "C-c m" 'evil-mc-make-all-cursors
-  "C-c M" 'evil-mc-undo-all-cursors)
+  "C-x m" 'evil-mc-undo-all-cursors)
 
  (general-nvmap
   "C-c m" 'evil-mc-make-all-cursors
-  "C-c M" 'evil-mc-undo-all-cursors)
+  "C-x m" 'evil-mc-undo-all-cursors)
 (global-evil-mc-mode  1))
