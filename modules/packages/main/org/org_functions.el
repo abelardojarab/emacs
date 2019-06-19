@@ -57,6 +57,7 @@
   (interactive)
   (org-todo "DONE")
   (org-archive-subtree-default)
+  (org-hide-other)
   (message " todo archived"))
 
 (defun my/org-started ()

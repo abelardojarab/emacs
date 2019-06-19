@@ -151,8 +151,9 @@
 
   (add-hook 'global-company-mode-hook 'my/company-mode-hooks)
   (add-hook 'company-mode-hook 'my/company-mode-hooks)
-  (setq company-auto-complete-chars '(40 46 41))
-  (setq company-auto-complete nil)
+  ;; (setq company-auto-complete-chars '(40 46 41)) ;; parens "()" and dot "."
+  (setq company-auto-complete-chars '(46)) ;; only complete on dot "."
+  (setq company-auto-complete t)
   (setq company-dabbrev-code-ignore-case t)
   (setq company-dabbrev-ignore-case t)
   (setq company-show-numbers t)
@@ -167,7 +168,7 @@
 
   (setq company-idle-delay 0.3)
   (setq-default company-idle-delay 0.3)
-  (setq company-tooltip-limit 5)
+  (setq company-tooltip-limit 10)
   (setq company-minimum-prefix-length 2)
   (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
   (advice-add 'company-complete-common :after (lambda ()
@@ -187,8 +188,8 @@
    "0" 'company-complete-number
    "M-f" 'company-filter-candidates
    "M-d" 'my/company-complete-paren
-   ;; "M-h" 'company-quickhelp-manual-begin
-   "M-h" nil
+   "M-h" 'company-quickhelp-manual-begin
+   ;; "M-h" nil
    "M-k" nil
    "M-l" nil
    ;; "M-w" 'company-select-next
@@ -244,6 +245,7 @@
 (use-package company-prescient
   :after company
   :ensure t)
+
 (use-package prescient
   :after company
   :ensure t)

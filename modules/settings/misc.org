@@ -82,6 +82,13 @@ Repeated invocations toggle between the two most recently open buffers."
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 #+END_SRC
 * misc
+** emacs anywhere
+#+BEGIN_SRC emacs-lisp
+(add-hook 'ea-popup-hook 'popup-handler)
+(defun popup-handler (app-name window-title x y w h)
+  (markdown-mode)
+  (evil-insert-state))
+#+END_SRC
 ** measure time
 [[https://stackoverflow.com/questions/23622296/emacs-timing-execution-of-function-calls-in-emacs-lisp][Source]]
 #+BEGIN_SRC emacs-lisp

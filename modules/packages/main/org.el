@@ -15,26 +15,26 @@
   ;; (remove-hook 'calendar-mode-hook (lambda ()
   ;;                                    (evil-window-move-very-bottom)))
   (add-hook 'org-agenda-mode-hook
-	      (lambda ()
-		(setq display-line-numbers nil)
-		(setq truncate-lines t)))
+	    (lambda ()
+	      (setq display-line-numbers nil)
+	      (setq truncate-lines t)))
 
   (add-hook 'org-capture-mode-hook (lambda ()
-				       (evil-insert-state)
-				       (evil-window-move-very-bottom)))
+				     (evil-insert-state)
+				     (evil-window-move-very-bottom)))
   (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
   :config
   (load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
   (load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
 
-  ;;; http://bit.ly/2KJHooJ
+    ;;; http://bit.ly/2KJHooJ
   (setq org-agenda-files (apply 'append
-				  (mapcar
-				   (lambda (directory)
-				     (directory-files-recursively
-				      directory org-agenda-file-regexp))
-				   '("~/org/Agenda"))))
+				(mapcar
+				 (lambda (directory)
+				   (directory-files-recursively
+				    directory org-agenda-file-regexp))
+				 '("~/org/Agenda"))))
 
   (setq org-deadline-warning-days 7)
   (setq org-enforce-todo-checkbox-dependencies nil)
@@ -83,8 +83,9 @@
   (setq-default org-display-custom-times t)
   (setq org-pretty-entities-include-sub-superscripts nil)
   (setq org-format-latex-options
-	  (plist-put org-format-latex-options :scale 1.3))
+	(plist-put org-format-latex-options :scale 1.3))
   (setq org-archive-location "~/org/Info/Config/archive.org::* From %s")
+  (setq org-export-with-archived-trees nil)
   (setq org-export-html-postamble nil)
   (setq org-indent-mode t)
   (setq org-link-frame-setup ( quote ((file . find-file))))
@@ -102,13 +103,13 @@
   (setq org-fontify-done-headline t)
 
   (setq org-todo-keywords
-	  '((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))
+	'((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))
 
   (setq org-tags-column -79)
   (setq org-agenda-tags-column -80)
 
   (setq org-refile-targets '((nil :maxlevel . 9)
-			       (org-agenda-files :maxlevel . 9)))
+			     (org-agenda-files :maxlevel . 9)))
 
   ;; (setq org-refile-targets '((nil :maxlevel . 9)))
 
@@ -118,11 +119,11 @@
   (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
   (setq org-file-apps (quote ((auto-mode . emacs)
-				("\\.mm\\'" . default)
-				("\\.x?html?\\'" . default)
-				("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
-				("\\.mp4\\'" . "vlc %s")
-				("\\.pdf\\'" . default))))
+			      ("\\.mm\\'" . default)
+			      ("\\.x?html?\\'" . default)
+			      ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
+			      ("\\.mp4\\'" . "vlc %s")
+			      ("\\.pdf\\'" . default))))
 
   (add-to-list 'org-structure-template-alist '("ll" "\\begin{equation*}\n\\begin{split}\n?\n\\end{split}\n\\end{equation*}"))
   (add-to-list 'org-structure-template-alist '("cc" "#+BEGIN_SRC C\n?\n#+END_SRC"))
@@ -132,11 +133,11 @@
   (add-to-list 'org-structure-template-alist '("lisp" "#+BEGIN_SRC lisp\n\n?\n\n#+END_SRC"))
   (add-to-list 'org-structure-template-alist '("p" "#+BEGIN_SRC python\n?\n#+END_SRC"))
   (add-to-list 'org-structure-template-alist '("u" "#+begin_quote\n?\n#+end_quote"))
-;;;; See:
-;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
+  ;;;; See:
+  ;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
   (setq org-capture-templates
-	  '(("a" "Agenda" entry  (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
-	    ("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")))
+	'(("a" "Agenda" entry  (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
+	  ("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")))
 
   )
 

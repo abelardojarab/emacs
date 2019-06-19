@@ -774,8 +774,8 @@
    _i_: in       _m_: recent   _t_: todo
    _o_: out      _c_: cancel   _s_: started
    _l_: last     _y_: display  _d_: done
-   _h_: history
-   _r_: report
+   _h_: history  _x_: context
+   _r_: report   _g_: goto
   "
   ("q" nil)
   ("<escape>" nil)
@@ -786,11 +786,13 @@
   ("r" org-clock-report)
   ("c" org-clock-cancel)
   ("y" org-clock-display)
-  ("h" org-clock-history)
   ("m" org-mru-clock-in)
   ("s" my/org-started)
   ("d" my/org-done)
-  ("t" my/org-todo))
+  ("t" my/org-todo)
+  ("x" counsel-org-clock-context)
+  ("g" counsel-org-clock-goto)
+  ("h" counsel-org-clock-history))
 
 (defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
   "

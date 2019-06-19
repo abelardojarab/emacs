@@ -313,6 +313,12 @@
   :keymaps 'ivy-mode-map
   "M-d" 'ivy-switch-buffer))
 
+(use-package ivy-prescient
+:after ivy
+:ensure t
+:config
+(ivy-prescient-mode +1))
+
 (use-package counsel
   :ensure t
   :config
@@ -338,6 +344,10 @@
 
   (recentf-mode 1)
   (counsel-mode 1))
+
+(use-package counsel-org-clock
+:after counsel
+:ensure t)
 
 (use-package eyebrowse
   ;; :defer t

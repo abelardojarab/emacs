@@ -369,8 +369,16 @@
   :keymaps 'ivy-mode-map
   "M-d" 'ivy-switch-buffer))
 #+END_SRC
-
+** Ivy Prescient
+#+BEGIN_SRC emacs-lisp
+(use-package ivy-prescient
+:after ivy
+:ensure t
+:config
+(ivy-prescient-mode +1))
+#+END_SRC
 ** Counsel
+*** Main
 #+BEGIN_SRC emacs-lisp
 (use-package counsel
   :ensure t
@@ -398,7 +406,12 @@
   (recentf-mode 1)
   (counsel-mode 1))
 #+END_SRC
-
+*** counsel-org-clock
+#+BEGIN_SRC emacs-lisp
+(use-package counsel-org-clock
+:after counsel
+:ensure t)
+#+END_SRC
 * eyebrowse
 #+BEGIN_SRC emacs-lisp
 (use-package eyebrowse

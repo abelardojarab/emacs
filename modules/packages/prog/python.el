@@ -4,7 +4,9 @@
   (add-hook 'elpy-mode-hook
 	    (lambda ()
 	      (set (make-local-variable 'company-backends)
-		   '((company-dabbrev-code company-yasnippet elpy-company-backend)))))
+		   '((elpy-company-backend
+		      company-dabbrev-code
+		      company-yasnippet)))))
 
   :config
   (setq eldoc-idle-delay 2)

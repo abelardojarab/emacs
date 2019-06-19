@@ -22,7 +22,9 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   (add-hook 'elpy-mode-hook
 	    (lambda ()
 	      (set (make-local-variable 'company-backends)
-		   '((company-dabbrev-code company-yasnippet elpy-company-backend)))))
+		   '((elpy-company-backend
+		      company-dabbrev-code
+		      company-yasnippet)))))
 
   :config
   (setq eldoc-idle-delay 2)
@@ -38,6 +40,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
     :with 'ignore
     [remap elpy-shell-send-statement-and-step]))
 #+END_SRC
+
 ** blacken
 #+BEGIN_SRC emacs-lisp
 (use-package blacken
