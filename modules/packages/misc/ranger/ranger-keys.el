@@ -41,8 +41,7 @@
  "i" 'hydra-org-text-commands/body
  "a" 'hydra-org-clock/body
  "d" 'hydra-quick-commands/body
- "b" 'my/evil-botright
- "y" 'my/term-botright)
+ "b" 'my/evil-botright)
 
 (general-create-definer leader
   :prefix "SPC")

@@ -191,7 +191,7 @@
    "M-f" 'company-filter-candidates
    "M-d" 'my/company-complete-paren
    "M-h" 'company-quickhelp-manual-begin
-   ;; "M-h" nil
+   "M-r" 'my/company-yasnippet
    "M-k" nil
    "M-l" nil
    ;; "M-w" 'company-select-next
@@ -205,7 +205,6 @@
    ;; "<return>" 'company-complete
    "M-j" 'my/company-complete-first-add-space
    "M-o" 'my/company-yasnippet)
-
 
   (general-define-key
    :keymaps 'company-filter-map
@@ -296,7 +295,7 @@
   (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
   :config
 
-(defun my/company-yas-expand ()
+(defun my/company-yas-snippet ()
 (interactive)
 (company-abort)
 (evil-insert-state)

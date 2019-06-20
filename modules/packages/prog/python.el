@@ -9,6 +9,12 @@
 		      company-yasnippet)))))
 
   :config
+
+  (defun my/elpy-goto-definition ()
+    (interactive)
+    (elpy-goto-definition)
+    (recenter))
+
   (setq eldoc-idle-delay 2)
   (setq elpy-autodoc-delay 3)
   (setq elpy-eldoc-show-current-function nil)
@@ -47,6 +53,7 @@
   (add-hook 'python-mode-hook #'evil-swap-keys-swap-colon-semicolon)
   (add-hook 'python-mode-hook #'evil-swap-keys-swap-double-single-quotes)
   :config
+
   (auto-fill-mode 1)
   (setq comment-auto-fill-only-comments t)
   (defun my/python-save-buffer () (interactive)

@@ -25,6 +25,16 @@
   (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
   :config
+
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-timestamp-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
+
+  (setq org-global-properties
+	'(("Effort_ALL" .
+	   "0:05 0:10 0:15 0:25 0:30 0:45 1:00 2:00 4:00 6:00")))
+  (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-eww org-habit))
+
   (load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
   (load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
 
@@ -76,11 +86,11 @@
 
   (add-hook 'org-src-mode-hook 'olivetti-mode)
 
-  (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
-  (setq org-time-stamp-custom-formats '("<%d/%m/%Y %a>" . "<%d/%m/%Y %H:%M %a>"))
+  ;; (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
+  ;; (setq org-time-stamp-custom-formats '("<%d/%m/%Y %a>" . "<%d/%m/%Y %H:%M %a>"))
+  ;; (setq org-display-custom-times t)
+  ;; (setq-default org-display-custom-times t)
 
-  (setq org-display-custom-times t)
-  (setq-default org-display-custom-times t)
   (setq org-pretty-entities-include-sub-superscripts nil)
   (setq org-format-latex-options
 	(plist-put org-format-latex-options :scale 1.3))
@@ -140,6 +150,10 @@
 	  ("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")))
 
   )
+
+
+(use-package org-habit
+:after org)
 
 (use-package org-bullets
 :ensure t)

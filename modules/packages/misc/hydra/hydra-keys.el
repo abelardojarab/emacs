@@ -14,9 +14,8 @@
   "c" 'hydra-commands/body
   "d" 'hydra-quick-commands/body
   "b" 'my/evil-botright
-  "q" 'my/kill-this-buffer
-  ;; "g" 'counsel-ag-thing-at-point
-  "y" 'my/term-botright)
+  "y" 'hydra-org-agenda/body
+  "q" 'my/kill-this-buffer)
 
 (general-define-key
  "C-;" 'hydra-text-main/body)

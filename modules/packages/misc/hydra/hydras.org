@@ -868,13 +868,13 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-   ^Clock^                   Todo States
+   ^Clock & Todos^
    ------------------------------------
-   _i_: in       _m_: recent   _t_: todo
-   _o_: out      _c_: cancel   _s_: started
-   _l_: last     _y_: display  _d_: done
-   _h_: history  _x_: context
-   _r_: report   _g_: goto
+   _i_: in       _m_: recent   _e_: effort
+   _o_: out      _c_: cancel   _a_: estimate
+   _l_: last     _y_: display  _s_: started
+   _h_: history  _x_: context  _t_: todo
+   _r_: report   _g_: goto     _d_: done
   "
   ("q" nil)
   ("<escape>" nil)
@@ -886,6 +886,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("c" org-clock-cancel)
   ("y" org-clock-display)
   ("m" org-mru-clock-in)
+  ("e" org-set-effort)
+  ("a" org-clock-modify-effort-estimate)
   ("s" my/org-started)
   ("d" my/org-done)
   ("t" my/org-todo)
@@ -902,10 +904,10 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        ^Org Agenda^
        ---------------------------
        _a_: agenda  _l_: lock
-       _1_: 1 day   _k_: unlock
+       _1_: 1 day   _u_: unlock
        _2_: 2 days  _d_: add
        _3_: 3 days  _r_: remove
-       _7_: 7 days  _u_: update
+       _7_: 7 days  _p_: update
   "
   ("q" nil)
   ("<escape>" nil)
@@ -916,10 +918,10 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("3" org-3-days-agenda)
   ("7" org-7-days-agenda)
   ("l" org-agenda-set-restriction-lock)
-  ("k" org-agenda-remove-restriction-lock)
+  ("u" org-agenda-remove-restriction-lock)
   ("r" org-remove-file)
   ("d" org-agenda-file-to-front)
-  ("u" my/update-agenda-files))
+  ("p" my/update-agenda-files))
 #+END_SRC
 
 ** Help

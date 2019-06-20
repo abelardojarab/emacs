@@ -44,6 +44,8 @@
   (setq display-line-numbers-widen nil)
   (setq display-line-numbers-current-absolute nil))
 
+;; (setq-default left-fringe-width nil)
+
 (defun line-numbers-absolute ()
   (interactive)
   (setq display-line-numbers 'visual)

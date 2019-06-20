@@ -1,21 +1,24 @@
 (defhydra hydra-python-mode (:color blue :hint nil :foreign-keys run)
   "
   ^
-       ^Python^      ^Flycheck^  ^Flymake^
-       ------------------------------
-       _q_: qrun     _f_: first  _k_: prev
-       _s_: qshell   _p_: prev   _j_: next
-       _x_: shell    _n_: next   _M_: mode
-       _g_: gotodef  _m_: mode
+       ^Python^         ^Flycheck^  ^Flymake^
+       --------------------------------
+       _r_: quickrun    _f_: first  _k_: prev
+       _s_: quickshell  _p_: prev   _j_: next
+       _e_: run ext.    _n_: next
+       _RET_: goto def.
+       _<C-return>_: goto assign.
 
 "
   ("<escape>" nil)
-  ("RET" hydra-prog-mode/body)
 
-  ("q" quickrun)
+  ("r" quickrun)
   ("s" quickrun-shell)
+  ("e" my/run-python-external)
 
-  ("g" elpy-goto-definition)
+  ("RET" my/elpy-goto-definition)
+  ("<C-return>" pop-tag-mark)
+
   ("a" dumb-jump-go)
 
   ("f" flycheck-first-error)
@@ -26,8 +29,8 @@
   ("k" flymake-goto-prev-error)
   ("j" flymake-goto-next-error)
   ("M" flymake-mode)
-  ("x" my/run-python-external)
-  ("e" my/ex-run-python-macro))
+
+)
 
 (defhydra hydra-prog-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -769,13 +772,13 @@
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-   ^Clock^                   Todo States
+   ^Clock & Todos^
    ------------------------------------
-   _i_: in       _m_: recent   _t_: todo
-   _o_: out      _c_: cancel   _s_: started
-   _l_: last     _y_: display  _d_: done
-   _h_: history  _x_: context
-   _r_: report   _g_: goto
+   _i_: in       _m_: recent   _e_: effort
+   _o_: out      _c_: cancel   _a_: estimate
+   _l_: last     _y_: display  _s_: started
+   _h_: history  _x_: context  _t_: todo
+   _r_: report   _g_: goto     _d_: done
   "
   ("q" nil)
   ("<escape>" nil)
@@ -787,6 +790,8 @@
   ("c" org-clock-cancel)
   ("y" org-clock-display)
   ("m" org-mru-clock-in)
+  ("e" org-set-effort)
+  ("a" org-clock-modify-effort-estimate)
   ("s" my/org-started)
   ("d" my/org-done)
   ("t" my/org-todo)
@@ -800,10 +805,10 @@
        ^Org Agenda^
        ---------------------------
        _a_: agenda  _l_: lock
-       _1_: 1 day   _k_: unlock
+       _1_: 1 day   _u_: unlock
        _2_: 2 days  _d_: add
        _3_: 3 days  _r_: remove
-       _7_: 7 days  _u_: update
+       _7_: 7 days  _p_: update
   "
   ("q" nil)
   ("<escape>" nil)
@@ -814,10 +819,10 @@
   ("3" org-3-days-agenda)
   ("7" org-7-days-agenda)
   ("l" org-agenda-set-restriction-lock)
-  ("k" org-agenda-remove-restriction-lock)
+  ("u" org-agenda-remove-restriction-lock)
   ("r" org-remove-file)
   ("d" org-agenda-file-to-front)
-  ("u" my/update-agenda-files))
+  ("p" my/update-agenda-files))
 
 (defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
 
