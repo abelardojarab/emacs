@@ -25,7 +25,9 @@
   (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
   :config
+(setq org-lowest-priority 69)
 
+  (setq org-default-priority 67)
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-timestamp-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
