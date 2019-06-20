@@ -67,7 +67,8 @@
 
 (defun my/org-done ()
   (interactive)
-  (org-todo "DONE"))
+  (org-todo "DONE")
+  (org-forward-paragraph 2))
 
 (defun my/org-todo ()
   (interactive)
@@ -117,3 +118,8 @@
 (defun my/custom-time-formats-off ()
   (interactive)
   (setq org-display-custom-times nil))
+
+(defun my/org-mode-hooks ()
+  (interactive)
+  (evil-org-mode +1)
+  (org-bullets-mode +1))

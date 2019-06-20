@@ -200,7 +200,7 @@ rotate entire document."
 (defun find-i3-config ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.config/i3/config")))
+    (find-file "~/.config/i3/config.org")))
 
 (defun find-scratch-markdown ()
   (interactive)

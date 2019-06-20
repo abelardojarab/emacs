@@ -135,6 +135,10 @@
 (use-package markdown-toc
   :ensure t)
 
+(use-package bbcode-mode
+:defer t
+:ensure t)
+
 (use-package fountain-mode
   :defer t
   :ensure t

@@ -930,6 +930,10 @@
   (interactive)
   (counsel-ag nil "~/.emacs.d/modules"))
 
+(defun my/org-dir-counsel-ag ()
+  (interactive)
+  (counsel-ag nil "~/.emacs.d/modules/packages/main/org"))
+
 (defun my/emacs-hydras-counsel-ag ()
   (interactive)
   (counsel-ag nil "defhydra " "~/.emacs.d/modules/packages/misc/hydra"))

@@ -738,3 +738,10 @@ Maybe I need it in the future.
 :defer t
 :ensure t)
 #+END_SRC
+* activitywatch
+#+BEGIN_SRC emacs-lisp
+(use-package activity-watch-mode
+:ensure t
+:config
+(global-activity-watch-mode +1))
+#+END_SRC

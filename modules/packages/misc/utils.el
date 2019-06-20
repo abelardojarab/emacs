@@ -659,3 +659,8 @@
 (use-package sudo-edit
 :defer t
 :ensure t)
+
+(use-package activity-watch-mode
+:ensure t
+:config
+(global-activity-watch-mode +1))

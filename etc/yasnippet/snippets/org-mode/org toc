@@ -1,0 +1,6 @@
+# key: toc
+# name: org toc
+# --
+#+OPTIONS: toc:${1:$$(yas-choose-value '("nil" "1" "2" "3" ))}${2:
+#+OPTIONS: num:${3:$$(yas-choose-value '("nil" "1" "2" "3"))}}
+$0

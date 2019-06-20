@@ -829,7 +829,7 @@
   :config
   (setq save-silently t)
   (setq delete-old-versions -1)
-  (add-to-list 'find-file-hook 'line-numbers-absolute)
+  ;; (add-to-list 'find-file-hook 'line-numbers-absolute)
   ;; (add-to-list 'find-file-hook 'olivetti-mode)
 
   (setq version-control t	        ;; Use version numbers for backups

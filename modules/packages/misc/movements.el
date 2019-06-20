@@ -254,7 +254,8 @@
 
 (setq ivy-wrap t)
 (setq ivy-on-del-error-function #'ignore)
-(setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.el --ignore *.html %s")
+;; (setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.el --ignore *.html %s")
+(setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.html %s")
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 (setq counsel-bookmark-avoid-dired t)
