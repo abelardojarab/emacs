@@ -889,13 +889,12 @@
   "
   ^
      ^Emacs^
-     ---------------
-     _I_: init.el
-     _i_: init.org
+     -----------------------
+     _I_: init.el   _u_: counsel ag
+     _i_: init.org  _o_: org mode
      _p_: packages
      _s_: settings
      _f_: functions
-     _u_: counsel ag
 
 "
   ("<escape>" nil)
@@ -912,7 +911,8 @@
   ("C-u" my/emacs-dir-counsel-ag)
 
   ("f" my/emacs-functions-counsel-ag)
-  ("C-f" my/emacs-functions-counsel-ag))
+  ("C-f" my/emacs-functions-counsel-ag)
+  ("o" my/org-dir-counsel-ag))
 
 (defun my/counsel-fzf-packages ()
   (interactive)
@@ -945,7 +945,6 @@
 (defun my/emacs-functions-counsel-ag ()
   (interactive)
   (counsel-ag "(defun " "~/.emacs.d/modules"))
-
 
 (defhydra hydra-find-scratches (:hint nil :foreign-keys nil :exit t)
 
