@@ -801,3 +801,8 @@
   :config
   (setq browse-url-generic-program "google-chrome-stable")
   (setq browse-url-browser-function 'browse-url-generic))
+
+(use-package mhtml-mode
+:init
+(add-hook 'html-mode-hook 'web-mode)
+:ensure nil)

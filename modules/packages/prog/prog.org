@@ -151,6 +151,9 @@
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck
   :defer t
+  :init
+  (eval-after-load 'flycheck
+    '(flycheck-add-mode 'html-tidy 'web-mode))
   :ensure t
   ;; :init
   ;; (add-hook 'flycheck-mode-hook 'flycheck-buffer)
@@ -163,6 +166,7 @@
   (setq flycheck-clang-pedantic t)
   (setq flycheck-gcc-pedantic t))
 #+END_SRC
+
 * subword
 #+BEGIN_SRC emacs-lisp
 (use-package subword

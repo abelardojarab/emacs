@@ -4,6 +4,7 @@
   :ensure t
   :init
   (add-hook 'web-mode-hook 'emmet-mode)
+  (add-hook 'web-mode-hook 'flycheck-mode)
   :config
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -16,9 +17,10 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode)))
 
 (use-package emmet-mode
-:if window-system
 :after web-mode
-:ensure t)
+:ensure t
+:config
+(emmet-mode +1))
 
 (use-package json-mode
 :defer t

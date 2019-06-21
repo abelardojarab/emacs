@@ -122,6 +122,9 @@
 
 (use-package flycheck
   :defer t
+  :init
+  (eval-after-load 'flycheck
+    '(flycheck-add-mode 'html-tidy 'web-mode))
   :ensure t
   ;; :init
   ;; (add-hook 'flycheck-mode-hook 'flycheck-buffer)

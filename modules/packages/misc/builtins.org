@@ -896,3 +896,10 @@
   (setq browse-url-generic-program "google-chrome-stable")
   (setq browse-url-browser-function 'browse-url-generic))
 #+END_SRC
+* mhtml-mode
+#+BEGIN_SRC emacs-lisp
+(use-package mhtml-mode
+:init
+(add-hook 'html-mode-hook 'web-mode)
+:ensure nil)
+#+END_SRC
