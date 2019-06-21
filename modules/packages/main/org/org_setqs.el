@@ -107,4 +107,4 @@
   ;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
 (setq org-capture-templates
       '(("a" "Agenda" entry  (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
-	("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")))
+	("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\n%?")))

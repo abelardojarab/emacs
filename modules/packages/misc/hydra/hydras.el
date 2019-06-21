@@ -738,13 +738,14 @@
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-    ^Org^                           ^Agenda^
+    ^Org^                            ^Agenda^
     -----------------------------------------
     _r_: archive     _t_: todo        _a_: agenda
     _g_: my archive  _i_: tags        _h_: hydra
     _c_: capture     _u_: insert url  _f_: files
-    _d_: deadline    _l_: store link  _o_: agenda.org
-    _s_: schedule    _y_: overlay
+    _p_: last capt.  _l_: store link  _o_: agenda.org
+    _d_: deadline    _y_: overlay
+    _s_: schedule
 
 "
   ("<escape>" nil)
@@ -754,6 +755,7 @@
 
   ("a" my/org-agenda)
   ("c" counsel-org-capture)
+  ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
   ("s" org-schedule)
   ("h" hydra-org-agenda/body)
@@ -766,8 +768,8 @@
   ("f" my/agenda-files))
 
 (defun my/find-org-agenda-file ()
-(interactive)
-(find-file "~/org/Agenda/agenda.org"))
+  (interactive)
+  (find-file "~/org/Agenda/agenda.org"))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
