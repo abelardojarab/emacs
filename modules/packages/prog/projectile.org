@@ -119,7 +119,6 @@
 * counsel projectil
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile
-  :defer 2
   :ensure t
   :config
   (counsel-projectile-mode 1))

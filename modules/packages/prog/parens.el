@@ -7,10 +7,3 @@
 
 (use-package elec-pair
   :defer t)
-
-(use-package lispyville
-  :defer t
-  :init
-  (add-hook 'lisp-mode-hook #'lispyville-mode)
-  (add-hook 'emacs-lisp-mode-hook #'lispyville-mode)
-  :ensure t)

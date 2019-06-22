@@ -33,18 +33,6 @@
 :defer t
 :ensure t)
 #+END_SRC
-* typo
-#+BEGIN_SRC emacs-lisp
-(use-package typo
-:defer t
-:ensure t)
-#+END_SRC
-* writegood-mode
-#+BEGIN_SRC emacs-lisp
-(use-package writegood-mode
-  :defer t
-  :ensure t)
-#+END_SRC
 * hl-sentence
 #+BEGIN_SRC emacs-lisp
 (use-package hl-sentence
@@ -179,28 +167,4 @@ https://is.gd/JyKZsg
 
 (use-package markdown-toc
   :ensure t)
-#+END_SRC
-
-* bbcode-mode
-#+BEGIN_SRC emacs-lisp
-(use-package bbcode-mode
-:defer t
-:ensure t)
-#+END_SRC
-* fountain
-#+BEGIN_SRC emacs-lisp
-(use-package fountain-mode
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'fountain-mode-hook 'my/tab-jump-off)
-  (defun my/tab-jump-off ()
-    (interactive)
-    (tab-jump-out-mode -1))
-    :config
-    (general-nvmap
-      :keymaps 'fountain-mode-map
-      "M-n" 'fountain-outline-next
-      "M-p" 'fountain-outline-previous
-      "<tab>" 'fountain-outline-cycle))
 #+END_SRC

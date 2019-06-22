@@ -14,12 +14,3 @@
 (use-package elec-pair
   :defer t)
 #+END_SRC
-* lispyville
-#+BEGIN_SRC emacs-lisp
-(use-package lispyville
-  :defer t
-  :init
-  (add-hook 'lisp-mode-hook #'lispyville-mode)
-  (add-hook 'emacs-lisp-mode-hook #'lispyville-mode)
-  :ensure t)
-#+END_SRC

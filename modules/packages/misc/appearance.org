@@ -1,11 +1,5 @@
 #+PROPERTY: header-args :tangle yes
 
-* focus
-#+BEGIN_SRC emacs-lisp
-(use-package focus
-  :defer t
-  :ensure t)
-#+END_SRC
 * delight
 #+BEGIN_SRC emacs-lisp
 (use-package delight
@@ -34,21 +28,6 @@
   (setq dimmer-fraction 0.2))
 #+END_SRC
 * modelines
-** smart modeline
-#+BEGIN_SRC emacs-lisp
-;; (use-package smart-mode-line
-;;   :ensure t
-;;   :config
-;;   (load-file "~/.emacs.d/modules/packages/misc/sml/sml-replace.el")
-;;   (load-file "~/.emacs.d/modules/packages/misc/sml/sml-blacklist.el")
-;;   (setq sml/line-number-format " %3l")
-;;   (setq sml/name-width '20)
-;;   (setq sml/theme 'dark)
-;;   (setq sml/show-file-name t)
-;;   (setq sml/no-confirm-load-theme t)
-;;   (setq sml/directory-truncation-string " ")
-;;   (sml/setup))
-#+END_SRC
 ** doom modeline
 #+BEGIN_SRC emacs-lisp
 (use-package doom-modeline
@@ -58,18 +37,10 @@
 (setq doom-modeline-icon nil)
 (setq find-file-visit-truename t)
 (setq doom-modeline-enable-word-count t)
-(setq doom-modeline-buffer-file-name-style 'buffer-name)
-;; (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-;; (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
-)
+(setq doom-modeline-buffer-file-name-style 'buffer-name))
 #+END_SRC
 
 * themes
-** deeper blue
-#+BEGIN_SRC emacs-lisp
-;; (setq custom-safe-themes t)
-;; (load-theme 'deeper-blue)
-#+END_SRC
 ** noctilux
 #+BEGIN_SRC emacs-lisp
 (use-package noctilux-theme
@@ -79,17 +50,4 @@
 (defun noctilux-on ()
   (interactive)
   (load-theme 'noctilux)))
-#+END_SRC
-
-** poet
-#+BEGIN_SRC emacs-lisp
-;; (use-package poet-theme
-;;   :defer t
-;;   :ensure t)
-#+END_SRC
-** doom themes
-#+BEGIN_SRC emacs-lisp :tangle ~/.emacs.d/packs.el
-;; (use-package doom-themes
-;; :defer t
-;; :ensure t)
 #+END_SRC

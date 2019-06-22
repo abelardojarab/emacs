@@ -1,7 +1,3 @@
-(use-package focus
-  :defer t
-  :ensure t)
-
 (use-package delight
   :ensure t
   :config
@@ -24,19 +20,6 @@
   :init
   (setq dimmer-fraction 0.2))
 
-;; (use-package smart-mode-line
-;;   :ensure t
-;;   :config
-;;   (load-file "~/.emacs.d/modules/packages/misc/sml/sml-replace.el")
-;;   (load-file "~/.emacs.d/modules/packages/misc/sml/sml-blacklist.el")
-;;   (setq sml/line-number-format " %3l")
-;;   (setq sml/name-width '20)
-;;   (setq sml/theme 'dark)
-;;   (setq sml/show-file-name t)
-;;   (setq sml/no-confirm-load-theme t)
-;;   (setq sml/directory-truncation-string " ")
-;;   (sml/setup))
-
 (use-package doom-modeline
 :ensure t
 :config
@@ -44,13 +27,7 @@
 (setq doom-modeline-icon nil)
 (setq find-file-visit-truename t)
 (setq doom-modeline-enable-word-count t)
-(setq doom-modeline-buffer-file-name-style 'buffer-name)
-;; (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-;; (setq doom-modeline-buffer-file-name-style 'truncate-except-project)
-)
-
-;; (setq custom-safe-themes t)
-;; (load-theme 'deeper-blue)
+(setq doom-modeline-buffer-file-name-style 'buffer-name))
 
 (use-package noctilux-theme
 :ensure t
@@ -59,7 +36,3 @@
 (defun noctilux-on ()
   (interactive)
   (load-theme 'noctilux)))
-
-;; (use-package poet-theme
-;;   :defer t
-;;   :ensure t)

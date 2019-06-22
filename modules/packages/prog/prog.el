@@ -1,76 +1,14 @@
-(use-package yafolding
-:defer t
-:ensure t)
-
 (use-package gitignore-mode
 :defer t
 :init
 (add-hook 'gitignore-mode-hook 'my/prog-mode-hooks)
 :ensure t)
 
-(use-package godot-gdscript
-  :load-path "~/.emacs.d/modules/packages/lisp/"
-  :init
-  (add-hook 'godot-gdscript-mode-hook 'my/godot-hooks)
-  (add-hook 'godot-gdscript-mode-hook
-	    '(lambda () (set (make-local-variable 'yas-indent-line) 'fixed)))
-  :config
-
-  ;; (defun my/company-gdscript-setup ()
-  ;;   (interactive)
-  ;;   (when (boundp 'company-backends)
-  ;;     (make-local-variable 'company-backends)
-  ;;     (setq company-backends (delete 'company-dabbrev company-backends))
-  ;;     (add-to-list 'company-backends 'company-dabbrev)))
-
-  (defun my/godot-hooks ()
-    (electric-operator-mode 1)
-    (company-mode -1)
-    (olivetti-mode 1)
-    (hs-minor-mode -1)
-    (yafolding-mode 1)
-    (pabbrev-mode 1)
-    (evil-swap-keys-swap-colon-semicolon)
-    (evil-swap-keys-swap-double-single-quotes))
-
-  (general-unbind 'godot-gdscript-mode-map
-    :with 'yafolding-toggle-element
-    [remap hs-toggle-hiding])
-
-  (general-unbind 'godot-gdscript-mode-map
-    :keymaps '(normal visual)
-    :with 'yafolding-show-all
-    [remap outline-show-all])
-
-  (general-unbind 'godot-gdscript-mode-map
-    :keymaps '(normal visual)
-    :with 'yafolding-hide-all
-    [remap evil-close-folds])
-
-  (general-nvmap
-    :keymaps 'godot-gdscript-mode-map
-    "<" 'godot-gdscript-indent-shift-left
-    ">" 'godot-gdscript-indent-shift-right)
-
-  ;; (general-imap
-  ;;   :keymaps 'godot-gdscript-mode-map
-  ;;   ":" 'my/godot-colon-newline)
-
-  ;; (defun my/godot-colon-newline ()
-  ;;   (interactive)
-  ;;   (insert ":")
-  ;;   (newline-and-indent))
-  )
-
 (use-package elisp-mode
   :defer t
   :ensure nil
   :init
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
-
-(use-package indent-tools
-  :defer t
-  :ensure t)
 
 (use-package quickrun
   :defer t
@@ -112,14 +50,6 @@
 :defer t
 :ensure t)
 
-(use-package string-inflection
-:defer t
-:ensure t)
-
-(use-package evil-string-inflection
-:defer t
-:ensure t)
-
 (use-package flycheck
   :defer t
   :init
@@ -147,14 +77,6 @@
   :defer t
   :ensure t
   :init
-  (defun my/company-mode-hooks ()
-    (interactive)
-    (company-prescient-mode 1)
-    (prescient-persist-mode 1) (company-quickhelp-mode 1))
-
-  (add-hook 'global-company-mode-hook 'my/company-mode-hooks)
-  (add-hook 'company-mode-hook 'my/company-mode-hooks)
-  ;; (setq company-auto-complete-chars '(40 46 41)) ;; parens "()" and dot "."
   (setq company-auto-complete-chars '(46)) ;; only complete on dot "."
   (setq company-auto-complete t)
   (setq company-dabbrev-code-ignore-case t)
@@ -239,21 +161,6 @@
   :config
   (setq company-shell-delete-duplicates t)
   (setq company-fish-shell-modes nil))
-
-(use-package company-quickhelp
-:after company
-:ensure t
-:config
-(setq company-quickhelp-use-propertized-text t)
-(setq company-quickhelp-delay 3))
-
-(use-package company-prescient
-  :after company
-  :ensure t)
-
-(use-package prescient
-  :after company
-  :ensure t)
 
 (use-package pos-tip
 :defer t
@@ -384,17 +291,9 @@
   :ensure t)
 
 (use-package rainbow-delimiters
-:unless window-system
 :defer t
 :ensure t)
 
 (use-package highlight-indent-guides
 :defer t
 :ensure t)
-
-(use-package slime
-:defer t
-:ensure t
-:config
-(setq slime-contribs '(slime-fancy))
-(setq inferior-lisp-program "/usr/bin/clisp"))

@@ -196,10 +196,6 @@
   :defer t
   :ensure t)
 
-(use-package vimish-fold
-  :defer t
-  :ensure t)
-
 (use-package evil-mc
 :after evil
 :ensure t

@@ -20,31 +20,6 @@
 - [[#targets][targets]]
 - [[#cool-moves][cool-moves]]
 
-* visual line
-#+BEGIN_SRC emacs-lisp
-;; (use-package evil-better-visual-line
-;;   :after evil
-;;   :ensure t
-;;   :config
-;;   (evil-better-visual-line-on))
-#+END_SRC
-* find file in projects
-#+BEGIN_SRC emacs-lisp
-(use-package find-file-in-project
-  :ensure t
-:config
-(setq ffip-use-rust-fd t))
-#+END_SRC
-* centered cursor
-#+BEGIN_SRC emacs-lisp
-(use-package centered-cursor-mode
-  :defer nil
-  :ensure t
-  :config
-  (setq ccm-step-size 4)
-  (setq ccm-step-delay 0.02)
-  (setq ccm-recenter-at-end-of-file t))
-#+END_SRC
 * buffer move
 #+BEGIN_SRC emacs-lisp
 (use-package buffer-move
@@ -85,127 +60,6 @@
 		      ?q ?w ?e ?r ?t ?y ?u))
   (setq avy-all-windows nil))
 #+END_SRC
-* frog-jump-buffer
-#+BEGIN_SRC emacs-lisp
-(use-package frog-menu
-  :defer t
-  :ensure t)
-
-(shut-up
-  (use-package frog-jump-buffer
-    :load-path "~/.emacs.d/modules/packages/lisp/"
-    :init
-    (setq frog-jump-buffer-default-filter 'frog-jump-buffer-filter-file-buffers)
-    :config
-
-    (general-nvmap
-      "'" 'frog-jump-buffer)
-
-    (setq frog-menu-avy-keys '( ?h ?j ?k ?l ?y ?u ?i ?o ?g))
-
-    (setq frog-jump-buffer-ignore-buffers '(".*Log.*"
-					    ".*log.*"
-					    ".*help.*"
-					    "^#.*#$"
-					    "*Shell Command Output*"
-					    "*Calculator*"
-					    "*Calendar*"
-					    "*Help*"
-					    "*Calc Trail*"
-					    "magit-process"
-					    "magit-diff"
-					    "*Org-Babel Error Output*"
-					    "\\`\\*helm"
-					    "\\`\\*Echo Area"
-					    "\\`\\*Minibuf"
-					    "Ibuffer"
-					    "*Shell Command Output*"
-					    "*Calculator*"
-					    "*Calendar*"
-					    "*cheatsheet*"
-					    "*Help*"
-					    "*Echo Area 0*"
-					    "*Echo Area 1"
-					    "*Minibuf 0*"
-					    "*Minibuf-1*"
-					    "bookmark-default.el"
-					    "info-history"
-					    "company-shell-autoloads.el"
-					    "company.el"
-					    "pos-tip-autoloads.el"
-					    "*scratch*"
-					    "*Warning*"
-					    "*Messages*"
-					    "^init.org$"
-					    "^packs.org$"
-					    "^functions.org$"
-					    "^keys.org$"
-					    "^misc.org$"
-					    "^macros.org$"
-					    "^hydras.org$"
-					    "^links.org$"
-					    "^custom.el$"
-					    "*Flycheck error messages*"
-					    "*Flymake log*"
-					    "*company-documentation*"
-					    "^.archive.org$"
-					    ".*magit.*"
-					    ".*elc"
-					    ".*pdf"
-					    "*shell*"
-					    "*new*"
-					    "*Flycheck error messages*"
-					    "*clang-output*"
-					    "*Bongo Playlist*"
-					    "*eclim: problems*"
-					    "*eclimd*"
-					    "*compilation*"
-					    "*Bongo Library*"
-					    "*Outline pcc.pdf*"
-					    "*blacken*"
-					    "*server*"
-					    "*code-conversion-work*"
-					    "*blacken-error*"
-					    "*Outline pcc_2.pdf*"
-					    "*quickrun*"))))
-#+END_SRC
-
-* dired
-#+BEGIN_SRC emacs-lisp
-(use-package dired
-  :defer t
-  :ensure nil
-  :config
-  (setq dired-omit-mode t)
-  (setq delete-by-moving-to-trash t)
-  (setq dired-listing-switches "-lsh")
-  (setq dired-hide-details-mode t)
-  (setq truncate-lines t)
-  (add-hook 'dired-mode-hook 'line-numbers))
-
-(use-package dired+
-  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.el")
-  :after dired
-  :ensure nil
-  :config
-  (setq diredp-hide-details-initially-flag t)
-  (setq diredp-hide-details-propagate-flag t)
-  (diredp-toggle-find-file-reuse-dir t))
-#+END_SRC
-* Ranger
-#+BEGIN_SRC emacs-lisp
-(use-package ranger
-  :ensure t
-  :init
-  (add-hook 'ranger-mode-hook 'my/ranger-options)
-  (add-hook 'ranger-parent-dir-hook 'my/ranger-options-parent)
-  :config
-  (setq ranger-footer-delay nil)
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.el")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.el")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.el"))
-#+END_SRC
-
 * windmove
 #+BEGIN_SRC emacs-lisp
 (use-package windmove
@@ -370,14 +224,6 @@
   :keymaps 'ivy-mode-map
   "M-d" 'ivy-switch-buffer))
 #+END_SRC
-** Ivy Prescient
-#+BEGIN_SRC emacs-lisp
-(use-package ivy-prescient
-:after ivy
-:ensure t
-:config
-(ivy-prescient-mode +1))
-#+END_SRC
 ** Counsel
 *** Main
 #+BEGIN_SRC emacs-lisp
@@ -447,21 +293,6 @@
   (eyebrowse-mode t))
 #+END_SRC
 
-* Ace-window
-#+BEGIN_SRC emacs-lisp
-(use-package ace-window
-:defer t
-  :ensure t
-  :init
-  (setq aw-background nil)
-  (custom-set-faces
-   '(aw-leading-char-face ((t (:foreground "red" :height 1.8)))))
-  (setq aw-keys '(?h ?j ?k ?l ?ç))
-  (setq aw-dispatch-always t)
-  :config
-  (general-define-key
-   "M-ç" 'ace-window))
-#+END_SRC
 * Winner Mode
 #+BEGIN_SRC emacs-lisp
 (use-package winner

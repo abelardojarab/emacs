@@ -9,37 +9,8 @@
   (load-file "~/.emacs.d/modules/packages/main/org/org_misc.el"))
 
 
-(use-package org-habit
-:after org)
-
 (use-package org-bullets
 :ensure t)
-;; :init
-;; (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◎" "◉")))
-
-(use-package org-noter
-  :defer t
-  :ensure t
-  :config
-  (add-hook 'org-noter-insert-heading-hook 'evil-insert-state)
-
-  ;; (defun my/org-noter-insert-note ()
-  ;;   (interactive)
-  ;;   (switch-to-buffer-other-window "Notes")
-  ;;   (org-noter-insert-precise-note))
-
-  (defun my/org-noter-insert-note ()
-    (interactive)
-    (switch-to-buffer-other-window "Notes")
-    (org-noter-insert-note))
-
-  (general-nvmap
-    :keymaps 'org-noter-notes-mode-map
-    "C-z" 'my/org-noter-insert-note))
-
-(use-package ox-asciidoc
-  :after org
-  :ensure t)
 
 (use-package org-web-tools
   :after org

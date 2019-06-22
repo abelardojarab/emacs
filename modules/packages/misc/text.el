@@ -11,14 +11,6 @@
 :defer t
 :ensure t)
 
-(use-package typo
-:defer t
-:ensure t)
-
-(use-package writegood-mode
-  :defer t
-  :ensure t)
-
 (use-package hl-sentence
   :defer t
   :ensure t)
@@ -134,22 +126,3 @@
 
 (use-package markdown-toc
   :ensure t)
-
-(use-package bbcode-mode
-:defer t
-:ensure t)
-
-(use-package fountain-mode
-  :defer t
-  :ensure t
-  :init
-  (add-hook 'fountain-mode-hook 'my/tab-jump-off)
-  (defun my/tab-jump-off ()
-    (interactive)
-    (tab-jump-out-mode -1))
-    :config
-    (general-nvmap
-      :keymaps 'fountain-mode-map
-      "M-n" 'fountain-outline-next
-      "M-p" 'fountain-outline-previous
-      "<tab>" 'fountain-outline-cycle))

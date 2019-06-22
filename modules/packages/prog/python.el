@@ -29,7 +29,6 @@
     [remap elpy-shell-send-statement-and-step]))
 
 (use-package blacken
-  :unless window-system
   :defer t
   :ensure t
   :config

@@ -50,7 +50,6 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
 ** blacken
 #+BEGIN_SRC emacs-lisp
 (use-package blacken
-  :unless window-system
   :defer t
   :ensure t
   :config

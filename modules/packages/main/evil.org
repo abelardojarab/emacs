@@ -202,10 +202,6 @@
 (use-package evil-numbers
   :defer t
   :ensure t)
-
-(use-package vimish-fold
-  :defer t
-  :ensure t)
 #+END_SRC
 
 * evil-mc
