@@ -112,7 +112,6 @@
    "TAB" 'projectile-project-buffers-other-buffer))
 
 (use-package counsel-projectile
-  :defer t
   :ensure t
   :config
   (counsel-projectile-mode 1))

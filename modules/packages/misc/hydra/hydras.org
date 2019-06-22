@@ -93,13 +93,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 
   ("k" flymake-goto-prev-error)
   ("j" flymake-goto-next-error)
-  ("M" flymake-mode)
-
-)
-
-
-web-mode-attribute-next
-web-mode-attribute-previous
+  ("M" flymake-mode))
 
 #+END_SRC
 

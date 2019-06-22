@@ -51,10 +51,8 @@
   (interactive)
   (electric-operator-mode 1)
   (my/company-idle-zero-prefix-one-quiet)
-  ;; (my/company-idle-one-prefix-one-quiet)
-  ;; (my/company-idle-two-prefix-two-quiet)
-  ;; (my/company-idle-one-prefix-two-quiet)
-  (importmagic-mode 1)
+  (evil-swap-keys-swap-colon-semicolon)
+  (evil-swap-keys-swap-double-single-quotes)
   (blacken-mode 1))
 
 (defun my/inferior-python-mode-hooks ()

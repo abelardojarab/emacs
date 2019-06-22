@@ -19,14 +19,16 @@
   (setq elpy-autodoc-delay 3)
   (setq elpy-eldoc-show-current-function nil)
   (setq python-shell-completion-native-enable nil)
-  (elpy-enable)
+
   (general-define-key
    :keymaps 'elpy-mode-map
    "M-m" 'elpy-autopep8-fix-code
    "C-c C-c" 'elpy-multiedit-stop)
+
   (general-unbind 'elpy-mode-map
     :with 'ignore
-    [remap elpy-shell-send-statement-and-step]))
+    [remap elpy-shell-send-statement-and-step])
+  (elpy-enable))
 
 (use-package blacken
   :defer t
@@ -49,8 +51,6 @@
   (setq python-indent-offset 4)
   (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'my/python-mode-hooks)
-  (add-hook 'python-mode-hook #'evil-swap-keys-swap-colon-semicolon)
-  (add-hook 'python-mode-hook #'evil-swap-keys-swap-double-single-quotes)
   :config
 
   (auto-fill-mode 1)
@@ -65,5 +65,7 @@
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 
 (use-package importmagic
-:defer t
-:ensure t)
+  :ensure t
+  :config
+  (setq importmagic-be-quiet t)
+  (add-hook 'python-mode-hook 'importmagic-mode))
