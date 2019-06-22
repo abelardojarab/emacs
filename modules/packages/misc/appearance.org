@@ -51,3 +51,9 @@
   (interactive)
   (load-theme 'noctilux)))
 #+END_SRC
+** doom themes
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+:defer t
+:ensure t)
+#+END_SRC

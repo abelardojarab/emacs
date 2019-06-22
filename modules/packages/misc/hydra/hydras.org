@@ -61,6 +61,48 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 )
 #+END_SRC
 
+*** web mode
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-web-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Python^         ^Flycheck^  ^Flymake^
+       --------------------------------
+       _r_: quickrun    _f_: first  _k_: prev
+       _s_: quickshell  _p_: prev   _j_: next
+       _e_: run ext.    _n_: next
+       _RET_: goto def.
+       _<C-return>_: goto assign.
+
+"
+  ("<escape>" nil)
+
+  ("r" quickrun)
+  ("s" quickrun-shell)
+  ("e" my/run-python-external)
+
+  ("RET" my/elpy-goto-definition)
+  ("<C-return>" pop-tag-mark)
+
+  ("a" dumb-jump-go)
+
+  ("f" flycheck-first-error)
+  ("p" flycheck-next-error :exit nil)
+  ("n" flycheck-previous-error :exit nil)
+  ("m" flycheck-mode)
+
+  ("k" flymake-goto-prev-error)
+  ("j" flymake-goto-next-error)
+  ("M" flymake-mode)
+
+)
+
+
+web-mode-attribute-next
+web-mode-attribute-previous
+
+#+END_SRC
+
 *** prog
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-prog-mode (:color blue :hint nil :foreign-keys run)

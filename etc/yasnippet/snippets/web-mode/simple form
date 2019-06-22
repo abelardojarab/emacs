@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: simple form
+# key: f
+# --
+<form>
+    $0
+</form>
