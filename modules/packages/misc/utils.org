@@ -331,8 +331,8 @@
 #+END_SRC
 * activitywatch
 #+BEGIN_SRC emacs-lisp
-(use-package activity-watch-mode
-:ensure t
-:config
-(global-activity-watch-mode +1))
+;; (use-package activity-watch-mode
+;; :ensure t
+;; :config
+;; (global-activity-watch-mode +1))
 #+END_SRC

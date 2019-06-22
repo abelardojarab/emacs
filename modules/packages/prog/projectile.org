@@ -116,9 +116,10 @@
    "TAB" 'projectile-project-buffers-other-buffer))
 #+END_SRC
 
-* counsel projectil
+* counsel projectile
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile
+  :defer t
   :ensure t
   :config
   (counsel-projectile-mode 1))

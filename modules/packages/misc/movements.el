@@ -1,3 +1,34 @@
+(use-package dired
+  :defer t
+  :ensure nil
+  :config
+  (setq dired-omit-mode t)
+  (setq delete-by-moving-to-trash t)
+  (setq dired-listing-switches "-lsh")
+  (setq dired-hide-details-mode t)
+  (setq truncate-lines t)
+  (add-hook 'dired-mode-hook 'line-numbers))
+
+(use-package dired+
+  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.el")
+  :after dired
+  :ensure nil
+  :config
+  (setq diredp-hide-details-initially-flag t)
+  (setq diredp-hide-details-propagate-flag t)
+  (diredp-toggle-find-file-reuse-dir t))
+
+(use-package ranger
+  :ensure t
+  :init
+  (add-hook 'ranger-mode-hook 'my/ranger-options)
+  (add-hook 'ranger-parent-dir-hook 'my/ranger-options-parent)
+  :config
+  (setq ranger-footer-delay nil)
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.el")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.el")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.el"))
+
 (use-package buffer-move
 :defer t
 :ensure t)
