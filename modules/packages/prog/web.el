@@ -3,9 +3,13 @@
   :defer t
   :ensure t
   :init
-  (add-hook 'web-mode-hook 'emmet-mode)
-  (add-hook 'web-mode-hook 'flycheck-mode)
+  (add-hook 'web-mode-hook 'my/web-mode-hooks)
   :config
+(defun my/web-mode-hooks ()
+(interactive)
+(emmet-mode +1)
+(flycheck-mode +1)
+(my/company-idle-one-prefix-one))
 
   (general-define-key
    :keymaps 'web-mode-map
