@@ -13,4 +13,4 @@
  '(background-mode dark)
  '(cursor-color "#cccccc")
  '(foreground-color "#cccccc")
- '(package-selected-packages '(doom-themes web-mode use-package)))
+ '(package-selected-packages '(web-beautify use-package)))
