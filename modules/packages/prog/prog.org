@@ -47,12 +47,14 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
 ** lispy
 #+BEGIN_SRC emacs-lisp
 (use-package lispy
-:defer t
-:ensure t
-:config
-(general-unbind 'lispy-mode-map
-  "M-m"))
+  :defer t
+  :ensure t
+  :config
+  (general-unbind 'lispy-mode-map
+    :with 'indent-buffer
+    [remap lispy-meta-return]))
 #+END_SRC
+
 ** lispyville
 #+BEGIN_SRC emacs-lisp
 (use-package lispyville

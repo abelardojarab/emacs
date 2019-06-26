@@ -9,8 +9,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(lispyville lispy use-package))
- '(safe-local-variable-values
-   '((eval my/settings-leituras\.org)
-     (eval my/company-idle-one-prefix-one-quiet)
-     (eval my/company-idle-one-prefix-one))))
+ '(package-selected-packages '(use-package))
+ '(safe-local-variable-values '((eval my/settings-leituras\.org))))

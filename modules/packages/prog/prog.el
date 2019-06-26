@@ -12,11 +12,12 @@
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 
 (use-package lispy
-:defer t
-:ensure t
-:config
-(general-unbind 'lispy-mode-map
-  "M-m"))
+  :defer t
+  :ensure t
+  :config
+  (general-unbind 'lispy-mode-map
+    :with 'indent-buffer
+    [remap lispy-meta-return]))
 
 (use-package lispyville
 :defer t
