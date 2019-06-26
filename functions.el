@@ -1,6 +1,5 @@
 (defun my/settings-leituras.org ()
   (interactive)
-(company-mode)
+  (company-mode)
   (my/company-idle-one-prefix-one-quiet)
-  (save-place-local-mode -1)
-  (org-next-visible-heading 2))
+  (org-hide-drawers-disable))

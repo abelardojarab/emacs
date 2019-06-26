@@ -99,7 +99,8 @@
 (setq org-file-apps (quote ((auto-mode . emacs)
 			    ("\\.mm\\'" . default)
 			    ("\\.x?html?\\'" . default)
-			    ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
+			    ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
+			    ("\\.jpg\\'" . "viewnior %s")
 			    ("\\.mp4\\'" . "vlc %s")
 			    ("\\.pdf\\'" . default))))
 

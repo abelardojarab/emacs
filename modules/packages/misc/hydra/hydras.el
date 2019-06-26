@@ -223,7 +223,7 @@
   ("M-." yas-new-snippet)
 
   ("r" yas-reload-all)
-  ("M-;" my/yas-load-other-windoWed Jun 26 05:32:08 2019w)
+  ("M-;" my/yas-load-other-window)
   (";" my/yas-load-other-window))
 
 (defhydra hydra-shell (:color blue :hint nil :exit nil :foreign-keys nil)

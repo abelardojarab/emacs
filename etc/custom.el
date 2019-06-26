@@ -10,4 +10,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages '(use-package))
- '(safe-local-variable-values '((eval my/settings-leituras\.org))))
+ '(safe-local-variable-values
+   '((eval my/prose-brasileiro)
+     (eval brasileiro)
+     (eval prose-enable)
+     (eval my/settings-leituras\.org))))

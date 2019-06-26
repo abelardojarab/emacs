@@ -4,4 +4,4 @@
 # --
 (defun my/$1 ()
 (interactive)
-($0
+($0))

@@ -123,3 +123,8 @@
   (interactive)
   (evil-org-mode +1)
   (org-bullets-mode +1))
+
+(defun my/org-insert-file-link ()
+  (interactive)
+  (org-insert-link
+   `(4)))

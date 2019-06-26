@@ -8,7 +8,8 @@
 (add-hook 'org-capture-mode-hook (lambda ()
 				   (evil-insert-state)
 				   (evil-window-move-very-bottom)))
-(add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
+
+;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
 (add-hook 'org-src-mode-hook 'olivetti-mode)
 

@@ -403,6 +403,17 @@
     (aggressive-fill-paragraph-mode -1)
     (message " both fills disabled"))
 
+  (defun my/prose-brasileiro ()
+    (interactive)
+    (flyspell-mode 1)
+    (ispell-change-dictionary "brasileiro")
+    (auto-capitalize-mode 1)
+    (tab-jump-out-mode 1)
+    (electric-operator-mode 1)
+    (wc-mode 1)
+    (pabbrev-mode 1))
+
+
   (defun prose-enable ()
     (interactive)
     (flyspell-mode 1)
