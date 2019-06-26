@@ -379,6 +379,7 @@
     (wc-mode 1)
     (pabbrev-mode 1))
 
+
   (defun prose-enable ()
     (interactive)
     (flyspell-mode 1)

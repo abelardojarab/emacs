@@ -46,6 +46,11 @@
   (let ((inhibit-message t))
     (shell-command "~/scripts/i3_scripts/paste_to_chrome.sh")))
 
+(defun copy-from-chrome ()
+  (interactive)
+  (erase-buffer)
+  (yank))
+
 (defun copy-to-messenger ()
   (interactive)
   (copy-whole-buffer)
@@ -72,6 +77,7 @@
    (point-min)
    (point-max)))
 #+END_SRC
+
 * truncate-off
 #+BEGIN_SRC emacs-lisp
 (defun my/truncate-off ()

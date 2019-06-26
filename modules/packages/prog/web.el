@@ -1,6 +1,4 @@
 (use-package web-mode
-  :if window-system
-  :defer t
   :ensure t
   :init
   (add-hook 'web-mode-hook 'my/web-mode-hooks)
@@ -19,7 +17,11 @@
     (emmet-mode +1)
     (flycheck-mode +1)
     (evil-swap-keys-swap-double-single-quotes)
-    (my/company-idle-one-prefix-one))
+    (my/company-idle-one-prefix-one-quiet))
+
+  (general-nvmap
+    :keymaps 'web-mode-map
+    "C-ç" 'web-beautify-html)
 
   (general-define-key
    :keymaps 'web-mode-map

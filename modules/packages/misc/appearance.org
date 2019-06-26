@@ -54,5 +54,9 @@
 ** doom themes
 #+BEGIN_SRC emacs-lisp
 (use-package doom-themes
-:ensure t)
+:ensure t
+:config
+(defun dracula-on ()
+  (interactive)
+  (load-theme 'doom-dracula)))
 #+END_SRC

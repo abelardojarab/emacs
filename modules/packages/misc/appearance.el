@@ -38,4 +38,8 @@
   (load-theme 'noctilux)))
 
 (use-package doom-themes
-:ensure t)
+:ensure t
+:config
+(defun dracula-on ()
+  (interactive)
+  (load-theme 'doom-dracula)))

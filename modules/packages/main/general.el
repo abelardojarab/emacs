@@ -131,7 +131,6 @@
 ;;;; FILESETS ;;;;
 "C-c f o" 'filesets-open
 "C-c f k" 'filesets-close
-"C-ç" 'hydra-find-scratches/body
 
 ;;;; LOADING AND UNLOADING ;;;;
 "C-c l l"   'load-theme
