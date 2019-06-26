@@ -1,6 +1,6 @@
 (defun my/erase-kill-ring ()
-  (interactive)
-  (setq kill-ring nil))
+(interactive)
+(setq kill-ring nil))
 
 (defun my/insert-space ()
   (interactive)
@@ -10,6 +10,7 @@
   (interactive)
   (fix-word-capitalize)
   (insert " "))
+
 
 (defun indent-buffer ()
   (interactive)
@@ -61,12 +62,14 @@
    (point-max)))
 
 (defun my/truncate-off ()
-  (interactive)
-  (setq truncate-lines nil))
+(interactive)
+(setq truncate-lines nil))
 
 (defun my/truncate-on ()
-  (interactive)
-  (setq truncate-lines t))
+(interactive)
+(setq truncate-lines t))
+
+
 
 (defun my/company-show-options ()
   (interactive)
@@ -179,6 +182,7 @@
   (setq-local company-idle-delay 0.5)
   (setq-local company-minimum-prefix-length 2))
 
+
 (defun my/company-complete ()
   (interactive)
   (company-complete)
@@ -213,9 +217,10 @@
   (company-complete)
   (comint-send-input))
 
+
 (defun my/evil-substitute ()
   (interactive)
-  (evil-ex "%s/"))
+(evil-ex "%s/"))
 
 (defun del-dup-lines-region (start end)
   "Find duplicate lines in region START to END keeping first occurrence."
@@ -223,10 +228,10 @@
   (save-excursion
     (let ((end (copy-marker end)))
       (while
-	  (progn
-	    (goto-char start)
-	    (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-	(replace-match "\\1\n\\2")))))
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
 
 (defun del-dup-lines-buffer ()
   "Delete duplicate lines in buffer and keep first occurrence."
@@ -234,9 +239,9 @@
   (uniquify-all-lines-region (point-min) (point-max)))
 
 (defun sel-to-end ()
-  (interactive)
-  (evil-visual-char)
-  (evil-last-non-blank))
+(interactive)
+(evil-visual-char)
+(evil-last-non-blank))
 
 (defun my/bash-shebang ()
   (interactive)
@@ -312,16 +317,16 @@ abort completely with `C-g'."
   (kill-line (- 1 arg)))
 
 (defun brasileiro ()
-  (interactive)
-  (ispell-change-dictionary "brasileiro")
-  (flyspell-buffer)
-  (message " português"))
+(interactive)
+(ispell-change-dictionary "brasileiro")
+(flyspell-buffer)
+(message " português"))
 
 (defun american ()
-  (interactive)
-  (ispell-change-dictionary "american")
-  (flyspell-buffer)
-  (message " american"))
+(interactive)
+(ispell-change-dictionary "american")
+(flyspell-buffer)
+(message " american"))
 
 ;; https://stackoverflow.com/a/30697761/9509067
 (defun sort-lines-by-length (reverse beg end)
@@ -332,8 +337,8 @@ abort completely with `C-g'."
       (narrow-to-region beg end)
       (goto-char (point-min))
       (let ;; To make `end-of-line' and etc. to ignore fields.
-	  ((inhibit-field-text-motion t))
-	(sort-subr reverse 'forward-line 'end-of-line nil nil
-		   (lambda (l1 l2)
-		     (apply #'< (mapcar (lambda (range) (- (cdr range) (car range)))
-					(list l1 l2)))))))))
+          ((inhibit-field-text-motion t))
+        (sort-subr reverse 'forward-line 'end-of-line nil nil
+                   (lambda (l1 l2)
+                     (apply #'< (mapcar (lambda (range) (- (cdr range) (car range)))
+                                        (list l1 l2)))))))))

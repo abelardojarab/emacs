@@ -306,3 +306,27 @@
 "C-S-k" 'cool-moves/line-backward
 "C-M-n" 'cool-moves/word-forward
 "C-M-p" 'cool-moves/word-backwards))
+
+
+(defun popup-handler (app-name window-title x y w h)
+  (web-mode)
+  (olivetti-mode)
+  (evil-insert-state)
+  (yank)
+  (my/disable-save))
+
+(add-hook 'ea-popup-hook 'popup-handler)
+
+(defun my/disable-save ()
+  (general-unbind 'web-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer]))
+
+(defun my/init-keys ()
+  (interactive)
+  (start-process-shell-command "set keys" nil "~/scripts/keyboard/init_keys.sh"))
+
+(defun my/init-keys-del-frame ()
+  (interactive)
+  (my/init-keys)
+  (delete-frame))

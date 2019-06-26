@@ -21,15 +21,25 @@
     (emmet-mode +1)
     (flycheck-mode +1)
     (evil-swap-keys-swap-double-single-quotes)
-    (my/company-idle-one-prefix-one-quiet))
+    (my/company-idle-one-prefix-one-quiet)
+    (my/set-web-theme))
 
   (general-nvmap
     :keymaps 'web-mode-map
     "C-ç" 'web-beautify-html)
 
+  (defun my/set-web-theme ()
+    (interactive)
+    (disable-theme 'noctilux)
+    (enable-theme 'doom-dracula))
+
   (general-define-key
    :keymaps 'web-mode-map
    "<C-M-return>" 'browse-url-of-file)
+
+  ;; (general-unbind 'web-mode-map
+  ;;   :with 'my/init-keys-del-frame
+  ;;   [remap delete-frame])
 
   (general-unbind 'web-mode-map
     :with 'my/clear-html-macro

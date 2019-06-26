@@ -46,11 +46,6 @@
   (let ((inhibit-message t))
     (shell-command "~/scripts/i3_scripts/paste_to_chrome.sh")))
 
-(defun copy-from-chrome ()
-  (interactive)
-  (erase-buffer)
-  (yank))
-
 (defun copy-to-messenger ()
   (interactive)
   (copy-whole-buffer)

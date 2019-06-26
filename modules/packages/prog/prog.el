@@ -17,7 +17,11 @@
   :config
   (general-unbind 'lispy-mode-map
     :with 'indent-buffer
-    [remap lispy-meta-return]))
+    [remap lispy-meta-return])
+
+  (general-unbind 'lispy-mode-map
+    :with 'org-edit-src-exit
+    [remap lispy-mark-symbol]))
 
 (use-package lispyville
 :defer t
