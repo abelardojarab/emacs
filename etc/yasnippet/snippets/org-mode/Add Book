@@ -5,8 +5,12 @@
 ** T ${1:Title}
 :PROPERTIES:
 :TITLE:    $1
-:TYPE:${2:$$(yas-choose-value '("     Book" "     Article" "     Other"))}
-:AUTHOR:   ${3:Author}
-:LINK:     ${5:Wikipedia}$0
-:COMPLETE: $4%
+:TYPE:     ${2:$$(yas-choose-value '("     Book" "     Article" "     Other"))}
+:GENRE:    ${3:Genre} 
+:AUTHOR:   ${4:Author}
+:LINK:     ${6:Wikipedia}$0
+:CREATED:  `(insert (format-time-string "[%a, %y-%m-%d]"))`
+:START:    `(let ((x(org-time-stamp-inactive))))`
+:END:      Unknown
+:COMPLETE: $5%
 :END:

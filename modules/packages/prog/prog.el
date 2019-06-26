@@ -240,6 +240,10 @@
     (interactive)
     (electric-operator-mode -1))
 
+  (defun my/yas-after-hooks ()
+    (interactive)
+    (electric-operator-mode +1))
+
   (general-imap
     :keymaps 'yas-minor-mode-map
     "M-u" 'ivy-yasnippet)

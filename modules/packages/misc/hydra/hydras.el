@@ -212,18 +212,19 @@
        ^
        ^YASnippet^
        --------------------
-       _;_: visit _r_eload
-       _._: new   _l_oad
+       _;_: load  _r_eload
+       _._: new   _l_: visit
 
 "
-  ("M-;" yas-visit-snippet-file)
-  (";" yas-visit-snippet-file)
+  ("M-l" yas-visit-snippet-file)
+  ("l" yas-visit-snippet-file)
 
   ("." yas-new-snippet)
   ("M-." yas-new-snippet)
 
   ("r" yas-reload-all)
-  ("l" my/yas-load-other-window))
+  ("M-;" my/yas-load-other-windoWed Jun 26 05:32:08 2019w)
+  (";" my/yas-load-other-window))
 
 (defhydra hydra-shell (:color blue :hint nil :exit nil :foreign-keys nil)
   "
