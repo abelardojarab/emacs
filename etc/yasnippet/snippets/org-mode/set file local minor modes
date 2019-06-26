@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: set file local minor modes
+# key: local
+# --
+# Local Variables:
+# eval: ($1-mode)
+# End:

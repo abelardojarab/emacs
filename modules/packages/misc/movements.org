@@ -26,7 +26,7 @@
   :defer t
   :ensure nil
   :config
-  (setq dired-omit-mode t)
+  ;; (setq dired-omit-mode t)
   (setq delete-by-moving-to-trash t)
   (setq dired-listing-switches "-lsh")
   (setq dired-hide-details-mode t)

@@ -1,4 +1,4 @@
 # key: eval
-# name: file eval mode variable
+# name: set file local variable
 # --
 ${1:$$(yas-choose-value '("# " ";; "))}-*- eval: (${2:name}-mode 1) -*-

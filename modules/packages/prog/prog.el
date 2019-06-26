@@ -8,7 +8,21 @@
   :defer t
   :ensure nil
   :init
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
+
+(use-package lispy
+:defer t
+:ensure t
+:config
+(general-unbind 'lispy-mode-map
+  "M-m"))
+
+(use-package lispyville
+:defer t
+:ensure t
+:init
+(add-hook 'lispy-mode-hook #'lispyville-mode))
 
 (use-package quickrun
   :defer t

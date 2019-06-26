@@ -89,6 +89,18 @@ Repeated invocations toggle between the two most recently open buffers."
   (markdown-mode)
   (evil-insert-state))
 #+END_SRC
+** my/settings-leituras.org
+#+BEGIN_SRC emacs-lisp :tangle ~/.emacs.d/functions.el
+(defun my/settings-leituras.org ()
+  (interactive)
+  (progn
+  (company-mode)
+  (my/company-idle-one-prefix-one-quiet)
+  (evil-close-folds)
+  (save-place-local-mode -1)
+  (org-next-visible-heading 2)))
+#+END_SRC
+
 ** measure time
 [[https://stackoverflow.com/questions/23622296/emacs-timing-execution-of-function-calls-in-emacs-lisp][Source]]
 #+BEGIN_SRC emacs-lisp

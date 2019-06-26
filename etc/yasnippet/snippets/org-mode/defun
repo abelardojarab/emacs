@@ -6,5 +6,5 @@
 #+BEGIN_SRC emacs-lisp :tangle ~/.emacs.d/functions.el
 (defun my/$1 ()
 (interactive)
-$0
+$0)
 #+END_SRC

@@ -33,14 +33,35 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
 :ensure t)
 #+END_SRC
 
-* emacs-lisp-mode package
+* lisp
+** emacs-lisp (bultin)
 #+BEGIN_SRC emacs-lisp
 (use-package elisp-mode
   :defer t
   :ensure nil
   :init
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 #+END_SRC
+
+** lispy
+#+BEGIN_SRC emacs-lisp
+(use-package lispy
+:defer t
+:ensure t
+:config
+(general-unbind 'lispy-mode-map
+  "M-m"))
+#+END_SRC
+** lispyville
+#+BEGIN_SRC emacs-lisp
+(use-package lispyville
+:defer t
+:ensure t
+:init
+(add-hook 'lispy-mode-hook #'lispyville-mode))
+#+END_SRC
+
 * quickrun
 #+BEGIN_SRC emacs-lisp
 (use-package quickrun
