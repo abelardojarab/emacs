@@ -126,3 +126,7 @@
 
 (use-package markdown-toc
   :ensure t)
+
+(use-package bbcode-mode
+:defer t
+:ensure t)

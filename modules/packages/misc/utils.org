@@ -336,3 +336,9 @@
 ;; :config
 ;; (global-activity-watch-mode +1))
 #+END_SRC
+* sudo-edit
+#+BEGIN_SRC emacs-lisp
+(use-package sudo-edit
+:defer t
+:ensure t)
+#+END_SRC

@@ -125,9 +125,8 @@
    "C-w" 'evil-delete-backward-word
    "C-h" 'delete-backward-char
    "<tab>" 'my/company-complete-first
-   "<escape>" nil
-   "<return>" nil
-   ;; "<return>" 'company-complete
+   "<escape>" 'company-abort
+   "<return>" 'company-complete
    "M-j" 'my/company-complete-first-add-space
    "M-o" 'my/company-yasnippet)
 
@@ -205,14 +204,14 @@
   (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
   :config
 
-(defun my/company-yas-snippet ()
-(interactive)
-(company-abort)
-(evil-insert-state)
-(yas-expand))
+  (defun my/company-yas-snippet ()
+    (interactive)
+    (company-abort)
+    (evil-insert-state)
+    (yas-expand))
 
-(general-imap
-   "M-r" 'yas-expand)
+  (general-imap
+    "M-r" 'yas-expand)
 
   (general-unbind 'yas-keymap
     :with 'my/jump-out
@@ -240,10 +239,6 @@
   (defun my/yas-before-hooks ()
     (interactive)
     (electric-operator-mode -1))
-
-  (defun my/yas-after-hooks ()
-    (interactive)
-    (electric-operator-mode +1))
 
   (general-imap
     :keymaps 'yas-minor-mode-map

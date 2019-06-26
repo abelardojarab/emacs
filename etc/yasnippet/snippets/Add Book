@@ -1,0 +1,9 @@
+# key: adb
+# name: Add Book
+# --
+** T ${1:Title}
+:PROPERTIES:
+:TITLE: $1
+:AUTHOR: ${2:Author}
+:COMPLETE: ${3:%}$0
+:END:

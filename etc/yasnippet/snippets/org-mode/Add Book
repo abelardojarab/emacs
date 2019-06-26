@@ -1,0 +1,12 @@
+# key: bk
+# name: Add Book
+# expand-env ((yas-indent-line 'fixed))
+# --
+** T ${1:Title}
+:PROPERTIES:
+:TITLE:    $1
+:TYPE:${2:$$(yas-choose-value '("     Book" "     Article" "     Other"))}
+:AUTHOR:   ${3:Author}
+:LINK:     ${5:Wikipedia}$0
+:COMPLETE: $4%
+:END:

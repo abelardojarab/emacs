@@ -168,3 +168,9 @@ https://is.gd/JyKZsg
 (use-package markdown-toc
   :ensure t)
 #+END_SRC
+* bbcode
+#+BEGIN_SRC emacs-lisp
+(use-package bbcode-mode
+:defer t
+:ensure t)
+#+END_SRC

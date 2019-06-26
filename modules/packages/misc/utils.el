@@ -295,3 +295,7 @@
 ;; :ensure t
 ;; :config
 ;; (global-activity-watch-mode +1))
+
+(use-package sudo-edit
+:defer t
+:ensure t)

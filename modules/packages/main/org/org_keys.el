@@ -46,6 +46,7 @@
 
 (general-define-key
  :keymaps 'org-mode-map
+ "M-ç" 'indent-buffer
  "C-<" 'org-priority-up
  "C->" 'org-priority-down
  "<C-S-up>" 'org-priority-up
