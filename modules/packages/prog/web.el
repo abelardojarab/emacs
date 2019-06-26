@@ -33,10 +33,6 @@
    :keymaps 'web-mode-map
    "<C-M-return>" 'browse-url-of-file)
 
-  ;; (general-unbind 'web-mode-map
-  ;;   :with 'my/init-keys-del-frame
-  ;;   [remap delete-frame])
-
   (general-unbind 'web-mode-map
     :with 'my/clear-html-macro
     [remap web-mode-comment-indent-new-line]))

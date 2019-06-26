@@ -307,7 +307,6 @@
 "C-M-n" 'cool-moves/word-forward
 "C-M-p" 'cool-moves/word-backwards))
 
-
 (defun popup-handler (app-name window-title x y w h)
   (web-mode)
   (olivetti-mode)
@@ -322,11 +321,17 @@
     :with 'ignore
     [remap my/quiet-save-buffer]))
 
-(defun my/init-keys ()
-  (interactive)
-  (start-process-shell-command "set keys" nil "~/scripts/keyboard/init_keys.sh"))
+(use-package atomic-chrome
+  :defer t
+  :ensure t
+  :config
+  (atomic-chrome-start-server)
+  (setq atomic-chrome-default-major-mode 'web-mode)
+  (setq atomic-chrome-buffer-open-style 'full)
+  (add-hook 'atomic-chrome-edit-mode-hook 'my/atomic-chrome-hooks)
 
-(defun my/init-keys-del-frame ()
-  (interactive)
-  (my/init-keys)
-  (delete-frame))
+  (defun my/atomic-chrome-hooks ()
+    (interactive)
+    (olivetti-mode)
+    (evil-insert-state)
+    (pabbrev-mode -1)))
