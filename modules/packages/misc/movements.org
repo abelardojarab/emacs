@@ -393,13 +393,19 @@
   :ensure t
   :config
   (atomic-chrome-start-server)
-  (setq atomic-chrome-default-major-mode 'web-mode)
+  (setq atomic-chrome-default-major-mode 'markdown-mode)
   (setq atomic-chrome-buffer-open-style 'full)
   (add-hook 'atomic-chrome-edit-mode-hook 'my/atomic-chrome-hooks)
 
+  (general-unbind 'atomic-chrome-edit-mode-map
+    :with 'atomic-chrome-close-current-buffer
+    [remap my/kill-this-buffer])
+
+  (general-unbind 'atomic-chrome-edit-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer])
+
   (defun my/atomic-chrome-hooks ()
     (interactive)
-    (olivetti-mode)
-    (evil-insert-state)
-    (pabbrev-mode -1)))
+    (olivetti-mode)))
 #+END_SRC
