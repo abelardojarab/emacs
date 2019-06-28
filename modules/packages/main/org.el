@@ -1,5 +1,5 @@
 (use-package org
-  :ensure t
+  :ensure nil
   :init
   (load-file "~/.emacs.d/modules/packages/main/org/org_hooks.el")
   :config

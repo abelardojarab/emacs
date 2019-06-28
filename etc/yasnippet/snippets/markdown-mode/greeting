@@ -1,5 +1,0 @@
-# key: g
-# name: greeting
-# --
-Oi $1, tudo bem? ;)
-$0

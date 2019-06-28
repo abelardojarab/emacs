@@ -6,10 +6,10 @@
 - MX Linux 18
 - [i3wm](https://i3wm.org/) version 4.13
 - [i3/config](https://github.com/mrbig033/dotfiles/blob/master/i3/config)
-- `(string-remove-suffix `(emacs-version)` "(build 1, x86_64-pc-linux-gnu, GTK+ Version 3.22.11) of 2019-05-30")`
-- `(emacs-version)`
-- `(evil-version)`
 - [dotfiles](https://github.com/mrbig033/dotfiles)
+- GNU Emacs 27.0.50
+- Org mode version 9.2.3
+- `(evil-version)`
 - [~/.emacs.d](https://github.com/mrbig033/emacs)
 
 #### Issue

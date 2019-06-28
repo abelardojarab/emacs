@@ -73,7 +73,7 @@
   :init
   (add-hook 'markdown-mode-hook 'my/markdown-hooks)
   (setq markdown-hide-urls 't)
-  (setq-default markdown-hide-markup nil)
+  (setq-default markdown-hide-markup t)
   (setq markdown-enable-wiki-links t)
   :config
 

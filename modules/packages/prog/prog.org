@@ -155,80 +155,10 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 (use-package company
   :defer t
   :ensure t
-  :init
-  (setq company-auto-complete-chars '(46)) ;; only complete on dot "."
-  (setq company-auto-complete t)
-  (setq company-dabbrev-code-ignore-case t)
-  (setq company-dabbrev-ignore-case t)
-  (setq company-show-numbers t)
-  (setq company-dabbrev-code-modes t)
-  (setq company-dabbrev-downcase nil)
-  (setq company-dabbrev-code-everywhere t)
-  (setq company-dabbrev-other-buffers t)
-  (setq company-dabbrev-ignore-buffers "nil")
-  (setq company-selection-wrap-around t)
-
   :config
-
-  (setq company-idle-delay 0.3)
-  (setq-default company-idle-delay 0.3)
-  (setq company-tooltip-limit 10)
-  (setq company-minimum-prefix-length 2)
-
-  ;; (advice-add 'company-complete-common :before (lambda () (setq my/company-point (point))))
-
-  ;; (advice-add 'company-complete-common :after (lambda ()
-  ;; 						(when (equal my/company-point (point))
-  ;; 						  (yas-expand))))
-  (general-define-key
-   :keymaps 'company-active-map
-   "1" 'company-complete-number
-   "2" 'company-complete-number
-   "3" 'company-complete-number
-   "4" 'company-complete-number
-   "5" 'company-complete-number
-   "6" 'company-complete-number
-   "7" 'company-complete-number
-   "8" 'company-complete-number
-   "9" 'company-complete-number
-   "0" 'company-complete-number
-   "M-f" 'company-filter-candidates
-   "M-d" 'my/company-complete-paren
-   "M-h" 'company-quickhelp-manual-begin
-   "M-r" 'my/company-yasnippet
-   "M-k" nil
-   "M-l" nil
-   ;; "M-w" 'company-select-next
-   ;; "M-q" 'company-select-previous
-   ;; "M-e" 'company-complete
-   "C-w" 'evil-delete-backward-word
-   "C-h" 'delete-backward-char
-   "<tab>" 'my/company-complete-first
-   "<escape>" 'company-abort
-   "<return>" 'company-complete
-   "M-j" 'my/company-complete-first-add-space
-   "M-o" 'my/company-yasnippet)
-
-  (general-define-key
-   :keymaps 'company-filter-map
-   "TAB" 'my/company-complete-first
-   "M-h" 'company-quickhelp-manual-begin
-   "M-d" 'company-filter-candidates
-   ;; "C-l" 'company-complete
-   "C-k" 'my/company-complete
-   "M-o" 'my/company-yasnippet
-   ;; "RET" 'company-complete
-   "RET" nil)
-
-  ;; (general-define-key
-  ;;  :keymaps 'company-mode-map
-  ;;  "C-x m" 'my/company-show-options)
-
-  (general-imap
-    :keymaps 'company-mode-map
-    ;; "M-w" 'company-complete
-    "C-l" 'company-complete
-    "M-/" 'hippie-expand))
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
+  (global-company-mode t))
 #+END_SRC
 
 ** company shell
