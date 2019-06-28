@@ -96,6 +96,10 @@
   :defer t
   :ensure t
   :config
+(defun my/company-yasnippet ()
+(interactive)
+(company-abort)
+(yas-expand))
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
   (global-company-mode t))

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: home env variable
+# key: home
+# --
+HOME = os.environ['HOME']
+`(importmagic-fix-imports)`
