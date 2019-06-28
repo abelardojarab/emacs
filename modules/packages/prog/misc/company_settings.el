@@ -3,7 +3,7 @@
 (setq company-idle-delay 0.5)
 (setq-default company-idle-delay 0.5)
 
-(setq company-auto-complete t)
+(setq company-auto-complete nil)
 (setq company-tooltip-limit 10)
 (setq company-dabbrev-code-modes t)
 (setq company-dabbrev-downcase nil)
