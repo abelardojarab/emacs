@@ -30,8 +30,8 @@
   (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.el"))
 
 (use-package buffer-move
-  :defer t
-  :ensure t)
+:defer t
+:ensure t)
 
 (use-package avy
   :defer 2
@@ -90,10 +90,10 @@
    "<M-right>" 'windmove-right))
 
 (use-package ivy
-  :ensure t
+:ensure t
 
-  :init
-  (setq ivy-ignore-buffers '(".*Log.*"
+:init
+(setq ivy-ignore-buffers '(".*Log.*"
 			     ".*log.*"
 			     ".*help.*"
 			     "^#.*#$"
@@ -136,82 +136,82 @@
 			     "i3keys.org"
 			     "info_keys.org"))
 
-  :config
-  (defun ivy-with-thing-at-point (cmd)
-    (let ((ivy-initial-inputs-alist
-	   (list
-	    (cons cmd (thing-at-point 'symbol)))))
-      (funcall cmd)))
+:config
+(defun ivy-with-thing-at-point (cmd)
+  (let ((ivy-initial-inputs-alist
+	 (list
+	  (cons cmd (thing-at-point 'symbol)))))
+    (funcall cmd)))
 
-  (defun counsel-ag-thing-at-point ()
-    (interactive)
-    (ivy-with-thing-at-point 'counsel-ag))
+(defun counsel-ag-thing-at-point ()
+  (interactive)
+  (ivy-with-thing-at-point 'counsel-ag))
 
-  (defun counsel-projectile-ag-thing-at-point ()
-    (interactive)
-    (ivy-with-thing-at-point 'counsel-projectile-ag))
+(defun counsel-projectile-ag-thing-at-point ()
+  (interactive)
+  (ivy-with-thing-at-point 'counsel-projectile-ag))
 
-  (setq ivy-wrap t)
-  (setq ivy-on-del-error-function #'ignore)
-  (setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.el --ignore *.html %s")
-  ;; (setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.html %s")
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-  (setq counsel-bookmark-avoid-dired t)
-  (setq counsel-find-file-at-point t)
-  (setq counsel-outline-display-style 'title)
-  (setq counsel-find-file-ignore-regexp (regexp-opt '( "log")))
-  (setq counsel-find-file-ignore-regexp nil)
-  (setq ivy-extra-directories nil)
-  (ivy-mode 1)
+(setq ivy-wrap t)
+(setq ivy-on-del-error-function #'ignore)
+(setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.el --ignore *.html %s")
+;; (setq counsel-ag-base-command "ag --nocolor --nogroup --ignore *.html %s")
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+(setq counsel-bookmark-avoid-dired t)
+(setq counsel-find-file-at-point t)
+(setq counsel-outline-display-style 'title)
+(setq counsel-find-file-ignore-regexp (regexp-opt '( "log")))
+(setq counsel-find-file-ignore-regexp nil)
+(setq ivy-extra-directories nil)
+(ivy-mode 1)
 
-  (general-unbind 'ivy-minibuffer-map
-    :with 'ignore
-    [remap windmove-up]
-    [remap windmove-left]
-    [remap windmove-right])
+(general-unbind 'ivy-minibuffer-map
+  :with 'ignore
+  [remap windmove-up]
+  [remap windmove-left]
+  [remap windmove-right])
 
-  (general-unbind 'ivy-minibuffer-map
-    :with 'ivy-kill-ring-save
-    [remap eyebrowse-next-window-config])
+(general-unbind 'ivy-minibuffer-map
+  :with 'ivy-kill-ring-save
+  [remap eyebrowse-next-window-config])
 
-  (general-unbind 'ivy-minibuffer-map
-    :with 'ivy-alt-done
-    [remap windmove-down])
+(general-unbind 'ivy-minibuffer-map
+  :with 'ivy-alt-done
+  [remap windmove-down])
 
-  (general-unbind 'ivy-minibuffer-map
-    :with 'ivy-next-line
-    [remap counsel-projectile-switch-to-buffer])
+(general-unbind 'ivy-minibuffer-map
+  :with 'ivy-next-line
+  [remap counsel-projectile-switch-to-buffer])
 
-  (general-define-key
-   :keymaps 'ivy-minibuffer-map
-   "<insert>" 'clipboard-yank
-   "<C-return>" 'ivy-immediate-done
-   "C-h" 'ivy-backward-delete-char
-   "TAB" 'ivy-alt-done
-   "C-c -" 'my/ivy-done-and-narrow
-   "M-m" 'ivy-done
-   "C-m" 'ivy-done
-   "C-c o" 'ivy-kill-ring-save
-   [escape] 'abort-recursive-edit
-   "C-0" 'ivy-done
-   "C--" 'ivy-next-line
-   "C-=" 'ivy-previous-line
-   "M-d" 'ivy-next-line
-   "M-u" 'ivy-previous-line
-   "C-w" 'ivy-backward-kill-word
-   "C-u" 'backward-kill-line
-   "<XF86Calculator>" 'abort-recursive-edit)
+(general-define-key
+ :keymaps 'ivy-minibuffer-map
+ "<insert>" 'clipboard-yank
+ "<C-return>" 'ivy-immediate-done
+ "C-h" 'ivy-backward-delete-char
+ "TAB" 'ivy-alt-done
+ "C-c -" 'my/ivy-done-and-narrow
+ "M-m" 'ivy-done
+ "C-m" 'ivy-done
+ "C-c o" 'ivy-kill-ring-save
+ [escape] 'abort-recursive-edit
+ "C-0" 'ivy-done
+ "C--" 'ivy-next-line
+ "C-=" 'ivy-previous-line
+ "M-d" 'ivy-next-line
+ "M-u" 'ivy-previous-line
+ "C-w" 'ivy-backward-kill-word
+ "C-u" 'backward-kill-line
+ "<XF86Calculator>" 'abort-recursive-edit)
 
-  (general-define-key
-   :keymaps 'ivy-mode-map
-   "C-c v p" 'ivy-push-view
-   "C-c v P" 'ivy-pop-view
-   "C-c v v" 'ivy-switch-view)
+(general-define-key
+ :keymaps 'ivy-mode-map
+ "C-c v p" 'ivy-push-view
+ "C-c v P" 'ivy-pop-view
+ "C-c v v" 'ivy-switch-view)
 
-  (general-nvmap
-    :keymaps 'ivy-mode-map
-    "M-d" 'ivy-switch-buffer))
+(general-nvmap
+  :keymaps 'ivy-mode-map
+  "M-d" 'ivy-switch-buffer))
 
 (use-package counsel
   :ensure t
@@ -240,8 +240,8 @@
   (counsel-mode 1))
 
 (use-package counsel-org-clock
-  :after counsel
-  :ensure t)
+:after counsel
+:ensure t)
 
 (use-package eyebrowse
   ;; :defer t
@@ -287,8 +287,8 @@
   (winner-mode 1))
 
 (use-package ivy-hydra
-  :after hydra
-  :ensure t)
+:after hydra
+:ensure t)
 
 (use-package targets
   :load-path "~/.emacs.d/modules/packages/lisp/"
@@ -296,16 +296,16 @@
   (targets-setup t))
 
 (use-package cool-moves
-  :load-path "~/maps/cool-moves"
-  :config
-  (general-define-key
-   :keymaps 'override
-   "<C-down>" 'cool-moves/paragraph-forward
-   "<C-up>" 'cool-moves/paragraph-backward
-   "C-S-j" 'cool-moves/line-forward
-   "C-S-k" 'cool-moves/line-backward
-   "C-M-n" 'cool-moves/word-forward
-   "C-M-p" 'cool-moves/word-backwards))
+:load-path "~/maps/cool-moves"
+:config
+(general-define-key
+ :keymaps 'override
+"<C-down>" 'cool-moves/paragraph-forward
+"<C-up>" 'cool-moves/paragraph-backward
+"C-S-j" 'cool-moves/line-forward
+"C-S-k" 'cool-moves/line-backward
+"C-M-n" 'cool-moves/word-forward
+"C-M-p" 'cool-moves/word-backwards))
 
 (defun popup-handler (app-name window-title x y w h)
   (web-mode)
