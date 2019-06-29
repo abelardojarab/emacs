@@ -21,6 +21,14 @@
        (point-max))
       (xah-clean-empty-lines))))
 
+(defun indent-buffer-no-excursion ()
+  (interactive)
+  (let ((inhibit-message t))
+    (evil-indent
+     (point-min)
+     (point-max))
+    (xah-clean-empty-lines)))
+
 (defun copy-whole-buffer ()
   "Copy entire buffer to clipboard"
   (interactive)

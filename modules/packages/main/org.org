@@ -8,6 +8,10 @@
 - ~s~ to shift schedules or ~d~ for deadlines
 - ~++1d~ postpones by one day, ~++20d~ by, ~--5d~ delays by five and so forth.
 [[https://old.reddit.com/r/orgmode/comments/8vdwen/does_orgmode_allow_me_to_change_the_date_for/e26sk8t/][source]]
+*** Avisa com 14 dias de antecedência:
+#+BEGIN_SRC example :tangle nil
+DEADLINE: <2019-07-13 Sat -14d>
+#+END_SRC
 ** Org Package
 #+BEGIN_SRC emacs-lisp
 (use-package org

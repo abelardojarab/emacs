@@ -15,6 +15,11 @@
   :defer t
   :ensure t
   :config
+
+  (general-unbind 'lispy-mode-map
+    :with 'eyebrowse-prev-window-config
+    [remap lispy-fill])
+
   (general-unbind 'lispy-mode-map
     :with 'indent-buffer
     [remap lispy-meta-return])
@@ -100,6 +105,7 @@
 (interactive)
 (company-abort)
 (yas-expand))
+
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
   (global-company-mode t))

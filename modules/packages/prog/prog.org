@@ -50,6 +50,11 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
   :defer t
   :ensure t
   :config
+
+  (general-unbind 'lispy-mode-map
+    :with 'eyebrowse-prev-window-config
+    [remap lispy-fill])
+
   (general-unbind 'lispy-mode-map
     :with 'indent-buffer
     [remap lispy-meta-return])

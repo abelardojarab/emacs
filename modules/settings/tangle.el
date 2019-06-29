@@ -1,11 +1,11 @@
 
+(defalias 'sp 'start-process-shell-command)
+
 (defun tangle-py-all ()
   (interactive)
   (my/save-all)
-  (start-process-shell-command "tangle init" nil "~/.e/ntangle-all")
+  (sp "tangle init" nil "~/.e/ntangle-all")
   (message " all files tangled"))
-
-(defalias 'sp 'start-process-shell-command)
 
 (defun tangle-py-all-recompile ()
   (interactive)

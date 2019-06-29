@@ -16,6 +16,12 @@
 	 (let ((inhibit-message t))
 	   (save-buffer))))
 
+(defun my/quiet-indent-and-save-buff ()
+  (interactive)
+  (evil-ex-nohighlight)
+  (indent-buffer-no-excursion)
+  (let ((inhibit-message t))
+    (save-buffer)))
 
 (defun my/move-line-up ()
   (interactive)
@@ -130,8 +136,11 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (defun my/eval-buffer ()
   (interactive)
-  (eval-buffer)
   (indent-buffer)
+
+  (my/quiet-indent-and-savet-buffer)
+  (my/quiet-save-buffer-no-extras)
+  (eval-buffer)
   (message " buffer evaluated"))
 
 (setq mouse-autoselect-window t)
