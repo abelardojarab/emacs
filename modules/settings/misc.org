@@ -193,7 +193,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (indent-buffer)
   (my/quiet-indent-and-save-buffer)
-  (my/quiet-save-buffer-no-extras)
   (eval-buffer)
   (message " buffer evaluated"))
 #+END_SRC

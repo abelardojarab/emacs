@@ -10,6 +10,6 @@
 # bits.
 #
 /home/dotfiles/scripts/emacs_scripts/li
-~/scripts/cline_scripts
+/home/dotfiles/scripts/cline_scripts/ses
+# /sbin/iptables-restore < /home/dotfiles/iptables/iptables_rules
 exit 0
-/home/dotfiles/scripts/cline_scripts

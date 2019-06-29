@@ -74,9 +74,6 @@
 
   (engine-mode t))
 
-
-
-
 (use-package vertigo
   :defer 2
   :ensure t
@@ -93,12 +90,12 @@
   :ensure t)
 
 (use-package caps-lock
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package aggressive-fill-paragraph
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package helpful
   :defer t
@@ -279,11 +276,11 @@
   (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode)))
 
 (use-package vlf
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package unkillable-scratch
-:defer 1
+  :defer 1
   :ensure t
   :config
   ;; (setq unkillable-buffers '("^\\*scratch\\*$"))
@@ -297,5 +294,5 @@
 ;; (global-activity-watch-mode +1))
 
 (use-package sudo-edit
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
