@@ -12,7 +12,7 @@
   (setq evil-want-keybinding nil)
   (setq evil-want-fine-undo t)
   (setq evil-ex-substitute-global t)
-  (setq evil-jumps-cross-buffers nil)
+  (setq evil-jumps-cross-buffers t)
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-Y-yank-to-eol t)
   :config
@@ -65,7 +65,7 @@
   (general-nvmap
     "k" 'evil-previous-visual-line
     "j" 'evil-next-visual-line
-    "C-p" 'hydra-projectile-mode/body
+    "C-SPC" 'caps-lock-mode
     "m" 'hydra-text-motions/body
     "M-e" 'evil-forward-sentence-begin
     "M-a" 'evil-backward-sentence-begin)
@@ -73,6 +73,7 @@
   (general-nvmap
     :keymaps 'override
     ;; "u" 'undo-only
+
     "gn" 'my/evil-format-paragraph-function
     "K" 'ignore
     "C-u" 'hydra-find-emacs-files/body

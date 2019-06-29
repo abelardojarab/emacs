@@ -101,8 +101,11 @@
 					    "*quickrun*"))
 
 (setq projectile-globally-ignored-modes '("erc-mode" "help-mode" "completion-list-mode" "Buffer-menu-mode" "gnus-.*-mode" "occur-mode"))
-(setq projectile-project-search-path '("~"))
+;; (setq projectile-project-search-path '("~"))
+(setq projectile-project-search-path nil)
 
+(setq projectile-sort-order 'recently-active)
+(setq projectile-enable-caching t)
 (setq projectile-mode-line-prefix " <p>")
 (setq projectile-mode-line-function '(lambda () (format " <p> [%s]" (projectile-project-name))))
 

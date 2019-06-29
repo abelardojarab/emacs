@@ -15,6 +15,9 @@
 This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/prog/python.el][python.el]].
 * Packages
 ** elpy
+- C-c C-e (elpy-multiedit-python-symbol-at-point)
+- C-c C-r f (elpy-format-code)
+- C-c C-r r (elpy-refactor)
 #+BEGIN_SRC emacs-lisp
 (use-package elpy
   :ensure t
@@ -38,14 +41,27 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   (setq elpy-eldoc-show-current-function nil)
   (setq python-shell-completion-native-enable nil)
 
+
+(general-unbind 'elpy-mode-map
+  :with 'elpy-nav-backward-block
+  [remap cool-moves/word-backwards])
+
+(general-unbind 'elpy-mode-map
+  :with 'elpy-nav-forward-block
+  [remap cool-moves/word-forward])
+
   (general-define-key
    :keymaps 'elpy-mode-map
    "M-m" 'elpy-autopep8-fix-code
    "C-c C-c" 'elpy-multiedit-stop)
 
-(general-unbind 'elpy-mode-map
-  :with 'pop-tag-mark
-  [remap elpy-goto-definition])
+  (general-unbind 'elpy-mode-map
+    :with 'pop-tag-mark
+    [remap yafolding-toggle-all])
+
+  (general-unbind 'elpy-mode-map
+    :with nil
+    [remap elpy-goto-definition])
 
   (general-unbind 'elpy-mode-map
     :with 'ignore
@@ -89,7 +105,6 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
 	 (let ((inhibit-message t))
 	   (delete-trailing-whitespace)
 	   (save-buffer)))
-
   (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 #+END_SRC

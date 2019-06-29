@@ -71,8 +71,10 @@
 	  eyebrowse-prev-window-config
 	  eyebrowse-create-window-config
 	  my/unpop-shell-other-window))
+
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 15)
+  (setq super-save-idle-duration 10)
+
   (setq auto-save-default nil)
   (super-save-mode +1))
 #+END_SRC

@@ -20,14 +20,27 @@
   (setq elpy-eldoc-show-current-function nil)
   (setq python-shell-completion-native-enable nil)
 
+
+(general-unbind 'elpy-mode-map
+  :with 'elpy-nav-backward-block
+  [remap cool-moves/word-backwards])
+
+(general-unbind 'elpy-mode-map
+  :with 'elpy-nav-forward-block
+  [remap cool-moves/word-forward])
+
   (general-define-key
    :keymaps 'elpy-mode-map
    "M-m" 'elpy-autopep8-fix-code
    "C-c C-c" 'elpy-multiedit-stop)
 
-(general-unbind 'elpy-mode-map
-  :with 'pop-tag-mark
-  [remap elpy-goto-definition])
+  (general-unbind 'elpy-mode-map
+    :with 'pop-tag-mark
+    [remap yafolding-toggle-all])
+
+  (general-unbind 'elpy-mode-map
+    :with nil
+    [remap elpy-goto-definition])
 
   (general-unbind 'elpy-mode-map
     :with 'ignore
@@ -64,7 +77,6 @@
 	 (let ((inhibit-message t))
 	   (delete-trailing-whitespace)
 	   (save-buffer)))
-
   (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 

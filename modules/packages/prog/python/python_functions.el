@@ -55,7 +55,7 @@
   (evil-swap-keys-swap-double-single-quotes)
   (hl-line-mode 1)
   (blacken-mode 1)
-  ;; (my/evil-swap-number-row)
+  (flycheck-mode 1)
   (my/company-jedi-hook)
   (yafolding-mode 1)
   (hs-minor-mode -1))

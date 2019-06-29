@@ -6,8 +6,7 @@
        _r_: quickrun    _f_: first  _k_: prev
        _s_: quickshell  _p_: prev   _j_: next
        _e_: run ext.    _n_: next
-       _RET_: goto def.
-       _<C-return>_: goto assign.
+       _m_: multiedit
 
 "
   ("<escape>" nil)
@@ -16,21 +15,15 @@
   ("s" quickrun-shell)
   ("e" my/run-python-external)
 
-  ("RET" my/elpy-goto-definition)
-  ("<C-return>" pop-tag-mark)
-
-  ("a" dumb-jump-go)
+  ("m" elpy-multiedit-python-symbol-at-point)
 
   ("f" flycheck-first-error)
   ("p" flycheck-next-error :exit nil)
   ("n" flycheck-previous-error :exit nil)
-  ("m" flycheck-mode)
 
   ("k" flymake-goto-prev-error)
   ("j" flymake-goto-next-error)
-  ("M" flymake-mode)
-
-)
+  ("M" flymake-mode))
 
 (defhydra hydra-web-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -257,6 +250,7 @@
        _g_: ag at point
        _f_: file
        _d_: file dwin
+       _i_: file in dir
        _k_: kill
        _b_: buffer
        _p_: project
@@ -276,6 +270,9 @@
 
   ("d" counsel-projectile-find-file-dwim)
   ("C-d" counsel-projectile-find-file-dwim)
+
+  ("i" projectile-find-file-in-directory)
+  ("C-i" counsel-projectile-find-file-dwim)
 
   ("k" projectile-kill-buffers)
   ("C-k" projectile-kill-buffers)

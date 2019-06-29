@@ -86,10 +86,16 @@
   (setq flycheck-mode-line nil)
   (setq flycheck-gcc-warnings nil)
   (setq flycheck-clang-warnings nil)
-  (setq flycheck-display-errors-delay 0.5)
-  (setq flycheck-idle-change-delay 0.5)
+  (setq flycheck-display-errors-delay 0.3)
+  (setq flycheck-idle-change-delay 0.2)
   (setq flycheck-clang-pedantic t)
   (setq flycheck-gcc-pedantic t))
+
+(use-package flymake
+  :defer t
+  :ensure nil
+  :init
+  (setq-default flymake-no-changes-timeout 0.2))
 
 (use-package subword
 :defer 3
