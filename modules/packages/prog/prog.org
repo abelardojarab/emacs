@@ -194,6 +194,16 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 (setq pos-tip-background-color "grey9")
 (setq pos-tip-foreground-color "yellow1"))
 #+END_SRC
+** company prescient
+#+BEGIN_SRC emacs-lisp
+(use-package company-prescient
+:after company
+:ensure t
+:config
+(company-prescient-mode +1)
+(prescient-persist-mode +1))
+#+END_SRC
+
 * tab jump out
 #+BEGIN_SRC emacs-lisp
 (use-package tab-jump-out

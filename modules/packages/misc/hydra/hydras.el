@@ -252,7 +252,7 @@
   "
   ^
        ^Projectile^
-       -----------------------------
+       -----------------
        _a_: ag
        _g_: ag at point
        _f_: file
@@ -271,6 +271,7 @@
   ("d" counsel-projectile-find-file-dwim)
   ("k" projectile-kill-buffers)
   ("b" counsel-projectile-switch-to-buffer)
+  ("C-p" counsel-projectile-switch-project)
   ("p" counsel-projectile-switch-project))
 
 (defhydra hydra-tangle (:color blue :hint nil :exit nil :foreign-keys nil)

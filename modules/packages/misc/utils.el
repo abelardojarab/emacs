@@ -15,6 +15,21 @@
     (evil-swap-keys-swap-colon-semicolon)
     (evil-swap-keys-swap-double-single-quotes))
 
+  (defun my/evil-swap-keys-swap-parens-numbers ()
+    "Swap the square and curly brackets."
+    (interactive)
+    (evil-swap-keys-add-pair "(" "9")
+    (evil-swap-keys-add-pair ")" "0"))
+
+  (defun my/evil-swap-number-row ()
+    "Swap the square and curly brackets."
+    (interactive)
+    (evil-swap-keys-add-pair "5" "%")
+    (evil-swap-keys-add-pair "7" "&")
+    (evil-swap-keys-add-pair "8" "*")
+    (evil-swap-keys-add-pair "0" ")")
+    (evil-swap-keys-add-pair "9" "("))
+
   (defun my/evil-swap-keys-off ()
     (interactive)
     (setq evil-swap-keys--mappings nil)))
@@ -48,7 +63,7 @@
 	  eyebrowse-create-window-config
 	  my/unpop-shell-other-window))
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 180)
+  (setq super-save-idle-duration 15)
   (setq auto-save-default nil)
   (super-save-mode +1))
 
@@ -74,6 +89,9 @@
 
   (engine-mode t))
 
+
+
+
 (use-package vertigo
   :defer 2
   :ensure t
@@ -90,12 +108,12 @@
   :ensure t)
 
 (use-package caps-lock
-  :defer t
-  :ensure t)
+:defer t
+:ensure t)
 
 (use-package aggressive-fill-paragraph
-  :defer t
-  :ensure t)
+:defer t
+:ensure t)
 
 (use-package helpful
   :defer t
@@ -276,11 +294,11 @@
   (add-to-list 'auto-mode-alist '("\\.vim\\'" . vimrc-mode)))
 
 (use-package vlf
-  :defer t
-  :ensure t)
+:defer t
+:ensure t)
 
 (use-package unkillable-scratch
-  :defer 1
+:defer 1
   :ensure t
   :config
   ;; (setq unkillable-buffers '("^\\*scratch\\*$"))
@@ -294,5 +312,5 @@
 ;; (global-activity-watch-mode +1))
 
 (use-package sudo-edit
-  :defer t
-  :ensure t)
+:defer t
+:ensure t)

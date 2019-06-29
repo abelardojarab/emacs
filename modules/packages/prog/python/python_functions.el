@@ -53,7 +53,15 @@
   (my/company-idle-zero-prefix-one-quiet)
   (evil-swap-keys-swap-colon-semicolon)
   (evil-swap-keys-swap-double-single-quotes)
-  (blacken-mode 1))
+  (hl-line-mode 1)
+  (blacken-mode 1)
+  ;; (my/evil-swap-number-row)
+  (my/company-jedi-hook)
+  (yafolding-mode 1)
+  (hs-minor-mode -1))
+
+(defun my/company-jedi-hook ()
+  (add-to-list 'company-backends 'company-jedi))
 
 (defun my/inferior-python-mode-hooks ()
   (interactive)

@@ -61,6 +61,7 @@
   (general-nvmap
     "k" 'evil-previous-visual-line
     "j" 'evil-next-visual-line
+    "C-p" 'hydra-projectile-mode/body
     "m" 'hydra-text-motions/body
     "M-e" 'evil-forward-sentence-begin
     "M-a" 'evil-backward-sentence-begin)

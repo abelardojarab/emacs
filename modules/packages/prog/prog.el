@@ -129,6 +129,13 @@
 (setq pos-tip-background-color "grey9")
 (setq pos-tip-foreground-color "yellow1"))
 
+(use-package company-prescient
+:after company
+:ensure t
+:config
+(company-prescient-mode +1)
+(prescient-persist-mode +1))
+
 (use-package tab-jump-out
   :defer 3
   :ensure t

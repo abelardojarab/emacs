@@ -32,6 +32,7 @@
  :keymaps 'python-mode-map
  "C-c =" 'my/erase-python-file-macro
  "C--" 'quickrun
+ "<tab>" 'yafolding-toggle-element
  "C-." 'my/indent-tools-hydra/body
  "M-e" 'python-nav-forward-statement
  "M-a" 'python-nav-backward-statement)
@@ -43,6 +44,7 @@
 (general-nvmap
   :keymaps 'python-mode-map
   "<C-return>" 'elpy-goto-definition
+  "<tab>" 'yafolding-toggle-element
   "C--" 'quickrun
   "C-." 'my/indent-tools-hydra/body
   "<tab>" 'hs-toggle-hiding

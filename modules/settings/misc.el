@@ -57,9 +57,9 @@
   (back-to-indentation))
 
 (defun my/markdown-forward-paragraph ()
-  (interactive)
-  (markdown-forward-paragraph)
-  (forward-to-indentation))
+(interactive)
+(markdown-forward-paragraph)
+(forward-to-indentation))
 
 (defun last-buffer ()
   "Switch to previously open buffer.
@@ -99,12 +99,13 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (let ((filename (buffer-file-name)))
     (when filename
-      (if (vc-backend filename)
-	  (vc-delete-file filename)
-	(progn
-	  (delete-file filename)
-	  (message "Deleted file %s" filename)
-	  (kill-buffer))))))
+   (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))
+
 
 (defun my/move-file-to-trash ()
   (interactive)
@@ -117,6 +118,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (move-file-to-trash (buffer-name))
   (kill-buffer)
   (eyebrowse-close-window-config))
+
 
 (defun enable-cursor ()
   (interactive)
@@ -136,7 +138,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (indent-buffer)
   (my/quiet-indent-and-save-buffer)
-  (my/quiet-save-buffer-no-extras)
   (eval-buffer)
   (message " buffer evaluated"))
 
@@ -154,19 +155,19 @@ Repeated invocations toggle between the two most recently open buffers."
 (setq scroll-conservatively 0)
 
 (defun my/scroll-conservatively-five ()
-  (interactive)
-  (setq scroll-conservatively 5)
-  (message " scroll-conservatively 5"))
+(interactive)
+(setq scroll-conservatively 5)
+(message " scroll-conservatively 5"))
 
 (defun my/scroll-conservatively-zero ()
-  (interactive)
-  (setq scroll-conservatively 0)
-  (message " scroll-conservatively 0"))
+(interactive)
+(setq scroll-conservatively 0)
+(message " scroll-conservatively 0"))
 
 (defun my/scroll-conservatively-ten ()
-  (interactive)
-  (setq scroll-conservatively 10)
-  (message " scroll-conservatively 10"))
+(interactive)
+(setq scroll-conservatively 10)
+(message " scroll-conservatively 10"))
 
 (setq-default display-line-numbers nil)
 (setq visible-bell nil)

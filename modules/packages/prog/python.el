@@ -1,12 +1,12 @@
 (use-package elpy
   :ensure t
-  :init
-  (add-hook 'elpy-mode-hook
-	    (lambda ()
-	      (set (make-local-variable 'company-backends)
-		   '((elpy-company-backend
-		      company-dabbrev-code
-		      company-yasnippet)))))
+  ;; :init
+  ;; (add-hook 'elpy-mode-hook
+  ;; 	    (lambda ()
+  ;; 	      (set (make-local-variable 'company-backends)
+  ;; 		   '((elpy-company-backend
+  ;; 		      company-dabbrev-code
+  ;; 		      company-yasnippet)))))
 
   :config
 
@@ -24,6 +24,10 @@
    :keymaps 'elpy-mode-map
    "M-m" 'elpy-autopep8-fix-code
    "C-c C-c" 'elpy-multiedit-stop)
+
+(general-unbind 'elpy-mode-map
+  :with 'pop-tag-mark
+  [remap elpy-goto-definition])
 
   (general-unbind 'elpy-mode-map
     :with 'ignore
@@ -69,3 +73,25 @@
   :config
   (setq importmagic-be-quiet t)
   (add-hook 'python-mode-hook 'importmagic-mode))
+
+(use-package company-jedi
+:defer t
+:ensure t)
+
+(use-package yafolding
+:ensure t
+:config
+
+(general-unbind 'yafolding-mode-map
+  :with 'yafolding-toggle-element
+  [remap hs-toggle-hiding])
+
+(general-unbind 'yafolding-mode-map
+  :with 'yafolding-show-all
+  [remap outline-show-all])
+
+(general-unbind 'yafolding-mode-map
+  :with 'yafolding-hide-all
+  [remap evil-close-folds])
+
+(yafolding-mode +1))
