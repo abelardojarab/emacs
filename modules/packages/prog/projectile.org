@@ -6,40 +6,7 @@
   :defer t
   :ensure t
   :config
-
-  (defun my/counsel-projectile-commands ()
-    (interactive)
-    (counsel-M-x "^counsel-projectile "))
-
-  (defun my/projectile-show-commands ()
-    (interactive)
-    (counsel-M-x "^projectile- "))
-
-(general-nvmap
-   "M-r" 'counsel-projectile-switch-to-buffer)
-
-  (general-define-key
-   :keymaps 'projectile-mode-map
-   "M-r" nil
-   ;; "M-r" 'counsel-projectile-switch-to-buffer
-   "M-]" 'projectile-next-project-buffer
-   "M-[" 'projectile-previous-project-buffer
-   "C-c 0" 'my/projectile-show-commands)
-
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "<f10>") 'projectile-command-map)
-
-  (general-unbind 'projectile-command-map
-    "ESC")
-
-  (general-define-key
-   "M-u" 'counsel-projectile-switch-to-buffer)
-  (general-define-key
-   :keymaps 'projectile-command-map
-   "ESC" 'keyboard-quit
-   "TAB" 'projectile-project-buffers-other-buffer)
-
-)
+  (load-file "~/.emacs.d/modules/packages/prog/projectile/projectile_settings.el"))
 #+END_SRC
 
 * counsel projectile

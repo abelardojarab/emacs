@@ -1,17 +1,37 @@
-(setq projectile-globally-ignored-directories '(".idea"
-						".ensime_cache"
-						".eunit"
+
+(setq projectile-globally-ignored-directories '(".hg"
 						".git"
 						".old"
-						".hg"
-						".fslckout"
-						"_FOSSIL_"
 						".bzr"
-						"_darcs"
 						".tox"
 						".svn"
+						".idea"
+						"~/.e/"
+						"~/org"
+						".eunit"
+						"_darcs"
+						"~/maps"
+						"~/.fzf/"
+						"~/.tmux/"
+						"_FOSSIL_"
+						"~/.pyenv/"
+						"~/.irssi/"
+						".fslckout"
+						"~/scripts/"
+						"~/.config/"
+						"~/dotfiles"
+						"~/.emacs.d"
+						"~/.emacs.d/"
 						".stack-work"
-						"~/.emacs.d/quelpa"))
+						".ensime_cache"
+						"~/Studying/UFBA"
+						"~/.emacs.d/quelpa"
+						"~/.emacs_anywhere/"
+						"~/.PyCharmCE2019.1/"
+						"*PyCharmCE2019*"
+						"~/maps/.emacs_anywhere"
+						"/home/dotfiles/.emacs.d/"
+						"~/Studying/Unifacs/Segundo_Semestre"))
 
 (setq projectile-globally-ignored-buffers '(".*Log.*"
 					    ".*log.*"
@@ -29,6 +49,7 @@
 					    "\\`\\*Echo Area"
 					    "\\`\\*Minibuf"
 					    "Ibuffer"
+					    "epc con"
 					    "*Shell Command Output*"
 					    "*Calculator*"
 					    "*Calendar*"
@@ -84,3 +105,35 @@
 
 (setq projectile-mode-line-prefix " <p>")
 (setq projectile-mode-line-function '(lambda () (format " <p> [%s]" (projectile-project-name))))
+
+(defun my/counsel-projectile-commands ()
+  (interactive)
+  (counsel-M-x "^counsel-projectile "))
+
+(defun my/projectile-show-commands ()
+  (interactive)
+  (counsel-M-x "^projectile- "))
+
+(general-nvmap
+  "M-r" 'counsel-projectile-switch-to-buffer)
+
+(general-define-key
+ :keymaps 'projectile-mode-map
+ "M-r" nil
+ ;; "M-r" 'counsel-projectile-switch-to-buffer
+ "M-]" 'projectile-next-project-buffer
+ "M-[" 'projectile-previous-project-buffer
+ "C-c 0" 'my/projectile-show-commands)
+
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "<f10>") 'projectile-command-map)
+
+(general-unbind 'projectile-command-map
+  "ESC")
+
+(general-define-key
+ "M-u" 'counsel-projectile-switch-to-buffer)
+(general-define-key
+ :keymaps 'projectile-command-map
+ "ESC" 'keyboard-quit
+ "TAB" 'projectile-project-buffers-other-buffer)

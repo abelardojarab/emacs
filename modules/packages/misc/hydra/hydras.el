@@ -266,11 +266,23 @@
   ("RET" hydra-prog-mode/body)
 
   ("a" counsel-projectile-ag)
+  ("C-a" counsel-projectile-ag)
+
   ("g" counsel-ag-thing-at-point)
+  ("C-g" counsel-ag-thing-at-point)
+
   ("f" counsel-projectile-find-file)
+  ("C-f" counsel-projectile-find-file)
+
   ("d" counsel-projectile-find-file-dwim)
+  ("C-d" counsel-projectile-find-file-dwim)
+
   ("k" projectile-kill-buffers)
+  ("C-k" projectile-kill-buffers)
+
   ("b" counsel-projectile-switch-to-buffer)
+  ("C-b" counsel-projectile-switch-to-buffer)
+
   ("C-p" counsel-projectile-switch-project)
   ("p" counsel-projectile-switch-project))
 
