@@ -268,12 +268,13 @@ Provides a major-mode for the i3/config file.
 (provide 'i3wm-emacs)
 
 (add-to-list 'auto-mode-alist '("\\i3/config\\'" . i3wm-config-mode))
-(add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
+(add-to-list 'auto-mode-alist '("\\i3/scratches-small-screen\\'" . i3wm-config-mode))
 
 (add-hook 'i3wm-emacs-hook 'line-numbers)
 (add-hook 'i3wm-emacs-hook 'my/prog-mode-hooks)
 ;;; i3wm-emacs.el ends here
 #+END_SRC
+
 ** tmux
 Provides a major-mode for the tmux/config file.
 #+BEGIN_SRC emacs-lisp

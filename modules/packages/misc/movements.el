@@ -295,6 +295,9 @@
   :config
   (targets-setup t))
 
+(use-package i3wm-config-mode
+  :load-path "~/.emacs.d/modules/packages/lisp/")
+
 (use-package cool-moves
 :load-path "~/maps/cool-moves"
 :config

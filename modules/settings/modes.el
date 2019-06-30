@@ -212,7 +212,8 @@
 
 (provide 'i3wm-emacs)
 
-(add-to-list 'auto-mode-alist '("\\i3/config\\'" . i3wm-emacs))
+(add-to-list 'auto-mode-alist '("\\i3/config\\'" . i3wm-config-mode))
+(add-to-list 'auto-mode-alist '("\\i3/scratches-small-screen\\'" . i3wm-config-mode))
 
 (add-hook 'i3wm-emacs-hook 'line-numbers)
 (add-hook 'i3wm-emacs-hook 'my/prog-mode-hooks)

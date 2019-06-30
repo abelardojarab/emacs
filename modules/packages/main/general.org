@@ -159,8 +159,7 @@
 *** Files
 #+BEGIN_SRC emacs-lisp
 ;;;; FILESETS ;;;;
-"C-c f o" 'filesets-open
-"C-c f k" 'filesets-close
+"C-c f" 'make-frame
  #+END_SRC
 *** Load and Unload
 #+BEGIN_SRC emacs-lisp

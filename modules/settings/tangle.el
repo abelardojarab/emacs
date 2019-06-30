@@ -72,4 +72,3 @@
   (my/save-all)
   (sp "tangle-i3" nil "~/scripts/i3_scripts/tangle-i3-restart")
   (message " i3 reloaded"))
-

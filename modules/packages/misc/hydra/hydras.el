@@ -290,15 +290,17 @@
        --------------
        _a_: all
        _b_: all & res
-       _c_: default
-       _d_: debug
+       _c_: my default
+       _d_: real default
+       _g_: debug
        _n_: new
        _e_: this file
 "
   ("a" tangle-py-all)
   ("b" tangle-py-all-and-restart)
   ("c" my/tangle-default)
-  ("d" tangle-py-all-debug)
+  ("d" org-babel-tangle)
+  ("g" tangle-py-all-debug)
   ("n" tangle-py-all-new)
   ("e" my/tangle-this-file))
 

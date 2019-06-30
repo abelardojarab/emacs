@@ -130,8 +130,7 @@
 "C-c x" 'my/show-variable-at-point
 
 ;;;; FILESETS ;;;;
-"C-c f o" 'filesets-open
-"C-c f k" 'filesets-close
+"C-c f" 'make-frame
 
 ;;;; LOADING AND UNLOADING ;;;;
 "C-c l l"   'load-theme
