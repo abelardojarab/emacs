@@ -356,6 +356,11 @@
   :config
   (targets-setup t))
 #+END_SRC
+* i3wm-Config-Mode
+#+BEGIN_SRC emacs-lisp
+(use-package i3wm-config-mode
+  :load-path "~/.emacs.d/modules/packages/lisp/")
+#+END_SRC
 * cool-moves
 #+BEGIN_SRC emacs-lisp
 (use-package cool-moves

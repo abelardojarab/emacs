@@ -27,8 +27,7 @@
   :init
   (setq dimmer-fraction 0.2))
 #+END_SRC
-* modelines
-** doom modeline
+* doom modeline
 #+BEGIN_SRC emacs-lisp
 (use-package doom-modeline
 :ensure t
