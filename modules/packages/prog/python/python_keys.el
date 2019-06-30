@@ -65,5 +65,4 @@
   :keymaps 'python-mode-map
   "C--" 'my/my-quickrun
   "M-e" 'python-nav-forward-statement
-  "M-a" 'python-nav-backward-statement
-  "<M-return>" 'indent-buffer-python)
+  "M-a" 'python-nav-backward-statement)

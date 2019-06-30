@@ -2,6 +2,11 @@
   :ensure t
 
 :config
+
+(defun my/kill-previous-buffer ()
+  (interactive)
+  (kill-buffer (last-buffer)))
+
 ;; (defun my/gui-keybindings-load ()
 ;;   (interactive)
 ;;   (general-define-key
@@ -131,6 +136,7 @@
 
 ;;;; FILESETS ;;;;
 "C-c f" 'make-frame
+"C-c p" 'my/kill-previous-buffer
 
 ;;;; LOADING AND UNLOADING ;;;;
 "C-c l l"   'load-theme

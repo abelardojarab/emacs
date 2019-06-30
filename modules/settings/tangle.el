@@ -7,6 +7,7 @@
   (sp "tangle init" nil "~/.e/ntangle-all")
   (message " all files tangled"))
 
+
 (defun tangle-py-all-recompile ()
   (interactive)
   (my/save-all)
@@ -72,3 +73,5 @@
   (my/save-all)
   (sp "tangle-i3" nil "~/scripts/i3_scripts/tangle-i3-restart")
   (message " i3 reloaded"))
+
+

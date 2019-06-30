@@ -9,7 +9,3 @@
 # In order to enable or disable this script just change the execution
 # bits.
 #
-/home/dotfiles/scripts/emacs_scripts/li
-/home/dotfiles/scripts/cline_scripts/ses
-# /sbin/iptables-restore < /home/dotfiles/iptables/iptables_rules
-exit 0

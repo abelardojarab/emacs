@@ -22,7 +22,10 @@
 	'(("." . "~/.emacs.d/var/undo-tree-hist/")))
   (setq evil-insert-state-message nil)
   (setq evil-respect-visual-line-mode nil)
+
   (general-nmap
+    "gu" 'fix-word-upcase
+    "gU" 'fix-word-downcase
     "-" 'evil-next-line
     "DEL" nil
     "gr" 'sel-to-end
@@ -51,6 +54,7 @@
 
   (general-imap
     "C-u" 'backward-kill-line
+    "C-SPC" 'caps-lock-mode
     "C-c SPC" 'fix-word-capitalize
     "C-c n" 'fix-word-upcase
     "C-c d" 'fix-word-downcase)

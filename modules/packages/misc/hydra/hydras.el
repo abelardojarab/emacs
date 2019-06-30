@@ -548,7 +548,6 @@
   ("f" prelude-copy-file-name-to-clipboard)
   ("g" my/copy-dir)
   ("h" ivy-resume)
-  ("i" define-global-abbrev)
   ("J" delete-duplicate-lines)
 
   ("k" my/tangle-reload-keys)

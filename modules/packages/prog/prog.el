@@ -87,7 +87,7 @@
   (setq flycheck-gcc-warnings nil)
   (setq flycheck-clang-warnings nil)
   (setq flycheck-display-errors-delay 0.3)
-  (setq flycheck-idle-change-delay 0.2)
+  (setq flycheck-idle-change-delay 0.1)
   (setq flycheck-clang-pedantic t)
   (setq flycheck-gcc-pedantic t))
 

@@ -8,6 +8,11 @@
 * Functions
 #+BEGIN_SRC emacs-lisp
 :config
+
+(defun my/kill-previous-buffer ()
+  (interactive)
+  (kill-buffer (last-buffer)))
+
 ;; (defun my/gui-keybindings-load ()
 ;;   (interactive)
 ;;   (general-define-key
@@ -27,6 +32,7 @@
 ;;    "M-]" nil))
 
 #+END_SRC
+
 * Keys
 ** Translation
 #+BEGIN_SRC emacs-lisp
@@ -160,6 +166,7 @@
 #+BEGIN_SRC emacs-lisp
 ;;;; FILESETS ;;;;
 "C-c f" 'make-frame
+"C-c p" 'my/kill-previous-buffer
  #+END_SRC
 *** Load and Unload
 #+BEGIN_SRC emacs-lisp

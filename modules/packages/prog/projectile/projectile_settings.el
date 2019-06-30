@@ -128,7 +128,7 @@
  "M-[" 'projectile-previous-project-buffer
  "C-c 0" 'my/projectile-show-commands)
 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "<f10>") 'projectile-command-map)
 
 (general-unbind 'projectile-command-map
