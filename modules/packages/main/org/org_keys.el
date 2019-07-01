@@ -13,10 +13,6 @@
   "M-m" 'org-edit-special
   "<backspace>" 'org-edit-special)
 
-(general-unbind 'org-src-mode-map
-  :with 'org-edit-src-exit
-  "<backspace>")
-
 ;;;; OTHER KEYBINDINGS ;;;;
 
 (general-define-key

@@ -8,7 +8,7 @@
   :defer t
   :ensure nil
   :init
-  ;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 
 (use-package lispy
@@ -26,7 +26,12 @@
 
   (general-unbind 'lispy-mode-map
     :with 'org-edit-src-exit
-    [remap lispy-mark-symbol]))
+    [remap lispy-mark-symbol])
+
+  (general-unbind 'lispy-mode-map
+    :states '(normal visual)
+    :with 'org-edit-src-exit
+    "<backspace>"))
 
 (use-package lispyville
 :defer t
@@ -271,3 +276,9 @@
 (use-package highlight-indent-guides
 :defer t
 :ensure t)
+
+(use-package string-inflection
+  :defer t
+  :ensure t
+  :config
+  (setq string-inflection-skip-backward-when-done t))

@@ -11,6 +11,11 @@
 
 ;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
-(add-hook 'org-src-mode-hook 'olivetti-mode)
+(add-hook 'org-src-mode-hook 'my/org-src-hooks)
+
+(defun my/org-src-hooks ()
+  (interactive)
+  (indent-buffer)
+  (olivetti-mode +1))
 
 (remove-hook 'org-cycle-hook #'org-optimize-window-after-visibility-change)

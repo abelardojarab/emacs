@@ -5,7 +5,6 @@
   :config
   (load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
   (load-file "~/.emacs.d/modules/packages/main/org/org_setqs.el")
-
   (load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
   (load-file "~/.emacs.d/modules/packages/main/org/org_misc.el"))
 

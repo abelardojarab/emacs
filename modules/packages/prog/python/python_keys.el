@@ -30,7 +30,7 @@
 
 (general-define-key
  :keymaps 'python-mode-map
- "C-c =" 'my/erase-python-file-macro
+ "C-=" 'string-inflection-python-style-cycle
  "C--" 'quickrun
  "<tab>" 'yafolding-toggle-element
  "C-." 'my/indent-tools-hydra/body

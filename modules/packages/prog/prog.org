@@ -40,9 +40,10 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
   :defer t
   :ensure nil
   :init
-  ;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 #+END_SRC
+
 ** lispy
 #+BEGIN_SRC emacs-lisp
 (use-package lispy
@@ -366,4 +367,12 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 (use-package highlight-indent-guides
 :defer t
 :ensure t)
+#+END_SRC
+* string inflection
+#+BEGIN_SRC emacs-lisp
+(use-package string-inflection
+  :defer t
+  :ensure t
+  :config
+  (setq string-inflection-skip-backward-when-done t))
 #+END_SRC

@@ -540,7 +540,7 @@
     (yas-minor-mode 1)
     (highlight-indent-guides-mode 1))
 
-    ;; (setq comment-auto-fill-only-comments t)
+  ;; (setq comment-auto-fill-only-comments t)
 
   (general-imap
     :keymaps 'prog-mode-map
@@ -558,6 +558,12 @@
 
   (general-define-key
    :keymaps 'prog-mode-map
+   "<C-return>" 'hydra-prog-mode/body
+   "<M-return>" 'indent-buffer)
+
+  (general-define-key
+   :keymaps 'prog-mode-map
+   "C-=" 'string-inflection-all-cycle
    "<C-return>" 'hydra-prog-mode/body
    "<M-return>" 'indent-buffer))
 
