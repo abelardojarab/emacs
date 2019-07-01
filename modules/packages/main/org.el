@@ -11,7 +11,9 @@
 
 
 (use-package org-bullets
-:ensure t)
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◉"))))
 
 (use-package org-web-tools
   :after org

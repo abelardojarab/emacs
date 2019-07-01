@@ -30,7 +30,9 @@ DEADLINE: <2019-07-13 Sat -14d>
 #+BEGIN_SRC emacs-lisp
 
 (use-package org-bullets
-:ensure t)
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◉"))))
 
 (use-package org-web-tools
   :after org

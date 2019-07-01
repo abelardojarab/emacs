@@ -325,10 +325,8 @@
     [remap my/quiet-save-buffer]))
 
 (use-package atomic-chrome
-  :defer t
   :ensure t
   :config
-  (atomic-chrome-start-server)
   (setq atomic-chrome-default-major-mode 'markdown-mode)
   (setq atomic-chrome-buffer-open-style 'full)
   (add-hook 'atomic-chrome-edit-mode-hook 'my/atomic-chrome-hooks)
@@ -343,4 +341,5 @@
 
   (defun my/atomic-chrome-hooks ()
     (interactive)
-    (olivetti-mode)))
+    (olivetti-mode))
+  (atomic-chrome-start-server))
