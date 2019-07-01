@@ -108,8 +108,7 @@
 
   (general-define-key
    :keymaps 'global
-   :states '(normal visual)
-   "DEL"  'ignore)
+   :states '(normal visual))
 
   (general-imap
     :keymaps 'i3wm-emacs-map

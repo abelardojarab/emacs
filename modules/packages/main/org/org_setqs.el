@@ -48,8 +48,8 @@
 (setq org-edit-src-persistent-message nil)
 (setq org-edit-src-auto-save-idle-delay 1)
 
-(setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
+(setq org-src-fontify-natively nil)
+(setq org-src-tab-acts-natively nil)
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c t)
 (setq org-src-ask-before-returning-to-edit-buffer nil)
@@ -73,13 +73,14 @@
 (setq org-use-speed-commands t)
 (setq org-cycle-level-faces t)
 (setq org-return-follows-link t)
-(setq org-fontify-whole-heading-line t)
 (setq org-hide-emphasis-markers t)
 (setq org-startup-indented t)
 (setq org-replace-disputed-keys t)
 (setq org-ellipsis ".")
 (setq org-babel-temporary-directory "~/.emacs.d/babel-temp")
+
 (setq org-fontify-done-headline t)
+(setq org-fontify-whole-heading-line nil)
 
 (setq org-todo-keywords
       '((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))

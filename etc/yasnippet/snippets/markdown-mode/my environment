@@ -1,7 +1,7 @@
 # key: myenv
-# name: my environment
+# name: myenvy
 # --
-#### Runtime Environment
+### Runtime Environment
 
 - MX Linux 18
 - [i3wm](https://i3wm.org/) version 4.13
@@ -12,6 +12,6 @@
 - `(evil-version)`
 - [~/.emacs.d](https://github.com/mrbig033/emacs)
 
-#### Issue
+### Issue
 
 $0

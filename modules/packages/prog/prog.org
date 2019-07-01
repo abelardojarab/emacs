@@ -40,10 +40,9 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
   :defer t
   :ensure nil
   :init
-  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+  ;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 #+END_SRC
-
 ** lispy
 #+BEGIN_SRC emacs-lisp
 (use-package lispy
@@ -61,14 +60,19 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
 
   (general-unbind 'lispy-mode-map
     :with 'org-edit-src-exit
-    [remap lispy-mark-symbol]))
+    [remap lispy-mark-symbol])
+
+  (general-unbind 'lispy-mode-map
+    :states '(normal visual)
+    :with 'org-edit-src-exit
+    "<backspace>"))
 #+END_SRC
 
 ** lispyville
 #+BEGIN_SRC emacs-lisp
 (use-package lispyville
 :defer t
-:ensure t
+:ensure nil
 :init
 (add-hook 'lispy-mode-hook #'lispyville-mode))
 #+END_SRC

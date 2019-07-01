@@ -8,7 +8,7 @@
   :defer t
   :ensure nil
   :init
-  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+  ;; (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'lisp-interaction-mode-hook 'line-numbers))
 
 (use-package lispy
@@ -30,7 +30,7 @@
 
 (use-package lispyville
 :defer t
-:ensure t
+:ensure nil
 :init
 (add-hook 'lispy-mode-hook #'lispyville-mode))
 

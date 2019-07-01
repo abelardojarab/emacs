@@ -128,3 +128,22 @@
   (interactive)
   (org-insert-link
    `(4)))
+
+;; (defun my/()
+;;   (interactive)
+
+;;   )
+
+
+(defun my/agenda-return ()
+  (interactive)
+  (org-agenda-switch-to 'delete-other-windows))
+
+(defun my/agenda-switch-to ()
+  (interactive)
+  (org-agenda-switch-to))
+
+(defun my/agenda-goto ()
+  (interactive)
+  (org-agenda-goto)
+  (other-window -1))

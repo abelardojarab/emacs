@@ -316,3 +316,20 @@
 (use-package sudo-edit
 :defer t
 :ensure t)
+
+(use-package beacon
+  :defer t
+  :init
+  (add-hook 'beacon-dont-blink-predicates
+	    (lambda () (bound-and-true-p centered-cursor-mode)))
+  :ensure t
+  :config
+  ;; (setq beacon-dont-blink-commands '(find-packs find-keys find-misc find-functions find-macros find-hydras find-file counsel-find-file))
+  (setq beacon-size 10)
+  (setq beacon-blink-when-point-moves-vertically nil)
+  (setq beacon-blink-when-point-moves-horizontally t)
+  (setq beacon-blink-when-focused t)
+  (setq beacon-blink-duration 0.1)
+  (setq beacon-blink-delay 0.1)
+  (setq beacon-blink-when-window-scrolls nil)
+  (setq beacon-blink-when-window-changes t))
