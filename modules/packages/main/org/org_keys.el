@@ -11,7 +11,6 @@
 (general-nvmap
   :keymaps 'org-mode-map
   "M-m" 'org-edit-special
-  "C-m" 'org-edit-special
   "<backspace>" 'org-edit-special)
 
 (general-unbind 'org-src-mode-map
@@ -22,7 +21,6 @@
 
 (general-define-key
  :keymaps 'org-mode-map
- "C-m" nil
  "C-c C-b" nil
  "C-j" 'counsel-M-x
  "C-M-k" 'org-metaup

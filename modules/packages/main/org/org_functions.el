@@ -147,3 +147,8 @@
   (interactive)
   (org-agenda-goto)
   (other-window -1))
+
+(defun my/org-open-src-block ()
+  (interactive)
+  (org-babel-next-src-block)
+  (org-edit-special))
