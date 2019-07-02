@@ -134,7 +134,6 @@
 
 ;;   )
 
-
 (defun my/agenda-return ()
   (interactive)
   (org-agenda-switch-to 'delete-other-windows))
@@ -152,3 +151,13 @@
   (interactive)
   (org-babel-next-src-block)
   (org-edit-special))
+
+;; Source:
+;; https://stackoverflow.com/a/8933423
+
+(defun zin/org-open-other-frame ()
+  "Jump to bookmark in another frame. See `bookmark-jump' for more."
+  (interactive)
+  (let ((org-link-frame-setup
+	 (acons 'file 'find-file-other-frame org-link-frame-setup)))
+    (org-open-at-point)))

@@ -374,5 +374,5 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :defer t
   :ensure t
   :config
-  (setq string-inflection-skip-backward-when-done t))
+  (setq string-inflection-skip-backward-when-done nil))
 #+END_SRC

@@ -9,7 +9,7 @@
 				   (evil-insert-state)
 				   (evil-window-move-very-bottom)))
 
-;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
+(remove-hook 'org-cycle-hook #'org-optimize-window-after-visibility-change)
 
 (add-hook 'org-src-mode-hook 'my/org-src-hooks)
 
@@ -18,4 +18,4 @@
   (indent-buffer)
   (olivetti-mode +1))
 
-(remove-hook 'org-cycle-hook #'org-optimize-window-after-visibility-change)
+;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)

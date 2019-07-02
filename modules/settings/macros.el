@@ -135,9 +135,6 @@
 (fset 'my/clear-html-macro
    (kmacro-lambda-form [?\C-x ?h ?c ?! C-return] 0 "%d"))
 
-(fset 'my/erase-python-file-macro
-   (kmacro-lambda-form [?g ?g ?î ?c ?G] 0 "%d"))
-
 (fset 'my/python-paste-exercise
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 111 103 111 112 103 119 97 112 103 99 105 112 escape] 0 "%d") arg)))
 

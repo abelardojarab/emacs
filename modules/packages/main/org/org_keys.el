@@ -17,6 +17,7 @@
 
 (general-define-key
  :keymaps 'org-mode-map
+ "<C-M-return>" 'zin/org-open-other-frame
  "C-c C-b" nil
  "C-j" 'counsel-M-x
  "C-M-k" 'org-metaup

@@ -68,3 +68,10 @@
   (line-numbers)
   (tab-jump-out-mode 1)
   (subword-mode 1))
+
+(defun my/reset-python-file ()
+  (interactive)
+  (erase-buffer)
+  (insert "#!/usr/bin/env python3\n\n")
+  (evil-insert-state)
+  (flycheck-clear))

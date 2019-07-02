@@ -30,6 +30,7 @@
 
 (general-define-key
  :keymaps 'python-mode-map
+ "<C-M-backspace>" 'my/reset-python-file
  "C-=" 'string-inflection-python-style-cycle
  "C--" 'quickrun
  "<tab>" 'yafolding-toggle-element

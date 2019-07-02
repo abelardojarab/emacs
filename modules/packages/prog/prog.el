@@ -281,4 +281,4 @@
   :defer t
   :ensure t
   :config
-  (setq string-inflection-skip-backward-when-done t))
+  (setq string-inflection-skip-backward-when-done nil))
