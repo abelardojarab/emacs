@@ -683,6 +683,7 @@
   :defer 1
   :ensure nil
   :config
+  (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1))
 
 (use-package mouse
@@ -805,7 +806,7 @@
 (use-package vc-mode
   :defer nil
   :ensure nil
-  :init
+  :config
   (setq vc-follow-symlinks t))
 
 (use-package register

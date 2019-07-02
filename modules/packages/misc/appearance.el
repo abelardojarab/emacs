@@ -1,8 +1,8 @@
 (use-package delight
-  :defer t
   :ensure t
   :config
-  (delight '((projectile-mode " <p>" "Projectile")
+  (delight '(
+	     (projectile-mode nil)
 	     (sh-mode " sh " "Shell-script[bash]")
 	     (org-mode "" "Org")
 	     (overwrite-mode " Ovl" t)
@@ -18,7 +18,7 @@
 	     (evil-org-mode "" " EvilOrg")
 	     (elmacro-mode " " "elmacro")
 	     (ivy-mode "" "ivy")
-	     (python-mode " py" " Python")
+	     (python-mode " Py" " Python")
 	     (emacs-lisp-mode " elisp" "Emacs-Lisp")
 	     (lisp-interaction-mode " lisp int" "Lisp Interaction"))))
 
@@ -32,28 +32,15 @@
 (use-package doom-modeline
   :ensure t
   :config
-  (setq auto-revert-check-vc-info t)
   (doom-modeline-mode 1)
+  (setq doom-modeline-env-enable-python nil)
+  (setq doom-modeline-buffer-encoding nil)
   (setq doom-modeline-icon t)
   (setq doom-modeline-project-root t)
   (setq find-file-visit-truename t)
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-minor-modes nil)
   (setq doom-modeline-buffer-file-name-style 'buffer-name))
-
-(use-package rich-minority
-  :defer t
-  :ensure t
-  :config
-  (rich-minority-mode 1)
-
-  (setq rm-blacklist
-	(format "^ \\(%s\\)$"
-		(mapconcat #'identity
-			   '("Fly.*" "Projectile.*" "PgLn" "Python 3.7.3" "elmacro.*")
-			   "\\|")))
-
-  )
 
 (use-package noctilux-theme
 :ensure t

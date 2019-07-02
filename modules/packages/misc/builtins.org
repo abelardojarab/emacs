@@ -747,8 +747,10 @@
   :defer 1
   :ensure nil
   :config
+  (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1))
 #+END_SRC
+
 ** mouse
 #+BEGIN_SRC emacs-lisp
 (use-package mouse
@@ -894,7 +896,7 @@
 (use-package vc-mode
   :defer nil
   :ensure nil
-  :init
+  :config
   (setq vc-follow-symlinks t))
 #+END_SRC
 ** register
