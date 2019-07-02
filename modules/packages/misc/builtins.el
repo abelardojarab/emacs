@@ -548,6 +548,7 @@
 
   (general-nvmap
     :keymaps 'prog-mode-map
+    "<backspace>" 'org-edit-src-exit
     "<tab>" 'hs-toggle-hiding
     "RET" 'hydra-prog-mode/body)
 
@@ -558,6 +559,7 @@
 
   (general-define-key
    :keymaps 'prog-mode-map
+   "C-c n" 'my/narrow-to-paren-macro
    "<C-return>" 'hydra-prog-mode/body
    "<M-return>" 'indent-buffer)
 
@@ -663,6 +665,13 @@
   :defer 1
   :ensure nil
   :config
+  (custom-set-faces '(show-paren-match ((t(
+					   :background "#292929"
+					   :foreground "dark orange"
+					   :inverse-video nil
+					   :underline nil
+					   :slant normal
+					   :weight bold)))))
   (show-paren-mode 1))
 
 (use-package frame

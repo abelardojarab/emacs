@@ -296,7 +296,11 @@
   (targets-setup t))
 
 (use-package i3wm-config-mode
-  :load-path "~/.emacs.d/modules/packages/lisp/")
+  :load-path "~/.emacs.d/modules/packages/lisp/"
+  :config
+  (general-nvmap
+    :keymaps 'i3wm-config-mode-map
+    "<backspace>" 'org-edit-src-exit))
 
 (use-package cool-moves
 :load-path "~/maps/cool-moves"

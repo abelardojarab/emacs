@@ -145,6 +145,9 @@
 * prog macros
 #+BEGIN_SRC emacs-lisp
 
+(fset 'my/narrow-to-paren-macro
+   (kmacro-lambda-form [?v ?a ?\( ?  ?n escape ?` ?<] 0 "%d"))
+
 (fset 'my/clear-html-macro
    (kmacro-lambda-form [?\C-x ?h ?c ?! C-return] 0 "%d"))
 

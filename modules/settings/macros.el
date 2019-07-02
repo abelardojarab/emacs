@@ -132,6 +132,9 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 103 47 101 118 105 108 32 111 114 103 32 116 101 120 116 return 122 105 122 116 122 110] 0 "%d") arg)))
 
 
+(fset 'my/narrow-to-paren-macro
+   (kmacro-lambda-form [?v ?a ?\( ?  ?n escape ?` ?<] 0 "%d"))
+
 (fset 'my/clear-html-macro
    (kmacro-lambda-form [?\C-x ?h ?c ?! C-return] 0 "%d"))
 

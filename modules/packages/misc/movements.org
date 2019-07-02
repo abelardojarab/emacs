@@ -359,7 +359,11 @@
 * i3wm-Config-Mode
 #+BEGIN_SRC emacs-lisp
 (use-package i3wm-config-mode
-  :load-path "~/.emacs.d/modules/packages/lisp/")
+  :load-path "~/.emacs.d/modules/packages/lisp/"
+  :config
+  (general-nvmap
+    :keymaps 'i3wm-config-mode-map
+    "<backspace>" 'org-edit-src-exit))
 #+END_SRC
 
 * cool-moves

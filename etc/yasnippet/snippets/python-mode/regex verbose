@@ -1,0 +1,12 @@
+# key: rev
+# name: regex verbose
+# --
+${1:$$(upcase yas-text)}  = re.compile(
+    r"""
+    ${2:pattern} # ${3:comment}
+    ${4:pattern} # ${5:comment}
+    ${6:pattern} # ${7:comment}
+    $0
+""",
+    re.VERBOSE,
+))

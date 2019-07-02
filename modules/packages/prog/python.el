@@ -65,7 +65,7 @@
   :defer t
   :ensure nil
   :init
-  (setq python-indent-offset 4)
+  (setq python-indent-offset 5)
   (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'my/python-mode-hooks)
   :config

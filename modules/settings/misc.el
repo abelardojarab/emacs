@@ -134,13 +134,21 @@ Repeated invocations toggle between the two most recently open buffers."
   (eval-buffer)
   (org-edit-src-exit))
 
+
 (defun my/eval-buffer ()
   (interactive)
   (save-excursion
   (indent-buffer)
-  (my/quiet-indent-and-save-buffer)
   (eval-buffer)
   (message " buffer evaluated")))
+
+(defun my/eval-buffer-no-save ()
+  (interactive)
+  (save-excursion
+  (indent-buffer)
+  (eval-buffer)
+  (message " buffer evaluated")))
+
 
 (setq mouse-autoselect-window t)
 (defalias 'org 'org-mode)

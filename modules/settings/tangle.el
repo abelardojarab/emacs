@@ -7,12 +7,27 @@
   (sp "tangle init" nil "~/.e/ntangle-all")
   (message " all files tangled"))
 
+(defun tangle-py-all-quiet ()
+  (interactive)
+  (my/save-all)
+  (sp "tangle init" nil "~/.e/ntangle-all"))
+
+(defun tangle-and-eval-block ()
+  (interactive)
+  (save-excursion
+    (let ((inhibit-message t))
+      (org-narrow-to-subtree)
+      (xah-clean-empty-lines)
+      (org-babel-execute-src-block)
+      (org-babel-remove-result)
+      (tangle-py-all-quiet))
+    (message " block evaluated")))
 
 (defun tangle-py-all-recompile ()
   (interactive)
   (my/save-all)
-   (sp "tangle recompile" nil "~/.e/tangle-and-recompile")
-   (message " all files tangled"))
+  (sp "tangle recompile" nil "~/.e/tangle-and-recompile")
+  (message " all files tangled"))
 
 (defun my/tangle-default ()
   (interactive)
@@ -50,18 +65,6 @@
   (shell-command foo)
   (message " file tangled"))
 
-(defun tangle-and-eval-block ()
-  (interactive)
-  (save-excursion
-    (let ((inhibit-message t))
-      (org-narrow-to-subtree)
-      (xah-clean-empty-lines)
-      (org-babel-execute-src-block)
-      (org-babel-remove-result)
-      (start-process-shell-command "tangle" nil "nt ~/.emacs.d/*.org")
-      (my/save-all))
-    (message " block evaluated")))
-
 (defun i3-reload ()
   (interactive)
   (my/save-all)
@@ -73,5 +76,3 @@
   (my/save-all)
   (sp "tangle-i3" nil "~/scripts/i3_scripts/tangle-i3-restart")
   (message " i3 reloaded"))
-
-

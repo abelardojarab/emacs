@@ -100,8 +100,7 @@
  "M-p" 'my/paragraph-backwards
  "M-n" 'my/paragraph-forward
  "M-e" 'evil-forward-sentence-begin
- "M-a" 'evil-backward-sentence-begin
- "C-c n" 'my/notes-mode)
+ "M-a" 'evil-backward-sentence-begin)
 
 (general-define-key
  :keymaps 'override

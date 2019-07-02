@@ -208,15 +208,6 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 (setq pos-tip-background-color "grey9")
 (setq pos-tip-foreground-color "yellow1"))
 #+END_SRC
-** company prescient
-#+BEGIN_SRC emacs-lisp
-(use-package company-prescient
-:after company
-:ensure t
-:config
-(company-prescient-mode +1)
-(prescient-persist-mode +1))
-#+END_SRC
 
 * tab jump out
 #+BEGIN_SRC emacs-lisp
@@ -375,4 +366,25 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :ensure t
   :config
   (setq string-inflection-skip-backward-when-done nil))
+#+END_SRC
+* prescient
+** prescient
+#+BEGIN_SRC emacs-lisp
+(use-package prescient
+:ensure t)
+#+END_SRC
+* ivy-prescient
+#+BEGIN_SRC emacs-lisp
+(use-package ivy-prescient
+  :after ivy
+  :ensure t)
+#+END_SRC
+** company prescient
+#+BEGIN_SRC emacs-lisp
+(use-package company-prescient
+:after company
+:ensure t
+:config
+(company-prescient-mode +1)
+(prescient-persist-mode +1))
 #+END_SRC

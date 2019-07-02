@@ -569,14 +569,15 @@
        _F_: def mode abbrev  _m_: edit macro
        _e_: eddit abbrevs    _i_: insert macro
        _t_: indent block     _x_: texpander
-       _d_: hydra eval
+       _d_: hydra eval       _c_: eval buffer
+                           _v_: eval buffer ns
   "
   ("<escape>" nil nil)
 
   ("a" tangle-and-eval-block)
   ("b" eval-region)
   ("c" my/eval-buffer)
-  ("d" eval-line)
+  ("v" my/eval-buffer-no-save)
   ("d" hydra-eval/body)
 
   ("f" define-global-abbrev)
@@ -780,17 +781,18 @@
   ("O" engine/search-wiki-en)
   ("P" engine/search-wiki-pt))
 
+
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-    ^Org^                            ^Agenda^
-    -----------------------------------------
-    _r_: archive     _t_: todo        _a_: agenda
-    _g_: my archive  _i_: tags        _h_: hydra
-    _c_: capture     _u_: insert url  _f_: files
-    _p_: last capt.  _l_: store link  _o_: agenda.org
+    ^Org^                             ^Agenda^
+    ------------------------------------------
+    _r_: archive     _t_: todo         _a_: agenda
+    _g_: my archive  _i_: tags         _h_: hydra
+    _c_: capture     _u_: insert url   _f_: files
+    _p_: last capt.  _l_: store link   _o_: agenda.org
     _d_: deadline    _y_: overlay
-    _s_: schedule
+    _s_: schedule    _e_: tog. tstamp.
 
 "
   ("<escape>" nil)
@@ -810,11 +812,8 @@
   ("o" my/find-org-agenda-file)
   ("u" org-web-tools-insert-link-for-url)
   ("y" org-toggle-time-stamp-overlays)
+  ("e" org-toggle-timestamp-type)
   ("f" my/agenda-files))
-
-(defun my/find-org-agenda-file ()
-  (interactive)
-  (find-file "~/org/Agenda/agenda.org"))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
