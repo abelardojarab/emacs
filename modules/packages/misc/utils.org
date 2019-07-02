@@ -4,11 +4,7 @@
 #+BEGIN_SRC emacs-lisp
 (use-package elmacro
   :defer t
-  :ensure t
-  :config
-  (general-define-key
-   "C-c m l m" 'elmacro-show-last-macro
-   "C-c m l c" 'elmacro-show-last-commands))
+  :ensure t)
 #+END_SRC
 * evil swap keys
 #+BEGIN_SRC emacs-lisp
@@ -102,8 +98,6 @@
   (defengine the-free-dictionary "https://www.thefreedictionary.com/%s")
 
   (engine-mode t))
-
-
 
 #+END_SRC
 * vertigo

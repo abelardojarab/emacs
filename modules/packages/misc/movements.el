@@ -249,7 +249,7 @@
   :config
   (setq eyebrowse-new-workspace nil)
   (setq eyebrowse-wrap-around t)
-  (setq eyebrowse-new-workspace t)
+  (setq eyebrowse-new-workspace nil)
   (setq eyebrowse-mode-line-style 'smart)
   (setq eyebrowse-switch-back-and-forth nil)
   (setq eyebrowse-mode-line-left-delimiter " [ ")

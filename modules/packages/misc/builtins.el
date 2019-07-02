@@ -379,7 +379,6 @@
     (wc-mode 1)
     (pabbrev-mode 1))
 
-
   (defun prose-enable ()
     (interactive)
     (flyspell-mode 1)
@@ -827,3 +826,8 @@
   :config
   (setq browse-url-generic-program "google-chrome-stable")
   (setq browse-url-browser-function 'browse-url-generic))
+
+(use-package recentf
+  :ensure nil
+  :config
+  (recentf-mode 1))

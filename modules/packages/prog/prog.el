@@ -9,6 +9,8 @@
   :ensure nil
   :init
   (add-hook 'lisp-mode-hook 'my/elisp-hooks)
+  (add-hook 'emacs-lisp-mode-hook 'my/elisp-hooks)
+  (add-hook 'lisp-interaction-mode 'my/elisp-hooks)
   :config
   (defun my/elisp-hooks ()
     (interactive)

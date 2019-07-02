@@ -63,6 +63,6 @@ DEADLINE: <2019-07-13 Sat -14d>
   :ensure t)
 
 (use-package org-pdfview
-  :defer t
+  :after org
   :ensure t)
 #+END_SRC

@@ -44,5 +44,5 @@
   :ensure t)
 
 (use-package org-pdfview
-  :defer t
+  :after org
   :ensure t)

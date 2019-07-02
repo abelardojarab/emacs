@@ -1,10 +1,6 @@
 (use-package elmacro
   :defer t
-  :ensure t
-  :config
-  (general-define-key
-   "C-c m l m" 'elmacro-show-last-macro
-   "C-c m l c" 'elmacro-show-last-commands))
+  :ensure t)
 
 (use-package evil-swap-keys
   :defer t
@@ -90,8 +86,6 @@
   (defengine the-free-dictionary "https://www.thefreedictionary.com/%s")
 
   (engine-mode t))
-
-
 
 
 (use-package vertigo
