@@ -21,7 +21,7 @@
   (interactive)
   (save-excursion
     (let ((inhibit-message t))
-      (org-narrow-to-subtree)
+      ;; (org-narrow-to-subtree)
       (xah-clean-empty-lines)
       (org-babel-execute-src-block)
       (org-babel-remove-result)

@@ -193,16 +193,17 @@ Repeated invocations toggle between the two most recently open buffers."
 (defun my/eval-buffer ()
   (interactive)
   (save-excursion
-  (indent-buffer)
-  (eval-buffer)
-  (message " buffer evaluated")))
+    (my/save-all)
+    (indent-buffer)
+    (eval-buffer)
+    (message " buffer evaluated")))
 
 (defun my/eval-buffer-no-save ()
   (interactive)
   (save-excursion
-  (indent-buffer)
-  (eval-buffer)
-  (message " buffer evaluated")))
+    (indent-buffer)
+    (eval-buffer)
+    (message " buffer evaluated")))
 
 #+END_SRC
 

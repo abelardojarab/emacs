@@ -269,10 +269,6 @@
 
   (pdf-loader-install))
 
-(use-package
-:defer t
-:ensure t)
-
 (use-package savehist
   :init
   (setq history-length 500)

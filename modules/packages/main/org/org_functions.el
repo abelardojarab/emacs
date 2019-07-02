@@ -53,13 +53,6 @@
   (my/quiet-save-buffer)
   (org-edit-src-exit))
 
-(defun my/org-archive ()
-  (interactive)
-  (org-todo "DONE")
-  (org-archive-subtree-default)
-  (org-hide-other)
-  (message " todo archived"))
-
 (defun my/org-started ()
   (interactive)
   (org-todo "STARTED")
@@ -161,3 +154,7 @@
   (let ((org-link-frame-setup
 	 (acons 'file 'find-file-other-frame org-link-frame-setup)))
     (org-open-at-point)))
+
+(defun my/find-org-agenda-file ()
+  (interactive)
+  (find-file "~/org/Agenda/agenda.org"))

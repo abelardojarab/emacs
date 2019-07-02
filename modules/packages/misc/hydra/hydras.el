@@ -785,20 +785,19 @@
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-    ^Org^                             ^Agenda^
-    ------------------------------------------
-    _r_: archive     _t_: todo         _a_: agenda
-    _g_: my archive  _i_: tags         _h_: hydra
-    _c_: capture     _u_: insert url   _f_: files
-    _p_: last capt.  _l_: store link   _o_: agenda.org
-    _d_: deadline    _y_: overlay
-    _s_: schedule    _e_: tog. tstamp.
+    ^Org Mode^
+    -----------------------------------------------
+    _r_: archive     _a_: agenda        _h_: hydra
+    _c_: capture     _i_: tags          _f_: files
+    _p_: last capt.  _u_: insert url    _o_: agenda.org
+    _d_: deadline    _l_: store link
+    _s_: schedule    _y_: overlay
+    _t_: todo        _e_: tog. tstamp.
 
 "
   ("<escape>" nil)
 
   ("r" org-archive-subtree-default)
-  ("g" my/org-archive)
 
   ("a" my/org-agenda)
   ("c" counsel-org-capture)
@@ -934,11 +933,11 @@
 (defhydra hydra-find-emacs-files (:hint nil :foreign-keys nil :exit t)
   "
   ^
-     ^Emacs^
-     -----------------------
-     _I_: init.el   _u_: counsel ag
-     _i_: init.org  _o_: org mode
-     _p_: packages
+     ^Emacs Files^
+     --------------------------
+     _I_: init.el   _o_: org
+     _i_: init.org  _h_: hydras
+     _p_: packages  _u_: all files
      _s_: settings
      _f_: functions
 
@@ -958,7 +957,12 @@
 
   ("f" my/emacs-functions-counsel-ag)
   ("C-f" my/emacs-functions-counsel-ag)
-  ("o" my/org-dir-counsel-ag))
+
+  ("C-o" my/org-dir-counsel-ag)
+  ("o" my/org-dir-counsel-ag)
+
+  ("C-h" my/emacs-hydras-counsel-ag)
+  ("h" my/emacs-hydras-counsel-ag))
 
 (defun my/counsel-fzf-packages ()
   (interactive)
@@ -980,10 +984,6 @@
   (interactive)
   (counsel-ag nil "~/.emacs.d/modules/packages/main/org"))
 
-(defun my/emacs-hydras-counsel-ag ()
-  (interactive)
-  (counsel-ag nil "defhydra " "~/.emacs.d/modules/packages/misc/hydra"))
-
 (defun my/emacs-packages-counsel-ag ()
   (interactive)
   (counsel-ag "use-package " "~/.emacs.d/modules"))
@@ -991,6 +991,10 @@
 (defun my/emacs-functions-counsel-ag ()
   (interactive)
   (counsel-ag "(defun " "~/.emacs.d/modules"))
+
+(defun my/emacs-hydras-counsel-ag ()
+  (interactive)
+  (counsel-ag "(defhydra hydra- " "~/.emacs.d/modules/packages/misc/hydra"))
 
 (defhydra hydra-find-scratches (:hint nil :foreign-keys nil :exit t)
 

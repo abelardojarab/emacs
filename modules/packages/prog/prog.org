@@ -40,8 +40,13 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
   :defer t
   :ensure nil
   :init
-  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-  (add-hook 'lisp-interaction-mode-hook 'line-numbers))
+  (add-hook 'lisp-mode-hook 'my/elisp-hooks)
+  :config
+  (defun my/elisp-hooks ()
+    (interactive)
+    (lispy-mode +1)
+    (electric-operator-mode -1)
+    (line-numbers)))
 #+END_SRC
 
 ** lispy
@@ -343,8 +348,6 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :after yasnippet
   :ensure t)
 
-
-
 #+END_SRC
 
 * rainbow delimiters
@@ -371,13 +374,18 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 ** prescient
 #+BEGIN_SRC emacs-lisp
 (use-package prescient
-:ensure t)
+:ensure t
+:config
+(prescient-persist-mode +1))
 #+END_SRC
-* ivy-prescient
+
+** ivy-prescient
 #+BEGIN_SRC emacs-lisp
 (use-package ivy-prescient
   :after ivy
-  :ensure t)
+  :ensure t
+  :config
+  (ivy-prescient-mode +1))
 #+END_SRC
 ** company prescient
 #+BEGIN_SRC emacs-lisp

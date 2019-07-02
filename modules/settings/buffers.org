@@ -439,10 +439,12 @@ Copy file path to the clipboard.
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
+  (my/save-all)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (delete-other-windows)
   (message " other buffers killed"))
 #+END_SRC
+
 ** kill all buffers
 #+BEGIN_SRC emacs-lisp
 (defun kill-all-buffers ()

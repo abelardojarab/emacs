@@ -392,6 +392,7 @@ rotate entire document."
 (defun kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
+  (my/save-all)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
   (delete-other-windows)
   (message " other buffers killed"))

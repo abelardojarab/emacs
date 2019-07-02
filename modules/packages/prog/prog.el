@@ -8,8 +8,13 @@
   :defer t
   :ensure nil
   :init
-  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
-  (add-hook 'lisp-interaction-mode-hook 'line-numbers))
+  (add-hook 'lisp-mode-hook 'my/elisp-hooks)
+  :config
+  (defun my/elisp-hooks ()
+    (interactive)
+    (lispy-mode +1)
+    (electric-operator-mode -1)
+    (line-numbers)))
 
 (use-package lispy
   :defer t
@@ -260,8 +265,6 @@
   :ensure t)
 
 
-
-
 (use-package rainbow-delimiters
 :defer t
 :ensure t)
@@ -277,11 +280,15 @@
   (setq string-inflection-skip-backward-when-done nil))
 
 (use-package prescient
-:ensure t)
+:ensure t
+:config
+(prescient-persist-mode +1))
 
 (use-package ivy-prescient
   :after ivy
-  :ensure t)
+  :ensure t
+  :config
+  (ivy-prescient-mode +1))
 
 (use-package company-prescient
 :after company
