@@ -949,8 +949,8 @@
   ("p" my/emacs-packages-counsel-ag)
   ("C-p" my/emacs-packages-counsel-ag)
 
-  ("s" my/counsel-fzf-settings)
-  ("C-s" my/counsel-fzf-settings)
+  ("s" my/emacs-settings-counsel-ag)
+  ("C-s" my/emacs-settings-counsel-ag)
 
   ("u" my/emacs-dir-counsel-ag)
   ("C-u" my/emacs-dir-counsel-ag)
@@ -964,18 +964,6 @@
   ("C-h" my/emacs-hydras-counsel-ag)
   ("h" my/emacs-hydras-counsel-ag))
 
-(defun my/counsel-fzf-packages ()
-  (interactive)
-  (counsel-fzf nil "~/.emacs.d/modules/packages"))
-
-(defun my/counsel-fzf-settings ()
-  (interactive)
-  (counsel-fzf nil "~/.emacs.d/modules/settings"))
-
-(defun my/counsel-fzf-modules ()
-  (interactive)
-  (counsel-fzf nil "~/.emacs.d/modules"))
-
 (defun my/emacs-dir-counsel-ag ()
   (interactive)
   (counsel-ag nil "~/.emacs.d/modules"))
@@ -986,7 +974,7 @@
 
 (defun my/emacs-packages-counsel-ag ()
   (interactive)
-  (counsel-ag "use-package " "~/.emacs.d/modules"))
+  (counsel-ag "(use-package " "~/.emacs.d/modules"))
 
 (defun my/emacs-functions-counsel-ag ()
   (interactive)
@@ -995,6 +983,10 @@
 (defun my/emacs-hydras-counsel-ag ()
   (interactive)
   (counsel-ag "(defhydra hydra- " "~/.emacs.d/modules/packages/misc/hydra"))
+
+(defun my/emacs-settings-counsel-ag ()
+  (interactive)
+  (counsel-ag "(setq "  "~/.emacs.d/modules"))
 
 (defhydra hydra-find-scratches (:hint nil :foreign-keys nil :exit t)
 
