@@ -15,19 +15,18 @@
     (elpy-goto-definition)
     (recenter))
 
-  (setq eldoc-idle-delay 2)
-  (setq elpy-autodoc-delay 3)
+  (setq eldoc-idle-delay 15)
+  (setq elpy-autodoc-delay 15)
   (setq elpy-eldoc-show-current-function nil)
   (setq python-shell-completion-native-enable nil)
 
+  (general-unbind 'elpy-mode-map
+    :with 'elpy-nav-backward-block
+    [remap cool-moves/word-backwards])
 
-(general-unbind 'elpy-mode-map
-  :with 'elpy-nav-backward-block
-  [remap cool-moves/word-backwards])
-
-(general-unbind 'elpy-mode-map
-  :with 'elpy-nav-forward-block
-  [remap cool-moves/word-forward])
+  (general-unbind 'elpy-mode-map
+    :with 'elpy-nav-forward-block
+    [remap cool-moves/word-forward])
 
   (general-define-key
    :keymaps 'elpy-mode-map
@@ -65,18 +64,18 @@
   :defer t
   :ensure nil
   :init
-  (setq python-indent-offset 5)
+  (setq python-indent-offset 4)
   (setq python-indent-guess-indent-offset nil)
   (add-hook 'python-mode-hook 'my/python-mode-hooks)
   :config
-
   (auto-fill-mode 1)
+  (setq tab-width 4)
   (setq comment-auto-fill-only-comments t)
   (defun my/python-save-buffer () (interactive)
-	 (evil-ex-nohighlight)
-	 (let ((inhibit-message t))
-	   (delete-trailing-whitespace)
-	   (save-buffer)))
+		 (evil-ex-nohighlight)
+		 (let ((inhibit-message t))
+		   (delete-trailing-whitespace)
+		   (save-buffer)))
   (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
   (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 

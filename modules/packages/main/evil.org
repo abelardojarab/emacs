@@ -54,7 +54,7 @@
 
   (general-imap
     "C-u" 'backward-kill-line
-    "C-SPC" 'caps-lock-mode
+    "C-SPC" nil
     "C-c SPC" 'fix-word-capitalize
     "C-c n" 'fix-word-upcase
     "C-c d" 'fix-word-downcase)

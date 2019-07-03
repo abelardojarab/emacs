@@ -832,3 +832,8 @@
   :ensure nil
   :config
   (recentf-mode 1))
+
+(use-package indent
+:ensure nil
+:config
+(setq-default indent-tabs-mode nil))

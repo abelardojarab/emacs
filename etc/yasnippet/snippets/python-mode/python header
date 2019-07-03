@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: python header
+# key: pyh
+# --
+#!/usr/bin/env python3
+
+"""
+${1:Doctstring}
+"""
+
+import ${2:module}
+$0

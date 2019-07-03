@@ -3,9 +3,9 @@
   ^
        ^Python^         ^Flycheck^  ^Flymake^
        --------------------------------
-       _r_: quickrun    _f_: first  _k_: prev
-       _s_: quickshell  _p_: prev   _j_: next
-       _e_: run ext.    _n_: next
+       _r_: quickrun    _f_: first  _p_: prev
+       _s_: quickshell  _k_: prev   _n_: next
+       _e_: run ext.    _j_: next   _RET_: show
        _m_: multiedit
 
 "
@@ -18,12 +18,12 @@
   ("m" elpy-multiedit-python-symbol-at-point)
 
   ("f" flycheck-first-error)
-  ("p" flycheck-next-error :exit nil)
-  ("n" flycheck-previous-error :exit nil)
+  ("k" flycheck-next-error :exit nil)
+  ("j" flycheck-previous-error :exit nil)
 
-  ("k" flymake-goto-prev-error)
-  ("j" flymake-goto-next-error)
-  ("M" flymake-mode))
+  ("p" elpy-flymake-previous-error :exit nil)
+  ("n" elpy-flymake-next-error :exit nil)
+  ("RET" elpy-flymake-show-error))
 
 (defhydra hydra-web-mode (:color blue :hint nil :foreign-keys run)
   "

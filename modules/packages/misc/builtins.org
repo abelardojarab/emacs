@@ -931,3 +931,9 @@
   :config
   (recentf-mode 1))
 #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package indent
+:ensure nil
+:config
+(setq-default indent-tabs-mode nil))
+#+END_SRC

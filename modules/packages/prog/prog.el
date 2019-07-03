@@ -98,7 +98,7 @@
   (setq flycheck-mode-line nil)
   (setq flycheck-gcc-warnings nil)
   (setq flycheck-clang-warnings nil)
-  (setq flycheck-display-errors-delay 0.3)
+  (setq flycheck-display-errors-delay 0.1)
   (setq flycheck-idle-change-delay 0.1)
   (setq flycheck-clang-pedantic t)
   (setq flycheck-gcc-pedantic t))
@@ -148,7 +148,7 @@
 (setq pos-tip-foreground-color "yellow1"))
 
 (use-package tab-jump-out
-  :defer 3
+  :defer t
   :ensure t
   :config
   (tab-jump-out-mode t))

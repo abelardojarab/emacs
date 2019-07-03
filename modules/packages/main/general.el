@@ -107,7 +107,6 @@
 
 ;;;; MODES ;;;;
 "C-c c"       'caps-lock-mode
-"C-SPC"       'caps-lock-mode
 "C-c TAB" 'sr-speedbar-toggle
 
 ;;;; FILE COMMANDS ;;;;
