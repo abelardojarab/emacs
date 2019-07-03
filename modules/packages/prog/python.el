@@ -69,7 +69,6 @@
   (add-hook 'python-mode-hook 'my/python-mode-hooks)
   :config
   (auto-fill-mode 1)
-  (setq tab-width 4)
   (setq comment-auto-fill-only-comments t)
   (defun my/python-save-buffer () (interactive)
 		 (evil-ex-nohighlight)
@@ -106,3 +105,10 @@
   [remap evil-close-folds])
 
 (yafolding-mode +1))
+
+(use-package live-py-mode
+:defer t
+:ensure t
+:config
+(setq live-py-update-all-delay 0.3)
+(live-py-mode))

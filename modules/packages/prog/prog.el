@@ -28,6 +28,11 @@
     [remap lispy-fill])
 
   (general-unbind 'lispy-mode-map
+    :states '(insert)
+    :with 'tab-to-tab-stop
+    "M-i")
+
+  (general-unbind 'lispy-mode-map
     :with 'indent-buffer
     [remap lispy-meta-return])
 

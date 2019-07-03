@@ -141,3 +141,11 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
 
 (yafolding-mode +1))
 #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package live-py-mode
+:defer t
+:ensure t
+:config
+(setq live-py-update-all-delay 0.3)
+(live-py-mode))
+#+END_SRC
