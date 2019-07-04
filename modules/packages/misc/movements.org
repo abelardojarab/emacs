@@ -90,12 +90,13 @@
     "gF" 'evil-find-char-backward
     "gf" 'evil-find-char)
 
-  (setq avy-background nil)
+  (Setq avy-background nil)
 
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l
 		      ?q ?w ?e ?r ?t ?y ?u))
   (setq avy-all-windows nil))
 #+END_SRC
+
 * windmove
 #+BEGIN_SRC emacs-lisp
 (use-package windmove

@@ -79,7 +79,7 @@
     ;; "u" 'undo-only
 
     "gn" 'my/evil-format-paragraph-function
-    "K" 'ignore
+    "K" 'org-shiftdown
     "C-u" 'hydra-find-emacs-files/body
     "!" 'delete-frame
     "Q" 'save-buffers-kill-terminal

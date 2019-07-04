@@ -559,7 +559,6 @@
 
   (general-define-key
    :keymaps 'prog-mode-map
-   "C-c n" 'my/narrow-to-paren-macro
    "<C-return>" 'hydra-prog-mode/body
    "<M-return>" 'indent-buffer)
 
@@ -706,7 +705,7 @@
   :defer 1
   :ensure nil
   :config
-  (setq global-hl-line-mode nil))
+  (global-hl-line-mode t))
 
 (use-package simple
   :ensure nil

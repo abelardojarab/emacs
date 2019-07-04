@@ -158,3 +158,17 @@
 (defun my/find-org-agenda-file ()
   (interactive)
   (find-file "~/org/Agenda/agenda.org"))
+
+(defun my/org-open-next-link()
+  (interactive)
+  (org-next-link)
+  (org-open-at-point-global)
+  (sit-for 1)
+  (focus-chrome))
+
+(defun my/org-open-prev-link()
+  (interactive)
+  (org-previous-link)
+  (org-open-at-point-global)
+  (sit-for 1)
+  (focus-chrome))

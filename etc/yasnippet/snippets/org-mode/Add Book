@@ -5,12 +5,15 @@
 ** T ${1:Title}
 :PROPERTIES:
 :TITLE:    $1
-:TYPE:     ${2:$$(yas-choose-value '("     Book" "     Article" "     Other"))}
-:GENRE:    ${3:Genre} 
-:AUTHOR:   ${4:Author}
+:PAGES:    ${2:400}
+:SYNOPSIS: 
+:TYPE:     ${3:$$(yas-choose-value '("     Novel" "     Collection" "     Article" "     Other"))}
+:GENRE:    ${4:Science Fiction} 
+:AUTHOR:   ${5:Author}
 :LINK:     Wikipedia$0
 :CREATED:  `(insert (format-time-string "[%a, %y-%m-%d]"))`
+:PUB:      ${6:2000}
 :START:    Unknown
-:END:      Unknown
-:COMPLETE: $5%
+:FINISH:   Unknown
+:COMPLETE: $7%
 :END:

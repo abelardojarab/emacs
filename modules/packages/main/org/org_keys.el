@@ -19,6 +19,8 @@
  :keymaps 'org-mode-map
  "<C-M-return>" 'zin/org-open-other-frame
  "C-c C-b" nil
+ "C-c n" 'my/org-open-next-link
+ "C-c p" 'my/org-open-prev-link
  "C-j" 'counsel-M-x
  "C-M-k" 'org-metaup
  "M-ç" 'indent-buffer

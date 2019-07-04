@@ -134,14 +134,7 @@
 
 ;;;; FILESETS ;;;;
 "C-c f" 'make-frame
-"C-c p" 'my/kill-previous-buffer
-
-;;;; LOADING AND UNLOADING ;;;;
-"C-c l l"   'load-theme
-"C-c l L"   'unload-theme
-"C-c l n"   'noctilux-on
-"C-c l k"   'my/gui-keybindings-load
-"C-c l K"   'my/gui-keybindings-unload
+;; "C-c p" 'my/kill-previous-buffer
 
 ;;;; EDITING ;;;;
 "C-c i" 'ibuffer
@@ -149,7 +142,6 @@
 
 ;;;; QUICK KEYS ;;;;
 "M-c" nil
-"M-c" 'treemacs
 "C-x l" nil
 "<C-S-f10>" 'buffer-menu-open
 "<mouse-3>" nil
