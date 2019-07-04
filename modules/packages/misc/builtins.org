@@ -581,6 +581,7 @@
     (smartparens-mode 1)
     (tab-jump-out-mode 1)
     (hs-minor-mode 1)
+    (hl-line-mode 1)
     (yas-minor-mode 1)
     (highlight-indent-guides-mode 1))
 
