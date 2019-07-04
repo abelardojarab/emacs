@@ -2,7 +2,7 @@
 (add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
 (setq org-clock-sound "~/Music/Sounds/cuckoo.au")
 (setq org-lowest-priority 73)
-(setq org-default-priority 70)
+(setq org-default-priority 65)
 
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-timestamp-if-done t)

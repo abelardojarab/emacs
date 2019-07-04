@@ -81,7 +81,7 @@
 
 (defun my/org-align-tags ()
   (interactive)
-  (org-align-all-tags))
+  (org-align-tags))
 
 (defun my/org-property-commands ()
   (interactive)
