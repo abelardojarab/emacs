@@ -772,11 +772,11 @@
 #+END_SRC
 ** hl-line
 #+BEGIN_SRC emacs-lisp
-(use-package hl-line
-  :defer 1
-  :ensure nil
-  :config
-  (global-hl-line-mode t))
+;; (use-package hl-line
+;;   :defer 1
+;;   :ensure nil
+;;   :config
+;;   (global-hl-line-mode nil))
 #+END_SRC
 
 ** simple

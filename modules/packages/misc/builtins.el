@@ -701,11 +701,11 @@
   (setq sentence-end-double-space nil)
   (setq sentence-end nil)
 
-(use-package hl-line
-  :defer 1
-  :ensure nil
-  :config
-  (global-hl-line-mode t))
+;; (use-package hl-line
+;;   :defer 1
+;;   :ensure nil
+;;   :config
+;;   (global-hl-line-mode nil))
 
 (use-package simple
   :ensure nil
