@@ -12,7 +12,7 @@
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-Y-yank-to-eol t)
   :config
-  (evil-set-initial-state 'atomic-chrome-edit-mode 'insert)
+  (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
   (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist
 	'(("." . "~/.emacs.d/var/undo-tree-hist/")))

@@ -4,6 +4,10 @@
  :keymaps 'org-src-mode-map
  "M-m" 'org-edit-src-exit)
 
+(general-unbind 'org-src-mode-map
+  :with 'org-edit-src-exit
+  [remap my/kill-this-buffer])
+
 (general-nvmap
   :keymaps 'org-src-mode-map
   "<backspace>" 'org-edit-src-exit)

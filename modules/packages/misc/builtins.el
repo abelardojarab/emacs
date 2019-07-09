@@ -728,7 +728,7 @@
   (general-unbind 'messages-buffer-mode-map
     :with 'ignore
     [remap my/quiet-save-buffer])
-
+  (setq-default indent-tabs-mode nil)
   (global-visual-line-mode t))
 
 (use-package warning
@@ -832,8 +832,3 @@
   :ensure nil
   :config
   (recentf-mode 1))
-
-(use-package indent
-:ensure nil
-:config
-(setq-default indent-tabs-mode nil))

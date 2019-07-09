@@ -182,8 +182,8 @@
 	      ("<tab>" . nil))
   :init
   (setq yas--default-user-snippets-dir "~/.emacs.d/etc/yasnippet/snippets")
-  (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)
-  (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
+  ;; (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)
+  ;; (add-hook 'yas-after-exit-snippet-hook 'my/yas-after-hooks)
   :config
 
   (defun my/company-yas-snippet ()
@@ -270,7 +270,6 @@
 (use-package java-snippets
   :after yasnippet
   :ensure t)
-
 
 (use-package rainbow-delimiters
 :defer t

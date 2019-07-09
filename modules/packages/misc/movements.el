@@ -59,7 +59,7 @@
     "gF" 'evil-find-char-backward
     "gf" 'evil-find-char)
 
-  (Setq avy-background nil)
+  (setq avy-background nil)
 
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l
 		      ?q ?w ?e ?r ?t ?y ?u))
@@ -314,19 +314,22 @@
 "C-M-n" 'cool-moves/word-forward
 "C-M-p" 'cool-moves/word-backwards))
 
-(defun popup-handler (app-name window-title x y w h)
-  (web-mode)
-  (olivetti-mode)
-  (evil-insert-state)
-  (yank)
-  (my/disable-save))
+;; (add-hook 'ea-popup-hook 'popup-handler)
 
-(add-hook 'ea-popup-hook 'popup-handler)
+;; (defun popup-handler (app-name window-title x y w h)
+;;   (markdown-mode))
 
-(defun my/disable-save ()
-  (general-unbind 'web-mode-map
-    :with 'ignore
-    [remap my/quiet-save-buffer]))
+;; (defun popup-handler (app-name window-title x y w h)
+;;   (web-mode)
+;;   (olivetti-mode)
+;;   (evil-insert-state)
+;;   (yank)
+;;   (my/disable-save))
+
+;; (defun my/disable-save ()
+;;   (general-unbind 'web-mode-map
+;;     :with 'ignore
+;;     [remap my/quiet-save-buffer]))
 
 (use-package atomic-chrome
   :ensure t
@@ -346,4 +349,5 @@
   (defun my/atomic-chrome-hooks ()
     (interactive)
     (olivetti-mode))
+
   (atomic-chrome-start-server))

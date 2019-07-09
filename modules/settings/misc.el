@@ -67,11 +67,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
-(add-hook 'ea-popup-hook 'popup-handler)
-(defun popup-handler (app-name window-title x y w h)
-  (markdown-mode)
-  (evil-insert-state))
-
 (defmacro measure-time (&rest body)
   "Measure the time it takes to evaluate BODY."
   `(let ((time (current-time)))
