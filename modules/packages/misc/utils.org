@@ -292,6 +292,7 @@
 
   (pdf-loader-install))
 #+END_SRC
+
 * saving
 ** savehist
 #+BEGIN_SRC emacs-lisp

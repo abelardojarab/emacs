@@ -439,36 +439,22 @@
   "
        ^
        ^Modes^
-       ---------------------------------------------------------------------------
-       _a_: org      _e_: hl-line nu  _i_: which key      _o_: ivy on        _s_: line nonu
-       _b_: text     _f_: menu bar    _j_: line nu        _p_: ivy off
-       _c_: company  _g_: olivetti    _l_: tab jump       _q_: elec operator
-       _d_: line nu  _h_: markdown    _m_: center cursor  _r_: wourd count
+       ------------------
+       _c_: company
+       _e_: hl-line
+       _g_: olivetti
+       _p_: projectile
+       _q_: elec operator
 
        "
 
   ("<escape>" nil)
 
-  ("a" org-mode)
-  ("b" text-mode)
   ("c" company-mode)
-  ("d" line-numbers)
-
   ("e" hl-line-mode)
-  ("f" menu-bar-mode)
   ("g" olivetti-mode)
-  ("h" markdown-mode)
-
-  ("i" which-key-mode)
-  ("j" line-numbers)
-  ("l" tab-jump-out-mode)
-  ("m" centered-cursor-mode)
-
-  ("o" my/enable-ivy-counsel)
-  ("p" my/disable-ivy-counsel)
-  ("q" electric-operator-mode)
-  ("r" wc-mode)
-  ("s" line-no-numbers))
+  ("p" counsel-projectile-mode)
+  ("q" electric-operator-mode))
 
 (defhydra hydra-eval (:color blue :hint nil :exit nil :foreign-keys nil)
   "

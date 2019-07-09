@@ -1,4 +1,5 @@
 (use-package web-mode
+  :defer t
   :ensure t
   :init
   (add-hook 'web-mode-hook 'my/web-mode-hooks)
