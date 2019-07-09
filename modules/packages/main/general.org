@@ -101,11 +101,10 @@
  "M-1" 'org-1-day-agenda
  "M-2" 'org-2-days-agenda
  "M-3" 'org-3-days-agenda
- "M-4" 'my/org-agenda
- "M-4" 'my/org-agenda
- "M-4" 'my/org-agenda
- "M-4" 'my/org-agenda
- "M-4" 'my/org-agenda
+ "M-4" 'org-4-days-agenda
+ "M-5" 'org-5-days-agenda
+ "M-6" 'org-6-days-agenda
+ "M-7" 'org-7-days-agenda
  "<f7>" 'man
  "C-c C-l" 'org-insert-link-global
  "C-c o" 'org-open-at-point-global
