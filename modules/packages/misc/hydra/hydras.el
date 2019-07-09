@@ -6,7 +6,7 @@
        _r_: quickrun    _f_: first  _p_: prev
        _s_: quickshell  _k_: prev   _n_: next
        _e_: run ext.    _j_: next   _RET_: show
-       _m_: multiedit
+       _m_: multiedit   _c_: copy
 
 "
   ("<escape>" nil)
@@ -20,6 +20,7 @@
   ("f" flycheck-first-error)
   ("k" flycheck-next-error :exit nil)
   ("j" flycheck-previous-error :exit nil)
+  ("c" flycheck-copy-errors-as-kill)
 
   ("p" elpy-flymake-previous-error :exit nil)
   ("n" elpy-flymake-next-error :exit nil)
@@ -65,30 +66,21 @@
        ----------------------------
        _f_: first   _k_: flymake prev
        _p_: prev    _j_: flymake next
-       _n_: next    _h_: hide-show
-       _d_: display _s_: shell
-       _b_: buffer  _u_: shorten url
-       _c_: clear   _o_: checkers on
-       _m_: mode    _O_: checker off
+       _n_: next
+       _c_: copy
+       _m_: mode
 "
   ("<escape>" nil)
   ("RET" quickrun)
 
   ("f" flycheck-first-error)
-  ("n" flycheck-next-error :exit nil)
-  ("p" flycheck-previous-error :exit nil)
-  ("d" flycheck-display-error-at-point)
-  ("b" flycheck-buffer)
-  ("c" flycheck-clear)
-  ("m" flycheck-mode)
-
   ("j" flymake-goto-prev-error)
   ("k" flymake-goto-next-error)
-  ("h" hs-minor-mode)
-  ("s" hydra-shell/body)
-  ("u" bitly-url-shorten)
-  ("o" my/checkers-on)
-  ("O" my/checkers-off))
+
+  ("n" flycheck-next-error :exit nil)
+  ("p" flycheck-previous-error :exit nil)
+  ("c" flycheck-copy-errors-as-kill)
+  ("m" flycheck-mode))
 
 (defun my/checkers-on ()
   (interactive)

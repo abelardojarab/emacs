@@ -149,6 +149,7 @@
 "C-x u" 'my/undo-propose
 "C-c s" 'hydra-shell/body
 "C-," 'helpful-at-point
+"C-." 'ivy-resume
 "C-c ç" 'hydra-gro-prjct/body
 ;; "C-c x" 'my/kill-buffer-and-workspace
 "M-." 'evil-window-next

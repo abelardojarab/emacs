@@ -15,20 +15,23 @@
   (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
   (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist
-	'(("." . "~/.emacs.d/var/undo-tree-hist/")))
+        '(("." . "~/.emacs.d/var/undo-tree-hist/")))
   (setq evil-insert-state-message nil)
   (setq evil-respect-visual-line-mode nil)
 
   (general-nmap
+    "`" 'evil-goto-mark-line
+    "'" 'evil-goto-mark
+    "m" 'evil-set-marker
+    "gm" 'hydra-text-motions/body
+    "gM" 'evil-middle-of-visual-line
     "gu" 'fix-word-upcase
     "gU" 'fix-word-downcase
     "-" 'evil-next-line
     "DEL" nil
     "gr" 'sel-to-end
-    "g'" 'evil-goto-mark-line
     "; " 'evil-ex
     "zn" 'org-hide-other
-    "g]" 'evil-set-marker
     "zi" 'outline-show-all
     "}" 'my/paragraph-forward
     "go" 'cool-moves/open-line-below
@@ -66,7 +69,6 @@
     "k" 'evil-previous-visual-line
     "j" 'evil-next-visual-line
     "C-SPC" 'caps-lock-mode
-    "m" 'hydra-text-motions/body
     "M-e" 'evil-forward-sentence-begin
     "M-a" 'evil-backward-sentence-begin)
 
@@ -85,8 +87,6 @@
     "C-c k" nil
     "<S-SPC>" nil
     "z," 'evil-repeat
-    "gM" 'evil-set-marker
-    "gm" 'evil-middle-of-visual-line
     "gI" 'evil-insert-line
     "gt" 'fix-word-capitalize
     "gA" 'evil-append-line
@@ -213,3 +213,9 @@
   "C-c m" 'evil-mc-make-all-cursors
   "C-x m" 'evil-mc-undo-all-cursors)
 (global-evil-mc-mode  1))
+
+(use-package evil-visual-mark-mode
+:after evil
+:ensure t
+:config
+(evil-visual-mark-mode t))
