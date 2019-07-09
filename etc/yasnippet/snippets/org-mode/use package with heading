@@ -3,7 +3,7 @@
 # --
 * ${1:package}
 #+BEGIN_SRC emacs-lisp
-(use-package ${2:package-name}
+(use-package $1
 :defer t
 :ensure t${3:
 :config}$0)

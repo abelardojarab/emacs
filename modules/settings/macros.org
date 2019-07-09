@@ -187,11 +187,8 @@
 (fset 'copy-line-no-newline
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]Z0Y`Z" 0 "%d") arg)))
 
-(fset 'my/comment-dupplicate-line
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]Zyyp`Zjg]X`Zgcc`X" 0 "%d") arg)))
-
 (fset 'duplicate-line
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]zyyp`zj" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mzyyp`zj" 0 "%d") arg)))
 
 (fset 'python-open-two-lines-insert
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([end return return return] 0 "%d") arg)))

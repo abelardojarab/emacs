@@ -123,7 +123,7 @@
 "C-c r"    'restart-emacs
 ;; "C-c ç"   'my/goto-info-buffer-other-window
 
-"C-c b" 'org2blog/wp-hydra/body
+"C-c b" nil
 "C-c k" 'hydra-kill/body
 "C-c ;" 'kill-buffer-and-window
 ;; "C-c p" 'my/search-pack

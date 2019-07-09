@@ -151,7 +151,8 @@
  #+END_SRC
 *** Buffers and Performance
 #+BEGIN_SRC emacs-lisp
-"C-c b" 'org2blog/wp-hydra/body
+"C-c b" nil
+benchmark-init/activate
 "C-c k" 'hydra-kill/body
 "C-c ;" 'kill-buffer-and-window
 ;; "C-c p" 'my/search-pack

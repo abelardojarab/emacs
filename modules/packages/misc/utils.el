@@ -331,3 +331,10 @@
   (setq beacon-blink-delay 0.1)
   (setq beacon-blink-when-window-scrolls nil)
   (setq beacon-blink-when-window-changes t))
+
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  ;; See https://github.com/dholm/benchmark-init-el
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
