@@ -7,7 +7,7 @@
 :TITLE:    $1
 :PAGES:    ${2:400}
 :SYNOPSIS: 
-:TYPE:     ${3:$$(yas-choose-value '("     Novel" "     Collection" "     Article" "     Other"))}
+:TYPE:     ${3:$$(yas-choose-value '("     Novel" "     Collection" "     Article" "     Non-Fiction" "     Other"))}
 :GENRE:    ${4:Science Fiction} 
 :AUTHOR:   ${5:Author}
 :LINK:     Wikipedia$0
