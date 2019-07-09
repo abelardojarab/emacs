@@ -8,7 +8,7 @@
 - [[#evil-visual-mark-mode][Evil Visual Mark Mode]]
 
 * About
-This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/org.org][Org file]] tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.el][evil.el]].
+This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.org][Org file]] tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.el][evil.el]].
 * Evil Main
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
