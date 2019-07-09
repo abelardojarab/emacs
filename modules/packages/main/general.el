@@ -148,8 +148,7 @@
 "C-c u" 'universal-argument
 "C-x u" 'my/undo-propose
 "C-c s" 'hydra-shell/body
-"C-," 'helpful-variable
-"C-." 'helpful-function
+"C-," 'helpful-at-point
 "C-c ç" 'hydra-gro-prjct/body
 ;; "C-c x" 'my/kill-buffer-and-workspace
 "M-." 'evil-window-next

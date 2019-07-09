@@ -393,8 +393,10 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :after ivy
   :ensure t
   :config
+  (setq ivy-prescient-sort-commands '(counsel-find-library counsel-find-file counsel-ag))
   (ivy-prescient-mode +1))
 #+END_SRC
+
 ** company prescient
 #+BEGIN_SRC emacs-lisp
 (use-package company-prescient

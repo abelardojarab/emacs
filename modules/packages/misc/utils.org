@@ -142,6 +142,10 @@
   :config
   (setq helpful-max-buffers 2)
 
+  (general-nvmap
+   :keymaps 'helpful-mode-map
+   "gr" 'sel-to-end)
+
   (general-nmap
     :keymaps 'helpful-mode-map
     "<escape>" 'evil-ex-nohighlight)
@@ -155,6 +159,7 @@
    "M-p" 'my/paragraph-backwards
    "M-n" 'my/paragraph-forward))
 #+END_SRC
+
 * pdf tools
 #+BEGIN_SRC emacs-lisp
 (use-package pdf-tools

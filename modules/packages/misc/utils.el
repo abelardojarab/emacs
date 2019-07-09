@@ -120,6 +120,10 @@
   :config
   (setq helpful-max-buffers 2)
 
+  (general-nvmap
+   :keymaps 'helpful-mode-map
+   "gr" 'sel-to-end)
+
   (general-nmap
     :keymaps 'helpful-mode-map
     "<escape>" 'evil-ex-nohighlight)

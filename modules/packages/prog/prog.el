@@ -295,6 +295,7 @@
   :after ivy
   :ensure t
   :config
+  (setq ivy-prescient-sort-commands '(counsel-find-library counsel-find-file counsel-ag))
   (ivy-prescient-mode +1))
 
 (use-package company-prescient
