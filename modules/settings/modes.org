@@ -143,6 +143,7 @@ Shows the agenda for the different days.
         (org-deadline-warning-days -7))
     (org-agenda t "a")))
 #+END_SRC
+
 *** org agenda enter
 Open org-agenda item in the same window.
 #+BEGIN_SRC emacs-lisp
