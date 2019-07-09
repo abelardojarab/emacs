@@ -29,6 +29,7 @@ This tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages
   ;; 		      company-dabbrev-code
   ;; 		      company-yasnippet)))))
 
+  :defer t
   :config
 
   (defun my/elpy-goto-definition ()

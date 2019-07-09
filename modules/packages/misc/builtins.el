@@ -529,6 +529,7 @@
   (add-to-list 'auto-mode-alist '("\\prog\\'" . prog-mode))
   (add-hook 'prog-mode-hook 'my/prog-mode-hooks)
   :config
+  ;; (yas-reload-all)
   (defun my/prog-mode-hooks ()
     (interactive)
     (company-mode 1)
@@ -537,7 +538,7 @@
     (tab-jump-out-mode 1)
     (hs-minor-mode 1)
     (hl-line-mode 1)
-    (yas-minor-mode 1)
+    ;; (yas-minor-mode)
     (highlight-indent-guides-mode 1))
 
   ;; (setq comment-auto-fill-only-comments t)
@@ -548,7 +549,7 @@
 
   (general-nvmap
     :keymaps 'prog-mode-map
-    "<backspace>" 'org-edit-src-exit
+    "<backspace>" 'my/org-src-exit
     "<tab>" 'hs-toggle-hiding
     "RET" 'hydra-prog-mode/body)
 
@@ -724,6 +725,10 @@
   (general-define-key
    :keymaps 'messages-buffer-mode-map
    "M-d" 'ivy-switch-buffer)
+
+  (defun my/load-user-init-file ()
+    (interactive)
+    ((load-file user-init-file)))
 
   (general-unbind 'messages-buffer-mode-map
     :with 'ignore

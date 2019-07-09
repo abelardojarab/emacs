@@ -174,12 +174,12 @@
   (setq aggressive-indent-sit-for-time 0.05))
 
 (use-package yasnippet
-  :defer 1
+  :defer t
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map
-	      ("TAB" . nil)
-	      ("<tab>" . nil))
+              ("TAB" . nil)
+              ("<tab>" . nil))
   :init
   (setq yas--default-user-snippets-dir "~/.emacs.d/etc/yasnippet/snippets")
   ;; (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)
@@ -253,9 +253,9 @@
   (setq yas-triggers-in-field nil)
   (yas-global-mode +1))
 
-(use-package yasnippet-classic-snippets
-  :after yasnippet
-  :ensure t)
+;; (use-package yasnippet-classic-snippets
+;;   :after yasnippet
+;;   :ensure t)
 
 (use-package yasnippet-snippets
   :after yasnippet
@@ -264,10 +264,6 @@
   (yasnippet-snippets-initialize))
 
 (use-package ivy-yasnippet
-  :after yasnippet
-  :ensure t)
-
-(use-package java-snippets
   :after yasnippet
   :ensure t)
 

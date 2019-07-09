@@ -43,7 +43,7 @@
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([3 117 tab] 0 "%d") arg)))
 
 (fset 'org-sort-todos
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("gg]^d" 0 "%d") arg)))
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("gm^d" 0 "%d") arg)))
 #+END_SRC
 
 * text macros
@@ -87,7 +87,7 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([48 119 103 114 insert insert return return] 0 "%d") arg)))
 
 (fset 'duplicate-line
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]zyyp`zj" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mzyyp`zj" 0 "%d") arg)))
 
 (fset 'duplicate-a-paragrah
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("vapy`>p" 0 "%d") arg)))
@@ -127,7 +127,7 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("rU1" 0 "%d") arg)))
 
 (fset 'clone-to-workspace
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("4cg]Z0 f`Z" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("4cmZ0 f`Z" 0 "%d") arg)))
 
 (fset 'insert-leader
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([escape C-f9] 0 "%d") arg)))
@@ -146,10 +146,10 @@
 #+BEGIN_SRC emacs-lisp
 
 (fset 'my/narrow-to-paren-macro
-   (kmacro-lambda-form [?v ?a ?\( ?  ?n escape ?` ?<] 0 "%d"))
+      (kmacro-lambda-form [?v ?a ?\( ?  ?n escape ?` ?<] 0 "%d"))
 
 (fset 'my/clear-html-macro
-   (kmacro-lambda-form [?\C-x ?h ?c ?! C-return] 0 "%d"))
+      (kmacro-lambda-form [?\C-x ?h ?c ?! C-return] 0 "%d"))
 
 (fset 'my/python-paste-exercise
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 111 103 111 112 103 119 97 112 103 99 105 112 escape] 0 "%d") arg)))
@@ -170,7 +170,7 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([73 17 40 97 100 100 45 104 111 111 107 32 17 39 5 32 17 39 41 134217826 6] 0 "%d") arg)))
 
 (fset 'my/eval-next-sexp-macro
-	(lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([118 97 40 escape 24 5] 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([118 97 40 escape 24 5] 0 "%d") arg)))
 
 (fset 'c-goto-vars
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([109 113 103 103 47 115 101 116 108 111 99 97 108 101 return 50 106] 0 "%d") arg)))
@@ -185,7 +185,7 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("vg_S)i" 0 "%d") arg)))
 
 (fset 'copy-line-no-newline
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]Z0Y`Z" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mZ0Y`Z" 0 "%d") arg)))
 
 (fset 'duplicate-line
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mzyyp`zj" 0 "%d") arg)))
@@ -212,13 +212,13 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([118 105 112 24 110 110 escape 32 119 61 escape 32 119 114 106 106 escape 32 109 69] 0 "%d") arg)))
 
 (fset 'c-widen
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]Z ow wa ml" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mZ ow wa ml" 0 "%d") arg)))
 
 (fset 'c-narrow-to-block
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 93 90 118 105 112 24 110 110 escape 32 119 61 61 escape 32 109 110 96 90] 0 "%d") arg)))
 
 (fset 'duplicate-workspace-buffer
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("g]Z\363 f`Z" 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("mZ\363 f`Z" 0 "%d") arg)))
 (fset 'new-eval-src-block
       [?g ?\] ?Z ?v ?i ?E ?  ?c ?r escape ?` ?Z ?z ?z])
 (fset 'run-c-block
@@ -249,10 +249,17 @@
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([escape 32 119 114 106 escape 105] 0 "%d") arg)))
 
 (fset 'format-hydra-binding
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([48 103 114 83 41 96 60 97 39 right 32 left left] 0 "%d") arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([48 103 114 83 41 96 60 97 39 right 32 left left] 0 "%d") arg)))
 
-(fset 'eval-line
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 93 122 86 32 99 114 escape 96 122] 0 "%d") arg)))
+(defun my/eval-line-function ()
+  (interactive)
+  (my/eval-line-macro)
+  (helpful-at-point))
+
+(fset 'my/eval-line-macro
+      (kmacro-lambda-form [?m ?Z ?V 134217848 ?e ?v ?a ?l ?- ?r ?e ?g ?i ?o ?n return escape ?\' ?Z] 0 "%d"))
+
+(defalias 'eval-line 'my/eval-line-macro)
 
 (fset 'create-setq
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([48 103 114 83 41 96 60 97 115 101 116 113 32 escape 96 62 105 32] 0 "%d") arg)))

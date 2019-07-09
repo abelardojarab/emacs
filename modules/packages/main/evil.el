@@ -20,7 +20,6 @@
   (setq evil-respect-visual-line-mode nil)
 
   (general-nmap
-    "C-." 'ivy-resume
     "`" 'evil-goto-mark-line
     "'" 'evil-goto-mark
     "m" 'evil-set-marker
@@ -214,10 +213,3 @@
   "C-c m" 'evil-mc-make-all-cursors
   "C-x m" 'evil-mc-undo-all-cursors)
 (global-evil-mc-mode  1))
-
-(use-package evil-visual-mark-mode
-  :after evil
-  :ensure t
-  :config
-  (setq evil-visual-mark-exclude-marks '("^" "[" "]"))
-  (evil-visual-mark-mode t))

@@ -123,7 +123,7 @@
 "C-c r"    'restart-emacs
 ;; "C-c ç"   'my/goto-info-buffer-other-window
 
-"C-c b" nil
+"C-c b" 'my/benchmark-init-commands
 "C-c k" 'hydra-kill/body
 "C-c ;" 'kill-buffer-and-window
 ;; "C-c p" 'my/search-pack
@@ -149,7 +149,8 @@
 "C-x u" 'my/undo-propose
 "C-c s" 'hydra-shell/body
 "C-," 'helpful-at-point
-"C-." 'ivy-resume
+"C-." 'helpful-variable
+"C-;" 'helpful-function
 "C-c ç" 'hydra-gro-prjct/body
 ;; "C-c x" 'my/kill-buffer-and-workspace
 "M-." 'evil-window-next

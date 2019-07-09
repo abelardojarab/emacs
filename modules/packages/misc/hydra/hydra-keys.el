@@ -9,16 +9,13 @@
   "p" 'hydra-projectile-mode/body
   "l" 'my/split-right
   "k" 'split-window-below
-  ";" 'hydra-modes/body
+  ";" 'hydra-text-main/body
   "m" 'hydra-modes/body
   "c" 'hydra-commands/body
   "d" 'hydra-quick-commands/body
   "b" 'my/evil-botright
   "y" 'hydra-org-agenda/body
   "q" 'my/kill-this-buffer)
-
-(general-define-key
- "C-;" 'hydra-text-main/body)
 
 (general-nvmap
   "C-o" 'hydra-find-file/body)

@@ -29,7 +29,6 @@
 
   (general-define-key
    :keymaps 'flyspell-mode-map
-   "C-;" 'hydra-text-main/body
    "C-c d" 'my/ispell-show-dictionary)
 
   (general-nvmap
@@ -77,9 +76,9 @@
   (setq markdown-enable-wiki-links t)
   :config
 
-(defun my/markdown-hooks ()
-(interactive)
-(prose-enable))
+  (defun my/markdown-hooks ()
+    (interactive)
+    (prose-enable))
 
   (defun my/markdown-copy-buffer ()
     (interactive)
@@ -99,11 +98,11 @@
 
   (general-imap
     :keymaps 'markdown-mode-map
-    "C-;" 'hydra-text-main/body)
+    "C-;" 'helpful-function)
 
   (general-nvmap
     :keymaps 'markdown-mode-map
-    "C-;" 'hydra-text-main/body
+    "C-;" 'helpful-function
     ">" 'markdown-promote-subtree
     "<" 'markdown-demote-subtree
     "}" 'markdown-forward-paragraph
@@ -111,13 +110,13 @@
     "[" 'markdown-previous-link
     "]" 'markdown-next-link
     "<tab>" 'markdown-cycle
-    "C-;" 'hydra-text-main/body
+    "C-;" 'helpful-function
     "<insert>" 'markdown-insert-link)
 
   (general-define-key
    :keymaps 'markdown-mode-map
    "C-x y" 'my/markdown-copy-buffer
-   "C-;" 'hydra-text-main/body
+   "C-;" 'helpful-function
    "C-c l" 'markdown-toc-generate-or-refresh-toc
    "M-p" 'markdown-backward-paragraph
    "M-n" 'my/markdown-forward-paragraph

@@ -8,6 +8,7 @@
   ;; 		      company-dabbrev-code
   ;; 		      company-yasnippet)))))
 
+  :defer t
   :config
 
   (defun my/elpy-goto-definition ()

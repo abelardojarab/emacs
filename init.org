@@ -4,39 +4,40 @@
 #+BEGIN_SRC emacs-lisp
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-                (not (gnutls-available-p))))
+                    (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
- (when no-ssl
-  (warn "\
+  (when no-ssl
+    (warn "\
    Your version of Emacs does not support SSL connections,
    which is unsafe because it allows man-in-the-middle attacks.
    There are two things you can do about this warning:
    1. Install an Emacs version that does support SSL and be safe.
    2. Remove this warning from your init file so you won't see it again."))
- (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
- (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
- (when (< emacs-major-version 24)
-  (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (custom-set-variables
  '(package-selected-packages '(use-package)))
 
 (use-package quelpa
- :init
- (setq quelpa-update-melpa-p nil)
- :ensure t)
+  :init
+  (setq quelpa-update-melpa-p nil)
+  :ensure t)
 
-    (use-package quelpa-use-package
-     :ensure t)
+(use-package quelpa-use-package
+  :ensure t)
 
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (setq initial-buffer-choice nil)
 (setq initial-scratch-message nil)
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message nil)
 (setq initial-buffer-choice nil)
-(setq inhibit-startup-message t)
+(setq inhibit-startup-message nil)
 (setq initial-scratch-message nil)
 (setq default-frame-alist '((font . "Input Mono Light 13")))
 #+END_SRC
+
 * Menu Bar
 #+BEGIN_SRC emacs-lisp
 (use-package menu-bar

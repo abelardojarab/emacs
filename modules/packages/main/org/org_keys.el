@@ -2,15 +2,17 @@
 
 (general-define-key
  :keymaps 'org-src-mode-map
+ "SPQ q" nil
  "M-m" 'org-edit-src-exit)
 
 (general-unbind 'org-src-mode-map
   :with 'org-edit-src-exit
-  [remap my/kill-this-buffer])
+  [remap org-edit-src-exit])
 
-(general-nvmap
+(general-nmap
   :keymaps 'org-src-mode-map
-  "<backspace>" 'org-edit-src-exit)
+  "SPQ q" 'my/org-src-exit
+  "<backspace>" 'my/org-src-exit)
 
 (general-nvmap
   :keymaps 'org-mode-map

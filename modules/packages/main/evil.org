@@ -33,7 +33,6 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   (setq evil-respect-visual-line-mode nil)
 
   (general-nmap
-    "C-." 'ivy-resume
     "`" 'evil-goto-mark-line
     "'" 'evil-goto-mark
     "m" 'evil-set-marker
@@ -232,13 +231,4 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   "C-c m" 'evil-mc-make-all-cursors
   "C-x m" 'evil-mc-undo-all-cursors)
 (global-evil-mc-mode  1))
-#+END_SRC
-* Evil Visual Mark Mode
-#+BEGIN_SRC emacs-lisp
-(use-package evil-visual-mark-mode
-  :after evil
-  :ensure t
-  :config
-  (setq evil-visual-mark-exclude-marks '("^" "[" "]"))
-  (evil-visual-mark-mode t))
 #+END_SRC

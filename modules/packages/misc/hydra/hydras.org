@@ -339,6 +339,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        _g_: debug
        _n_: new
        _e_: this file
+       _l_: load init file
 "
   ("a" tangle-py-all)
   ("b" tangle-py-all-and-restart)
@@ -346,7 +347,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("d" org-babel-tangle)
   ("g" tangle-py-all-debug)
   ("n" tangle-py-all-new)
-  ("e" my/tangle-this-file))
+  ("e" my/tangle-this-file)
+  ("l" my/load-user-init-file))
 #+END_SRC
 
 *** indent
@@ -545,6 +547,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        _b_: region
        _c_: buffer
        _d_: line
+       _h_: l.&show
        _e_: keys
        _i_: i3
        _z_: NEW
@@ -556,6 +559,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("b" eval-region)
   ("c" my/eval-buffer)
   ("d" eval-line)
+  ("h" my/eval-line-function)
   ("e" my/tangle-reload-keys)
   ("i" i3-reload)
   ("n" my/eval-next-sexp-macro))
@@ -632,32 +636,23 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 (defhydra hydra-quick-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "
   ^
-       ^Quick Commands^
-       ------------------------------------
-       _f_: def abbrev       _n_: name macro
-       _F_: def mode abbrev  _m_: edit macro
-       _e_: eddit abbrevs    _i_: insert macro
-       _t_: indent block     _x_: texpander
-       _d_: hydra eval       _c_: eval buffer
-                           _v_: eval buffer ns
+       Eval           Other
+       -------------------------------
+       _c_: buffer       _f_: gl. abbrev
+       _d_: hydra        _F_: mode abbrev
+       _l_: line
+       _i_: \" and show
+
   "
   ("<escape>" nil nil)
 
-  ("a" tangle-and-eval-block)
-  ("b" eval-region)
   ("c" my/eval-buffer)
-  ("v" my/eval-buffer-no-save)
   ("d" hydra-eval/body)
+  ("l" my/eval-line-macro)
+  ("i" my/eval-line-function)
 
   ("f" define-global-abbrev)
-  ("F" define-mode-abbrev)
-  ("e" edit-abbrevs)
-
-  ("n" name-last-kbd-macro)
-  ("m" edit-named-kbd-macro)
-  ("i" insert-kbd-macro)
-  ("t" my/indent-src-block-function)
-  ("x" my/new-texpander-abbreviation))
+  ("F" define-mode-abbrev))
 #+END_SRC
 
 *** text

@@ -92,12 +92,12 @@
 (defun my/update-agenda-files ()
   (interactive)
   (setq org-agenda-files (apply 'append
-				(mapcar
-				 (lambda (directory)
-				   (directory-files-recursively
-				    directory org-agenda-file-regexp))
-				 '("~/org/Agenda"
-				   "~/Studying/Unifacs/Segundo_Semestre/Matérias"))))
+                                (mapcar
+                                 (lambda (directory)
+                                   (directory-files-recursively
+                                    directory org-agenda-file-regexp))
+                                 '("~/org/Agenda"
+                                   "~/Studying/Unifacs/Segundo_Semestre/Matérias"))))
   (my/org-agenda))
 
 (defun my/save-archive ()
@@ -152,7 +152,7 @@
   "Jump to bookmark in another frame. See `bookmark-jump' for more."
   (interactive)
   (let ((org-link-frame-setup
-	 (acons 'file 'find-file-other-frame org-link-frame-setup)))
+         (acons 'file 'find-file-other-frame org-link-frame-setup)))
     (org-open-at-point)))
 
 (defun my/find-org-agenda-file ()
@@ -172,3 +172,8 @@
   (org-open-at-point-global)
   (sit-for 1)
   (focus-chrome))
+
+(defun my/org-src-exit ()
+  (interactive)
+  (org-edit-src-exit)
+  (my/quiet-save-buffer))
