@@ -113,7 +113,7 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
 * smart hungry delete
 #+BEGIN_SRC emacs-lisp
 (use-package smart-hungry-delete
-  :defer 5
+  :defer t
   :ensure t
   :config
   (general-nvmap
@@ -173,7 +173,7 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
 * subword
 #+BEGIN_SRC emacs-lisp
 (use-package subword
-:defer 3
+:defer t
 :ensure nil
 :config
 (global-subword-mode +1))
@@ -192,8 +192,8 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 (company-abort)
 (yas-expand))
 
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.elc")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.elc")
   (global-company-mode t))
 #+END_SRC
 
@@ -402,4 +402,19 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 :config
 (company-prescient-mode +1)
 (prescient-persist-mode +1))
+#+END_SRC
+* parens
+** smartparens
+#+BEGIN_SRC emacs-lisp
+(use-package smartparens
+  :defer t
+  :ensure t
+  :config
+  (setq sp-escape-quotes-after-insert nil)
+  (smartparens-global-mode +1))
+#+END_SRC
+** elec pair
+#+BEGIN_SRC emacs-lisp
+(use-package elec-pair
+  :defer t)
 #+END_SRC

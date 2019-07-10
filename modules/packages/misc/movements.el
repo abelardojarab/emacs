@@ -10,7 +10,7 @@
   (add-hook 'dired-mode-hook 'line-numbers))
 
 (use-package dired+
-  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.el")
+  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.elc")
   :after dired
   :ensure nil
   :config
@@ -25,16 +25,16 @@
   (add-hook 'ranger-parent-dir-hook 'my/ranger-options-parent)
   :config
   (setq ranger-footer-delay nil)
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.el")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.el")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.el"))
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.elc")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.elc")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.elc"))
 
 (use-package buffer-move
 :defer t
 :ensure t)
 
 (use-package avy
-  :defer 2
+  :defer t
   :ensure t
   :config
   (defun my/avy-char-2-selecting-below ()
@@ -115,16 +115,21 @@
                              "*Echo Area 0*"
                              "*Echo Area 1"
                              "*Minibuf 0*"
+                             "bookmark-default.elc"
                              "bookmark-default.el"
                              "info-history"
+                             "company-shell-autoloads.elc"
                              "company-shell-autoloads.el"
+                             "company.elc"
                              "company.el"
+                             "pos-tip-autoloads.elc"
                              "pos-tip-autoloads.el"
                              "*Flycheck error messages*"
                              "*company-documentation*"
                              "^.archive.org$"
                              ".*magit.*"
                              ".*elc"
+                             ".*el"
                              "*Bongo Playlist*"
                              "*Bongo Library*"
                              "text_scratch"
@@ -140,6 +145,19 @@
 
 ;;;; CONFIG ;;;;
   :config
+
+  (defun my/enable-ivy-counsel ()
+    (interactive)
+    (ivy-mode +1)
+    (counsel-mode +1)
+    (message "ivy on"))
+
+  (defun my/disable-ivy-counsel ()
+    (interactive)
+    (ivy-mode -1)
+    (counsel-mode -1)
+    (message "ivy off"))
+
   (defun ivy-with-thing-at-point (cmd)
     (let ((ivy-initial-inputs-alist
            (list
@@ -294,7 +312,7 @@
   (eyebrowse-mode t))
 
 (use-package winner
-  :defer 3
+  :defer t
   :ensure nil
   :config
 
@@ -322,16 +340,16 @@
     "<backspace>" 'my/org-src-exit))
 
 (use-package cool-moves
-:load-path "~/maps/cool-moves"
-:config
-(general-define-key
- :keymaps 'override
-"<C-down>" 'cool-moves/paragraph-forward
-"<C-up>" 'cool-moves/paragraph-backward
-"C-S-j" 'cool-moves/line-forward
-"C-S-k" 'cool-moves/line-backward
-"C-M-n" 'cool-moves/word-forward
-"C-M-p" 'cool-moves/word-backwards))
+  :load-path "~/maps/cool-moves"
+  :config
+  (general-define-key
+   :keymaps 'override
+   "<C-down>" 'cool-moves/paragraph-forward
+   "<C-up>" 'cool-moves/paragraph-backward
+   "C-S-j" 'cool-moves/line-forward
+   "C-S-k" 'cool-moves/line-backward
+   "C-M-n" 'cool-moves/word-forward
+   "C-M-p" 'cool-moves/word-backwards))
 
 ;; (add-hook 'ea-popup-hook 'popup-handler)
 

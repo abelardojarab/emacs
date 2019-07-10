@@ -89,7 +89,7 @@
 
 
 (use-package vertigo
-  :defer 2
+  :defer t
   :ensure t
   :config
   (general-nvmap
@@ -138,7 +138,7 @@
    "M-n" 'my/paragraph-forward))
 
 (use-package pdf-tools
-  :defer 1
+  :defer t
   :ensure t
   :init
   (add-hook 'pdf-view-mode-hook 'my/pdf-view-settings)
@@ -271,7 +271,7 @@
   :init
   (setq history-length 500)
   (setq savehist-autosave-interval (* 1 60))
-  (setq savehist-file "~/.emacs.d/var/savehist.el")
+  (setq savehist-file "~/.emacs.d/var/savehist.elc")
   (setq savehist-additional-variables '(kill-ring search-ring filesets-data))
   :config
   (savehist-mode t))
@@ -282,7 +282,7 @@
 (use-package saveplace
   :ensure nil
   :init
-  (setq save-place-file "~/.emacs.d/var/save-place.el")
+  (setq save-place-file "~/.emacs.d/var/save-place.elc")
   :config
   (setq save-place-limit 100)
   (save-place-mode 1))
@@ -298,7 +298,7 @@
 :ensure t)
 
 (use-package unkillable-scratch
-:defer 1
+  :defer nil
   :ensure t
   :config
   ;; (setq unkillable-buffers '("^\\*scratch\\*$"))

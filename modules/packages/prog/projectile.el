@@ -2,7 +2,7 @@
   :defer t
   :ensure t
   :config
-  (load-file "~/.emacs.d/modules/packages/prog/projectile/projectile_settings.el"))
+  (load-file "~/.emacs.d/modules/packages/prog/projectile/projectile_settings.elc"))
 
 (use-package counsel-projectile
   :defer t

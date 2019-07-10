@@ -56,7 +56,7 @@
 :ensure t)
 
 (use-package wc-mode
-:defer 3
+:defer t
 :ensure t)
 
 (use-package olivetti
@@ -75,6 +75,10 @@
   (setq-default markdown-hide-markup t)
   (setq markdown-enable-wiki-links t)
   :config
+  (defun my/markdown-forward-paragraph ()
+    (interactive)
+    (markdown-forward-paragraph)
+    (forward-to-indentation))
 
   (defun my/markdown-hooks ()
     (interactive)

@@ -69,7 +69,7 @@
     [remap my/quiet-save-buffer]))
 
 (use-package smart-hungry-delete
-  :defer 5
+  :defer t
   :ensure t
   :config
   (general-nvmap
@@ -115,7 +115,7 @@
   (setq-default flymake-no-changes-timeout 0.2))
 
 (use-package subword
-:defer 3
+:defer t
 :ensure nil
 :config
 (global-subword-mode +1))
@@ -129,8 +129,8 @@
 (company-abort)
 (yas-expand))
 
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.elc")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.elc")
   (global-company-mode t))
 
 (use-package company-shell
@@ -301,3 +301,13 @@
 :config
 (company-prescient-mode +1)
 (prescient-persist-mode +1))
+
+(use-package smartparens
+  :defer t
+  :ensure t
+  :config
+  (setq sp-escape-quotes-after-insert nil)
+  (smartparens-global-mode +1))
+
+(use-package elec-pair
+  :defer t)

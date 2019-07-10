@@ -29,7 +29,7 @@
 
 (defun my/reload-keys ()
 (interactive)
-(load-file "~/.emacs.d/keys.el")
+(load-file "~/.emacs.d/keys.elc")
 (message "keys reloaded"))
 
 (defun my/blog-post ()
@@ -184,7 +184,7 @@ rotate entire document."
 (defun find-scratch-elisp ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/tmp/scratches/scratch.el")))
+    (find-file "~/.emacs.d/tmp/scratches/scratch.elc")))
 
 (defun find-scratch-org ()
   (interactive)
@@ -241,12 +241,12 @@ rotate entire document."
 (defun find-emacs-custom ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/etc/custom.el")))
+    (find-file "~/.emacs.d/etc/custom.elc")))
 
 (defun find-evil-keys ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/lisp/functions/evil_keys.el")))
+    (find-file "~/.emacs.d/lisp/functions/evil_keys.elc")))
 
 (defun find-functions ()
   (interactive)
@@ -256,7 +256,7 @@ rotate entire document."
 (defun find-functions.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/functions.el")))
+    (find-file "~/.emacs.d/functions.elc")))
 
 (defun find-hydras ()
   (interactive)
@@ -266,7 +266,7 @@ rotate entire document."
 (defun find-hydras.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/hydras.el")))
+    (find-file "~/.emacs.d/hydras.elc")))
 
 (defun find-init ()
   (interactive)
@@ -276,7 +276,7 @@ rotate entire document."
 (defun find-init.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/init.el")))
+    (find-file "~/.emacs.d/init.elc")))
 
 (defun find-keys ()
   (interactive)
@@ -286,7 +286,7 @@ rotate entire document."
 (defun find-keys.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/keys.el")))
+    (find-file "~/.emacs.d/keys.elc")))
 
 (defun find-macros ()
   (interactive)
@@ -296,7 +296,7 @@ rotate entire document."
 (defun find-macros.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/macros.el")))
+    (find-file "~/.emacs.d/macros.elc")))
 
 (defun find-misc ()
   (interactive)
@@ -306,7 +306,7 @@ rotate entire document."
 (defun find-misc.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/misc.el")))
+    (find-file "~/.emacs.d/misc.elc")))
 
 (defun find-packs ()
   (interactive)
@@ -316,7 +316,7 @@ rotate entire document."
 (defun find-packs.el ()
   (interactive)
   (let ((inhibit-message t))
-    (find-file "~/.emacs.d/packs.el")))
+    (find-file "~/.emacs.d/packs.elc")))
 
 
 (defun my/goto-scratch-buffer ()

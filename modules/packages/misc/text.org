@@ -92,7 +92,7 @@ https://is.gd/JyKZsg
 * wc-mode
 #+BEGIN_SRC emacs-lisp
 (use-package wc-mode
-:defer 3
+:defer t
 :ensure t)
 #+END_SRC
 * olivetti
@@ -116,6 +116,10 @@ https://is.gd/JyKZsg
   (setq-default markdown-hide-markup t)
   (setq markdown-enable-wiki-links t)
   :config
+  (defun my/markdown-forward-paragraph ()
+    (interactive)
+    (markdown-forward-paragraph)
+    (forward-to-indentation))
 
   (defun my/markdown-hooks ()
     (interactive)

@@ -59,7 +59,7 @@
   (defvar foo)
   (setq foo (concat "nt " (prelude-copy-file-name-to-clipboard)))
   (shell-command foo)
-  (load-file "~/.emacs.d/modules/packages/main/general.el")
+  (load-file "~/.emacs.d/modules/packages/main/general.elc")
   (message "keys reloaded"))
 
 (defun my/tangle-this-file ()

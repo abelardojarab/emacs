@@ -76,8 +76,8 @@
 		 (let ((inhibit-message t))
 		   (delete-trailing-whitespace)
 		   (save-buffer)))
-  (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
-  (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
+  (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.elc")
+  (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.elc"))
 
 (use-package importmagic
   :after python
@@ -109,9 +109,9 @@
 
 (yafolding-mode +1))
 
-(use-package live-py-mode
-:defer t
-:ensure t
-:config
-(setq live-py-update-all-delay 0.3)
-(live-py-mode))
+;; (use-package live-py-mode
+;;   :defer t
+;;   :ensure t
+;;   :config
+;;   (setq live-py-update-all-delay 0.3)
+;;   (live-py-mode))

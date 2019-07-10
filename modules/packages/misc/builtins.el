@@ -17,7 +17,7 @@
 (use-package filesets
   :ensure nil
   :config
-  (load-file "~/.emacs.d/modules/settings/filesets.el")
+  (load-file "~/.emacs.d/modules/settings/filesets.elc")
   (filesets-init))
 
 ;; (use-package select
@@ -147,135 +147,135 @@
   (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
   (add-hook 'shell-mode-hook 'my/shell-mode-hooks)
   (add-hook 'shell-mode-hook
-	    (lambda ()
-	      (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
+            (lambda ()
+              (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
   :config
 
-(defun my/shell-mode-hooks ()
-  (interactive)
-  (subword-mode 1)
-  (company-mode 1)
-  (smartparens-mode 1)
-  (tab-jump-out-mode 1)
-  (electric-pair-local-mode 1)
-  (my/company-idle-one-prefix-one)
-  (my/shell-source-bashrc))
+  (defun my/shell-mode-hooks ()
+    (interactive)
+    (subword-mode 1)
+    (company-mode 1)
+    (smartparens-mode 1)
+    (tab-jump-out-mode 1)
+    (electric-pair-local-mode 1)
+    (my/company-idle-one-prefix-one)
+    (my/shell-source-bashrc))
 
-(defun my/shell-go-up ()
-  (interactive)
-  (insert "cd ..")
-  (comint-send-input)
-  (comint-clear-buffer)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-go-up ()
+    (interactive)
+    (insert "cd ..")
+    (comint-send-input)
+    (comint-clear-buffer)
+    (insert "ls")
+    (comint-send-input))
 
-(defun my/shell-go-back ()
-  (interactive)
-  (comint-clear-buffer)
-  (insert "cd - && ls")
-  (comint-send-input))
+  (defun my/shell-go-back ()
+    (interactive)
+    (comint-clear-buffer)
+    (insert "cd - && ls")
+    (comint-send-input))
 
-(defun my/shell-fasd-start ()
-  (interactive)
-  (insert "jj "))
+  (defun my/shell-fasd-start ()
+    (interactive)
+    (insert "jj "))
 
-(defun my/shell-fasd-complete ()
-  (interactive)
-  (comint-send-input)
-  (comint-clear-buffer)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-fasd-complete ()
+    (interactive)
+    (comint-send-input)
+    (comint-clear-buffer)
+    (insert "ls")
+    (comint-send-input))
 
-(defun my/shell-go-previous ()
-  (interactive)
-  (comint-clear-buffer)
-  (insert "my-shell-go-previous")
-  (comint-send-input)
-  (comint-clear-buffer)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-go-previous ()
+    (interactive)
+    (comint-clear-buffer)
+    (insert "my-shell-go-previous")
+    (comint-send-input)
+    (comint-clear-buffer)
+    (insert "ls")
+    (comint-send-input))
 ;;; shell_extras.el ends here
 
-(general-imap
-  :keymaps 'shell-mode-map
-  "C-u" 'comint-kill-input
-  "C-p" 'comint-previous-input
-  "C-n" 'comint-next-input
-  "C-c u" 'universal-argument
-  "C-l" 'comint-clear-buffer
-  "M-u" 'my/shell-go-up
-  "C-t" 'my/shell-go-back
-  "C-c ;" 'kill-buffer-and-window
-  "C-/" 'my/shell-clear-and-list
-  "M-p" 'my/shell-go-previous
-  "C-c j" 'my/evil-shell-bottom)
+  (general-imap
+    :keymaps 'shell-mode-map
+    "C-u" 'comint-kill-input
+    "C-p" 'comint-previous-input
+    "C-n" 'comint-next-input
+    "C-c u" 'universal-argument
+    "C-l" 'comint-clear-buffer
+    "M-u" 'my/shell-go-up
+    "C-t" 'my/shell-go-back
+    "C-c ;" 'kill-buffer-and-window
+    "C-/" 'my/shell-clear-and-list
+    "M-p" 'my/shell-go-previous
+    "C-c j" 'my/evil-shell-bottom)
 
-(vmap
-  :keymaps 'shell-mode-map
-  "C-;" 'my/yank-shell-to-notes)
+  (vmap
+    :keymaps 'shell-mode-map
+    "C-;" 'my/yank-shell-to-notes)
 
-(nvmap
-  :keymaps 'shell-mode-map
-  "C-c u" 'universal-argument
-  "C-l" 'comint-clear-buffer
-  "M-u" 'my/shell-go-up
-  "C-t" 'my/shell-go-back
-  "C-c ;" 'kill-buffer-and-window
-  "M-p" 'my/shell-go-previous
-  "C-/" 'my/shell-clear-and-list
-  "C-c ;" 'kill-buffer-and-window
-  "C-j" 'counsel-M-x)
+  (nvmap
+    :keymaps 'shell-mode-map
+    "C-c u" 'universal-argument
+    "C-l" 'comint-clear-buffer
+    "M-u" 'my/shell-go-up
+    "C-t" 'my/shell-go-back
+    "C-c ;" 'kill-buffer-and-window
+    "M-p" 'my/shell-go-previous
+    "C-/" 'my/shell-clear-and-list
+    "C-c ;" 'kill-buffer-and-window
+    "C-j" 'counsel-M-x)
 
-(general-define-key
- :keymaps 'shell-mode-map
- "C-j" 'counsel-M-x
- "M-u" 'my/shell-go-up
- "C-u" 'comint-kill-input
- "<M-return>" nil
- "C-;" 'kill-buffer-and-window
- "C-t" 'my/shell-go-back
- "C-c 0" 'my/jump-to-register-91
- "M-e" 'counsel-shell-history
- "C-n" 'comint-next-input
- "C-l" 'comint-clear-buffer
- "C-c u" 'universal-argument
- "M-p" 'my/shell-go-previous
- "C-p" 'comint-previous-input
- "C-c j" 'my/evil-shell-bottom)
+  (general-define-key
+   :keymaps 'shell-mode-map
+   "C-j" 'counsel-M-x
+   "M-u" 'my/shell-go-up
+   "C-u" 'comint-kill-input
+   "<M-return>" nil
+   "C-;" 'kill-buffer-and-window
+   "C-t" 'my/shell-go-back
+   "C-c 0" 'my/jump-to-register-91
+   "M-e" 'counsel-shell-history
+   "C-n" 'comint-next-input
+   "C-l" 'comint-clear-buffer
+   "C-c u" 'universal-argument
+   "M-p" 'my/shell-go-previous
+   "C-p" 'comint-previous-input
+   "C-c j" 'my/evil-shell-bottom)
 
-(general-unbind 'shell-mode-map
-  :with 'ignore
-  [remap my/quiet-save-buffer])
+  (general-unbind 'shell-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer])
 
-(general-unbind 'shell-mode-map
-  :with nil
-  [remap hydra-text-main/body])
+  (general-unbind 'shell-mode-map
+    :with nil
+    [remap hydra-text-main/body])
 
-(defun my/shell-resync ()
-  (interactive)
-  (comint-kill-whole-line 1)
-  (shell-resync-dirs)
-  (comint-clear-buffer)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-resync ()
+    (interactive)
+    (comint-kill-whole-line 1)
+    (shell-resync-dirs)
+    (comint-clear-buffer)
+    (insert "ls")
+    (comint-send-input))
 
-(defun my/shell-list ()
-  (interactive)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-list ()
+    (interactive)
+    (insert "ls")
+    (comint-send-input))
 
-(defun my/shell-clear-and-list ()
-  (interactive)
-  (comint-clear-buffer)
-  (insert "ls")
-  (comint-send-input))
+  (defun my/shell-clear-and-list ()
+    (interactive)
+    (comint-clear-buffer)
+    (insert "ls")
+    (comint-send-input))
 
-(defun my/shell-source-bashrc ()
-  (interactive)
-  (insert "source ~/.bashrc")
-  (comint-send-input)
-  (comint-clear-buffer))
-)
+  (defun my/shell-source-bashrc ()
+    (interactive)
+    (insert "source ~/.bashrc")
+    (comint-send-input)
+    (comint-clear-buffer))
+  )
 
 (use-package eshell
   :defer t
@@ -286,7 +286,7 @@
   (add-hook 'eshell-mode-hook 'my/load-eshell-keybindings)
   (defun my/load-eshell-keybindings ()
     (interactive)
-    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.el")))
+    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.elc")))
 
 (use-package calc
 :defer t
@@ -319,8 +319,26 @@
 (use-package conf-mode
   :defer t
   :ensure nil
+  :init
+  (add-hook 'conf-space-mode-hook 'my/conf-hooks)
   :config
- (electric-pair-local-mode 1)
+  (defun my/conf-hooks ()
+    (interactive)
+    (line-numbers)
+    (subword-mode 1)
+    (company-mode 1)
+    (flycheck-mode 1)
+    (smartparens-mode 1)
+    (tab-jump-out-mode 1)
+    (electric-operator-mode 1)
+    (electric-pair-local-mode 1)
+    (highlight-numbers-mode 1)
+    (highlight-operators-mode 1)
+    (highlight-indent-guides-mode 1)
+    (subword-mode 1)
+    (tab-jump-out-mode 1))
+
+  (electric-pair-local-mode 1)
   (general-define-key
    :keymaps 'conf-mode-map
    "M-p" 'my/paragraph-backwards
@@ -356,6 +374,19 @@
 
   :ensure nil
   :config
+
+(defun my/paragraph-backwards ()
+  (interactive)
+  (previous-line)
+  (backward-paragraph)
+  (next-line)
+  (back-to-indentation))
+
+(defun my/paragraph-forward ()
+  (interactive)
+  (forward-paragraph)
+  (next-line)
+  (back-to-indentation))
 
   (defun my/enable-auto-agg-fill ()
     (interactive)
@@ -511,6 +542,10 @@
   :defer t
   :ensure nil
   :config
+  (defun abbrev-edit-save-close ()
+    (interactive)
+    (abbrev-edit-save-buffer)
+    (my/kill-this-buffer))
   (setq-default abbrev-mode t)
   (setq save-abbrevs 'silently)
   ;; (setq abbrev-file-name "~/.emacs.d/etc/abbrev_defs")
@@ -570,7 +605,7 @@
    "<M-return>" 'indent-buffer))
 
 (use-package help-mode
-  :defer 1
+  :defer t
   :ensure nil
   :init
   (add-hook 'help-mode-hook 'line-numbers-absolute)
@@ -643,7 +678,7 @@
     [remap evil-insert]))
 
 (use-package scroll-bar
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (horizontal-scroll-bar-mode -1)
@@ -656,13 +691,13 @@
   (tool-bar-mode -1))
 
 (use-package eldoc
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (global-eldoc-mode -1))
 
 (use-package paren
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (custom-set-faces '(show-paren-match ((t(
@@ -675,26 +710,26 @@
   (show-paren-mode 1))
 
 (use-package frame
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (blink-cursor-mode 0))
 
 (use-package autorevert
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1))
 
 (use-package mouse
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq mouse-yank-at-point t))
 
 ;; (use-package paragraphs
-;;   :defer 1
+;;   :defer t
 ;;   :ensure nil
 ;;   :config
 ;;   (setq sentence-end-double-space nil)
@@ -703,53 +738,25 @@
   (setq sentence-end nil)
 
 ;; (use-package hl-line
-;;   :defer 1
+;;   :defer t
 ;;   :ensure nil
 ;;   :config
 ;;   (global-hl-line-mode nil))
 
-(use-package simple
-  :ensure nil
-  :init
-  (add-to-list 'auto-mode-alist '("\\fund\\'" . fundamental-mode))
-  :config
-  (setq truncate-lines t)
-  (setq-default truncate-lines t)
-  (setq save-interprogram-paste-before-kill nil)
-  (setq backward-delete-char-untabify-method 'hungry)
-
-  (general-unbind 'special-mode-map
-    :with 'ignore
-    [remap my/quiet-save-buffer])
-
-  (general-define-key
-   :keymaps 'messages-buffer-mode-map
-   "M-d" 'ivy-switch-buffer)
-
-  (defun my/load-user-init-file ()
-    (interactive)
-    ((load-file user-init-file)))
-
-  (general-unbind 'messages-buffer-mode-map
-    :with 'ignore
-    [remap my/quiet-save-buffer])
-  (setq-default indent-tabs-mode nil)
-  (global-visual-line-mode t))
-
 (use-package warning
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq warning-minimum-level :emergency))
 
 (use-package custom
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq custom-safe-themes t))
 
 (use-package comint
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq comint-prompt-read-only t))
@@ -763,6 +770,21 @@
 
   (defun my/sh-mode-hooks ()
     (interactive)
+    (line-numbers)
+    (subword-mode 1)
+    (company-mode 1)
+    (smartparens-mode 1)
+    (tab-jump-out-mode 1)
+    (flycheck-mode 1)
+    (electric-pair-local-mode 1)
+    (yas-minor-mode 1)
+    (highlight-indent-guides-mode 1)
+    (aggressive-indent-mode 1)
+    (beacon-mode 1)
+    (message " my sh-mode on"))
+
+  (defun my/sh-mode-hooks ()
+    (interactive)
     (flycheck-mode 1)
     (flymake-mode 1))
 
@@ -770,7 +792,7 @@
   (add-to-list 'auto-mode-alist '("\\.bash_aliases\\'" . sh-mode)))
 
 (use-package files
-  :defer 1
+  :defer t
   :ensure nil
   :init
   (add-hook 'before-save-hook  'force-backup-of-buffer)
@@ -803,7 +825,7 @@
   )
 
 (use-package files
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq bookmark-save-flag 1))
@@ -815,7 +837,7 @@
   (setq vc-follow-symlinks t))
 
 (use-package register
-  :defer 1
+  :defer t
   :ensure nil
   :config
 (setq register-preview-delay 0.15))
@@ -827,13 +849,183 @@
   (setq doc-view-continuous t))
 
 (use-package loaddefs
-  :defer 1
+  :defer t
   :ensure nil
   :config
   (setq browse-url-generic-program "google-chrome-stable")
   (setq browse-url-browser-function 'browse-url-generic))
 
 (use-package recentf
+  :defer t
   :ensure nil
   :config
   (recentf-mode 1))
+
+(use-package time-date
+  :defer t
+  :ensure nil
+  :config
+  ;;  measure time
+  ;;  https://stackoverflow.com/q/23622296
+
+  (defmacro measure-time (&rest body)
+    "Measure the time it takes to evaluate BODY."
+    `(let ((time (current-time)))
+       ,@body
+       (message "%.06f" (float-time (time-since time))))))
+
+(use-package simple
+  :ensure nil
+  :init
+  (add-to-list 'auto-mode-alist '("\\fund\\'" . fundamental-mode))
+  :config
+
+  ;;;; WINDOWS ;;;;
+  (setq window-resize-pixelwise t)
+  ;; Alternates between the current and the previous buffer.
+  (defun last-buffer ()
+    "Switch to previously open buffer."
+    (interactive)
+    (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+  (add-hook 'after-change-major-mode-hook 'line-numbers)
+  (fset 'yes-or-no-p 'y-or-n-p)
+
+  (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist)))
+(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
+
+(setq-default fill-column 79)
+(setq-default display-line-numbers nil)
+
+(defun my/eval-buffer ()
+  (interactive)
+  (save-excursion
+    (my/save-all)
+    (indent-buffer)
+    (eval-buffer)
+    (message " buffer evaluated")))
+
+(defun my/eval-buffer-no-save ()
+  (interactive)
+  (save-excursion
+    (indent-buffer)
+    (eval-buffer)
+    (message " buffer evaluated")))
+
+(defun my/move-file-to-trash ()
+  (interactive)
+  (move-file-to-trash (buffer-name))
+  (kill-buffer)
+  (delete-window))
+
+(defun my/move-file-to-trash-close-ws ()
+  (interactive)
+  (move-file-to-trash (buffer-name))
+  (kill-buffer)
+  (eyebrowse-close-window-config))
+
+(defun delete-file-and-buffer ()
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (if (vc-backend filename)
+          (vc-delete-file filename)
+        (progn
+          (delete-file filename)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))
+
+(defun show-fill-column ()
+  (interactive)
+  (describe-variable 'fill-column))
+
+(defun show-major-mode ()
+  (interactive)
+  (describe-variable 'major-mode)
+
+
+  (setq truncate-lines t)
+  (setq-default truncate-lines t)
+  (setq save-interprogram-paste-before-kill nil)
+  (setq backward-delete-char-untabify-method 'hungry)
+
+  (general-unbind 'special-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer])
+
+  (general-define-key
+   :keymaps 'messages-buffer-mode-map
+   "M-d" 'ivy-switch-buffer)
+
+  (defun my/load-user-init-file ()
+    (interactive)
+    ((load-file user-init-file)))
+
+  (general-unbind 'messages-buffer-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer])
+  (setq-default indent-tabs-mode nil)
+  (global-visual-line-mode t))
+#+END_SRC* server
+#+BEGIN_SRC emacs-lisp
+(use-package server
+:ensure nil
+:config
+(defun show-server ()
+  (interactive)
+  (describe-variable 'server-name)))
+
+(use-package data
+  :ensure nil
+  :config
+  (defalias 'evil 'evil-mode)
+  (defalias 'par 'package-delete)
+  (defalias 'pai 'package-install)
+  (defalias 'cug 'customize-group)
+  (defalias 'path 'prelude-copy-file-name-to-clipboard)
+  (defalias 'org 'org-mode))
+
+(use-package fns
+  :ensure nil
+  :config
+  (setq use-dialog-box nil))
+
+(use-package eval
+  :defer t
+  :ensure nil
+  :config
+  (setq debug-on-error nil))
+
+(use-package dispnew
+:defer t
+:ensure nil
+:config
+(setq visible-bell nil))
+
+(use-package xisp
+  :defer t
+  :ensure nil
+  :config
+(setq scroll-step 0)
+(setq scroll-conservatively 0)
+
+(defun my/scroll-conservatively-five ()
+  (interactive)
+  (setq scroll-conservatively 5)
+  (message " scroll-conservatively 5"))
+
+(defun my/scroll-conservatively-zero ()
+  (interactive)
+  (setq scroll-conservatively 0)
+  (message " scroll-conservatively 0"))
+
+(defun my/scroll-conservatively-ten ()
+  (interactive)
+  (setq scroll-conservatively 10)
+  (message " scroll-conservatively 10")))
+
+(use-package editfns
+:defer t
+:ensure nil
+:config
+(put 'narrow-to-region 'disabled nil))
