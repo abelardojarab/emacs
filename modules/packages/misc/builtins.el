@@ -379,13 +379,13 @@
   (interactive)
   (previous-line)
   (backward-paragraph)
-  (next-line)
+  (forward-line)
   (back-to-indentation))
 
 (defun my/paragraph-forward ()
   (interactive)
   (forward-paragraph)
-  (next-line)
+  (forward-line)
   (back-to-indentation))
 
   (defun my/enable-auto-agg-fill ()
@@ -879,7 +879,13 @@
   :init
   (add-to-list 'auto-mode-alist '("\\fund\\'" . fundamental-mode))
   :config
-
+  (setq use-dialog-box nil)
+  (defalias 'evil 'evil-mode)
+  (defalias 'par 'package-delete)
+  (defalias 'pai 'package-install)
+  (defalias 'cug 'customize-group)
+  (defalias 'path 'prelude-copy-file-name-to-clipboard)
+  (defalias 'org 'org-mode)
   ;;;; WINDOWS ;;;;
   (setq window-resize-pixelwise t)
   ;; Alternates between the current and the previous buffer.
@@ -891,58 +897,57 @@
   (add-hook 'after-change-major-mode-hook 'line-numbers)
   (fset 'yes-or-no-p 'y-or-n-p)
 
-  (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist)))
-(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
+  (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
+  (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
 
-(setq-default fill-column 79)
-(setq-default display-line-numbers nil)
+  (setq-default fill-column 79)
+  (setq-default display-line-numbers nil)
 
-(defun my/eval-buffer ()
-  (interactive)
-  (save-excursion
-    (my/save-all)
-    (indent-buffer)
-    (eval-buffer)
-    (message " buffer evaluated")))
+  (defun my/eval-buffer ()
+    (interactive)
+    (save-excursion
+      (my/save-all)
+      (indent-buffer)
+      (eval-buffer)
+      (message " buffer evaluated")))
 
-(defun my/eval-buffer-no-save ()
-  (interactive)
-  (save-excursion
-    (indent-buffer)
-    (eval-buffer)
-    (message " buffer evaluated")))
+  (defun my/eval-buffer-no-save ()
+    (interactive)
+    (save-excursion
+      (indent-buffer)
+      (eval-buffer)
+      (message " buffer evaluated")))
 
-(defun my/move-file-to-trash ()
-  (interactive)
-  (move-file-to-trash (buffer-name))
-  (kill-buffer)
-  (delete-window))
+  (defun my/move-file-to-trash ()
+    (interactive)
+    (move-file-to-trash (buffer-name))
+    (kill-buffer)
+    (delete-window))
 
-(defun my/move-file-to-trash-close-ws ()
-  (interactive)
-  (move-file-to-trash (buffer-name))
-  (kill-buffer)
-  (eyebrowse-close-window-config))
+  (defun my/move-file-to-trash-close-ws ()
+    (interactive)
+    (move-file-to-trash (buffer-name))
+    (kill-buffer)
+    (eyebrowse-close-window-config))
 
-(defun delete-file-and-buffer ()
-  (interactive)
-  (let ((filename (buffer-file-name)))
-    (when filename
-      (if (vc-backend filename)
-          (vc-delete-file filename)
-        (progn
-          (delete-file filename)
-          (message "Deleted file %s" filename)
-          (kill-buffer))))))
+  (defun delete-file-and-buffer ()
+    (interactive)
+    (let ((filename (buffer-file-name)))
+      (when filename
+        (if (vc-backend filename)
+            (vc-delete-file filename)
+          (progn
+            (delete-file filename)
+            (message "Deleted file %s" filename)
+            (kill-buffer))))))
 
-(defun show-fill-column ()
-  (interactive)
-  (describe-variable 'fill-column))
+  (defun show-fill-column ()
+    (interactive)
+    (describe-variable 'fill-column))
 
-(defun show-major-mode ()
-  (interactive)
-  (describe-variable 'major-mode)
-
+  (defun show-major-mode ()
+    (interactive)
+    (describe-variable 'major-mode))
 
   (setq truncate-lines t)
   (setq-default truncate-lines t)
@@ -959,36 +964,20 @@
 
   (defun my/load-user-init-file ()
     (interactive)
-    ((load-file user-init-file)))
+    (load-file user-init-file))
 
   (general-unbind 'messages-buffer-mode-map
     :with 'ignore
     [remap my/quiet-save-buffer])
   (setq-default indent-tabs-mode nil)
   (global-visual-line-mode t))
-#+END_SRC* server
-#+BEGIN_SRC emacs-lisp
+
 (use-package server
-:ensure nil
-:config
-(defun show-server ()
-  (interactive)
-  (describe-variable 'server-name)))
-
-(use-package data
   :ensure nil
   :config
-  (defalias 'evil 'evil-mode)
-  (defalias 'par 'package-delete)
-  (defalias 'pai 'package-install)
-  (defalias 'cug 'customize-group)
-  (defalias 'path 'prelude-copy-file-name-to-clipboard)
-  (defalias 'org 'org-mode))
-
-(use-package fns
-  :ensure nil
-  :config
-  (setq use-dialog-box nil))
+  (defun show-server ()
+    (interactive)
+    (describe-variable 'server-name)))
 
 (use-package eval
   :defer t

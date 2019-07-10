@@ -175,7 +175,7 @@
   (setq aggressive-indent-sit-for-time 0.05))
 
 (use-package yasnippet
-  :defer t
+  :defer 10
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map

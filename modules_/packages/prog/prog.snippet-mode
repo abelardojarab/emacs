@@ -1,2 +1,0 @@
-# -*- mode: snippet -*-
-# expand-env: ((yas-after-exit-snippet-hook #'my/function))

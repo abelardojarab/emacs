@@ -86,7 +86,7 @@
   (interactive)
   (flycheck-mode +1)
   (flycheck-mode +1)
-  (message " checkers on"))
+  (message " checkers on")
 
 (defun my/checkers-off ()
   (interactive)
@@ -126,19 +126,7 @@
   ("o" my/checkers-on)
   ("O" my/checkers-off)
   ("f" my/lsp-find)
-  ("l" my/lsp-java))
-
-(defun my/checkers-on ()
-  (interactive)
-  (flycheck-mode +1)
-  (flycheck-mode +1)
-  (message " checkers on"))
-
-(defun my/checkers-off ()
-  (interactive)
-  (flycheck-mode -1)
-  (flycheck-mode -1)
-  (message " checkers off"))
+  ("l" my/lsp-java)))
 
 (defhydra hydra-flycheck-mode (:color blue :hint nil :foreign-keys run)
   "
@@ -445,6 +433,7 @@
        _g_: olivetti
        _p_: projectile
        _q_: elec operator
+       _a_: auto compile
 
        "
 
@@ -454,7 +443,8 @@
   ("e" hl-line-mode)
   ("g" olivetti-mode)
   ("p" counsel-projectile-mode)
-  ("q" electric-operator-mode))
+  ("q" electric-operator-mode)
+  ("a" auto-compile-toggle))
 
 (defhydra hydra-eval (:color blue :hint nil :exit nil :foreign-keys nil)
   "

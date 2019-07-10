@@ -341,3 +341,12 @@
 
 (use-package shut-up
 :ensure t)
+
+(use-package auto-compile
+  :defer t
+  :ensure t
+  :config
+  (setq auto-compile-mode-line-counter t)
+  (setq auto-compile-display-buffer nil)
+  (setq auto-compile-use-mode-line t)
+  (setq auto-compile-on-load-mode t))

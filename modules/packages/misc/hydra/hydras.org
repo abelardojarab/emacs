@@ -120,7 +120,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   (interactive)
   (flycheck-mode +1)
   (flycheck-mode +1)
-  (message " checkers on"))
+  (message " checkers on")
 
 (defun my/checkers-off ()
   (interactive)
@@ -163,19 +163,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("o" my/checkers-on)
   ("O" my/checkers-off)
   ("f" my/lsp-find)
-  ("l" my/lsp-java))
-
-(defun my/checkers-on ()
-  (interactive)
-  (flycheck-mode +1)
-  (flycheck-mode +1)
-  (message " checkers on"))
-
-(defun my/checkers-off ()
-  (interactive)
-  (flycheck-mode -1)
-  (flycheck-mode -1)
-  (message " checkers off"))
+  ("l" my/lsp-java)))
 #+END_SRC
 
 *** flycheck
@@ -511,6 +499,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        _g_: olivetti
        _p_: projectile
        _q_: elec operator
+       _a_: auto compile
 
        "
 
@@ -520,7 +509,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("e" hl-line-mode)
   ("g" olivetti-mode)
   ("p" counsel-projectile-mode)
-  ("q" electric-operator-mode))
+  ("q" electric-operator-mode)
+  ("a" auto-compile-toggle))
 #+END_SRC
 
 ** Eval

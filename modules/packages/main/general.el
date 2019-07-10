@@ -134,6 +134,7 @@
 ;; "C-c b t" 'benchmark-init/show-durations-tree
 ;; "C-c b o" 'my/time-benchmark
 "C-c x" 'my/show-variable-at-point
+"C-c L n" 'noctilux-on
 
 ;;;; FILESETS ;;;;
 "C-c f" 'make-frame

@@ -260,7 +260,7 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 [[https://emacs.stackexchange.com/a/48014][source]]
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
-  :defer t
+  :defer 10
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map
