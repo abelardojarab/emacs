@@ -1,0 +1,1008 @@
+(defhydra hydra-python-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Python^         ^Flycheck^  ^Flymake^
+       --------------------------------
+       _r_: quickrun    _f_: first  _p_: prev
+       _s_: quickshell  _k_: prev   _n_: next
+       _e_: run ext.    _j_: next   _RET_: show
+       _m_: multiedit   _c_: copy
+
+"
+  ("<escape>" nil)
+
+  ("r" quickrun)
+  ("s" quickrun-shell)
+  ("e" my/run-python-external)
+
+  ("m" elpy-multiedit-python-symbol-at-point)
+
+  ("f" flycheck-first-error)
+  ("k" flycheck-next-error :exit nil)
+  ("j" flycheck-previous-error :exit nil)
+  ("c" flycheck-copy-errors-as-kill)
+
+  ("p" elpy-flymake-previous-error :exit nil)
+  ("n" elpy-flymake-next-error :exit nil)
+  ("RET" elpy-flymake-show-error))
+
+(defhydra hydra-web-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Python^         ^Flycheck^  ^Flymake^
+       --------------------------------
+       _r_: quickrun    _f_: first  _k_: prev
+       _s_: quickshell  _p_: prev   _j_: next
+       _e_: run ext.    _n_: next
+       _RET_: goto def.
+       _<C-return>_: goto assign.
+
+"
+  ("<escape>" nil)
+
+  ("r" quickrun)
+  ("s" quickrun-shell)
+  ("e" my/run-python-external)
+
+  ("RET" my/elpy-goto-definition)
+  ("<C-return>" pop-tag-mark)
+
+  ("a" dumb-jump-go)
+
+  ("f" flycheck-first-error)
+  ("p" flycheck-next-error :exit nil)
+  ("n" flycheck-previous-error :exit nil)
+  ("m" flycheck-mode)
+
+  ("k" flymake-goto-prev-error)
+  ("j" flymake-goto-next-error)
+  ("M" flymake-mode))
+
+
+(defhydra hydra-prog-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Flycheck^   ^Others^
+       ----------------------------
+       _f_: first   _k_: flymake prev
+       _p_: prev    _j_: flymake next
+       _n_: next
+       _c_: copy
+       _m_: mode
+"
+  ("<escape>" nil)
+  ("RET" quickrun)
+
+  ("f" flycheck-first-error)
+  ("j" flymake-goto-prev-error)
+  ("k" flymake-goto-next-error)
+
+  ("n" flycheck-next-error :exit nil)
+  ("p" flycheck-previous-error :exit nil)
+  ("c" flycheck-copy-errors-as-kill)
+  ("m" flycheck-mode))
+
+(defun my/checkers-on ()
+  (interactive)
+  (flycheck-mode +1)
+  (flycheck-mode +1)
+  (message " checkers on"))
+
+(defun my/checkers-off ()
+  (interactive)
+  (flycheck-mode -1)
+  (flycheck-mode -1)
+  (message " checkers off"))
+
+(defhydra hydra-java-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Flycheck^    ^Others^
+       ----------------------------
+       _i_: first    _k_: flymake prev
+       _p_: prev     _j_: flymake next
+       _n_: next     _h_: hide-show
+       _d_: display  _o_: check on
+       _b_: buffer   _O_: check off
+       _c_: clear    _f_: lsp-find
+                   _l_: lsp-java
+"
+  ("<escape>" nil)
+  ("q" nil)
+  ("RET" quickrun)
+
+  ("i" flycheck-first-error)
+  ("n" flycheck-next-error :exit nil)
+  ("p" flycheck-previous-error :exit nil)
+  ("d" flycheck-display-error-at-point)
+  ("b" flycheck-buffer)
+  ("c" flycheck-clear)
+  ("m" flycheck-mode)
+
+  ("j" flymake-goto-prev-error)
+  ("k" flymake-goto-next-error)
+  ("h" hs-minor-mode)
+  ("u" bitly-url-shorten)
+  ("o" my/checkers-on)
+  ("O" my/checkers-off)
+  ("f" my/lsp-find)
+  ("l" my/lsp-java))
+
+(defun my/checkers-on ()
+  (interactive)
+  (flycheck-mode +1)
+  (flycheck-mode +1)
+  (message " checkers on"))
+
+(defun my/checkers-off ()
+  (interactive)
+  (flycheck-mode -1)
+  (flycheck-mode -1)
+  (message " checkers off"))
+
+(defhydra hydra-flycheck-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Flycheck^
+       ---------------------------------------------------
+       _a_: check buffer          _e_: display error at point
+       _b_: go to first error     _f_: explain error at point
+       _c_: go to previous error  _g_: clear errors
+       _d_: go to next error      _h_: flycheck mode
+
+"
+  ("q" nil)
+  ("<escape>" nil)
+  ("RET" hydra-flycheck-list-mode/body)
+
+  ("a" flycheck-buffer)
+  ("b" flycheck-first-error)
+  ("c" flycheck-previous-error)
+  ("d" flycheck-next-error)
+  ("e" flycheck-display-error-at-point)
+  ("f" flycheck-explain-error-at-point)
+  ("g" flycheck-clear)
+  ("h" flycheck-mode))
+
+(defhydra hydra-prog-modes (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+     ^Prog Modes^
+     -----------
+     _h_: guides
+     _c_: company
+     _s_: smparens
+     _t_: tab jump
+     _e_: operator
+     _r_: rainbow
+     _e_: my prog on
+     _d_: my prog off
+"
+  ("<escape>" nil)
+  ("<C-return>" nil)
+  ("RET" nil)
+
+  ("m" flycheck-mode)
+  ("c" company-mode)
+  ("s" smartparens-mode)
+  ("t" tab-jump-out-mode)
+  ("h" highlight-indent-guides-mode)
+  ("e" electric-operator-mode)
+  ("r" rainbow-delimiters-mode)
+  ("e" my/prog-mode-on)
+  ("d" my/prog-mode-off))
+
+(defhydra hydra-yasnippet (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+       ^
+       ^YASnippet^
+       --------------------
+       _;_: load  _r_eload
+       _._: new   _l_: visit
+
+"
+  ("M-l" yas-visit-snippet-file)
+  ("l" yas-visit-snippet-file)
+
+  ("." yas-new-snippet)
+  ("M-." yas-new-snippet)
+
+  ("r" yas-reload-all)
+  ("M-;" my/yas-load-other-window)
+  (";" my/yas-load-other-window))
+
+(defhydra hydra-shell (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Shells^
+       ----------------------------
+       _s_: small     _p_: python shell
+       _j_: bellow    _a_: python async
+       _h_: far left
+       _l_: far right
+       _k_: far top
+"
+
+  ("<escape>" nil)
+  (";" kill-buffer-and-window)
+  ("s" my/shell-botright)
+  ("j" my/shell-bellow)
+  ("h" my/shell-far-left)
+  ("l" my/shell-far-right)
+  ("k" my/shell-very-top)
+  ("p" my/python-botright)
+  ("a" my/execute-python-program-shell))
+
+(defhydra hydra-projectile-mode (:color blue :hint nil :foreign-keys run)
+  "
+  ^
+       ^Projectile^
+       -----------------
+       _a_: ag
+       _g_: ag at point
+       _f_: file
+       _d_: file dwin
+       _i_: file in dir
+       _k_: kill
+       _b_: buffer
+       _p_: project
+
+"
+  ("<escape>" nil)
+  ("RET" hydra-prog-mode/body)
+
+  ("a" counsel-projectile-ag)
+  ("C-a" counsel-projectile-ag)
+
+  ("g" counsel-ag-thing-at-point)
+  ("C-g" counsel-ag-thing-at-point)
+
+  ("f" counsel-projectile-find-file)
+  ("C-f" counsel-projectile-find-file)
+
+  ("d" counsel-projectile-find-file-dwim)
+  ("C-d" counsel-projectile-find-file-dwim)
+
+  ("i" projectile-find-file-in-directory)
+  ("C-i" counsel-projectile-find-file-dwim)
+
+  ("k" projectile-kill-buffers)
+  ("C-k" projectile-kill-buffers)
+
+  ("b" counsel-projectile-switch-to-buffer)
+  ("C-b" counsel-projectile-switch-to-buffer)
+
+  ("C-p" counsel-projectile-switch-project)
+  ("p" counsel-projectile-switch-project))
+
+(defhydra hydra-tangle (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+       ^Tangle^
+       --------------
+       _a_: all
+       _b_: all & res
+       _c_: my default
+       _d_: real default
+       _g_: debug
+       _n_: new
+       _e_: this file
+       _l_: load init file
+"
+  ("a" tangle-py-all)
+  ("b" tangle-py-all-and-restart)
+  ("c" my/tangle-default)
+  ("d" org-babel-tangle)
+  ("g" tangle-py-all-debug)
+  ("n" tangle-py-all-new)
+  ("e" my/tangle-this-file)
+  ("l" my/load-user-init-file))
+
+(defhydra my/indent-tools-hydra (:color red :hint nil)
+  "
+ ^Indent^         | ^Navigation^        | ^Actions^
+------------------+---------------------+-----------
+ _._ indent       | _j_ v               | _K_ kill
+ _,_ de-indent    | _k_ ʌ               | _i_ imenu
+ _l_ end of level | _n_ next sibling    | _C_ Copy…
+ _E_ end of fn    | _p_ previous sibling| _c_ comment
+ _P_ paragraph    | _u_ up parent       | _U_ uncomment (paragraph)
+ _SPC_ space      | _d_ down child      | _f_ fold
+ ___ undo         | _e_ end of tree     | _q_ quit
+"
+
+  ("." indent-tools-indent)
+  ("," indent-tools-demote)
+  ("E" indent-tools-indent-end-of-defun)
+  ("c" indent-tools-comment)
+  ("U" indent-tools-uncomment)
+  ("P" indent-tools-indent-paragraph)
+  ("l" indent-tools-indent-end-of-level)
+  ("K" indent-tools-kill-tree)
+  ("C" indent-tools-copy-hydra/body :color blue)
+  ("s" indent-tools-select)
+  ("e" indent-tools-goto-end-of-tree)
+  ("u" indent-tools-goto-parent)
+  ("d" indent-tools-goto-child)
+  ("S" indent-tools-select-end-of-tree)
+  ("n" indent-tools-goto-next-sibling)
+  ("p" indent-tools-goto-previous-sibling)
+  ("i" helm-imenu)
+  ("j" forward-line)
+  ("k" previous-line)
+  ("SPC" indent-tools-indent-space)
+  ("_" undo-tree-undo)
+  ("L" recenter-top-bottom)
+  ("f" yafolding-toggle-element)
+  ("q" nil))
+
+(defhydra hydra-spell (:color blue :hint nil)
+  "
+  ^
+       ^Spell^
+       -----------------------------
+       _a_: american    _n_: f. next
+       _b_: brasileiro  _y_: return py
+       _p_: prose on    _d_: show dict
+       _f_: flyspell
+       _u_: f. buff
+
+	 ^^
+"
+  ("<escape>" nil)
+  ("RET" my/counsel-markdown-commands)
+
+  ("a" american)
+  ("b" brasileiro)
+  ("p" prose-enable)
+
+  ("f" flyspell-mode)
+  ("y" my/make-return-python)
+  ("u" flyspell-buffer)
+  ("n" flyspell-goto-next-error :color pink)
+  ("d" my/ispell-show-dictionary))
+
+(defhydra hydra-kill (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Buffer^         ^Window^
+       --------------------------
+       _a_: this        _f_: quit
+       _b_: +window     _g_: delete
+       _c_: +workspace
+       _d_: all
+       _e_: others
+"
+
+  ("<escape>" nil)
+  ;; ("C-S-k" kill-this-buffer)
+
+  ("a" my/kill-this-buffer)
+  ("b" kill-buffer-and-window)
+  ("c" my/kill-buffer-and-workspace)
+  ("d" kill-all-buffers)
+  ("e" kill-other-buffers)
+
+  ("f" quit-window)
+  ("g" delete-window))
+
+(defhydra hydra-vertigo (:color blue :hint nil)
+  "
+  ^
+       ^Vertigo^
+       ---------------------
+       _,_: ↑
+       _._: ↓
+
+       a s d f g h j k l o
+       1 2 3 4 5 6 7 8 9 0
+"
+  ("<escape>" nil)
+  ("." vertigo-visible-jump-down)
+  ("," vertigo-visible-jump-up))
+
+(defhydra hydra-window (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+      ^Move^      ^Resize^      ^Layouts
+      ------------------------------------
+      _K_: up     _h_: width+   _1_: save 1
+      _J_: down   _l_: width-   _q_: load 1
+      _H_: left   _k_: height   _2_: save 2
+      _L_: right  _j_: height   _w_: load 2
+      ^^          _b_: balance  _z_: zoom
+      ^^          _r_: botright _x_: zoom-mode
+  "
+  ("<escape>" nil)
+  ("RET" nil)
+
+  ("K" buf-move-up)
+  ("H" buf-move-left)
+  ("J" buf-move-down)
+  ("L" buf-move-right)
+
+  ("h" my/evil-inc-width :exit nil)
+  ("l" my/evil-dec-width :exit nil)
+  ("j" my/evil-dec-height :exit nil)
+  ("k" my/evil-inc-height :exit nil)
+
+  ("1" my/window-to-register-91)
+  ("q" my/jump-to-register-91)
+  ("2" my/window-to-register-eight)
+  ("w" my/jump-to-register-eight)
+  ("b" balance-windows :exit t)
+  ("z" zoom)
+  ("x" zoom-mode)
+  ("r" my/evil-botright))
+
+(defhydra hydra-modes (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+       ^
+       ^Modes^
+       ------------------
+       _c_: company
+       _e_: hl-line
+       _g_: olivetti
+       _p_: projectile
+       _q_: elec operator
+
+       "
+
+  ("<escape>" nil)
+
+  ("c" company-mode)
+  ("e" hl-line-mode)
+  ("g" olivetti-mode)
+  ("p" counsel-projectile-mode)
+  ("q" electric-operator-mode))
+
+(defhydra hydra-eval (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Eval^
+       ------------------------
+       _a_: block  _n_: next sexp
+       _b_: region
+       _c_: buffer
+       _d_: line
+       _h_: l.&show
+       _e_: keys
+       _i_: i3
+       _z_: NEW
+
+"
+  ("<escape>" nil)
+  ("z" my-yank-region)
+  ("a" tangle-and-eval-block)
+  ("b" eval-region)
+  ("c" my/eval-buffer)
+  ("d" eval-line)
+  ("h" my/eval-line-function)
+  ("e" my/tangle-reload-keys)
+  ("i" i3-reload)
+  ("n" my/eval-next-sexp-macro))
+
+(defhydra hydra-packages (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Packages^
+       -------------------
+       _l_: list
+       _r_: refresh
+       _d_: delete
+       _e_: describe
+       _i_: install
+       _f_: install file
+
+"
+  ("<escape>" nil)
+
+  ("l" package-list-packages)
+  ("r" package-refresh-contents)
+  ("d" package-delete)
+  ("i" package-install)
+  ("f" package-install-file)
+  ("e" describe-package))
+
+(defhydra hydra-commands (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Commands^
+       -------------------------------------------------------
+       _a_: tangle          _f_: copy path      _k_: reload keys
+       _b_: show date       _g_: copy dir       _s_: eval block
+       _c_: check parens    _h_: ivy resume     _r_: eval region
+       _d_: dup line        _i_: define abbrev  _B_: eval buffer
+       _e_: sort by length  _J_: del dup lines  _l_: eval line
+       _E_: sort lines      _i_: i3 restart     _w_: word count
+                          _3_: i3 reload      _p_: packages
+
+"
+
+  ("<escape>" nil)
+
+  ("a" hydra-tangle/body)
+  ("b" my/date)
+  ("c" check-parens)
+  ("d" duplicate-line)
+  ("e" sort-lines-by-length)
+  ("E" sort-lines)
+  ("f" prelude-copy-file-name-to-clipboard)
+  ("g" my/copy-dir)
+  ("h" ivy-resume)
+  ("J" delete-duplicate-lines)
+
+  ("k" my/tangle-reload-keys)
+  ("s" tangle-and-eval-block)
+  ("r" eval-region)
+  ("B" eval-buffer)
+  ("l" eval-line)
+  ("w" wc-count)
+  ("i" i3-restart)
+  ("3" i3-reload)
+  ("p" hydra-packages/body))
+
+(defhydra hydra-quick-commands (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       Eval           Other
+       -------------------------------
+       _c_: buffer       _f_: gl. abbrev
+       _d_: hydra        _F_: mode abbrev
+       _l_: line
+       _i_: \" and show
+
+  "
+  ("<escape>" nil nil)
+
+  ("c" my/eval-buffer)
+  ("d" hydra-eval/body)
+  ("l" my/eval-line-macro)
+  ("i" my/eval-line-function)
+
+  ("f" define-global-abbrev)
+  ("F" define-mode-abbrev))
+
+(defhydra hydra-text-main (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Text^
+       --------------------------------------------
+       _d_: del blank lines    _c_: copy to chrome
+       _e_: clean blank lines  _m_: copy to messenger
+       _i_: dup inner par      _l_: auto capitalize
+       _z_: capitalize         _t_: truncate lines
+       _d_: del blank lines    _h_: hl sentences
+
+"
+
+  ("<escape>" nil)
+  ("C-;" hydra-text-commands/body)
+  (";" hydra-text-commands/body)
+
+  ("d" delete-blank-lines)
+  ("e" xah-clean-empty-lines)
+  ("i" duplicate-inner-paragraph)
+  ("z" fix-word-capitalize)
+
+  ("c" copy-to-chrome)
+  ("m" copy-to-messenger)
+  ("t" toggle-truncate-lines)
+
+  ("h" hl-sentence-mode)
+  ("l" auto-capitalize-mode)
+  )
+
+(defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
+  "
+  ^
+       ^Motions^
+       -------------------------
+       _l_: line ↓      _w_: word →
+       _L_: line ↑      _W_: word ←
+       _p_: par  ↓      _c_: char →
+       _P_: par  ↑      _C_: char ←
+       _s_: sentence →  _x_: sexp →
+       _S_: sentence ←  _X_: sexp ←
+
+"
+
+  ("<escape>" nil)
+  ("u" undo-tree-undo :exit t)
+
+  ("l" cool-moves/line-forward)
+  ("L" cool-moves/line-backward)
+
+  ("p" cool-moves/paragraph-forward)
+  ("P" cool-moves/paragraph-backward)
+
+  ("w" cool-moves/word-forward)
+  ("W" cool-moves/word-backwards)
+
+  ("c" cool-moves/character-forward)
+  ("C" cool-moves/character-backward)
+
+  ("s" cool-moves/sentence-forward)
+  ("S" cool-moves/sentence-backward)
+
+  ("x" cool-moves/sexp-forward)
+  ("X" cool-moves/sexp-backward))
+
+(defhydra hydra-text-commands (:color blue :hint nil)
+  "
+ ^
+       ^More Text^
+       ---------------------------------------------
+       _s_: setq        _m_: move line     _g_: agg fill
+       _f_: hydra key   _l_: copy line     _i_: auto fill
+       _h_: hook        _a_: text adju     _z_: show fill
+       _p_: insert par  _v_: visible mode  _e_: enable fills
+       _w_: to msger    _c_: to chrome     _d_: disable fills
+
+       ^^
+  "
+  ("<escape>" nil)
+  ("C-;" nil)
+  (";" nil)
+  ("<menu>" nil)
+
+  ("s" create-setq)
+  ("f" format-hydra-binding)
+  ("h" add-hook-macro)
+  ("p" Lorem-ipsum-insert-paragraphs)
+  ("m" avy-move-line)
+  ("l" avy-copy-line)
+  ("v" visible-mode)
+  ("a" text-scale-adjust)
+  ("w" copy-to-messenger)
+  ("c" copy-to-chrome)
+  ("g" aggressive-fill-paragraph-mode)
+  ("i" auto-fill-mode)
+  ("z" show-fill-column)
+  ("e" my/enable-auto-agg-fill)
+  ("d" my/disable-auto-agg-fill))
+
+(defhydra hydra-org-text-commands (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+ ^
+       ^Org Bold^         ^Org Code^         ^Org Emphasis^
+       -------------------------------------------------------------------------------
+       _br_: bold region  _cr_: code region  _er_: emphasis region   _lr_: remove link
+       _bw_: bold word    _cw_: code word    _ew_: emphasis word     _li_: link for url
+       _bd_: bold delete  _cd_: code delete  _ed_: emphasis delete
+
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("br" org-bold)
+  ("bw" org-bold-word)
+  ("bd" org-remove-bold)
+
+  ("cr" org-code)
+  ("cw" org-code-word)
+  ("cd" org-remove-code)
+
+  ("er" org-emphasis)
+  ("ew" org-emph-word)
+  ("ed" org-remove-emph)
+  ("lr" afs/org-remove-link)
+  ("li" org-web-tools-insert-link-for-url))
+
+(defhydra hydra-search (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Search^
+       --------------------------------
+       _a_: counsel ag    _r_: recentf
+       _s_: grep/swipe    _p_: processes
+       _e_: swiper        _u_: substitute
+       _o_: outline       _g_: grep
+       _i_: my outline    _l_: online
+       _n_: agenda        _j_: fzf org
+       _d_: a. prjctle    _k_: ag org
+
+  "
+  ("<escape>" nil)
+
+  ("a" counsel-ag)
+  ("s" counsel-grep-or-swiper)
+  ("e" swiper)
+  ("o" counsel-outline)
+  ("i" my/search-outline)
+  ("n" counsel-org-agenda-headlines)
+  ("C-n" counsel-org-agenda-headlines)
+  ("d" my/org-projectile-agenda)
+  ("C-d" my/org-projectile-agenda)
+  ("r" counsel-recentf)
+  ("p" counsel-list-processes)
+  ("u" my/evil-substitute)
+  ("g" counsel-grep)
+  ("j" my/org-dir-fzf)
+  ("k" my/org-dir-ag)
+  ("l" hydra-search-online/body))
+
+(defun my/org-dir-ag ()
+  (interactive)
+  (counsel-ag nil "~/org"))
+
+(defun my/org-dir-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/org"))
+
+(defhydra hydra-search-online (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Search Online^
+       ----------------
+       _l_: google     _L_: dic informal
+       _h_: translate  _m_: urban dic
+       _I_: wordnut    _n_: tfree dic
+       _j_: michaelis  _O_: wiki en
+                     _P_: wiki pt
+
+  "
+  ("<escape>" nil)
+  ("l" engine/search-google)
+  ("h" engine/search-translate)
+  ("I" wordnut-search)
+  ("W" wordnut-lookup-current-word)
+  ("j" engine/search-michaelis)
+  ("L" engine/search-dic-informal)
+  ("m" engine/search-urban-dictionary)
+  ("n" engine/search-the-free-dictionary)
+  ("O" engine/search-wiki-en)
+  ("P" engine/search-wiki-pt))
+
+
+(defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+    ^Org Mode^
+    -----------------------------------------------
+    _r_: archive     _a_: agenda        _h_: hydra
+    _c_: capture     _i_: tags          _f_: files
+    _p_: last capt.  _u_: insert url    _o_: agenda.org
+    _d_: deadline    _l_: store link
+    _s_: schedule    _y_: overlay
+    _t_: todo        _e_: tog. tstamp.
+
+"
+  ("<escape>" nil)
+
+  ("r" org-archive-subtree-default)
+
+  ("a" my/org-agenda)
+  ("c" counsel-org-capture)
+  ("p" org-capture-goto-last-stored)
+  ("d" org-deadline)
+  ("s" org-schedule)
+  ("h" hydra-org-agenda/body)
+  ("l" org-store-link)
+  ("t" org-todo)
+  ("i" counsel-org-tag)
+  ("o" my/find-org-agenda-file)
+  ("u" org-web-tools-insert-link-for-url)
+  ("y" org-toggle-time-stamp-overlays)
+  ("e" org-toggle-timestamp-type)
+  ("f" my/agenda-files))
+
+(defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Clock & Todos^
+   ------------------------------------
+   _i_: in       _m_: recent   _e_: effort
+   _o_: out      _c_: cancel   _a_: estimate
+   _l_: last     _y_: display  _s_: started
+   _h_: history  _x_: context  _t_: todo
+   _r_: report   _g_: goto     _d_: done
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("i" org-clock-in)
+  ("o" org-clock-out)
+  ("l" org-clock-in-last)
+  ("r" org-clock-report)
+  ("c" org-clock-cancel)
+  ("y" org-clock-display)
+  ("m" org-mru-clock-in)
+  ("e" org-set-effort)
+  ("a" org-clock-modify-effort-estimate)
+  ("s" my/org-started)
+  ("d" my/org-done)
+  ("t" my/org-todo)
+  ("x" counsel-org-clock-context)
+  ("g" counsel-org-clock-goto)
+  ("h" counsel-org-clock-history))
+
+(defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+       ^Org Agenda^
+       ---------------------------
+       _a_: agenda  _l_: lock
+       _1_: 1 day   _u_: unlock
+       _2_: 2 days  _d_: add
+       _3_: 3 days  _r_: remove
+       _7_: 7 days  _p_: update
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" my/org-agenda)
+  ("1" org-1-day-agenda)
+  ("2" org-2-days-agenda)
+  ("3" org-3-days-agenda)
+  ("7" org-7-days-agenda)
+  ("l" org-agenda-set-restriction-lock)
+  ("u" org-agenda-remove-restriction-lock)
+  ("r" org-remove-file)
+  ("d" org-agenda-file-to-front)
+  ("p" my/update-agenda-files))
+
+(defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
+
+  "
+
+       ^^Help
+       ----------------------------------------
+       _f_: function  _k_: key       _i_: info
+       _v_: variable  _l_: key long
+       _e_: package   _w_: where is
+       _p_: at point  _a_: apropos
+       _m_: major     _d_: docs
+       _o_: modes     _c_: command
+
+  "
+
+  ("<escape>" nil)
+  ("C-h" helpful-variable)
+  ("C-f" helpful-callable)
+
+  ("f" helpful-callable)
+  ("e" describe-package)
+  ("v" helpful-variable)
+  ("p" helpful-at-point)
+  ("m" show-major-mode)
+  ("o" describe-mode)
+
+  ("k" describe-key-briefly)
+  ("l" helpful-key)
+  ("w" where-is)
+
+  ("a" counsel-apropos)
+  ("c" helpful-command)
+  ("d" apropos-documentation)
+  ("i" info))
+
+(defhydra hydra-find-file (:hint nil :foreign-keys nil :exit t)
+
+  "
+
+     ^Scratches^    ^Others^
+     -------------------------
+     _a_: main      _d_: dotfiles
+     _r_: org       _e_: emacs
+     _m_: markdown  _u_: modules
+     _i_: elisp     _o_: agenda.org
+"
+  ("<escape>" nil)
+
+  ("a" my/goto-scratch-buffer)
+  ("r" find-scratch-org)
+  ("o" my/find-org-agenda-file)
+  ("C-o" my/find-org-agenda-file)
+
+  ("i" find-scratch-elisp)
+  ("m" find-scratch-markdown)
+
+  ("d" hydra-find-dotfiles/body)
+  ("e" hydra-find-emacs-files/body)
+  ("C-u" my/counsel-fzf-modules)
+  ("u" my/counsel-fzf-modules))
+
+(defhydra hydra-find-emacs-files (:hint nil :foreign-keys nil :exit t)
+  "
+  ^
+     ^Emacs Files^
+     --------------------------
+     _I_: init.el   _o_: org
+     _i_: init.org  _h_: hydras
+     _p_: packages  _u_: all files
+     _s_: settings
+     _f_: functions
+
+"
+  ("<escape>" nil)
+
+  ("i" find-init)
+  ("I" find-init.el)
+  ("p" my/emacs-packages-counsel-ag)
+  ("C-p" my/emacs-packages-counsel-ag)
+
+  ("s" my/emacs-settings-counsel-ag)
+  ("C-s" my/emacs-settings-counsel-ag)
+
+  ("u" my/emacs-dir-counsel-ag)
+  ("C-u" my/emacs-dir-counsel-ag)
+
+  ("f" my/emacs-functions-counsel-ag)
+  ("C-f" my/emacs-functions-counsel-ag)
+
+  ("C-o" my/org-dir-counsel-ag)
+  ("o" my/org-dir-counsel-ag)
+
+  ("C-h" my/emacs-hydras-counsel-ag)
+  ("h" my/emacs-hydras-counsel-ag))
+
+(defun my/emacs-dir-counsel-ag ()
+  (interactive)
+  (counsel-ag nil "~/.emacs.d/modules"))
+
+(defun my/org-dir-counsel-ag ()
+  (interactive)
+  (counsel-ag nil "~/.emacs.d/modules/packages/main/org"))
+
+(defun my/emacs-packages-counsel-ag ()
+  (interactive)
+  (counsel-ag "(use-package " "~/.emacs.d/modules"))
+
+(defun my/emacs-functions-counsel-ag ()
+  (interactive)
+  (counsel-ag "(defun " "~/.emacs.d/modules"))
+
+(defun my/emacs-hydras-counsel-ag ()
+  (interactive)
+  (counsel-ag "(defhydra hydra- " "~/.emacs.d/modules/packages/misc/hydra"))
+
+(defun my/emacs-settings-counsel-ag ()
+  (interactive)
+  (counsel-ag "(setq "  "~/.emacs.d/modules"))
+
+(defhydra hydra-find-scratches (:hint nil :foreign-keys nil :exit t)
+
+  "
+
+     ^Scratches^
+     -----------------
+     _m_: md
+     _o_: org
+     _e_: elisp
+
+"
+  ("<escape>" nil)
+
+  ("m" find-scratch-markdown)
+  ("o" find-scratch-org)
+  ("e" find-scratch-elisp))
+
+(defhydra hydra-find-dotfiles (:hint nil :color blue)
+  "
+
+     ^Bash^             ^Others^
+     --------------------------------
+      _i_: inputrc      _g_: config
+      _b_: bashrc       _s_: scripts
+      _a_: aliases      _n_: conf/nvim
+      _d_: files        _t_: tmux.conf
+      _c_: completions  _3_: i3/config
+      _z_: zathurarc
+"
+
+  ("<escape>" nil)
+
+  ("i" find-inputrc)
+  ("b" find-bashrc)
+  ("a" find-bash-aliases)
+  ("d" ranger-find-bashdot)
+
+  ("n" ranger-find-nvim-dir)
+  ("t" find-tmux-conf)
+  ("z" find-zathurarc)
+  ("g" ranger-find-config-dir)
+  ("s" ranger-find-scripts-dir)
+  ("3" find-i3-config)
+  ("#" my/goto-i3-screen-configs)
+  ("c" find-bash-completion))

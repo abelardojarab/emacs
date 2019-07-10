@@ -386,3 +386,8 @@
   ;; See https://github.com/dholm/benchmark-init-el
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 #+END_SRC
+* shut-up
+#+BEGIN_SRC emacs-lisp
+(use-package shut-up
+:ensure t)
+#+END_SRC

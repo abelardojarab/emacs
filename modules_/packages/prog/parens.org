@@ -1,0 +1,16 @@
+#+PROPERTY: header-args :tangle yes
+
+* smartparens
+#+BEGIN_SRC emacs-lisp
+(use-package smartparens
+  :defer 3
+  :ensure t
+  :config
+  (setq sp-escape-quotes-after-insert nil)
+  (smartparens-global-mode +1))
+#+END_SRC
+* elec pair
+#+BEGIN_SRC emacs-lisp
+(use-package elec-pair
+  :defer t)
+#+END_SRC

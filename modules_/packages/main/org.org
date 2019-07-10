@@ -1,0 +1,68 @@
+#+PROPERTY: header-args :tangle yes
+
+* Org Main
+** Org Tips
+*** How To Shift Multiple Dates:
+- In the agenda view, use ~m~ (~org-agenda-bulk-toggle~) to mark entries
+- ~x~ (~org-agenda-bulk-action,~ ~B~ without ~Evil~) for bulk action
+- ~s~ to shift schedules or ~d~ for deadlines
+- ~++1d~ postpones by one day, ~++20d~ by, ~--5d~ delays by five and so forth.
+[[https://old.reddit.com/r/orgmode/comments/8vdwen/does_orgmode_allow_me_to_change_the_date_for/e26sk8t/][source]]
+*** Avisa com 14 dias de antecedência:
+#+BEGIN_SRC example :tangle nil
+DEADLINE: <2019-07-13 Sat -14d>
+#+END_SRC
+** Org Package
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :ensure nil
+  :init
+  (load-file "~/.emacs.d/modules/packages/main/org/org_hooks.el")
+  :config
+  (load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_setqs.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_misc.el"))
+#+END_SRC
+
+* Org Others
+#+BEGIN_SRC emacs-lisp
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◉"))))
+
+(use-package org-web-tools
+  :after org
+  :ensure t)
+
+(use-package ox-epub
+  :after org
+  :ensure t)
+
+(use-package toc-org
+  :defer t
+  :ensure t)
+
+(use-package org2blog
+  :init
+  (setq org2blog/wp-blog-alist
+	'(("daviramos-en"
+	   :url "http://daviramos.com/en/xmlrpc.php"
+	   :username "daviramos"
+	   :default-title "Hello World"
+	   :default-categories ("sci-fi")
+	   :tags-as-categories nil)
+	  ("daviramos-br"
+	   :url "http://daviramos.com/br/xmlrpc.php"
+	   :username "daviramos"
+	   :default-title "Hello World"
+	   :default-categories ("sci-fi")
+	   :tags-as-categories nil)))
+  :ensure t)
+
+(use-package org-pdfview
+  :after org
+  :ensure t)
+#+END_SRC

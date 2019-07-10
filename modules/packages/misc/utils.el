@@ -338,3 +338,6 @@
   ;; To disable collection of benchmark data after init is done.
   ;; See https://github.com/dholm/benchmark-init-el
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
+(use-package shut-up
+:ensure t)

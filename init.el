@@ -26,12 +26,11 @@
 
 (setq custom-file "~/.emacs.d/etc/custom.el")
 (setq initial-buffer-choice nil)
-(setq initial-scratch-message nil)
-(setq inhibit-startup-message nil)
-(setq initial-buffer-choice nil)
-(setq inhibit-startup-message nil)
+(setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 (setq default-frame-alist '((font . "Input Mono Light 13")))
+(require 'bind-key)
+(require 'use-package)
 
 (use-package menu-bar
 :ensure nil
@@ -70,15 +69,15 @@
   (let ((load-it (lambda (f)
 		   (load-file (concat (file-name-as-directory dir) f)))
 		 ))
-    (mapc load-it (directory-files dir nil "\\.el$"))))
+    (mapc load-it (directory-files dir nil "\\.elc$"))))
 
 ;;;; LOAD MAIN PACKAGES
-(load-file "~/.emacs.d/modules/packages/main/general.el")
-(load-file "~/.emacs.d/modules/packages/main/evil.el")
-(load-file "~/.emacs.d/modules/packages/main/org.el")
-(load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
-(load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
-(load-file "~/.emacs.d/modules/packages/misc/hydra.el")
+(load-file "~/.emacs.d/modules/packages/main/general.elc")
+(load-file "~/.emacs.d/modules/packages/main/evil.elc")
+(load-file "~/.emacs.d/modules/packages/main/org.elc")
+(load-file "~/.emacs.d/modules/packages/main/org/org_functions.elc")
+(load-file "~/.emacs.d/modules/packages/main/org/org_keys.elc")
+(load-file "~/.emacs.d/modules/packages/misc/hydra.elc")
 
 ;;;; LOAD DIRECTORIES ;;;;
 (load-directory "~/.emacs.d/modules/packages/misc")
