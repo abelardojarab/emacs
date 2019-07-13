@@ -66,7 +66,6 @@
   (super-save-mode +1))
 
 (use-package engine-mode
-  :defer t
   :ensure t
   :config
   (defengine google "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
