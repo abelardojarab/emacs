@@ -17,7 +17,7 @@
 (use-package filesets
   :ensure nil
   :config
-  (load-file "~/.emacs.d/modules/settings/filesets.elc")
+  (load-file "~/.emacs.d/modules/settings/filesets.el")
   (filesets-init))
 
 ;; (use-package select
@@ -286,7 +286,7 @@
   (add-hook 'eshell-mode-hook 'my/load-eshell-keybindings)
   (defun my/load-eshell-keybindings ()
     (interactive)
-    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.elc")))
+    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.el")))
 
 (use-package calc
 :defer t

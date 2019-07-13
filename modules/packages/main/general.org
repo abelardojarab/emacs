@@ -196,8 +196,8 @@
 "C-;" 'helpful-function
 "C-c ç" 'hydra-gro-prjct/body
 ;; "C-c x" 'my/kill-buffer-and-workspace
-"M-." 'evil-window-next
-"M-," 'evil-window-prev
+"M-." 'nswbuff-switch-to-next-buffer
+"M-," 'nswbuff-switch-to-previous-buffer
 "C-SPC" nil
 "M-s" 'last-buffer
 "M-t" 'transpose-words

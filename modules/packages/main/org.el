@@ -2,12 +2,12 @@
   :ensure nil
   :defer t
   :init
-  (load-file "~/.emacs.d/modules/packages/main/org/org_hooks.elc")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_hooks.el")
   :config
-  (load-file "~/.emacs.d/modules/packages/main/org/org_keys.elc")
-  (load-file "~/.emacs.d/modules/packages/main/org/org_setqs.elc")
-  (load-file "~/.emacs.d/modules/packages/main/org/org_functions.elc")
-  (load-file "~/.emacs.d/modules/packages/main/org/org_misc.elc"))
+  (load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_setqs.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
+  (load-file "~/.emacs.d/modules/packages/main/org/org_misc.el"))
 
 
 (use-package org-bullets

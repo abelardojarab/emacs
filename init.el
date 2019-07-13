@@ -69,15 +69,15 @@
   (let ((load-it (lambda (f)
 		   (load-file (concat (file-name-as-directory dir) f)))
 		 ))
-    (mapc load-it (directory-files dir nil "\\.elc$"))))
+    (mapc load-it (directory-files dir nil "\\.el$"))))
 
 ;;;; LOAD MAIN PACKAGES
-(load-file "~/.emacs.d/modules/packages/main/general.elc")
-(load-file "~/.emacs.d/modules/packages/main/evil.elc")
-(load-file "~/.emacs.d/modules/packages/main/org.elc")
-(load-file "~/.emacs.d/modules/packages/main/org/org_functions.elc")
-(load-file "~/.emacs.d/modules/packages/main/org/org_keys.elc")
-(load-file "~/.emacs.d/modules/packages/misc/hydra.elc")
+(load-file "~/.emacs.d/modules/packages/main/general.el")
+(load-file "~/.emacs.d/modules/packages/main/evil.el")
+(load-file "~/.emacs.d/modules/packages/main/org.el")
+(load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
+(load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
+(load-file "~/.emacs.d/modules/packages/misc/hydra.el")
 
 ;;;; LOAD DIRECTORIES ;;;;
 (load-directory "~/.emacs.d/modules/packages/misc")

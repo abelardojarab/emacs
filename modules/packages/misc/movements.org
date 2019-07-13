@@ -34,7 +34,7 @@
   (add-hook 'dired-mode-hook 'line-numbers))
 
 (use-package dired+
-  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.elc")
+  :quelpa (dired+ :fetcher url :url "https://www.emacswiki.org/emacs/download/dired+.el")
   :after dired
   :ensure nil
   :config
@@ -51,9 +51,9 @@
   (add-hook 'ranger-parent-dir-hook 'my/ranger-options-parent)
   :config
   (setq ranger-footer-delay nil)
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.elc")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.elc")
-  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.elc"))
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-keys.el")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-settings.el")
+  (load-file "~/.emacs.d/modules/packages/misc/ranger/ranger-functions.el"))
 #+END_SRC
 
 * buffer move
@@ -155,14 +155,14 @@
                              "*Echo Area 0*"
                              "*Echo Area 1"
                              "*Minibuf 0*"
-                             "bookmark-default.elc"
+                             "bookmark-default.el"
                              "bookmark-default.el"
                              "info-history"
-                             "company-shell-autoloads.elc"
                              "company-shell-autoloads.el"
-                             "company.elc"
+                             "company-shell-autoloads.el"
                              "company.el"
-                             "pos-tip-autoloads.elc"
+                             "company.el"
+                             "pos-tip-autoloads.el"
                              "pos-tip-autoloads.el"
                              "*Flycheck error messages*"
                              "*company-documentation*"
@@ -460,6 +460,83 @@
 * nswbuff
 #+BEGIN_SRC emacs-lisp
 (use-package nswbuff
-:defer t
-:ensure t)
+  :ensure t
+  :config
+  (setq nswbuff-delay-switch t)
+  (setq nswbuff-display-intermediate-buffers t)
+  (setq nswbuff-recent-buffers-first nil)
+  (setq nswbuff-clear-delay 1)
+  (setq nswbuff-buffer-list-function 'nswbuff-projectile-buffer-list)
+  (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
+                                         "Dired"
+                                         ".*Log.*"
+                                         ".*log.*"
+                                         ".*help.*"
+                                         "^#.*#$"
+                                         "*Shell Command Output*"
+                                         "*Calculator*"
+                                         "*Calendar*"
+                                         "*Help*"
+                                         "*Calc Trail*"
+                                         "magit-process"
+                                         "magit-diff"
+                                         "*Org-Babel Error Output*"
+                                         "\\`\\*helm"
+                                         "\\`\\*Echo Area"
+                                         "\\`\\*Minibuf"
+                                         "Ibuffer"
+                                         "epc con"
+                                         "*Shell Command Output*"
+                                         "*Calculator*"
+                                         "*Calendar*"
+                                         "*cheatsheet*"
+                                         "*Help*"
+                                         "*Echo Area 0*"
+                                         "*Echo Area 1"
+                                         "*Minibuf 0*"
+                                         "*Minibuf-1*"
+                                         "info-history"
+                                         "bookmark-default.el"
+                                         "company-shell-autoloads.el"
+                                         "company.el"
+                                         "pos-tip-autoloads.el"
+                                         "bookmark-default.el"
+                                         "company-shell-autoloads.el"
+                                         "company.el"
+                                         "pos-tip-autoloads.el"
+                                         "*scratch*"
+                                         "*Warning*"
+                                         "*Messages*"
+                                         "^init.org$"
+                                         "^packs.org$"
+                                         "^functions.org$"
+                                         "^keys.org$"
+                                         "^misc.org$"
+                                         "^macros.org$"
+                                         "^hydras.org$"
+                                         "^links.org$"
+                                         "^custom.el$"
+                                         "*Flycheck error messages*"
+                                         "*Flymake log*"
+                                         "*company-documentation*"
+                                         "^.archive.org$"
+                                         ".*magit.*"
+                                         ".*elc"
+                                         ".*pdf"
+                                         "*shell*"
+                                         "*new*"
+                                         "*Flycheck error messages*"
+                                         "*clang-output*"
+                                         "*Bongo Playlist*"
+                                         "*eclim: problems*"
+                                         "*eclimd*"
+                                         "*compilation*"
+                                         "*Bongo Library*"
+                                         "*Outline pcc.pdf*"
+                                         "*blacken*"
+                                         "*server*"
+                                         "*code-conversion-work*"
+                                         "*blacken-error*"
+                                         "*Outline pcc_2.pdf*"
+                                         "*quickrun*")))
 #+END_SRC

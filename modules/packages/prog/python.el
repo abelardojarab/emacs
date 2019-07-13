@@ -76,8 +76,8 @@
 		 (let ((inhibit-message t))
 		   (delete-trailing-whitespace)
 		   (save-buffer)))
-  (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.elc")
-  (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.elc"))
+  (load-file "~/.emacs.d/modules/packages/prog/python/python_keys.el")
+  (load-file "~/.emacs.d/modules/packages/prog/python/python_functions.el"))
 
 (use-package importmagic
   :after python

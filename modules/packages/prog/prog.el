@@ -129,8 +129,8 @@
 (company-abort)
 (yas-expand))
 
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.elc")
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.elc")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
+  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
   (global-company-mode t))
 
 (use-package company-shell

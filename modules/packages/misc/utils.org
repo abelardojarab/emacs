@@ -301,7 +301,7 @@
   :init
   (setq history-length 500)
   (setq savehist-autosave-interval (* 1 60))
-  (setq savehist-file "~/.emacs.d/var/savehist.elc")
+  (setq savehist-file "~/.emacs.d/var/savehist.el")
   (setq savehist-additional-variables '(kill-ring search-ring filesets-data))
   :config
   (savehist-mode t))
@@ -316,7 +316,7 @@
 (use-package saveplace
   :ensure nil
   :init
-  (setq save-place-file "~/.emacs.d/var/save-place.elc")
+  (setq save-place-file "~/.emacs.d/var/save-place.el")
   :config
   (setq save-place-limit 100)
   (save-place-mode 1))

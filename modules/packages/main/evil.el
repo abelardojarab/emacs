@@ -99,8 +99,8 @@
     "$" 'evil-end-of-visual-line
     "zd" 'evil-scroll-line-to-bottom
     "0" 'evil-beginning-of-visual-line
-    "M-." 'evil-window-next
-    "M-," 'evil-window-prev)
+    "M-." 'nswbuff-switch-to-next-buffer
+    "M-," 'nswbuff-switch-to-previous-buffer)
 
   (general-define-key
    "C-c w" 'evil-window-next

@@ -23,7 +23,7 @@
 (use-package filesets
   :ensure nil
   :config
-  (load-file "~/.emacs.d/modules/settings/filesets.elc")
+  (load-file "~/.emacs.d/modules/settings/filesets.el")
   (filesets-init))
 #+END_SRC
 
@@ -307,7 +307,7 @@
   (add-hook 'eshell-mode-hook 'my/load-eshell-keybindings)
   (defun my/load-eshell-keybindings ()
     (interactive)
-    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.elc")))
+    (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.el")))
 #+END_SRC
 * calc
 #+BEGIN_SRC emacs-lisp
@@ -499,6 +499,7 @@
    "M-p" 'my/paragraph-backwards
    "M-n" 'my/paragraph-forward))
 #+END_SRC
+
 * hippie-exp
 #+BEGIN_SRC emacs-lisp
 (use-package hippie-exp
