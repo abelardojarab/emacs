@@ -396,8 +396,10 @@
   (setq nswbuff-delay-switch t)
   (setq nswbuff-display-intermediate-buffers t)
   (setq nswbuff-recent-buffers-first nil)
-  (setq nswbuff-clear-delay 1)
+  (setq nswbuff-start-with-current-centered t)
+  (setq nswbuff-clear-delay 4)
   (setq nswbuff-buffer-list-function 'nswbuff-projectile-buffer-list)
+  (setq nswbuff-include-buffer-regexps '("*Org Src"))
   (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
                                          "Dired"
                                          ".*Log.*"

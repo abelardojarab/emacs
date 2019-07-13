@@ -865,18 +865,18 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 
     ^Org Mode^
     -----------------------------------------------
-    _r_: archive     _a_: agenda        _h_: hydra
-    _c_: capture     _i_: tags          _f_: files
+    _r_: my archive  _a_: agenda        _h_: hydra
+    _R_: archive     _i_: tags          _f_: files
     _P_: last capt.  _u_: insert url    _o_: agenda.org
     _d_: deadline    _l_: store link    _b_: list bullets
     _S_: schedule    _y_: overlay       _g_: refile
     _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
-                   _s_: sort
+    _c_: capture     _s_: sort
 "
   ("<escape>" nil)
 
-  ("r" org-archive-subtree-default)
-
+  ("r" my/org-archive)
+  ("R" org-archive-subtree-default)
   ("a" my/org-agenda)
   ("c" counsel-org-capture)
   ("P" org-capture-goto-last-stored)

@@ -100,6 +100,11 @@
                                    "~/Studying/Unifacs/Segundo_Semestre/Matérias"))))
   (my/org-agenda))
 
+(defun my/org-archive ()
+  (interactive)
+  (org-archive-subtree-default)
+  (evil-close-folds))
+
 (defun my/save-archive ()
   (interactive)
   (save-buffer "~/org/Config/.archive.org::* From %s"))
@@ -212,7 +217,7 @@
 (defun org-1-day-agenda ()
   (interactive)
   (let ((current-prefix-arg 1)
-        (org-deadline-warning-days -1))
+        (org-deadline-warning-days 0))
     (org-agenda t "a")))
 
 (defun org-2-days-agenda ()

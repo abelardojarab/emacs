@@ -46,10 +46,12 @@
   (defun my/erase-buffer-yank ()
     (interactive)
     (erase-buffer)
-    (insert "!")
-    (emmet-expand-line nil)
+    ;; (insert "!")
+    ;; (emmet-expand-line nil)
     (yank nil)
-    (web-beautify-html)))
+    (evil-window-middle)
+    ;; (web-beautify-html)
+    ))
 
 (use-package web-beautify
 :after web-mode
