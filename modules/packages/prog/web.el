@@ -23,23 +23,36 @@
 
   (general-nvmap
     :keymaps 'web-mode-map
-    "C-ç" 'web-beautify-html)
+    "C-ç" 'my/erase-buffer-yank
+    "M-ç" 'copy-to-chrome
+    "C-c ç" 'web-beautify-html)
 
   (defun my/set-web-theme ()
     (interactive)
     (disable-theme 'noctilux)
-    (enable-theme 'doom-dracula))
+    (load-theme 'doom-dracula))
 
   (general-define-key
    :keymaps 'web-mode-map
+   "C-ç" 'my/erase-buffer-yank
+   "M-ç" 'copy-to-chrome
+   "C-c ç" 'web-beautify-html
    "<C-M-return>" 'browse-url-of-file)
 
   (general-unbind 'web-mode-map
     :with 'my/clear-html-macro
-    [remap web-mode-comment-indent-new-line]))
+    [remap web-mode-comment-indent-new-line])
+
+  (defun my/erase-buffer-yank ()
+    (interactive)
+    (erase-buffer)
+    (insert "!")
+    (emmet-expand-line nil)
+    (yank nil)
+    (web-beautify-html)))
 
 (use-package web-beautify
-:defer t
+:after web-mode
 :ensure t)
 
 (use-package emmet-mode

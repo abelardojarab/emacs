@@ -457,3 +457,9 @@
 
   (atomic-chrome-start-server))
 #+END_SRC
+* nswbuff
+#+BEGIN_SRC emacs-lisp
+(use-package nswbuff
+:defer t
+:ensure t)
+#+END_SRC

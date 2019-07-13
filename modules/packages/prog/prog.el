@@ -175,7 +175,7 @@
   (setq aggressive-indent-sit-for-time 0.05))
 
 (use-package yasnippet
-  :defer 10
+  :defer 5
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map
@@ -307,7 +307,8 @@
   :ensure t
   :config
   (setq sp-escape-quotes-after-insert nil)
-  (smartparens-global-mode +1))
+  (smartparens-global-mode +1)
+  (show-smartparens-global-mode +1))
 
 (use-package elec-pair
   :defer t)

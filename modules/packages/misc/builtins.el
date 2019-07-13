@@ -719,6 +719,8 @@
   :defer t
   :ensure nil
   :config
+  ;;;; Because of Doom Modeline
+  ;;;;  https://github.com/seagle0128/doom-modeline
   (setq auto-revert-check-vc-info t)
   (global-auto-revert-mode 1))
 

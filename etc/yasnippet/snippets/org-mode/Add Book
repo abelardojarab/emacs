@@ -2,12 +2,12 @@
 # name: Add Book
 # expand-env ((yas-indent-line 'fixed))
 # --
-** T ${1:Title}
+** T ${1:`(yank)`}
 :PROPERTIES:
 :TITLE:    $1
 :PAGES:    ${2:400}
 :SYNOPSIS: 
-:TYPE:     ${3:$$(yas-choose-value '("     Novel" "     Collection" "     Article" "     Non-Fiction" "     Other"))}
+:TYPE:     ${3:$$(yas-choose-value '("     Novel" "     Collection" "     Article" "     Non-Fiction"  "     Short-Story""     Other"))}
 :GENRE:    ${4:Science Fiction} 
 :AUTHOR:   ${5:Author}
 :LINK:     Wikipedia$0
@@ -15,5 +15,5 @@
 :PUB:      ${6:2000}
 :START:    Unknown
 :FINISH:   Unknown
-:COMPLETE: $7%
+:COMPLETE: ${7:0}%
 :END:

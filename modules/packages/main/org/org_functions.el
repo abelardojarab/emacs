@@ -115,6 +115,7 @@
 (defun my/org-mode-hooks ()
   (interactive)
   (evil-org-mode +1)
+  (visual-line-mode +1)
   (org-bullets-mode +1))
 
 (defun my/org-insert-file-link ()
@@ -163,6 +164,13 @@
   (interactive)
   (save-excursion
     (org-next-link)
+    (org-open-at-point-global)
+    (sit-for 1)
+    (focus-chrome)))
+
+(defun my/org-open-link()
+  (interactive)
+  (save-excursion
     (org-open-at-point-global)
     (sit-for 1)
     (focus-chrome)))

@@ -267,15 +267,14 @@
   "
 
        ^Tangle^
-       --------------
-       _a_: all
-       _b_: all & res
-       _c_: my default
-       _d_: real default
-       _g_: debug
-       _n_: new
-       _e_: this file
-       _l_: load init file
+       ----------------------------------
+       _a_: all           _n_: new
+       _b_: all & res     _e_: this file
+       _c_: my default    _l_: load init
+       _d_: real default  _r_: recompile
+       _g_: debug         _R_: recompile dir
+                        _m_: recompile modules
+
 "
   ("a" tangle-py-all)
   ("b" tangle-py-all-and-restart)
@@ -284,7 +283,10 @@
   ("g" tangle-py-all-debug)
   ("n" tangle-py-all-new)
   ("e" my/tangle-this-file)
-  ("l" my/load-user-init-file))
+  ("l" my/load-user-init-file)
+  ("r" my/byte-recompile-this-file)
+  ("R" my/byte-recompile-this-directory)
+  ("m" my/byte-recompile-modules))
 
 (defhydra my/indent-tools-hydra (:color red :hint nil)
   "
@@ -739,24 +741,24 @@
   ^
        ^Search Online^
        ----------------
-       _l_: google     _L_: dic informal
+       _l_: google     _l_: dic informal
        _h_: translate  _m_: urban dic
-       _I_: wordnut    _n_: tfree dic
-       _j_: michaelis  _O_: wiki en
-                     _P_: wiki pt
+       _i_: wordnut    _n_: tfree dic
+       _j_: michaelis  _o_: wiki en
+                     _p_: wiki pt
 
   "
   ("<escape>" nil)
   ("l" engine/search-google)
   ("h" engine/search-translate)
-  ("I" wordnut-search)
+  ("i" wordnut-search)
   ("W" wordnut-lookup-current-word)
   ("j" engine/search-michaelis)
-  ("L" engine/search-dic-informal)
+  ("l" engine/search-dic-informal)
   ("m" engine/search-urban-dictionary)
   ("n" engine/search-the-free-dictionary)
-  ("O" engine/search-wiki-en)
-  ("P" engine/search-wiki-pt))
+  ("o" engine/search-wiki-en)
+  ("p" engine/search-wiki-pt))
 
 
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)
@@ -766,11 +768,11 @@
     -----------------------------------------------
     _r_: archive     _a_: agenda        _h_: hydra
     _c_: capture     _i_: tags          _f_: files
-    _p_: last capt.  _u_: insert url    _o_: agenda.org
+    _P_: last capt.  _u_: insert url    _o_: agenda.org
     _d_: deadline    _l_: store link    _b_: list bullets
-    _s_: schedule    _y_: overlay
-    _t_: todo        _e_: tog. tstamp.
-
+    _S_: schedule    _y_: overlay       _g_: refile
+    _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
+                   _s_: sort
 "
   ("<escape>" nil)
 
@@ -778,19 +780,23 @@
 
   ("a" my/org-agenda)
   ("c" counsel-org-capture)
-  ("p" org-capture-goto-last-stored)
+  ("P" org-capture-goto-last-stored)
   ("d" org-deadline)
-  ("s" org-schedule)
+  ("S" org-schedule)
   ("h" hydra-org-agenda/body)
   ("l" org-store-link)
-  ("t" org-todo)
   ("i" counsel-org-tag)
   ("o" my/find-org-agenda-file)
   ("u" org-web-tools-insert-link-for-url)
   ("y" org-toggle-time-stamp-overlays)
   ("e" org-toggle-timestamp-type)
   ("f" my/agenda-files)
-  ("b" org-cycle-list-bullet))
+  ("b" org-cycle-list-bullet)
+  ("t" org-time-stamp)
+  ("g" org-refile)
+  ("G" org-refile-goto-last-stored)
+  ("s" org-sort)
+  ("p" my/org-sort-pages-macro))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "

@@ -81,4 +81,19 @@
   (my/save-all)
   (sp "tangle-i3" nil "~/scripts/i3_scripts/tangle-i3-restart")
   (message " i3 reloaded"))
+
+(defun my/byte-recompile-this-file ()
+  (interactive)
+  (byte-recompile-file (buffer-file-name))
+  (other-window -1))
+
+(defun my/byte-recompile-this-directory ()
+  (interactive)
+  (byte-recompile-directory (default-directory))
+  (other-window -1))
+
+(defun my/byte-recompile-modules ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d/modules")
+  (other-window -1))
 #+END_SRC

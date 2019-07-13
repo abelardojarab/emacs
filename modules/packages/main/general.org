@@ -107,8 +107,8 @@
  "M-7" 'org-7-days-agenda
  "<f7>" 'man
  "C-c C-l" 'org-insert-link-global
- "C-c o" 'org-open-at-point-global
- "C-c C-o" 'org-open-at-point-global
+ "C-c o" 'my/org-open-link
+ "C-c C-o" 'my/org-open-link
  "M-0" 'quit-window
  "C-0" 'delete-window
  "C-c DEL" 'my/bash-shebang
@@ -150,8 +150,12 @@
 "C-x C-p" 'org-noter-insert-precise-note
 "C-x p"    'my/counsel-projectile-commands
 "C-c r"    'restart-emacs
+"C-x s"    'magit-stage-modified
+"C-x g"    'magit-status
+"C-c F r" 'byte-recompile-file
 ;; "C-c ç"   'my/goto-info-buffer-other-window
  #+END_SRC
+
 *** Buffers and Performance
 #+BEGIN_SRC emacs-lisp
 "C-c b" 'my/benchmark-init-commands

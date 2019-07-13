@@ -10,16 +10,16 @@
 
 (setq org-global-properties
       '(("Effort_ALL" .
-	 "0:05 0:10 0:15 0:25 0:30 0:45 1:00 2:00 4:00 6:00")))
+         "0:05 0:10 0:15 0:25 0:30 0:45 1:00 2:00 4:00 6:00")))
 (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-eww org-habit))
 
     ;;; http://bit.ly/2KJHooJ
 (setq org-agenda-files (apply 'append
-			      (mapcar
-			       (lambda (directory)
-				 (directory-files-recursively
-				  directory org-agenda-file-regexp))
-			       '("~/org/Agenda"))))
+                              (mapcar
+                               (lambda (directory)
+                                 (directory-files-recursively
+                                  directory org-agenda-file-regexp))
+                               '("~/org/Agenda"))))
 
 (setq org-deadline-warning-days 7)
 (setq org-enforce-todo-checkbox-dependencies t)
@@ -88,26 +88,31 @@
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
 
-(setq org-refile-targets '((nil :maxlevel . 9)
-			   (org-agenda-files :maxlevel . 9)))
+;; Refile to agenda
+;; (setq org-refile-targets '((nil :maxlevel . 9)
+;; 			   (org-agenda-files :maxlevel . 9)))
 
-;; (setq org-refile-targets '((nil :maxlevel . 9)))
+;; Refile to same file
+(setq org-refile-targets '((nil :maxlevel . 1)))
 
-(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
-;; (setq org-refile-use-outline-path file)                  ; Show full paths for refiling
-(setq org-refile-use-outline-path 'file)
+;; Refile in a single go
+(setq org-outline-path-complete-in-steps nil)
+;; No path on refilling
+(setq org-refile-use-outline-path nil)
+;; Show full paths for refiling
+;; (setq org-refile-use-outline-path 'file)
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
 (setq org-file-apps (quote ((auto-mode . emacs)
-			    ("\\.mm\\'" . default)
-			    ("\\.x?html?\\'" . default)
-			    ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
-			    ("\\.jpg\\'" . "viewnior %s")
-			    ("\\.mp4\\'" . "vlc %s")
-			    ("\\.pdf\\'" . default))))
+                            ("\\.mm\\'" . default)
+                            ("\\.x?html?\\'" . default)
+                            ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
+                            ("\\.jpg\\'" . "viewnior %s")
+                            ("\\.mp4\\'" . "vlc %s")
+                            ("\\.pdf\\'" . default))))
 
   ;;;; See:
   ;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
 (setq org-capture-templates
       '(("a" "Agenda" entry  (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
-	("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\n%?")))
+        ("p" "Planning" entry  (file+headline "~/org/Agenda/planning.org" "Tasks") "* TODO %i%^{1|Title}\n%?")))
