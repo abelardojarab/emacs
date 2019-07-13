@@ -201,15 +201,28 @@
   :defer t
   :ensure t)
 
-(use-package evil-mc
-:after evil
-:ensure t
-:config
- (general-define-key
-  "C-c m" 'evil-mc-make-all-cursors
-  "C-x m" 'evil-mc-undo-all-cursors)
+;; (use-package evil-mc
+;;   :after evil
+;;   :ensure t
+;;   :config
+;; (general-define-key
+;;  "C-c m" 'evil-mc-make-all-cursors
+;;  "C-x m" 'evil-mc-undo-all-cursors)
 
- (general-nvmap
-  "C-c m" 'evil-mc-make-all-cursors
-  "C-x m" 'evil-mc-undo-all-cursors)
-(global-evil-mc-mode  1))
+;; (general-nvmap
+;;   "C-c m" 'evil-mc-make-all-cursors
+;;   "C-x m" 'evil-mc-undo-all-cursors)
+;;   (global-ev
+;;   il-mc-mode  1))
+
+(use-package evil-multiedit
+  :after evil
+  :ensure t
+  :config
+  (general-define-key
+   "C-c m" 'evil-multiedit-match-all
+   "C-x m" 'evil-multiedit-abort)
+
+  (general-nvmap
+    "C-c m" 'evil-multiedit-match-all
+    "C-x m" 'evil-multiedit-abort))

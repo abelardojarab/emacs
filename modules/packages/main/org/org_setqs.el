@@ -63,7 +63,11 @@
 (setq org-pretty-entities-include-sub-superscripts nil)
 (setq org-format-latex-options
       (plist-put org-format-latex-options :scale 1.3))
+;; Archive on other location
 (setq org-archive-location "~/org/Info/.archive.org::* From %s")
+;; Archive on the same file
+;; (setq org-archive-location "::* Archived %s")
+
 (setq org-export-with-archived-trees nil)
 (setq org-export-html-postamble nil)
 (setq org-indent-mode t)
