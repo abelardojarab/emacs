@@ -161,10 +161,11 @@
 
 (defun my/org-open-next-link()
   (interactive)
-  (org-next-link)
-  (org-open-at-point-global)
-  (sit-for 1)
-  (focus-chrome))
+  (save-excursion
+    (org-next-link)
+    (org-open-at-point-global)
+    (sit-for 1)
+    (focus-chrome)))
 
 (defun my/org-open-prev-link()
   (interactive)

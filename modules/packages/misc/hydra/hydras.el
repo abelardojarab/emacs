@@ -327,15 +327,15 @@
 (defhydra hydra-spell (:color blue :hint nil)
   "
   ^
-       ^Spell^
+       ^Prose^
        -----------------------------
-       _a_: american    _n_: f. next
-       _b_: brasileiro  _y_: return py
-       _p_: prose on    _d_: show dict
-       _f_: flyspell
-       _u_: f. buff
+       _a_: american  _y_: return py
+       _b_: brasilei  _d_: show dictro
+       _p_: prose on  _f_: fills
+       _f_: flyspell  _F_: no-fills
+       _u_: f. buff   _g_: agg fill
 
-	 ^^
+         ^^
 "
   ("<escape>" nil)
   ("RET" my/counsel-markdown-commands)
@@ -347,8 +347,22 @@
   ("f" flyspell-mode)
   ("y" my/make-return-python)
   ("u" flyspell-buffer)
-  ("n" flyspell-goto-next-error :color pink)
-  ("d" my/ispell-show-dictionary))
+  ("d" my/ispell-show-dictionary)
+  ("f" my/fills-on)
+  ("F" my/fills-off)
+  ("g" aggressive-fill-paragraph-mode))
+
+(defun my/fills-on ()
+  (interactive)
+  (auto-fill-mode)
+  (aggressive-fill-paragraph-mode)
+  (message " fills on"))
+
+(defun my/fills-off ()
+  (interactive)
+  (auto-fill-mode -1)
+  (aggressive-fill-paragraph-mode -1)
+  (message " fills off"))
 
 (defhydra hydra-kill (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -753,7 +767,7 @@
     _r_: archive     _a_: agenda        _h_: hydra
     _c_: capture     _i_: tags          _f_: files
     _p_: last capt.  _u_: insert url    _o_: agenda.org
-    _d_: deadline    _l_: store link
+    _d_: deadline    _l_: store link    _b_: list bullets
     _s_: schedule    _y_: overlay
     _t_: todo        _e_: tog. tstamp.
 
@@ -775,7 +789,8 @@
   ("u" org-web-tools-insert-link-for-url)
   ("y" org-toggle-time-stamp-overlays)
   ("e" org-toggle-timestamp-type)
-  ("f" my/agenda-files))
+  ("f" my/agenda-files)
+  ("b" org-cycle-list-bullet))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "

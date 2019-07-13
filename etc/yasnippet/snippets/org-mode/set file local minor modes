@@ -3,5 +3,5 @@
 # key: local
 # --
 # Local Variables:
-# eval: ($1-mode)
+# eval: ($0)
 # End:
