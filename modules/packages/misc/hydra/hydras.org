@@ -867,7 +867,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
     _p_: last capt.  _u_: insert url    _o_: agenda.org
     _d_: deadline    _l_: store link    _b_: list bullets
     _s_: schedule    _y_: overlay
-    _t_: todo        _e_: tog. tstamp.
+    _e_: tog.stamp.  _t_: time stamp
 
 "
   ("<escape>" nil)
@@ -881,14 +881,16 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("s" org-schedule)
   ("h" hydra-org-agenda/body)
   ("l" org-store-link)
-  ("t" org-todo)
   ("i" counsel-org-tag)
   ("o" my/find-org-agenda-file)
   ("u" org-web-tools-insert-link-for-url)
   ("y" org-toggle-time-stamp-overlays)
   ("e" org-toggle-timestamp-type)
   ("f" my/agenda-files)
-  ("b" org-cycle-list-bullet))
+  ("b" org-cycle-list-bullet)
+  ("t" org-time-stamp)
+
+  )
 #+END_SRC
 
 *** clock
