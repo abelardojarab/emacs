@@ -741,7 +741,7 @@
   ^
        ^Search Online^
        ----------------
-       _l_: google     _l_: dic informal
+       _l_: google     _d_: dic informal
        _h_: translate  _m_: urban dic
        _i_: wordnut    _n_: tfree dic
        _j_: michaelis  _o_: wiki en
@@ -754,7 +754,7 @@
   ("i" wordnut-search)
   ("W" wordnut-lookup-current-word)
   ("j" engine/search-michaelis)
-  ("l" engine/search-dic-informal)
+  ("d" engine/search-dic-informal)
   ("m" engine/search-urban-dictionary)
   ("n" engine/search-the-free-dictionary)
   ("o" engine/search-wiki-en)

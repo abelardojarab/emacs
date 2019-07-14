@@ -595,6 +595,7 @@
 
   (general-define-key
    :keymaps 'prog-mode-map
+   "C-c y" 'my/company-show-options
    "<C-return>" 'hydra-prog-mode/body
    "<M-return>" 'indent-buffer)
 
@@ -783,6 +784,7 @@
     (highlight-indent-guides-mode 1)
     (aggressive-indent-mode 1)
     (beacon-mode 1)
+    (my/company-idle-one-prefix-one)
     (message " my sh-mode on"))
 
   (defun my/sh-mode-hooks ()
