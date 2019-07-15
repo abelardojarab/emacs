@@ -13,6 +13,8 @@
   (setq evil-want-Y-yank-to-eol t)
   :config
   (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
+  (evil-set-initial-state 'Info-mode 'emacs)
+  (evil-set-initial-state 'cheatsheet-mode 'emacs)
   (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist
         '(("." . "~/.emacs.d/var/undo-tree-hist/")))

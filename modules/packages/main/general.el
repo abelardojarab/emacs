@@ -140,6 +140,8 @@
 "C-c L n" 'noctilux-on
 
 ;;;; FILESETS ;;;;
+"C-j" 'counsel-M-x
+"C-k" 'counsel-find-file
 "C-c f" 'make-frame
 ;; "C-c p" 'my/kill-previous-buffer
 

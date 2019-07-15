@@ -9,8 +9,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(caps-lock-mode nil)
- '(package-selected-packages '(hacker-typer use-package)))
+ '(package-selected-packages '(cheatsheet use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

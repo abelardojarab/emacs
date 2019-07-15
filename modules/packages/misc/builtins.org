@@ -52,52 +52,31 @@
 
   (defun my/info-hook-commands ()
     (interactive)
-    (line-numbers-absolute)
+    (line-no-numbers)
     (hl-line-mode +1))
 
   (defun my/info-commands ()
     (interactive)
     (counsel-M-x "^Info- "))
 
-  ;; (general-unbind 'Info-mode-map
-  ;;   :with 'ignore
-  ;;   [remap evil-exit-emacs-state])
+  (general-unbind 'Info-mode-map
+    :with 'ignore
+    [remap evil-exit-emacs-state])
 
-  ;; (general-unbind 'Info-mode-map
-  ;;   :with 'ignore
-  ;;   [remap evil-normal-state])
+  (general-unbind 'Info-mode-map
+    :with 'ignore
+    [remap evil-normal-state])
 
   (general-define-key
    :keymaps 'Info-mode-map
    "c" 'my/info-commands
    "C-x i" 'find-info-keys)
 
-  (general-nvmap
-    :keymaps 'Info-mode-map
-    "gb" 'counsel-bookmark
-    "m" 'Info-menu
-    "l" 'forward-char
-    "C-j" 'counsel-M-x
-    ;; "C-c C-c" 'my/eval-next-sexp
-    "h" 'backward-char
-    "H" 'evil-window-top
-    "M" 'evil-window-middle
-    "L" 'evil-window-bottom
-    "c" 'my/info-commands
-    "o" 'link-hint-open-link
-    "C-M-h" 'Info-history-back
-    "C-M-l" 'Info-history-forward))
-
-;; (general-define-key
-;;  :keymaps 'Info-mode-map
-;;  "j" 'next-line
-;;  "k" 'previous-line
-;;  "l" 'Info-history-forward
-;;  "h" 'Info-history-back
-;;  "G" 'end-of-buffer
-;;  "<home>" 'beginning-of-buffer
-;;  "<end>" 'end-of-buffer)
+  (general-define-key
+   :keymaps 'Info-mode-map
+   "C-q" 'my/cheat-sheet))
 #+END_SRC
+
 * bs cycle
 #+BEGIN_SRC emacs-lisp
 ;; (use-package bs
@@ -1136,4 +1115,11 @@
 :ensure nil
 :config
 (put 'narrow-to-region 'disabled nil))
+#+END_SRC
+* avoidance
+#+BEGIN_SRC emacs-lisp
+(use-package avoid
+  :ensure nil
+  :config
+  (setq mouse-avoidance-mode 'banish))
 #+END_SRC

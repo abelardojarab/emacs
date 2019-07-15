@@ -312,7 +312,6 @@
   (eyebrowse-mode t))
 
 (use-package winner
-  :defer t
   :ensure nil
   :config
 

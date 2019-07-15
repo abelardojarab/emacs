@@ -364,7 +364,6 @@
 * Winner Mode
 #+BEGIN_SRC emacs-lisp
 (use-package winner
-  :defer t
   :ensure nil
   :config
 
@@ -375,6 +374,7 @@
 
   (winner-mode 1))
 #+END_SRC
+
 * ivy hydra
 #+BEGIN_SRC emacs-lisp
 (use-package ivy-hydra

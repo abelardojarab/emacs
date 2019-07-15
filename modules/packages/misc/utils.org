@@ -420,3 +420,48 @@
   (setq auto-revert-buffer-list-filter
         'magit-auto-revert-repository-buffers-p))
 #+END_SRC
+* cheatsheet
+#+BEGIN_SRC emacs-lisp
+(use-package cheatsheet
+  :ensure t
+  :init
+  (add-hook 'cheatsheet-mode-hook 'my/cheat-sheet-hooks)
+  :config
+
+  (defun my/cheat-sheet ()
+    (interactive)
+    (cheatsheet-show)
+    (line-no-numbers)
+    (beginning-of-buffer))
+
+  (defun my/cheat-sheet-hooks ()
+    (interactive)
+    (evil-window-move-far-right)
+    (hl-line-mode))
+
+  (general-nvmap
+    :keymaps 'cheatsheet-mode-map
+    "C-q" 'kill-buffer-and-window
+    "q" 'kill-buffer-and-window)
+
+  (cheatsheet-add-group 'Common
+                        '(:key "u" :description "up")
+                        '(:key "T" :description "toc")
+                        '(:key "q" :description "exit")
+                        '(:key "]" :description "node →")
+                        '(:key "[" :description "node ←")
+                        '(:key "s" :description "search")
+                        '(:key "p" :description "Info ←")
+                        '(:key "n" :description "Info →")
+                        '(:key "L" :description "history")
+                        '(:key "," :description "index →")
+                        '(:key "l" :description "history ←")
+                        '(:key "r" :description "history →")
+                        '(:key "g" :description "goto node")
+                        '(:key "DEL" :description "scroll ↓")
+                        '(:key "SPC" :description "scroll ↑")
+                        '(:key "TAB" :description "reference →")
+                        '(:key "RET" :description "follow node")
+                        '(:key "S+Tab" :description "reference ←")
+                        '(:key "f" :description "follow reference")))
+#+END_SRC

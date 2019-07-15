@@ -414,8 +414,8 @@
       _J_: down   _l_: width-   _q_: load 1
       _H_: left   _k_: height   _2_: save 2
       _L_: right  _j_: height   _w_: load 2
-      ^^          _b_: balance  _z_: zoom
-      ^^          _r_: botright _x_: zoom-mode
+      ^^          _b_: balance
+      ^^          _r_: botright
   "
   ("<escape>" nil)
   ("RET" nil)
@@ -435,8 +435,6 @@
   ("2" my/window-to-register-eight)
   ("w" my/jump-to-register-eight)
   ("b" balance-windows :exit t)
-  ("z" zoom)
-  ("x" zoom-mode)
   ("r" my/evil-botright))
 
 (defhydra hydra-modes (:color blue :hint nil :exit nil :foreign-keys nil)
