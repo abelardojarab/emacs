@@ -3,5 +3,4 @@
 # key: use
 # --
 (use-package $1
-:defer t$0
 :ensure t)

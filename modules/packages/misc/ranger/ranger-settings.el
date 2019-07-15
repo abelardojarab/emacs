@@ -1,7 +1,9 @@
-(setq ranger-minimal nil)
+(setq ranger-minimal t)
+;; Was preventing me from toggle their visibility
+;; (setq ranger-show-hidden t)
+
 (setq ranger-footer-delay 0)
 (setq ranger-parent-depth 1)
-(setq ranger-show-hidden nil)
 (setq ranger-preview-file nil)
 (setq ranger-override-dired t)
 (setq ranger-persistent-sort t)

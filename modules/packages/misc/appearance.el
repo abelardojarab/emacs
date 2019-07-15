@@ -42,17 +42,18 @@
   (setq doom-modeline-minor-modes nil)
   (setq doom-modeline-buffer-file-name-style 'buffer-name))
 
-(use-package noctilux-theme
-:ensure t
-:config
-(load-theme 'noctilux t)
-(defun noctilux-on ()
-  (interactive)
-  (load-theme 'noctilux)))
+;; (use-package noctilux-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'noctilux t)
+;;   (defun noctilux-on ()
+;;     (interactive)
+;;     (load-theme '
+;;     noctilux)))
 
 (use-package doom-themes
-:ensure t
-:config
-(defun dracula-on ()
-  (interactive)
-  (load-theme 'doom-dracula)))
+  :ensure t
+  :init
+  (setq custom-safe-themes t)
+  :config
+  (load-theme 'doom-dracula))

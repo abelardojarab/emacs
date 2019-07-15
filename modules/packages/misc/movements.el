@@ -225,7 +225,7 @@
    "M-m" 'ivy-done
    "C-m" 'ivy-done
    "C-c o" 'ivy-kill-ring-save
-   [escape] 'abort-recursive-edit
+   ;; [escape] 'abort-recursive-edit
    "C-0" 'ivy-done
    "C--" 'ivy-next-line
    "C-=" 'ivy-previous-line

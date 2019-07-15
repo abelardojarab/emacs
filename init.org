@@ -36,7 +36,6 @@
 (require 'bind-key)
 (require 'use-package)
 #+END_SRC
-
 * Menu Bar
 #+BEGIN_SRC emacs-lisp
 (use-package menu-bar

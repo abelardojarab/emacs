@@ -974,6 +974,7 @@
   ;;;; WINDOWS ;;;;
   (setq window-resize-pixelwise t)
   ;; Alternates between the current and the previous buffer.
+
   (defun last-buffer ()
     "Switch to previously open buffer."
     (interactive)

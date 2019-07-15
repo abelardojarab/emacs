@@ -42,7 +42,7 @@
   (start-process-shell-command "tangle init" nil "nt ~/.emacs.d/*.org")
   (start-process-shell-command "new emacs" nil "emacs --debug-init"))
 
-(defun tangle-py-all-new ()
+  (defun tangle-py-all-new ()
   (interactive)
   (my/save-all)
   (start-process-shell-command "tangle init" nil "nt ~/.emacs.d/*.org")

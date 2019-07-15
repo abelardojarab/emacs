@@ -265,7 +265,7 @@
    "M-m" 'ivy-done
    "C-m" 'ivy-done
    "C-c o" 'ivy-kill-ring-save
-   [escape] 'abort-recursive-edit
+   ;; [escape] 'abort-recursive-edit
    "C-0" 'ivy-done
    "C--" 'ivy-next-line
    "C-=" 'ivy-previous-line
@@ -281,6 +281,10 @@
    "C-c v p" 'ivy-push-view
    "C-c v P" 'ivy-pop-view
    "C-c v v" 'ivy-switch-view)
+
+(general-imap
+    :keymaps 'ivy-mode-map
+    "M-u" 'ivy-yasnippet)
 
   (general-nvmap
     :keymaps 'ivy-mode-map
