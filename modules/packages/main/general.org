@@ -56,7 +56,7 @@
   "q" 'my/kill-this-buffer
   "0" 'delete-window
   "U" 'widenToCenter
-  "u" 'counsel-org-capture
+  "u" 'my/org-capture-notes
   "o" 'hydra-org-mode/body
   "e" 'widen)
 

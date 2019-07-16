@@ -36,5 +36,5 @@
 (general-imap
   :keymaps 'company-mode-map
   "C-SPC" 'company-complete
-  "C-l" 'company-complete
+  ;; "C-l" 'company-complete
   "M-/" 'hippie-expand)

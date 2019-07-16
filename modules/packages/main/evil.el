@@ -14,6 +14,7 @@
   :config
   (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
   (evil-set-initial-state 'Info-mode 'emacs)
+  (evil-set-initial-state 'bongo-mode 'emacs)
   (evil-set-initial-state 'cheatsheet-mode 'emacs)
   (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist
@@ -24,7 +25,7 @@
   (general-nmap
     "`" 'evil-goto-mark-line
     "'" 'evil-goto-mark
-    "m" 'evil-set-marker
+    "M" 'evil-set-marker
     "gm" 'hydra-text-motions/body
     "gM" 'evil-middle-of-visual-line
     "gu" 'fix-word-upcase
@@ -70,6 +71,7 @@
   (general-nvmap
     "k" 'evil-previous-visual-line
     "j" 'evil-next-visual-line
+    "K" 'org-shiftdown
     "C-SPC" 'caps-lock-mode
     "M-e" 'evil-forward-sentence-begin
     "M-a" 'evil-backward-sentence-begin)
@@ -79,7 +81,6 @@
     ;; "u" 'undo-only
 
     "gn" 'my/evil-format-paragraph-function
-    "K" 'org-shiftdown
     "C-u" 'hydra-find-emacs-files/body
     "!" 'delete-frame
     "Q" 'save-buffers-kill-terminal

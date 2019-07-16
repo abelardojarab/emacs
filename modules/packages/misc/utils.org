@@ -230,12 +230,23 @@
     "<return>" 'pdf-occur-goto-quit)
 
   (general-unbind 'pdf-view-mode-map
-    :with 'pdf-view-scale-reset
+    :with 'pdf-view-fit-page-to-window
     [remap evil-beginning-of-visual-line])
 
   (general-define-key
    :keymaps 'pdf-view-mode-map
+   "w" 'pdf-view-fit-width-to-window
+   "<return>" 'quick-calc
+   "<kp-enter>" 'quick-calc
+   "J" 'pdf-view-next-page
+   "j" 'pdf-view-next-line-or-next-page
+   "K" 'pdf-view-previous-page
+   "k" 'pdf-view-previous-line-or-previous-page
+   "p" 'pdf-view-previous-page
+   "n" 'pdf-view-next-page
+
    "C-x i" 'org-noter-insert-precise-note
+
    "C-c v v" 'pdf-view-set-slice-using-mouse
    "C-c v r" 'pdf-view-reset-slice
    "C-c C-c" 'pdf-annot-add-highlight-markup-annotation
@@ -257,9 +268,9 @@
     "c" 'pdf-annot-edit-contents-abort)
 
   (nvmap :keymaps 'pdf-view-mode-map
+    "<kp-enter>" 'quick-calc
     "i" 'org-noter-insert-note
     "I" 'org-noter-insert-precise-note
-    "0" 'pdf-view-scale-reset
     "C-l" 'counsel-bookmark
     "C-c C-c" 'pdf-annot-add-highlight-markup-annotation
     "c" 'pdf-annot-add-highlight-markup-annotation
@@ -276,18 +287,20 @@
     ";" 'hydra-org-noter/body
     "f" 'pdf-links-action-perform
     "gr" 'pdf-view-jump-to-register
-    "p" 'pdf-view-fit-page-to-window
     "t" 'pdf-annot-add-text-annotation
     "gm" 'pdf-view-position-to-register
     "h" 'pdf-view-scroll-up-or-next-page
     "l" 'pdf-view-scroll-down-or-previous-page
     "<up>"  'pdf-view-scroll-up-or-next-page
     "<down>" 'pdf-view-scroll-down-or-previous-page
-    "j" 'pdf-view-next-page
-    "J" 'pdf-view-next-line-or-next-page
-    "k" 'pdf-view-previous-page
-    "K" 'pdf-view-previous-line-or-previous-page
+    "J" 'pdf-view-next-page
+    "j" 'pdf-view-next-line-or-next-page
+    "K" 'pdf-view-previous-page
+    "k" 'pdf-view-previous-line-or-previous-page
     "<left>" 'pdf-view-next-page
+    "p" 'pdf-view-previous-page
+    "n" 'pdf-view-next-page
+    "w" 'pdf-view-fit-width-to-window
     "<right>" 'pdf-view-previous-page
     "C-c h" 'pdf-annot-add-highlight-markup-annotation)
 
@@ -464,4 +477,10 @@
                         '(:key "RET" :description "follow node")
                         '(:key "S+Tab" :description "reference ←")
                         '(:key "f" :description "follow reference")))
+#+END_SRC
+* bongo
+#+BEGIN_SRC emacs-lisp
+(use-package bongo
+:defer t
+:ensure t)
 #+END_SRC

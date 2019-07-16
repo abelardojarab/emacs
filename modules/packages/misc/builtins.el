@@ -267,7 +267,7 @@
     (load-file "~/.emacs.d/lisp/functions/eshell_keybindings.el")))
 
 (use-package calc
-:defer t
+  :defer t
   :ensure nil
   :config
 
@@ -689,9 +689,9 @@
   (show-paren-mode 1))
 
 (use-package frame
-  :defer t
   :ensure nil
   :config
+  (toggle-frame-maximized)
   (blink-cursor-mode 0))
 
 (use-package autorevert

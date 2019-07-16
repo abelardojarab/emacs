@@ -2,5 +2,5 @@
 # name: general define key
 # --
  (general-define-key
-  :keymaps '$0-mode-map
-  "" ')
+  :keymaps '$1-mode-map
+  "${2:keybinding}" '${3:command})

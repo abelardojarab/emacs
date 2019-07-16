@@ -766,7 +766,7 @@
     -----------------------------------------------
     _r_: my archive  _a_: agenda        _h_: hydra
     _R_: archive     _i_: tags          _f_: files
-    _P_: last capt.  _u_: insert url    _o_: agenda.org
+    _p_: last capt.  _u_: insert url    _o_: agenda.org
     _d_: deadline    _l_: store link    _b_: list bullets
     _S_: schedule    _y_: overlay       _g_: refile
     _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
@@ -779,7 +779,7 @@
   ("R" org-archive-subtree-default)
   ("a" my/org-agenda)
   ("c" counsel-org-capture)
-  ("P" org-capture-goto-last-stored)
+  ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
   ("S" org-schedule)
   ("h" hydra-org-agenda/body)
@@ -796,7 +796,6 @@
   ("G" org-refile-goto-last-stored)
   ("s" org-sort)
   ("x" org-todo)
-  ("p" my/org-sort-pages-macro)
   ("T" org-tags-view)
   ("A" my/org-align-tags))
 

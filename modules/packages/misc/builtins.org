@@ -291,7 +291,7 @@
 * calc
 #+BEGIN_SRC emacs-lisp
 (use-package calc
-:defer t
+  :defer t
   :ensure nil
   :config
 
@@ -753,11 +753,12 @@
 ** blink-cursor-mode
 #+BEGIN_SRC emacs-lisp
 (use-package frame
-  :defer t
   :ensure nil
   :config
+  (toggle-frame-maximized)
   (blink-cursor-mode 0))
 #+END_SRC
+
 ** autorevert
 #+BEGIN_SRC emacs-lisp
 (use-package autorevert

@@ -124,10 +124,10 @@
   :defer t
   :ensure t
   :config
-(defun my/company-yasnippet ()
-(interactive)
-(company-abort)
-(yas-expand))
+  (defun my/company-yasnippet ()
+    (interactive)
+    (company-abort)
+    (yas-expand))
 
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
@@ -175,7 +175,6 @@
   (setq aggressive-indent-sit-for-time 0.05))
 
 (use-package yasnippet
-  :defer 5
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map
@@ -292,7 +291,10 @@
   :after ivy
   :ensure t
   :config
-  (setq ivy-prescient-sort-commands '(counsel-find-library counsel-find-file counsel-ag))
+  (setq ivy-prescient-sort-commands '(counsel-find-library
+                                      counsel-find-file
+                                      counsel-ag
+                                      counsel-org-capture))
   (ivy-prescient-mode +1))
 
 (use-package company-prescient
@@ -312,3 +314,23 @@
 
 (use-package elec-pair
   :defer t)
+
+(use-package slime
+  :defer t
+  :ensure t
+  :config
+  (setq inferior-lisp-program "/usr/bin/sbcl")
+  (setq slime-contribs '(slime-fancy))
+
+  (general-unbind 'slime-repl-mode-map
+    :with 'slime-repl-clear-buffer
+    [remap recenter-top-bottom])
+
+  (general-unbind 'slime-repl-mode-map
+    :with 'other-window
+    [remap my/quiet-save-buffer])
+
+  (general-define-key
+   :keymaps 'slime-mode-map
+   "C-l" 'slime-repl-clear-buffer))
+

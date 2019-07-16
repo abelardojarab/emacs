@@ -299,3 +299,7 @@
   (org-edit-special nil)
   (eval-buffer)
   (org-edit-src-exit))
+
+(defun my/org-capture-notes ()
+  (interactive)
+  (org-capture t "n"))

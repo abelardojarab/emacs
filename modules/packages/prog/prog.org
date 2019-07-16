@@ -187,10 +187,10 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :defer t
   :ensure t
   :config
-(defun my/company-yasnippet ()
-(interactive)
-(company-abort)
-(yas-expand))
+  (defun my/company-yasnippet ()
+    (interactive)
+    (company-abort)
+    (yas-expand))
 
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
   (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
@@ -260,7 +260,6 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 [[https://emacs.stackexchange.com/a/48014][source]]
 #+BEGIN_SRC emacs-lisp
 (use-package yasnippet
-  :defer 5
   :ensure t
   ;; from http://bit.ly/2TEkmif
   :bind (:map yas-minor-mode-map
@@ -390,7 +389,10 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   :after ivy
   :ensure t
   :config
-  (setq ivy-prescient-sort-commands '(counsel-find-library counsel-find-file counsel-ag))
+  (setq ivy-prescient-sort-commands '(counsel-find-library
+                                      counsel-find-file
+                                      counsel-ag
+                                      counsel-org-capture))
   (ivy-prescient-mode +1))
 #+END_SRC
 
@@ -419,4 +421,27 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 #+BEGIN_SRC emacs-lisp
 (use-package elec-pair
   :defer t)
+#+END_SRC
+usep
+* slime
+#+BEGIN_SRC emacs-lisp
+(use-package slime
+  :defer t
+  :ensure t
+  :config
+  (setq inferior-lisp-program "/usr/bin/sbcl")
+  (setq slime-contribs '(slime-fancy))
+
+  (general-unbind 'slime-repl-mode-map
+    :with 'slime-repl-clear-buffer
+    [remap recenter-top-bottom])
+
+  (general-unbind 'slime-repl-mode-map
+    :with 'other-window
+    [remap my/quiet-save-buffer])
+
+  (general-define-key
+   :keymaps 'slime-mode-map
+   "C-l" 'slime-repl-clear-buffer))
+
 #+END_SRC

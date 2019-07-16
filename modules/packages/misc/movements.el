@@ -100,6 +100,7 @@
                              ".*help.*"
                              "^#.*#$"
                              "*Shell Command Output*"
+                             "*slime-repl sbcl"
                              "*Calculator*"
                              "*Calendar*"
                              "*Help*"
@@ -241,6 +242,10 @@
    "C-c v p" 'ivy-push-view
    "C-c v P" 'ivy-pop-view
    "C-c v v" 'ivy-switch-view)
+
+  (general-imap
+    :keymaps 'ivy-mode-map
+    "M-u" 'ivy-yasnippet)
 
   (general-nvmap
     :keymaps 'ivy-mode-map
@@ -401,6 +406,7 @@
   (setq nswbuff-include-buffer-regexps '("*Org Src"))
   (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
                                          "Dired"
+                                         "*slime-repl sbcl"
                                          ".*Log.*"
                                          ".*log.*"
                                          ".*help.*"
