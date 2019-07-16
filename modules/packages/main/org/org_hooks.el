@@ -7,7 +7,8 @@
 
 (add-hook 'org-capture-mode-hook (lambda ()
                                    (evil-insert-state)
-                                   (evil-window-move-very-bottom)))
+                                   (evil-window-move-very-bottom)
+                                   (electric-operator-mode t)))
 
 (remove-hook 'org-cycle-hook #'org-optimize-window-after-visibility-change)
 

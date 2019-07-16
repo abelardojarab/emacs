@@ -81,6 +81,7 @@
   [remap my/quiet-save-buffer])
 
 (general-define-key
+"C-k" 'counsel-find-file
  "M-1" 'org-1-day-agenda
  "M-2" 'org-2-days-agenda
  "M-3" 'org-3-days-agenda
@@ -141,7 +142,6 @@
 
 ;;;; FILESETS ;;;;
 "C-j" 'counsel-M-x
-"C-k" 'counsel-find-file
 "C-c f" 'make-frame
 ;; "C-c p" 'my/kill-previous-buffer
 

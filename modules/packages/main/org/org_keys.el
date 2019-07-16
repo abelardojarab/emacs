@@ -70,6 +70,12 @@
  :states '(normal visual insert)
  "<C-return>" 'org-capture-finalize)
 
+(general-imap
+  :keymaps 'org-capture-mode-map
+ "C-k"
+
+  )
+
 (general-nvmap
   :keymaps 'org-mode-map
   :prefix "SPC"

@@ -56,6 +56,7 @@
     "J" 'evil-window-move-very-bottom)
 
   (general-imap
+    "C-k" 'kill-line
     "C-u" 'backward-kill-line
     "C-SPC" nil
     "C-c SPC" 'fix-word-capitalize
