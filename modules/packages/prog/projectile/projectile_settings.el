@@ -87,7 +87,6 @@
                                             "^.archive.org$"
                                             ".*magit.*"
                                             ".*elc"
-                                            ".*pdf"
                                             "*shell*"
                                             "*new*"
                                             "*Flycheck error messages*"
@@ -97,12 +96,12 @@
                                             "*eclimd*"
                                             "*compilation*"
                                             "*Bongo Library*"
-                                            "*Outline pcc.pdf*"
                                             "*blacken*"
                                             "*server*"
                                             "*code-conversion-work*"
                                             "*blacken-error*"
-                                            "*Outline pcc_2.pdf*"
+                                            "*Outline.**"
+                                            ;; ".*pdf"
                                             "*quickrun*"))
 
 (setq projectile-globally-ignored-modes '("erc-mode" "help-mode" "completion-list-mode" "Buffer-menu-mode" "gnus-.*-mode" "occur-mode"))

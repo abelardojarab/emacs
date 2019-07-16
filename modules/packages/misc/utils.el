@@ -141,7 +141,10 @@
   :ensure t
   :init
   (add-hook 'pdf-view-mode-hook 'my/pdf-view-settings)
+  (add-hook 'pdf-tools-enabled-hook 'my/pdf-view-settings)
+
   (add-hook 'pdf-outline-buffer-mode-hook 'my/pdf-outline-settings)
+
   :config
   (setq pdf-view-continuous t)
   (setq pdf-view-resize-factor 1.15)
@@ -363,19 +366,19 @@
 ;;   (setq auto-compile-use-mode-line t)
 ;;   (setq auto-compile-on-load-mode t))
 
-(use-package magit
-  :defer 10
-  :ensure t
-  ;;;; PERFORMANCE TWEAKS ;;;;
-  ;;;; https://magit.vc/manual/magit/Performance.html
-  :config
-  (setq vc-handled-backends nil)
-  (remove-hook 'server-switch-hook 'magit-commit-diff)
-  (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
-  (setq magit-revision-insert-related-refs nil)
-  (setq magit-refresh-status-buffer nil)
-  (setq auto-revert-buffer-list-filter
-        'magit-auto-revert-repository-buffers-p))
+;; (use-package magit
+;;   :defer 10
+;;   :ensure t
+;;   ;;;; PERFORMANCE TWEAKS ;;;;
+;;   ;;;; https://magit.vc/manual/magit/Performance.html
+;;   :config
+;;   (setq vc-handled-backends nil)
+;;   (remove-hook 'server-switch-hook 'magit-commit-diff)
+;;   (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
+;;   (setq magit-revision-insert-related-refs nil)
+;;   (setq magit-refresh-status-buffer nil)
+;;   (setq auto-revert-buffer-list-filter
+;;         'magit-auto-revert-repository-buffers-p))
 
 (use-package cheatsheet
   :ensure t

@@ -102,8 +102,8 @@
 
 (defun my/org-archive ()
   (interactive)
-  (org-archive-subtree-default)
-  (evil-close-folds))
+  (save-excursion
+    (org-archive-subtree-default)))
 
 (defun my/save-archive ()
   (interactive)

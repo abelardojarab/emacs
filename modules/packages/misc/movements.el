@@ -403,7 +403,7 @@
   (setq nswbuff-start-with-current-centered t)
   (setq nswbuff-clear-delay 4)
   (setq nswbuff-buffer-list-function 'nswbuff-projectile-buffer-list)
-  (setq nswbuff-include-buffer-regexps '("*Org Src"))
+  (setq nswbuff-include-buffer-regexps '("*Org Src" "\.pdf$" "*shell*"))
   (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
                                          "Dired"
                                          "*slime-repl sbcl"
@@ -460,7 +460,6 @@
                                          "^.archive.org$"
                                          ".*magit.*"
                                          ".*elc"
-                                         ".*pdf"
                                          "*shell*"
                                          "*new*"
                                          "*Flycheck error messages*"
@@ -470,10 +469,10 @@
                                          "*eclimd*"
                                          "*compilation*"
                                          "*Bongo Library*"
-                                         "*Outline pcc.pdf*"
+                                         ;; ".*pdf"
+                                         "*Outline.*"
                                          "*blacken*"
                                          "*server*"
                                          "*code-conversion-work*"
                                          "*blacken-error*"
-                                         "*Outline pcc_2.pdf*"
                                          "*quickrun*")))

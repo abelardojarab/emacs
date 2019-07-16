@@ -15,6 +15,7 @@
   (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
   (evil-set-initial-state 'Info-mode 'emacs)
   (evil-set-initial-state 'bongo-mode 'emacs)
+  (evil-set-initial-state 'shell-mode 'insert)
   (evil-set-initial-state 'cheatsheet-mode 'emacs)
   (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist

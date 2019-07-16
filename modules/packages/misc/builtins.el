@@ -136,7 +136,8 @@
     (smartparens-mode 1)
     (tab-jump-out-mode 1)
     (electric-pair-local-mode 1)
-    (my/company-idle-one-prefix-one)
+    (setq-local company-auto-complete nil)
+    (my/company-idle-one-prefix-one-quiet)
     (my/shell-source-bashrc))
 
   (defun my/shell-go-up ()
@@ -182,7 +183,7 @@
     "C-c u" 'universal-argument
     "C-l" 'comint-clear-buffer
     "M-u" 'my/shell-go-up
-    "C-t" 'my/shell-go-back
+    "M-i" 'my/shell-go-back
     "C-c ;" 'kill-buffer-and-window
     "C-/" 'my/shell-clear-and-list
     "M-p" 'my/shell-go-previous
@@ -197,7 +198,7 @@
     "C-c u" 'universal-argument
     "C-l" 'comint-clear-buffer
     "M-u" 'my/shell-go-up
-    "C-t" 'my/shell-go-back
+    "M-i" 'my/shell-go-back
     "C-c ;" 'kill-buffer-and-window
     "M-p" 'my/shell-go-previous
     "C-/" 'my/shell-clear-and-list
@@ -207,7 +208,6 @@
   (general-define-key
    :keymaps 'shell-mode-map
    "C-j" 'counsel-M-x
-   "M-u" 'my/shell-go-up
    "C-u" 'comint-kill-input
    "<M-return>" nil
    "C-;" 'kill-buffer-and-window
@@ -222,12 +222,20 @@
    "C-c j" 'my/evil-shell-bottom)
 
   (general-unbind 'shell-mode-map
+    :with 'my/shell-go-up
+    [remap ivy-yasnippet])
+
+  (general-unbind 'shell-mode-map
     :with 'ignore
     [remap my/quiet-save-buffer])
 
   (general-unbind 'shell-mode-map
     :with nil
     [remap hydra-text-main/body])
+
+  (general-unbind 'shell-mode-map
+    :with 'my/shell-resync
+    [remap shell-resync-dirs])
 
   (defun my/shell-resync ()
     (interactive)
@@ -253,7 +261,10 @@
     (insert "source ~/.bashrc")
     (comint-send-input)
     (comint-clear-buffer))
-  )
+
+  (general-define-key
+   :keymaps 'company-active-map
+   "<return>" nil))
 
 (use-package eshell
   :defer t
@@ -564,7 +575,8 @@
     :keymaps 'prog-mode-map
     "<backspace>" 'my/org-src-exit
     "<tab>" 'hs-toggle-hiding
-    "RET" 'hydra-prog-mode/body)
+    ;; "RET" 'hydra-prog-mode/body
+    "RET" 'quick-calc)
 
   (general-nmap
     :keymaps 'prog-mode-map
@@ -580,7 +592,6 @@
   (general-define-key
    :keymaps 'prog-mode-map
    "C-=" 'string-inflection-all-cycle
-   "<C-return>" 'hydra-prog-mode/body
    "<M-return>" 'indent-buffer))
 
 (use-package help-mode
@@ -680,12 +691,12 @@
   :ensure nil
   :config
   (custom-set-faces '(show-paren-match ((t(
-					   :background "#292929"
-					   :foreground "dark orange"
-					   :inverse-video nil
-					   :underline nil
-					   :slant normal
-					   :weight bold)))))
+                                           :background "#292929"
+                                           :foreground "dark orange"
+                                           :inverse-video nil
+                                           :underline nil
+                                           :slant normal
+                                           :weight bold)))))
   (show-paren-mode 1))
 
 (use-package frame
@@ -718,11 +729,11 @@
   (setq sentence-end-double-space nil)
   (setq sentence-end nil)
 
-;; (use-package hl-line
-;;   :defer t
-;;   :ensure nil
-;;   :config
-;;   (global-hl-line-mode nil))
+(use-package hl-line
+  ;; :defer t
+  :ensure nil
+  :config
+  (global-hl-line-mode t))
 
 (use-package warning
   :defer t
