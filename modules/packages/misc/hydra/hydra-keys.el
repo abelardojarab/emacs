@@ -14,7 +14,8 @@
   "c" 'hydra-commands/body
   "d" 'hydra-quick-commands/body
   "b" 'my/evil-botright
-  "y" 'hydra-org-agenda/body
+  ;; "y" 'hydra-org-agenda/body
+  "y" 'org-refile
   "q" 'my/kill-this-buffer)
 
 (general-nvmap

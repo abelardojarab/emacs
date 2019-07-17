@@ -302,4 +302,4 @@
 
 (defun my/org-capture-notes ()
   (interactive)
-  (org-capture t "n"))
+  (org-capture t "m"))
