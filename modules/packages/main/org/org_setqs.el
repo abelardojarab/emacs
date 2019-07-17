@@ -105,7 +105,7 @@
                               "/home/Documents/Studying/Math/math_refile.org"
                               "/home/Documents/Studying/Math/math_resources.org"))
 
-(setq org-refile-targets '((nil :maxlevel . 2)
+(setq org-refile-targets '((nil :maxlevel .- 2)
                            (my/org-refile-targets :maxlevel . 2)))
 
 ;; Refile in a single go
@@ -132,6 +132,7 @@
 (setq org-capture-templates
       '(("a" "Agenda" entry
          (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
-
+        ("n" "Notes" entry
+         (file+headline "~/org/Agenda/notes_refile.org" "Notes") "* TODO %?\n*From*: %f")
         ("m" "Math Notes" entry
          (file+headline "~/Math/math_notes.org" "Notes") "* TODO %?\n*From*: %f")))
