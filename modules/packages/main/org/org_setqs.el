@@ -101,11 +101,11 @@
 
 ;; Refile Math
 
-(setq my/org-refile-targets '("/home/Documents/Studying/Math/math_notes.org"
-                              "/home/Documents/Studying/Math/math_refile.org"
-                              "/home/Documents/Studying/Math/math_resources.org"))
+(setq my/org-refile-targets '("/home/Documents/Studying/Math/m_notes.org"
+                              "/home/Documents/Studying/Math/m_refile.org"
+                              "/home/Documents/Studying/Math/m_resources.org"))
 
-(setq org-refile-targets '((nil :maxlevel .- 2)
+(setq org-refile-targets '((nil :maxlevel . 2)
                            (my/org-refile-targets :maxlevel . 2)))
 
 ;; Refile in a single go
@@ -117,7 +117,8 @@
 ;; Show full paths for refiling
 (setq org-refile-use-outline-path 'file)
 
-(setq org-refile-allow-creating-parent-nodes (quote confirm))
+;; (setq org-refile-allow-creating-parent-nodes (quote confirm))
+(setq org-refile-allow-creating-parent-nodes nil)
 
 (setq org-file-apps (quote ((auto-mode . emacs)
                             ("\\.mm\\'" . default)
@@ -132,7 +133,7 @@
 (setq org-capture-templates
       '(("a" "Agenda" entry
          (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
-        ("n" "Notes" entry
+        ("n" "Notes Refile" entry
          (file+headline "~/org/Agenda/notes_refile.org" "Notes") "* TODO %?\n*From*: %f")
-        ("m" "Math Notes" entry
-         (file+headline "~/Math/math_notes.org" "Notes") "* TODO %?\n*From*: %f")))
+        ("m" "Math Refiles" entry
+         (file+headline "/home/Documents/Studying/Math/m_refile.org" "Notes") "* TODO %?\n*From*: %f")))

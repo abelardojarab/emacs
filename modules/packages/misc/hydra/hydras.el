@@ -770,7 +770,7 @@
     _d_: deadline    _l_: store link    _b_: list bullets
     _S_: schedule    _y_: overlay       _g_: refile
     _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
-    _c_: capture     _s_: sort          _T_: tags view
+    _c_: capture     _s_: sort          _T_: tstamp inactive
                    _x_: todo          _A_: align tags
 "
   ("<escape>" nil)
@@ -792,11 +792,11 @@
   ("f" my/agenda-files)
   ("b" org-cycle-list-bullet)
   ("t" org-time-stamp)
+  ("T" org-time-stamp-inactive)
   ("g" org-refile)
   ("G" org-refile-goto-last-stored)
   ("s" org-sort)
   ("x" org-todo)
-  ("T" org-tags-view)
   ("A" my/org-align-tags))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
