@@ -136,4 +136,4 @@
         ("n" "Notes Refile" entry
          (file+headline "~/org/Agenda/notes_refile.org" "Notes") "* TODO %?\n*From*: %f")
         ("m" "Math Refiles" entry
-         (file+headline "/home/Documents/Studying/Math/m_refile.org" "Notes") "* TODO %?\n*From*: %f")))
+         (file+headline "/home/Documents/Studying/Math/m_refile.org" "Notes") "* TODO %i%^{1|Title}\n%u%?\n*From*: %f")))

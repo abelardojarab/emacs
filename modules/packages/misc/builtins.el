@@ -1017,3 +1017,10 @@
   :ensure nil
   :config
   (setq mouse-avoidance-mode 'banish))
+
+(use-package image
+  :ensure nil
+  :config
+  (general-nvmap
+    :keymaps 'image-mode-map
+    "RET" 'quick-calc))

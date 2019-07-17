@@ -72,14 +72,14 @@
 
 (general-imap
   :keymaps 'org-capture-mode-map
- "C-k"
+  "C-k"
 
   )
 
 (general-nvmap
   :keymaps 'org-mode-map
   :prefix "SPC"
-  "a" 'hydra-org-clock/body
+  "f" 'hydra-org-clock/body
   "i" 'hydra-org-text-commands/body)
 
 (general-unbind 'org-capture-mode-map

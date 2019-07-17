@@ -294,17 +294,17 @@
     "gm" 'pdf-view-position-to-register
     "h" 'pdf-view-scroll-up-or-next-page
     "l" 'pdf-view-scroll-down-or-previous-page
-    "<up>"  'pdf-view-scroll-up-or-next-page
-    "<down>" 'pdf-view-scroll-down-or-previous-page
+    "<down>" 'pdf-view-next-line-or-next-page
+    "<up>" 'pdf-view-previous-line-or-previous-page
     "J" 'pdf-view-next-page
     "j" 'pdf-view-next-line-or-next-page
     "K" 'pdf-view-previous-page
     "k" 'pdf-view-previous-line-or-previous-page
-    "<left>" 'pdf-view-next-page
     "p" 'pdf-view-previous-page
     "n" 'pdf-view-next-page
     "w" 'pdf-view-fit-width-to-window
-    "<right>" 'pdf-view-previous-page
+    "<left>" 'eyebrowse-prev-window-config
+    "<right>" 'eyebrowse-next-window-config
     "C-c h" 'pdf-annot-add-highlight-markup-annotation)
 
   (pdf-loader-install))

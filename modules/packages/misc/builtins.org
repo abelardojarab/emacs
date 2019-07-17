@@ -1137,3 +1137,13 @@
   :config
   (setq mouse-avoidance-mode 'banish))
 #+END_SRC
+
+* avoidance
+#+BEGIN_SRC emacs-lisp
+(use-package image
+  :ensure nil
+  :config
+  (general-nvmap
+    :keymaps 'image-mode-map
+    "RET" 'quick-calc))
+#+END_SRC
