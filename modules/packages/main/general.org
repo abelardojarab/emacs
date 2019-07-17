@@ -56,7 +56,7 @@
   "q" 'my/kill-this-buffer
   "0" 'delete-window
   "U" 'widenToCenter
-  "u" 'my/org-capture-notes
+  "u" 'my/org-capture-math-notes
   "o" 'hydra-org-mode/body
   "e" 'widen)
 
@@ -180,7 +180,6 @@
 #+BEGIN_SRC emacs-lisp
 ;;;; EDITING ;;;;
 "C-c i" 'ibuffer
-"C-c a" 'align-regexp
 #+END_SRC
 *** [[file:/home/dotfiles/emacs/emacs_default/lisp/functions/general_shift_avoidance.el][Shift Avoidance]]
 *** Quick Keys

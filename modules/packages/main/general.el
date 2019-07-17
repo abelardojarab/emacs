@@ -44,7 +44,7 @@
   "q" 'my/kill-this-buffer
   "0" 'delete-window
   "U" 'widenToCenter
-  "u" 'my/org-capture-notes
+  "u" 'my/org-capture-math-notes
   "o" 'hydra-org-mode/body
   "e" 'widen)
 
@@ -147,7 +147,6 @@
 
 ;;;; EDITING ;;;;
 "C-c i" 'ibuffer
-"C-c a" 'align-regexp
 
 ;;;; QUICK KEYS ;;;;
 "M-c" nil

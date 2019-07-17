@@ -36,6 +36,9 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   (setq evil-insert-state-message nil)
   (setq evil-respect-visual-line-mode nil)
 
+  (general-vmap
+    "C-c a" 'align-regexp)
+
   (general-nmap
     "`" 'evil-goto-mark-line
     "'" 'evil-goto-mark

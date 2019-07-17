@@ -100,6 +100,11 @@ t : studying
   (let ((inhibit-message t))
     (ranger-find-file "~/.emacs.d")))
 
+(defun my/ranger-find-math-dir ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "~/Math")))
+
 (defun ranger-find-file-in-workspace ()
   (interactive)
   (ranger-find-file)

@@ -23,6 +23,9 @@
   (setq evil-insert-state-message nil)
   (setq evil-respect-visual-line-mode nil)
 
+  (general-vmap
+    "C-c a" 'align-regexp)
+
   (general-nmap
     "`" 'evil-goto-mark-line
     "'" 'evil-goto-mark

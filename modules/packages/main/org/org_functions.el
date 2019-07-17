@@ -300,6 +300,6 @@
   (eval-buffer)
   (org-edit-src-exit))
 
-(defun my/org-capture-notes ()
+(defun my/org-capture-math-notes ()
   (interactive)
   (org-capture t "m"))

@@ -14,6 +14,7 @@
   "c" 'hydra-commands/body
   "d" 'hydra-quick-commands/body
   "b" 'my/evil-botright
+  "a" 'my/ranger-find-math-dir
   ;; "y" 'hydra-org-agenda/body
   "y" 'org-refile
   "q" 'my/kill-this-buffer)
