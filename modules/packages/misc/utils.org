@@ -224,6 +224,10 @@
     :with 'pdf-outline-quit
     [remap my/quiet-save-buffer])
 
+  (general-unbind 'pdf-view-mode-map
+    :with 'ignore
+    [remap quit-window])
+
   (nvmap :keymaps 'pdf-annot-list-mode-map
     "q" 'pdf-outline-quit-and-kill
     "<escape>" 'pdf-outline-quit)
@@ -231,10 +235,6 @@
   (nvmap :keymaps 'pdf-occur-buffer-mode-map
     "go" 'pdf-occur-goto-occurrence
     "<return>" 'pdf-occur-goto-quit)
-
-  (general-unbind 'pdf-view-mode-map
-    :with 'pdf-view-fit-page-to-window
-    [remap evil-beginning-of-visual-line])
 
   (general-define-key
    :keymaps 'pdf-view-mode-map
@@ -257,6 +257,10 @@
    "M-i" 'pdf-history-forward
    "H" 'pdf-history-backward
    "L" 'pdf-history-forward)
+
+  (general-unbind 'pdf-view-mode-map
+    :with 'pdf-view-fit-page-to-window
+    [remap evil-beginning-of-visual-line])
 
   (general-unbind 'pdf-view-mode-map
     :with 'pdf-outline
