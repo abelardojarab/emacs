@@ -508,6 +508,19 @@
   ("f" package-install-file)
   ("e" describe-package))
 
+(defhydra hydra-pomidor (:color amaranth :hint nil)
+  "
+       _SPC_: break _RET_: stop _R_: reset _q_: quit _Q_: kill
+"
+
+  ("C-c C-e q" nil)
+
+  ("SPC" pomidor-break)
+  ("RET" pomidor-stop)
+  ("R" pomidor-reset)
+  ("q" quit-window :exit t)
+  ("Q" pomidor-quit :exit t))
+
 (defhydra hydra-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "
   ^

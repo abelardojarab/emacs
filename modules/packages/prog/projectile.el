@@ -7,7 +7,4 @@
 (use-package counsel-projectile
   :ensure t
   :config
-  (setq counsel-projectile-org-capture-templates '(("m" "[${name}] Notes" entry
-                                                    (file+headline "${root}/notes.org" "Notes")
-                                                    "* TODO %?\n*From*: %f")))
   (counsel-projectile-mode 1))

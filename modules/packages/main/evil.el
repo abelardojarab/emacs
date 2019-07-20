@@ -13,6 +13,7 @@
   (setq evil-want-Y-yank-to-eol t)
   :config
   (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
+  (evil-set-initial-state 'pomidor-mode 'emacs)
   (evil-set-initial-state 'Info-mode 'normal)
   (evil-set-initial-state 'bongo-mode 'emacs)
   (evil-set-initial-state 'shell-mode 'insert)

@@ -9,9 +9,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(beacon-mode t)
- '(doom-modeline-mode t)
- '(package-selected-packages '(evil-god-state use-package)))
+ '(package-selected-packages '(pomidor use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

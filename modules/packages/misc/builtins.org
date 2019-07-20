@@ -693,8 +693,10 @@
   (setq help-window-select t)
 
   (general-nmap
+    "gr" 'sel-to-end
     :keymaps 'help-mode-map
     "<escape>" 'evil-ex-nohighlight)
+
   (general-nvmap
     :keymaps 'help-mode-map
     "M-p" 'my/paragraph-backwards
@@ -709,6 +711,7 @@
    "M-n" 'my/paragraph-forward
    "gs" 'evil-ex-nohighlight))
 #+END_SRC
+
 * man
 #+BEGIN_SRC emacs-lisp
 (use-package man
@@ -1183,4 +1186,13 @@
   (general-nvmap
     :keymaps 'image-mode-map
     "RET" 'quick-calc))
+#+END_SRC
+* time
+#+BEGIN_SRC emacs-lisp
+(use-package time
+  :ensure nil
+  :config
+  (setq display-time-format "%H:%M")
+  (setq display-time-default-load-average nil)
+  (display-time))
 #+END_SRC

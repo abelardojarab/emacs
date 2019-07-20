@@ -642,8 +642,10 @@
   (setq help-window-select t)
 
   (general-nmap
+    "gr" 'sel-to-end
     :keymaps 'help-mode-map
     "<escape>" 'evil-ex-nohighlight)
+
   (general-nvmap
     :keymaps 'help-mode-map
     "M-p" 'my/paragraph-backwards
@@ -1061,3 +1063,10 @@
   (general-nvmap
     :keymaps 'image-mode-map
     "RET" 'quick-calc))
+
+(use-package time
+  :ensure nil
+  :config
+  (setq display-time-format "%H:%M")
+  (setq display-time-default-load-average nil)
+  (display-time))
