@@ -129,8 +129,7 @@
  "M-r" nil
  ;; "M-r" 'counsel-projectile-switch-to-buffer
  "M-]" 'projectile-next-project-buffer
- "M-[" 'projectile-previous-project-buffer
- "C-c 0" 'my/projectile-show-commands)
+ "M-[" 'projectile-previous-project-buffer)
 
 ;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (define-key projectile-mode-map (kbd "<f10>") 'projectile-command-map)

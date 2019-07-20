@@ -37,6 +37,18 @@
   (add-hook 'Info-mode-hook 'my/info-hook-commands)
   :config
 
+  (defun my/goto-eintr-bookmark ()
+    (interactive)
+    (bookmark-jump "Eintr"))
+
+  (defun my/goto-eintr-bookmark ()
+    (interactive)
+    (bookmark-jump "Eintr"))
+
+  (defun my/goto-info-eintr ()
+    (interactive)
+    (info "eintr"))
+
   (defun my/eval-next-sexp-function ()
     (interactive)
     (save-excursion
@@ -61,6 +73,7 @@
 
   (general-nvmap
     :keymaps 'Info-mode-map
+    "<backspace>" 'link-hint-open-link
     "<C-return>" 'my/eval-next-sexp-function
     "C-j" 'counsel-M-x
     "H" 'Info-history-back

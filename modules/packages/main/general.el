@@ -81,7 +81,9 @@
   [remap my/quiet-save-buffer])
 
 (general-define-key
-"C-k" 'counsel-find-file
+ "C-k" 'counsel-find-file
+ "C-c 9" 'my/goto-info-eintr
+ "C-c 0" 'my/goto-eintr-bookmark
  "M-1" 'org-1-day-agenda
  "M-2" 'org-2-days-agenda
  "M-3" 'org-3-days-agenda
@@ -96,7 +98,6 @@
  "M-0" 'quit-window
  "C-0" 'delete-window
  "C-c DEL" 'my/bash-shebang
- "C-c 9" 'my/super-unfill-buffer
  "M-9" 'delete-other-windows
  "C-c E m" 'evil-record-macro
  "C-c E e" 'evil-execute-macro

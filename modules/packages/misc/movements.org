@@ -78,7 +78,7 @@
     (evil-visual-state)
     (evil-avy-goto-char-2-above nil))
 
-  (setq avy-timeout-seconds 0.3)
+  (setq avy-timeout-seconds 0.2)
   (setq avy-highlight-first t)
   (setq avy-single-candidate-jump t)
 
@@ -88,12 +88,13 @@
     "f" 'avy-goto-char-2-below
     "F" 'avy-goto-char-2-above
     "gF" 'evil-find-char-backward
-    "gf" 'evil-find-char)
+    "gf" 'evil-find-char
+    "gl" 'avy-goto-word-0-below)
 
   (setq avy-background nil)
 
   (setq avy-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l
-		      ?q ?w ?e ?r ?t ?y ?u))
+                      ?q ?w ?e ?r ?t ?y ?u))
   (setq avy-all-windows nil))
 #+END_SRC
 

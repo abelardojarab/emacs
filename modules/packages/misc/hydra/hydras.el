@@ -858,15 +858,15 @@
 (defhydra hydra-info-mode (:color yellow :hint nil :exit nil :foreign-keys nil)
   "
   ^
-    _u_: ↑  _l_: hist ←  _i_: index     _m_: menu
-    _p_: ←  _h_: hist →  _s_: search    _k_: ref. ↑
-    _n_: →  _t_: toc     _g_: goto node _j_: ref. ↓ "
+    _u_: ↑  _l_: hist ←  _i_: index  _m_: menu
+    _p_: ←  _h_: hist →  _s_: search _k_: ref ↑
+    _n_: →  _t_: toc     _g_: goto   _j_: ref ↓ "
 
   ("<escape>" nil)
 
   ("u" Info-up)
-  ("p" Info-prev :exit nil)
-  ("n" Info-next :exit nil)
+  ("p" Info-backward-node :exit nil)
+  ("n" Info-forward-node :exit nil)
 
   ("H" Info-history)
   ("h" Info-history-back)

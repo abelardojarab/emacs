@@ -403,12 +403,18 @@
     (interactive)
     (cheatsheet-show)
     (line-no-numbers)
-    (beginning-of-buffer))
+    (beginning-of-buffer)
+    (disable-modeline)
+    (my/evil-dec-width-narrower))
 
   (defun my/cheat-sheet-hooks ()
     (interactive)
     (evil-window-move-far-right)
     (hl-line-mode))
+
+  (general-define-key
+   :keymaps 'cheatsheet-mode-map
+   "q" 'kill-buffer-and-window)
 
   (general-nvmap
     :keymaps 'cheatsheet-mode-map

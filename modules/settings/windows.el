@@ -99,6 +99,11 @@
   (let ((current-prefix-arg 8))
     (call-interactively 'evil-window-decrease-width)))
 
+(defun my/evil-dec-width-narrower ()
+  (interactive)
+  (let ((current-prefix-arg 30))
+    (call-interactively 'evil-window-decrease-width)))
+
 (defun my/evil-inc-height ()
   (interactive)
   (let ((current-prefix-arg 8))
@@ -108,7 +113,6 @@
   (interactive)
   (let ((current-prefix-arg 8))
     (call-interactively 'evil-window-decrease-height)))
-
 
 (defun my/enlarge-window ()
   (interactive)
