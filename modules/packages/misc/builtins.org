@@ -437,18 +437,18 @@
   :ensure nil
   :config
 
-(defun my/paragraph-backwards ()
-  (interactive)
-  (previous-line)
-  (backward-paragraph)
-  (forward-line)
-  (back-to-indentation))
+  (defun my/paragraph-backwards ()
+    (interactive)
+    (previous-line)
+    (backward-paragraph)
+    (forward-line)
+    (back-to-indentation))
 
-(defun my/paragraph-forward ()
-  (interactive)
-  (forward-paragraph)
-  (forward-line)
-  (back-to-indentation))
+  (defun my/paragraph-forward ()
+    (interactive)
+    (forward-paragraph)
+    (forward-line)
+    (back-to-indentation))
 
   (defun my/enable-auto-agg-fill ()
     (interactive)

@@ -587,8 +587,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-pomidor (:color amaranth :hint nil)
   "
-       _SPC_: break _RET_: stop _R_: reset _q_: quit _Q_: kill
-"
+       _SPC_: break _RET_: stop _R_: reset _q_: quit _Q_: kill "
 
   ("C-c C-e q" nil)
 

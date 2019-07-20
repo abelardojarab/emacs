@@ -519,6 +519,7 @@
   ("RET" pomidor-stop)
   ("R" pomidor-reset)
   ("q" quit-window :exit t)
+  ("F12" quit-window :exit t)
   ("Q" pomidor-quit :exit t))
 
 (defhydra hydra-commands (:color blue :hint nil :exit nil :foreign-keys nil)

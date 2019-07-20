@@ -394,6 +394,7 @@
   :config
   (targets-setup t))
 #+END_SRC
+
 * i3wm-Config-Mode
 #+BEGIN_SRC emacs-lisp
 (use-package i3wm-config-mode
