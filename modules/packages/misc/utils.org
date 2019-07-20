@@ -179,6 +179,11 @@
   (setq pdf-misc-size-indication-minor-mode t)
   (setq pdf-annot-activate-created-annotations t)
 
+  (defun my/call-ranger-from-pdf ()
+    (interactive)
+    (last-buffer)
+    (ranger))
+
   (defun pdf-occur-goto-quit ()
     (interactive)
     (pdf-occur-goto-occurrence)
@@ -223,6 +228,10 @@
   (general-unbind 'pdf-outline-buffer-mode-map
     :with 'pdf-outline-quit
     [remap my/quiet-save-buffer])
+
+  (general-unbind 'pdf-view-mode-map
+    :with 'my/call-ranger-from-pdf
+    [remap ranger])
 
   (general-unbind 'pdf-view-mode-map
     :with 'ignore

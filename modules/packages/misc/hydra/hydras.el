@@ -854,6 +854,87 @@
   ("d" org-agenda-file-to-front)
   ("p" my/update-agenda-files))
 
+
+(defhydra hydra-info-mode (:color yellow :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+    _u_: ↑  _l_: hist ←  _i_: index     _m_: menu
+    _p_: ←  _h_: hist →  _s_: search    _k_: ref. ↑
+    _n_: →  _t_: toc     _g_: goto node _j_: ref. ↓ "
+
+  ("<escape>" nil)
+
+  ("u" Info-up)
+  ("p" Info-prev :exit nil)
+  ("n" Info-next :exit nil)
+
+  ("H" Info-history)
+  ("h" Info-history-back)
+  ("l" Info-history-forward)
+
+  ("t" Info-toc)
+  ("i" Info-index)
+  ("g" Info-goto-node)
+  ("s" Info-search)
+  ("m" Info-menu)
+  ("j" Info-next-reference)
+  ("k" Info-prev-reference))
+
+(defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Clock & Todos^
+   ------------------------------------
+   _i_: in       _m_: recent   _e_: effort
+   _o_: out      _c_: cancel   _a_: estimate
+   _l_: last     _y_: display  _s_: started
+   _h_: history  _x_: context  _t_: todo
+   _r_: report   _g_: goto     _d_: done
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("i" org-clock-in)
+  ("o" org-clock-out)
+  ("l" org-clock-in-last)
+  ("r" org-clock-report)
+  ("c" org-clock-cancel)
+  ("y" org-clock-display)
+  ("m" org-mru-clock-in)
+  ("e" org-set-effort)
+  ("a" org-clock-modify-effort-estimate)
+  ("s" my/org-started)
+  ("d" my/org-done)
+  ("t" my/org-todo)
+  ("x" counsel-org-clock-context)
+  ("g" counsel-org-clock-goto)
+  ("h" counsel-org-clock-history))
+
+(defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+       ^Org Agenda^
+       ---------------------------
+       _a_: agenda  _l_: lock
+       _1_: 1 day   _u_: unlock
+       _2_: 2 days  _d_: add
+       _3_: 3 days  _r_: remove
+       _7_: 7 days  _p_: update
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" my/org-agenda)
+  ("1" org-1-day-agenda)
+  ("2" org-2-days-agenda)
+  ("3" org-3-days-agenda)
+  ("7" org-7-days-agenda)
+  ("l" org-agenda-set-restriction-lock)
+  ("u" org-agenda-remove-restriction-lock)
+  ("r" org-remove-file)
+  ("d" org-agenda-file-to-front)
+  ("p" my/update-agenda-files))
+
 (defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
 
   "

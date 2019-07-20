@@ -476,3 +476,6 @@
                                          "*code-conversion-work*"
                                          "*blacken-error*"
                                          "*quickrun*")))
+
+(use-package link-hint
+:ensure t)

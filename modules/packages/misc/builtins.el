@@ -37,6 +37,11 @@
   (add-hook 'Info-mode-hook 'my/info-hook-commands)
   :config
 
+  (defun my/eval-next-sexp-function ()
+    (interactive)
+    (save-excursion
+      (my/eval-next-sexp-macro)))
+
   (defun my/info-hook-commands ()
     (interactive)
     (line-no-numbers)
@@ -54,13 +59,24 @@
     :with 'ignore
     [remap evil-normal-state])
 
-  (general-define-key
-   :keymaps 'Info-mode-map
-   "c" 'my/info-commands
-   "C-x i" 'find-info-keys)
+  (general-nvmap
+    :keymaps 'Info-mode-map
+    "<C-return>" 'my/eval-next-sexp-function
+    "C-j" 'counsel-M-x
+    "H" 'Info-history-back
+    "L" 'Info-history-forward
+    "m" 'hydra-info-mode/body
+    "c" 'my/info-commands)
 
   (general-define-key
    :keymaps 'Info-mode-map
+   "H" 'Info-history-back
+   "L" 'Info-history-forward
+   "c" 'my/info-commands)
+
+  (general-define-key
+   :keymaps 'Info-mode-map
+   "m" 'hydra-info-mode/body
    "C-q" 'my/cheat-sheet))
 
 ;; (use-package bs

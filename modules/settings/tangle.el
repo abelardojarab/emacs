@@ -1,6 +1,18 @@
 
 (defalias 'sp 'start-process-shell-command)
 
+(defun my/disable-touchpad ()
+  (interactive)
+  (my/save-all)
+  (sp "disable touchpad" nil "xinput --disable \"ETPS/2 Elantech Touchpad\"")
+  (message " touchpad disabled"))
+
+(defun my/enable-touchpad ()
+  (interactive)
+  (my/save-all)
+  (sp "disable touchpad" nil "xinput --enable \"ETPS/2 Elantech Touchpad\"")
+  (message " touchpad enabled"))
+
 (defun tangle-py-all ()
   (interactive)
   (my/save-all)
@@ -42,7 +54,7 @@
   (start-process-shell-command "tangle init" nil "nt ~/.emacs.d/*.org")
   (start-process-shell-command "new emacs" nil "emacs --debug-init"))
 
-  (defun tangle-py-all-new ()
+(defun tangle-py-all-new ()
   (interactive)
   (my/save-all)
   (start-process-shell-command "tangle init" nil "nt ~/.emacs.d/*.org")
