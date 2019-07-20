@@ -404,7 +404,10 @@
   (setq nswbuff-start-with-current-centered t)
   (setq nswbuff-clear-delay 4)
   (setq nswbuff-buffer-list-function 'nswbuff-projectile-buffer-list)
-  (setq nswbuff-include-buffer-regexps '("*Org Src" "\.pdf$" "*shell*"))
+  (setq nswbuff-include-buffer-regexps '("*Org Src"
+                                         "\.pdf$"
+                                         "*shell*"
+                                         "*info*"))
   (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
                                          "Dired"
                                          "*slime-repl sbcl"

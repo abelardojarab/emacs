@@ -20,7 +20,7 @@
  "<tab>" nil
  "M-w" 'my/company-complete-first
  "<escape>" 'company-abort
- "<return>" 'company-complete
+ ;; "<return>" 'company-complete
  "M-j" 'my/company-complete-first-add-space
  "M-o" 'my/company-yasnippet)
 
@@ -30,8 +30,8 @@
  "M-h" 'company-quickhelp-manual-begin
  "M-d" 'company-filter-candidates
  "C-k" 'my/company-complete
- "M-o" 'my/company-yasnippet
- "RET" 'company-complete)
+ "M-o" 'my/company-yasnippet)
+ ;; "RET" 'company-complete)
 
 (general-imap
   :keymaps 'company-mode-map

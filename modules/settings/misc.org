@@ -62,3 +62,9 @@
 ;;   (my/copy-dir)
 ;;   (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger"))
 #+END_SRC
+* disable cursor
+#+BEGIN_SRC emacs-lisp
+(defun my/disable-cursor ()
+  (interactive)
+  (setq-local cursor-type nil))
+#+END_SRC

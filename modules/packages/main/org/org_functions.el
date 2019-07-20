@@ -61,7 +61,7 @@
 (defun my/org-done ()
   (interactive)
   (org-todo "DONE")
-  (org-forward-paragraph 2))
+  (org-next-visible-heading 1))
 
 (defun my/org-todo ()
   (interactive)

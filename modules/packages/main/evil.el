@@ -236,3 +236,13 @@
   (general-nvmap
     "C-c m" 'evil-multiedit-match-all
     "C-x m" 'evil-multiedit-abort))
+
+(use-package evil-god-state
+  :ensure t
+  :config
+  (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
+
+(use-package god-mode
+  :ensure t
+  :config
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))

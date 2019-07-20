@@ -43,3 +43,7 @@
 ;;   (interactive)
 ;;   (my/copy-dir)
 ;;   (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger"))
+
+(defun my/disable-cursor ()
+  (interactive)
+  (setq-local cursor-type nil))

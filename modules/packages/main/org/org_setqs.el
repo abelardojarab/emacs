@@ -86,8 +86,13 @@
 (setq org-fontify-done-headline t)
 (setq org-fontify-whole-heading-line nil)
 
+;;  WITH LOGGING
+;; (setq org-todo-keywords
+;;       '((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))
+
+;;  WITHOUT LOGGING
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))
+      '((sequence "TODO(t)" "STARTED(s)" "|"  "DONE(d)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)

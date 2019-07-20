@@ -244,7 +244,6 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
 ;;   il-mc-mode  1))
 #+END_SRC
 * Evil Multiedit
-* evil-multiedit
 #+BEGIN_SRC emacs-lisp
 (use-package evil-multiedit
   :after evil
@@ -257,4 +256,16 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   (general-nvmap
     "C-c m" 'evil-multiedit-match-all
     "C-x m" 'evil-multiedit-abort))
+#+END_SRC
+* evil-god-state
+#+BEGIN_SRC emacs-lisp
+(use-package evil-god-state
+  :ensure t
+  :config
+  (evil-define-key 'normal global-map "," 'evil-execute-in-god-state))
+
+(use-package god-mode
+  :ensure t
+  :config
+  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
 #+END_SRC
