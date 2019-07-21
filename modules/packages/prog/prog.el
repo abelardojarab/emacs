@@ -47,15 +47,15 @@
 
 (use-package lispyville
   :defer t
-  :ensure nil
+  :ensure t
   :init
   (add-hook 'lispy-mode-hook #'lispyville-mode)
-  (add-hook 'lispy-mode-hook 'my/sp-hooks)
+  ;; (add-hook 'lispy-mode-hook 'my/sp-hooks)
   :config
 
-  (defun my/sp-hooks ()
-    (interactive)
-    (smartparens-mode -1))
+  ;; (defun my/sp-hooks ()
+  ;;   (interactive)
+  ;;   (smartparens-mode -1))
 
   (general-define-key
    :keymaps 'lispyville-mode-map
@@ -79,6 +79,7 @@
        c-w
        (escape insert)
        (additional-movement normal visual motion)))))
+
 
 (use-package quickrun
   :defer t
