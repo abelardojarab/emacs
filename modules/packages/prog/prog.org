@@ -475,3 +475,9 @@ usep
    "C-l" 'slime-repl-clear-buffer))
 
 #+END_SRC
+* gist
+#+BEGIN_SRC emacs-lisp
+(use-package gist
+:defer t
+:ensure t)
+#+END_SRC

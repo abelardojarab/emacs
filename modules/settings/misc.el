@@ -37,7 +37,7 @@
 (setq mouse-autoselect-window t)
 (setq calc-display-trail nil)
 (setq apropos-do-all t)
-(setq load-prefer-newer t)
+(setq load-prefer-newer nil)
 
 ;; (defun my/ranger ()
 ;;   (interactive)

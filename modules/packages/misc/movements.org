@@ -469,7 +469,7 @@
 (use-package nswbuff
   :ensure t
   :config
-  (setq nswbuff-delay-switch t)
+  (setq nswbuff-delay-switch nil)
   (setq nswbuff-display-intermediate-buffers t)
   (setq nswbuff-recent-buffers-first nil)
   (setq nswbuff-start-with-current-centered t)
@@ -552,6 +552,7 @@
                                          "*blacken-error*"
                                          "*quickrun*")))
 #+END_SRC
+
 * link-hint
 #+BEGIN_SRC emacs-lisp
 (use-package link-hint

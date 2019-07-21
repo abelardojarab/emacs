@@ -364,3 +364,7 @@
    :keymaps 'slime-mode-map
    "C-l" 'slime-repl-clear-buffer))
 
+
+(use-package gist
+:defer t
+:ensure t)

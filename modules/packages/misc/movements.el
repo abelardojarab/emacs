@@ -398,7 +398,7 @@
 (use-package nswbuff
   :ensure t
   :config
-  (setq nswbuff-delay-switch t)
+  (setq nswbuff-delay-switch nil)
   (setq nswbuff-display-intermediate-buffers t)
   (setq nswbuff-recent-buffers-first nil)
   (setq nswbuff-start-with-current-centered t)

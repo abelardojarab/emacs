@@ -3,8 +3,9 @@
 # --
 * ${1:package}
 #+BEGIN_SRC emacs-lisp
-(use-package $1
-:defer t
-:ensure t${3:
+(use-package $1${2:
+:defer t}
+:ensure ${3:
+$$(yas-choose-value '("t" "nil"))}${4:
 :config}$0)
 #+END_SRC
