@@ -366,5 +366,8 @@
 
 
 (use-package gist
-:defer t
-:ensure t)
+  :defer t
+  :ensure t
+  :config
+  (defadvice browse-url (after browse-url-after activate) (my/focus-chrome-delayed))
+  (setq gist-view-gist t))

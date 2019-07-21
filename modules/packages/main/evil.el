@@ -75,6 +75,9 @@
     "C-v " nil)
 
   (general-nvmap
+    "C-," 'helpful-at-point
+    "C-." 'helpful-variable
+    "C-;" 'helpful-function
     "<left>" 'eyebrowse-prev-window-config
     "<right>" 'eyebrowse-next-window-config
     "k" 'evil-previous-visual-line
