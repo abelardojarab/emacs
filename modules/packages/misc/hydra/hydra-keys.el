@@ -37,5 +37,4 @@
  :keymaps 'override
  "M-;" 'hydra-yasnippet/body
  "C-s" 'hydra-search/body
- "<f1>" 'hydra-help/body
- "C-M-h" 'hydra-help/body)
+ "<f1>" 'hydra-help/body)

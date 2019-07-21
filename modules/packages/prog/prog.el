@@ -46,10 +46,39 @@
     "<backspace>"))
 
 (use-package lispyville
-:defer t
-:ensure nil
-:init
-(add-hook 'lispy-mode-hook #'lispyville-mode))
+  :defer t
+  :ensure nil
+  :init
+  (add-hook 'lispy-mode-hook #'lispyville-mode)
+  (add-hook 'lispy-mode-hook 'my/sp-hooks)
+  :config
+
+  (defun my/sp-hooks ()
+    (interactive)
+    (smartparens-mode -1))
+
+  (general-define-key
+   :keymaps 'lispyville-mode-map
+   "C-M-h" 'lispyville-beginning-of-defun
+   "C-M-l" 'lispyville-end-of-defun
+   "C-M-k" 'lispy-up-slurp
+   "C-M-j" 'lispy-down-slurp)
+
+  (general-nmap
+    :keymaps 'lispyville-mode-map
+    "<" 'lispyville-barf
+    ">" 'lispyville-slurp)
+
+  (general-unbind 'lispyville-mode-map
+    :with 'lispyville-comment-or-uncomment
+    [remap evil-commentary])
+
+  (with-eval-after-load 'lispyville
+    (lispyville-set-key-theme
+     '(operators
+       c-w
+       (escape insert)
+       (additional-movement normal visual motion)))))
 
 (use-package quickrun
   :defer t

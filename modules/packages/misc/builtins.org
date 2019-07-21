@@ -81,7 +81,7 @@
     [remap evil-exit-emacs-state])
 
   (general-unbind 'Info-mode-map
-    :with 'last-buffer
+    :with 'ignore
     [remap my/quiet-save-buffer])
 
   (general-unbind 'Info-mode-map
