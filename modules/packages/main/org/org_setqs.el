@@ -137,7 +137,7 @@
   ;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
 (setq org-capture-templates
       '(("a" "Agenda" entry
-         (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t\n%?")
+         (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
         ("n" "Notes Refile" entry
          (file+headline "~/org/Agenda/notes_refile.org" "Notes") "* TODO %?\n*From*: %f")
         ("m" "Math Refiles" entry

@@ -249,5 +249,4 @@
 
 (use-package god-mode
   :ensure t
-  :config
-  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
+  :config  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))

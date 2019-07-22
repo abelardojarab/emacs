@@ -747,6 +747,8 @@
 
 (use-package frame
   :ensure nil
+  :init
+  (add-hook 'server-after-make-frame-hook 'last-buffer)
   :config
   (toggle-frame-maximized)
   (blink-cursor-mode 0))
@@ -1078,6 +1080,6 @@
 (use-package time
   :ensure nil
   :config
-  (setq display-time-format "%H:%M")
+  (setq display-time-format "%H:%M | %a, %d/%m |")
   (setq display-time-default-load-average nil)
   (display-time))
