@@ -41,9 +41,12 @@
  "C-c C-b C-c" 'org-update-checkbox-count
  "C-c C-b C-b" 'org-reset-checkbox-state-subtree)
 
+(general-unbind 'org-agenda-mode-map
+  :with 'replace with
+  [remap to be replaced])
+
 (general-define-key
  :keymaps 'org-agenda-mode-map
- ";" 'org-agenda-quit
  "M-0" 'my/org-agenda
  "M-1" 'org-1-day-agenda
  "C-c g" 'my/agenda-goto
@@ -107,4 +110,6 @@
 
 (general-unbind 'org-agenda-mode-map
   :with 'org-agenda-quit
-  [remap evil-repeat-find-char])
+  [remap evil-repeat-find-char]
+  [remap evil-ex-search-forward]
+  [remap org-agenda-goto-today])

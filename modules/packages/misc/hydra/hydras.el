@@ -868,10 +868,16 @@
   ("<escape>" nil)
 
   ("a" my/org-agenda)
+
   ("1" org-1-day-agenda)
   (";" org-1-day-agenda)
+
   ("2" org-2-days-agenda)
+  ("." org-2-days-agenda)
+
   ("3" org-3-days-agenda)
+  ("/" org-3-days-agenda)
+
   ("7" org-7-days-agenda)
   ("l" org-agenda-set-restriction-lock)
   ("u" org-agenda-remove-restriction-lock)

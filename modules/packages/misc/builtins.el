@@ -1080,6 +1080,6 @@
 (use-package time
   :ensure nil
   :config
-  (setq display-time-format "%H:%M | %a, %d/%m |")
+  (setq display-time-format "| %H:%M | %a, %d/%m |")
   (setq display-time-default-load-average nil)
   (display-time))
