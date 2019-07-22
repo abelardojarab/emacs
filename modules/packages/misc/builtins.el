@@ -778,11 +778,11 @@
   (setq sentence-end-double-space nil)
   (setq sentence-end nil)
 
-(use-package hl-line
-  ;; :defer t
-  :ensure nil
-  :config
-  (global-hl-line-mode nil))
+;; (use-package hl-line
+;;   ;; :defer t
+;;   :ensure nil
+;;   :config
+;;   (global-hl-line-mode nil))
 
 (use-package warning
   :defer t
