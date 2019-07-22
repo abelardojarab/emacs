@@ -43,6 +43,7 @@
 
 (general-define-key
  :keymaps 'org-agenda-mode-map
+ ";" 'org-agenda-quit
  "M-0" 'my/org-agenda
  "M-1" 'org-1-day-agenda
  "C-c g" 'my/agenda-goto
@@ -103,3 +104,7 @@
 (general-unbind 'org-agenda-mode-map
   :with 'my/agenda-return
   [remap org-agenda-switch-to])
+
+(general-unbind 'org-agenda-mode-map
+  :with 'org-agenda-quit
+  [remap evil-repeat-find-char])

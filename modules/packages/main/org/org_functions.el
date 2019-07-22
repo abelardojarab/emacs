@@ -217,7 +217,7 @@
 (defun org-1-day-agenda ()
   (interactive)
   (let ((current-prefix-arg 1)
-        (org-deadline-warning-days 0))
+        (org-deadline-warning-days -1))
     (org-agenda t "a")))
 
 (defun org-2-days-agenda ()

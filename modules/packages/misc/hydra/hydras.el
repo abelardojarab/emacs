@@ -869,6 +869,7 @@
 
   ("a" my/org-agenda)
   ("1" org-1-day-agenda)
+  (";" org-1-day-agenda)
   ("2" org-2-days-agenda)
   ("3" org-3-days-agenda)
   ("7" org-7-days-agenda)
@@ -933,31 +934,6 @@
   ("x" counsel-org-clock-context)
   ("g" counsel-org-clock-goto)
   ("h" counsel-org-clock-history))
-
-(defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
-  "
-
-       ^Org Agenda^
-       ---------------------------
-       _a_: agenda  _l_: lock
-       _1_: 1 day   _u_: unlock
-       _2_: 2 days  _d_: add
-       _3_: 3 days  _r_: remove
-       _7_: 7 days  _p_: update
-  "
-  ("q" nil)
-  ("<escape>" nil)
-
-  ("a" my/org-agenda)
-  ("1" org-1-day-agenda)
-  ("2" org-2-days-agenda)
-  ("3" org-3-days-agenda)
-  ("7" org-7-days-agenda)
-  ("l" org-agenda-set-restriction-lock)
-  ("u" org-agenda-remove-restriction-lock)
-  ("r" org-remove-file)
-  ("d" org-agenda-file-to-front)
-  ("p" my/update-agenda-files))
 
 (defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
 

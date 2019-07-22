@@ -3,7 +3,7 @@
   :prefix "SPC"
   "0" 'delete-window
   "SPC" 'hydra-text-main/body
-  "v" 'hydra-more-commands/body
+  ;; "v" 'hydra-more-commands/body
   "z" 'hydra-window/body
   "h" 'split-window-horizontally
   "j" 'my/split-vertically

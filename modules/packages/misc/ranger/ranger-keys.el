@@ -28,7 +28,7 @@
  "f" 'hydra-find-file/body'
  "0" 'delete-window
  "q" 'ranger-close
- "v" 'hydra-more-commands/body
+ ;; "v" 'hydra-more-commands/body
  "z" 'hydra-window/body
  "h" 'split-window-horizontally
  "j" 'my/split-vertically

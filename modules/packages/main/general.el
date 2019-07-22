@@ -30,6 +30,7 @@
 
 (general-create-definer leader
   :prefix "SPC")
+
 (leader
   :states '(normal visual)
   :keymaps 'override
@@ -57,6 +58,7 @@
 (leader
   :states '(normal visual)
   "w" 'recursive-widen
+  "v" 'undo-propose
   "w" 'recursive-widen
   "n" 'recursive-narrow-or-widen-dwim)
 

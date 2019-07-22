@@ -38,26 +38,26 @@
     "Save the current buffer if needed."
     (shut-up
       (when (and buffer-file-name
-		 (buffer-modified-p (current-buffer))
-		 (file-writable-p buffer-file-name)
-		 (if (file-remote-p buffer-file-name) super-save-remote-files t))
-	(save-buffer))))
+                 (buffer-modified-p (current-buffer))
+                 (file-writable-p buffer-file-name)
+                 (if (file-remote-p buffer-file-name) super-save-remote-files t))
+        (save-buffer))))
 
   (setq super-save-triggers
-	'(switch-to-buffer
-	  other-window
-	  windmove-up
-	  windmove-down
-	  windmove-left
-	  windmove-right
-	  next-buffer
-	  previous-buffer
-	  evil-window-prev
-	  evil-window-next
-	  eyebrowse-next-window-config
-	  eyebrowse-prev-window-config
-	  eyebrowse-create-window-config
-	  my/unpop-shell-other-window))
+        '(switch-to-buffer
+          other-window
+          windmove-up
+          windmove-down
+          windmove-left
+          windmove-right
+          next-buffer
+          previous-buffer
+          evil-window-prev
+          evil-window-next
+          eyebrowse-next-window-config
+          eyebrowse-prev-window-config
+          eyebrowse-create-window-config
+          my/unpop-shell-other-window))
 
   (setq super-save-auto-save-when-idle t)
   (setq super-save-idle-duration 10)
@@ -347,7 +347,7 @@
   :defer t
   :init
   (add-hook 'beacon-dont-blink-predicates
-	    (lambda () (bound-and-true-p centered-cursor-mode)))
+            (lambda () (bound-and-true-p centered-cursor-mode)))
   :ensure t
   :config
   ;; (setq beacon-dont-blink-commands '(find-packs find-keys find-misc find-functions find-macros find-hydras find-file counsel-find-file))
@@ -486,3 +486,29 @@
                           (setq left-margin-width 2 right-margin-width 0)
                           ;; force fringe update
                           (set-window-buffer nil (current-buffer)))))
+
+(use-package undo-propose
+  :ensure t
+  :config
+  (defadvice undo-propose (after undo-propose-after activate) (my/erase-messages))
+
+  (defun my/erase-messages ()
+    (interactive)
+    (message ""))
+
+  (general-unbind 'undo-propose-mode-map
+    :with 'ignore
+    [remap evil-insert]
+    [remap evil-visual-char]
+    [remap evil-visual-line]
+    [remap evil-visual-block]
+    [remap evil-visual-state])
+
+  (general-unbind 'undo-propose-mode-map
+    :with 'undo-propose-cancel
+    [remap undo-propose]
+    [remap my/quiet-save-buffer])
+
+  (general-unbind 'undo-propose-mode-map
+    :with 'undo-propose-cancel
+    [remap evil-record-macro]))

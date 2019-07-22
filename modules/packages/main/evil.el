@@ -38,7 +38,8 @@
     "-" 'evil-next-line
     "DEL" nil
     "gr" 'sel-to-end
-    "; " 'evil-ex
+    ;; "; " 'evil-ex
+    "; " 'hydra-org-agenda/body
     "zn" 'org-hide-other
     "zi" 'outline-show-all
     "}" 'my/paragraph-forward
