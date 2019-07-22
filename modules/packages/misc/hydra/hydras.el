@@ -589,6 +589,10 @@
        _i_: dup inner par      _l_: auto capitalize
        _z_: capitalize         _t_: truncate lines
        _d_: del blank lines    _h_: hl sentences
+       _n_: hl line            _p_: fill paragraph
+                             _a_: unfill paragraph
+                             _b_: fil buffer
+                             _u_: unfill buffer
 
 "
 
@@ -597,6 +601,7 @@
   (";" hydra-text-commands/body)
 
   ("d" delete-blank-lines)
+  ("n" hl-line-mode)
   ("e" xah-clean-empty-lines)
   ("i" duplicate-inner-paragraph)
   ("z" fix-word-capitalize)
@@ -607,6 +612,11 @@
 
   ("h" hl-sentence-mode)
   ("l" auto-capitalize-mode)
+  ("p" fill-paragraph)
+  ("a" unfill-paragraph)
+  ("b" fill-buffer)
+  ("u" unfill-buffer)
+
   )
 
 (defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
@@ -783,7 +793,8 @@
     _S_: schedule    _y_: overlay       _g_: refile
     _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
     _c_: capture     _s_: sort          _T_: tstamp inactive
-                   _x_: todo          _A_: align tags
+    _z_: export      _x_: todo          _A_: align tags
+
 "
   ("<escape>" nil)
 
@@ -809,6 +820,7 @@
   ("G" org-refile-goto-last-stored)
   ("s" org-sort)
   ("x" org-todo)
+  ("z" org-export-dispatch)
   ("A" my/org-align-tags))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)

@@ -75,6 +75,7 @@
     "C-v " nil)
 
   (general-nvmap
+    "Q" 'save-buffers-kill-terminal
     "C-," 'helpful-at-point
     "C-." 'helpful-variable
     "C-;" 'helpful-function
@@ -94,7 +95,6 @@
     "gn" 'my/evil-format-paragraph-function
     "C-u" 'hydra-find-emacs-files/body
     "!" 'delete-frame
-    "Q" 'save-buffers-kill-terminal
     "z=" 'endless/ispell-word-then-abbrev
     "C-S-j" 'cool-moves/move-line-down
     "C-S-k" 'cool-moves/move-line-up
@@ -150,8 +150,8 @@
 
   (add-hook 'org-mode-hook 'evil-org-mode)
   (add-hook 'evil-org-mode-hook
-	    (lambda ()
-	      (evil-org-set-key-theme)))
+            (lambda ()
+              (evil-org-set-key-theme)))
 
   (require 'evil-org-agenda)
 

@@ -207,8 +207,8 @@
     [remap ranger])
 
   (general-unbind 'pdf-view-mode-map
-    :with 'ignore
-    [remap quit-window])
+    :with 'my/kill-this-buffer
+    "Q")
 
   (nvmap :keymaps 'pdf-annot-list-mode-map
     "q" 'pdf-outline-quit-and-kill

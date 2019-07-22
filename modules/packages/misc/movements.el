@@ -391,7 +391,8 @@
   (defun my/atomic-chrome-hooks ()
     (interactive)
     (focus-emacs)
-    (olivetti-mode))
+    ;; (olivetti-mode)
+    )
 
   (atomic-chrome-start-server))
 

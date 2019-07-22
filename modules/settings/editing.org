@@ -60,21 +60,23 @@
   (let ((inhibit-message t))
     (shell-command "~/scripts/i3_scripts/paste_to_im.sh")))
 
-(defun my/unfill-paragraph (&optional region)
+;; Stefan Monnier <foo at acm.org>. It is the opposite of fill-paragraph
+;; https://www.emacswiki.org/emacs/UnfillParagraph
+(defun unfill-paragraph (&optional region)
   "Takes a multi-line paragraph and makes it into a single line of text."
-  (interactive (progn
-		 (barf-if-buffer-read-only)
-		 (list t)))
-  (let ((fill-column (point-max)))
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        ;; This would override `fill-column' if it's an integer.
+        (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
-(defun my/super-unfill-buffer ()
+(defun unfill-buffer ()
   (interactive)
   (save-excursion
     (mark-whole-buffer)
-    (my/unfill-paragraph t)))
+    (unfill-paragraph t)))
 
-(defun my/super-fill-buffer ()
+(defun fill-buffer ()
   (interactive)
   (fill-region
    (point-min)

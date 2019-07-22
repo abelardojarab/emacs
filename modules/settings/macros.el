@@ -1,4 +1,7 @@
 
+(fset 'my/org-to-pdf-macro
+   (kmacro-lambda-form [?\C-c ?\C-e ?l ?o] 0 "%d"))
+
 (fset 'my/org-sort-pages-macro
    (kmacro-lambda-form [?\C-c ?^ ?r ?P ?A ?G ?E ?S return] 0 "%d"))
 

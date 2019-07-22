@@ -82,8 +82,12 @@
   "f" 'hydra-org-clock/body
   "i" 'hydra-org-text-commands/body)
 
+;; (general-unbind 'org-capture-mode-map
+;;   :with 'org-capture-kill
+;;   [remap my/quiet-save-buffer])
+
 (general-unbind 'org-capture-mode-map
-  :with 'org-capture-kill
+  :with nil
   [remap my/quiet-save-buffer])
 
 ;;;; OTHER AGENDA ;;;;

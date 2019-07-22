@@ -396,7 +396,9 @@
     (interactive)
     (subword-mode 1)
     (tab-jump-out-mode 1)
-    (olivetti-mode +1))
+    ;; (olivetti-mode +1)
+    (turn-on-auto-fill)
+    )
 
   :ensure nil
   :config
@@ -439,7 +441,7 @@
   (defun prose-enable ()
     (interactive)
     (flyspell-mode 1)
-    (olivetti-mode +1)
+    ;; (olivetti-mode +1)
     (auto-capitalize-mode 1)
     (tab-jump-out-mode 1)
     (electric-operator-mode 1)
@@ -590,6 +592,7 @@
   (add-to-list 'auto-mode-alist '("\\prog\\'" . prog-mode))
   (add-hook 'prog-mode-hook 'my/prog-mode-hooks)
   :config
+
   ;; (yas-reload-all)
   (defun my/prog-mode-hooks ()
     (interactive)
@@ -600,9 +603,13 @@
     (hs-minor-mode 1)
     (hl-line-mode 1)
     ;; (yas-minor-mode)
+    (comment-auto-fill)
     (highlight-indent-guides-mode 1))
 
-  ;; (setq comment-auto-fill-only-comments t)
+  ;; https://www.emacswiki.org/emacs/AutoFillMode
+  (defun comment-auto-fill ()
+    (setq-local comment-auto-fill-only-comments t)
+    (auto-fill-mode 1))
 
   (general-imap
     :keymaps 'prog-mode-map
@@ -772,7 +779,7 @@
   ;; :defer t
   :ensure nil
   :config
-  (global-hl-line-mode t))
+  (global-hl-line-mode nil))
 
 (use-package warning
   :defer t
@@ -888,8 +895,9 @@
   (setq browse-url-browser-function 'browse-url-generic))
 
 (use-package recentf
-  :defer t
   :ensure nil
+  :init
+  (setq recentf-save-file "~/.emacs.d/var/recentf-save.el")
   :config
   (recentf-mode 1))
 
@@ -935,6 +943,9 @@
 
   (setq-default fill-column 79)
   (setq-default display-line-numbers nil)
+
+  (setq auto-fill-mode t)
+  (setq-default auto-fill-mode t)
 
   (defun my/eval-buffer ()
     (interactive)

@@ -17,6 +17,7 @@
 (defun my/org-src-hooks ()
   (interactive)
   (indent-buffer)
-  (olivetti-mode +1))
+  ;; (olivetti-mode +1)
+  )
 
 ;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
