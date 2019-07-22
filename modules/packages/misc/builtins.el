@@ -750,8 +750,9 @@
   :init
   (add-hook 'server-after-make-frame-hook 'last-buffer)
   :config
+  (blink-cursor-mode 0)
   (toggle-frame-maximized)
-  (blink-cursor-mode 0))
+  (setq frame-title-format '("%* %b")))
 
 (use-package autorevert
   :defer t
