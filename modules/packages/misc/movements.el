@@ -221,8 +221,8 @@ t : studying
     (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger")))
 
 (use-package buffer-move
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package avy
   :defer t
@@ -284,11 +284,15 @@ t : studying
 ;;;; DECLARATION ;;;;
 (use-package ivy
   :ensure t
-
+  :after nswbuff
 ;;;; INIT ;;;;
   :init
+
+  (setq ivy-ignore-buffers nswbuff-exclude-buffer-regexps)
+
   (setq ivy-ignore-buffers '(".*Log.*"
                              ".*log.*"
+                             "*Completions*"
                              ".*help.*"
                              "^#.*#$"
                              "*Shell Command Output*"
@@ -382,7 +386,7 @@ t : studying
   (setq ivy-extra-directories nil)
   (ivy-mode 1)
 
- ;;;; KEYBINDINGS ;;;;
+;;;; KEYBINDINGS ;;;;
   (general-unbind 'ivy-minibuffer-map
     :with 'ignore
     [remap windmove-up]
@@ -479,8 +483,8 @@ t : studying
   (counsel-mode 1))
 
 (use-package counsel-org-clock
-:after counsel
-:ensure t)
+  :after counsel
+  :ensure t)
 
 (use-package eyebrowse
   ;; :defer t
@@ -525,8 +529,8 @@ t : studying
   (winner-mode 1))
 
 (use-package ivy-hydra
-:after hydra
-:ensure t)
+  :after hydra
+  :ensure t)
 
 (use-package targets
   :load-path "~/.emacs.d/modules/packages/lisp/"
@@ -605,11 +609,22 @@ t : studying
                                          "\.pdf$"
                                          "*shell*"
                                          "*info*"))
-  (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
+
+  (setq nswbuff-exclude-buffer-regexps '("^\\*.*\\*"
                                          "Dired"
                                          "*slime-repl sbcl"
+                                         "erc-mode"
+                                         "help-mode"
+                                         "completion-list-mode"
+                                         "/home/dotfiles/emacs/em/var/*.*"
+                                         "/home/dotfiles/emacs/em/var/recentf-save.el"
+                                         "custom.el"
+                                         "Buffer-menu-mode"
+                                         "gnus-.*-mode"
+                                         "occur-mode"
                                          ".*Log.*"
                                          ".*log.*"
+                                         "recentf-save.el"
                                          ".*help.*"
                                          "^#.*#$"
                                          "*Shell Command Output*"
@@ -679,4 +694,4 @@ t : studying
                                          "*quickrun*")))
 
 (use-package link-hint
-:ensure t)
+  :ensure t)

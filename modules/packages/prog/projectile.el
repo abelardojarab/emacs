@@ -6,5 +6,6 @@
 
 (use-package counsel-projectile
   :ensure t
+  :after nswbuff
   :config
   (counsel-projectile-mode 1))

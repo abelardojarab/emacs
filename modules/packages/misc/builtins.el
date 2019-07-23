@@ -492,7 +492,7 @@
    "M-n" 'my/paragraph-forward))
 
 (use-package hippie-exp
-:defer t
+  :defer t
   :ensure nil
   :config
   (general-imap
@@ -776,8 +776,8 @@
 ;;   :config
 ;;   (setq sentence-end-double-space nil)
 ;;   (setq sentence-end nil))
-  (setq sentence-end-double-space nil)
-  (setq sentence-end nil)
+(setq sentence-end-double-space nil)
+(setq sentence-end nil)
 
 ;; (use-package hl-line
 ;;   ;; :defer t
@@ -883,7 +883,7 @@
   :defer t
   :ensure nil
   :config
-(setq register-preview-delay 0.15))
+  (setq register-preview-delay 0.15))
 
 (use-package doc-view
   :defer t
@@ -901,9 +901,94 @@
 (use-package recentf
   :ensure nil
   :config
-  (setq recentf-max-saved-items 10)
-  (run-at-time nil (* 10 60) 'recentf-save-list)
-  (setq recentf-save-file "~/.emacs.d/var/recentf-save.el")
+  (setq recentf-max-saved-items '10
+        recentf-auto-cleanup '600
+        recentf-save-file (expand-file-name "recentf" "\~/.emacs.d/var/")
+        recentf-exclude   '("^\\*.*\\*"
+                            "Dired"
+                            "*slime-repl sbcl"
+                            "erc-mode" "help-mode"
+                            "completion-list-mode"
+                            "/home/dotfiles/emacs/em/var/*.*"
+                            "/home/dotfiles/emacs/em/var/recentf-save.el"
+                            "custom.el"
+                            "Buffer-menu-mode"
+                            "gnus-.*-mode"
+                            "occur-mode"
+                            ".*Log.*"
+                            ".*log.*"
+                            "recentf-save.el"
+                            ".*help.*"
+                            "^#.*#$"
+                            "*Shell Command Output*"
+                            "*Calculator*"
+                            "*Calendar*"
+                            "*Help*"
+                            "*Calc Trail*"
+                            "magit-process"
+                            "magit-diff"
+                            "*Org-Babel Error Output*"
+                            "\\`\\*helm"
+                            "\\`\\*Echo Area"
+                            "\\`\\*Minibuf"
+                            "Ibuffer"
+                            "epc con"
+                            "*Shell Command Output*"
+                            "*Calculator*"
+                            "*Calendar*"
+                            "*cheatsheet*"
+                            "*Help*"
+                            "*Echo Area 0*"
+                            "*Echo Area 1"
+                            "*Minibuf 0*"
+                            "*Minibuf-1*"
+                            "info-history"
+                            "bookmark-default.el"
+                            "company-shell-autoloads.el"
+                            "company.el"
+                            "pos-tip-autoloads.el"
+                            "bookmark-default.el"
+                            "company-shell-autoloads.el"
+                            "company.el"
+                            "pos-tip-autoloads.el"
+                            "*scratch*"
+                            "*Warning*"
+                            "*Messages*"
+                            "^init.org$"
+                            "^packs.org$"
+                            "^functions.org$"
+                            "^keys.org$"
+                            "^misc.org$"
+                            "^macros.org$"
+                            "^hydras.org$"
+                            "^links.org$"
+                            "^custom.el$"
+                            "*Flycheck error messages*"
+                            "*Flymake log*"
+                            "*company-documentation*"
+                            "^.archive.org$"
+                            ".*magit.*"
+                            ".*elc"
+                            "*shell*"
+                            "*new*"
+                            "*Flycheck error messages*"
+                            "*clang-output*"
+                            "*Bongo Playlist*"
+                            "*eclim: problems*"
+                            "*eclimd*"
+                            "*compilation*"
+                            "*Bongo Library*"
+                            ;; ".*pdf"
+                            "*Outline.*"
+                            "*blacken*"
+                            "*server*"
+                            "*code-conversion-work*"
+                            "*blacken-error*"
+                            "*quickrun*"
+                            "~/.emacs.d/var/*"))
+  (recentf-cleanup)
+  (recentf-load-list)
+  (run-at-time nil (* 5 60) 'recentf-save-list)
   (recentf-mode 1))
 
 (use-package time-date
@@ -1035,38 +1120,38 @@
   (setq debug-on-error nil))
 
 (use-package dispnew
-:defer t
-:ensure nil
-:config
-(setq visible-bell nil))
+  :defer t
+  :ensure nil
+  :config
+  (setq visible-bell nil))
 
 (use-package xisp
   :defer t
   :ensure nil
   :config
-(setq scroll-step 0)
-(setq scroll-conservatively 0)
-
-(defun my/scroll-conservatively-five ()
-  (interactive)
-  (setq scroll-conservatively 5)
-  (message " scroll-conservatively 5"))
-
-(defun my/scroll-conservatively-zero ()
-  (interactive)
+  (setq scroll-step 0)
   (setq scroll-conservatively 0)
-  (message " scroll-conservatively 0"))
 
-(defun my/scroll-conservatively-ten ()
-  (interactive)
-  (setq scroll-conservatively 10)
-  (message " scroll-conservatively 10")))
+  (defun my/scroll-conservatively-five ()
+    (interactive)
+    (setq scroll-conservatively 5)
+    (message " scroll-conservatively 5"))
+
+  (defun my/scroll-conservatively-zero ()
+    (interactive)
+    (setq scroll-conservatively 0)
+    (message " scroll-conservatively 0"))
+
+  (defun my/scroll-conservatively-ten ()
+    (interactive)
+    (setq scroll-conservatively 10)
+    (message " scroll-conservatively 10")))
 
 (use-package editfns
-:defer t
-:ensure nil
-:config
-(put 'narrow-to-region 'disabled nil))
+  :defer t
+  :ensure nil
+  :config
+  (put 'narrow-to-region 'disabled nil))
 
 (use-package avoid
   :ensure nil

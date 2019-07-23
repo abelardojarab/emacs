@@ -250,8 +250,8 @@ t : studying
 * buffer move
 #+BEGIN_SRC emacs-lisp
 (use-package buffer-move
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 #+END_SRC
 * Avy
 #+BEGIN_SRC emacs-lisp
@@ -324,11 +324,15 @@ t : studying
 ;;;; DECLARATION ;;;;
 (use-package ivy
   :ensure t
-
+  :after nswbuff
 ;;;; INIT ;;;;
   :init
+
+  (setq ivy-ignore-buffers nswbuff-exclude-buffer-regexps)
+
   (setq ivy-ignore-buffers '(".*Log.*"
                              ".*log.*"
+                             "*Completions*"
                              ".*help.*"
                              "^#.*#$"
                              "*Shell Command Output*"
@@ -422,7 +426,7 @@ t : studying
   (setq ivy-extra-directories nil)
   (ivy-mode 1)
 
- ;;;; KEYBINDINGS ;;;;
+;;;; KEYBINDINGS ;;;;
   (general-unbind 'ivy-minibuffer-map
     :with 'ignore
     [remap windmove-up]
@@ -526,8 +530,8 @@ t : studying
 *** counsel-org-clock
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-org-clock
-:after counsel
-:ensure t)
+  :after counsel
+  :ensure t)
 #+END_SRC
 * eyebrowse
 #+BEGIN_SRC emacs-lisp
@@ -580,8 +584,8 @@ t : studying
 * ivy hydra
 #+BEGIN_SRC emacs-lisp
 (use-package ivy-hydra
-:after hydra
-:ensure t)
+  :after hydra
+  :ensure t)
 #+END_SRC
 * targets
 #+BEGIN_SRC emacs-lisp
@@ -676,11 +680,22 @@ t : studying
                                          "\.pdf$"
                                          "*shell*"
                                          "*info*"))
-  (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"
+
+  (setq nswbuff-exclude-buffer-regexps '("^\\*.*\\*"
                                          "Dired"
                                          "*slime-repl sbcl"
+                                         "erc-mode"
+                                         "help-mode"
+                                         "completion-list-mode"
+                                         "/home/dotfiles/emacs/em/var/*.*"
+                                         "/home/dotfiles/emacs/em/var/recentf-save.el"
+                                         "custom.el"
+                                         "Buffer-menu-mode"
+                                         "gnus-.*-mode"
+                                         "occur-mode"
                                          ".*Log.*"
                                          ".*log.*"
+                                         "recentf-save.el"
                                          ".*help.*"
                                          "^#.*#$"
                                          "*Shell Command Output*"
@@ -753,5 +768,5 @@ t : studying
 * link-hint
 #+BEGIN_SRC emacs-lisp
 (use-package link-hint
-:ensure t)
+  :ensure t)
 #+END_SRC

@@ -1,4 +1,3 @@
-
 (setq projectile-globally-ignored-directories '(".hg"
                                                 ".git"
                                                 ".old"
@@ -33,10 +32,22 @@
                                                 "/home/dotfiles/.emacs.d/"
                                                 "~/Studying/Unifacs/Segundo_Semestre"))
 
-(setq projectile-globally-ignored-buffers '(".*Log.*"
-                                            ".*log.*"
-                                            ".*help.*"
+(setq projectile-globally-ignored-buffers '("^\\*.*\\*"
+                                            "Dired"
                                             "*slime-repl sbcl"
+                                            "erc-mode"
+                                            "help-mode"
+                                            "completion-list-mode"
+                                            "/home/dotfiles/emacs/em/var/*.*"
+                                            "/home/dotfiles/emacs/em/var/recentf-save.el"
+                                            "custom.el"
+                                            "Buffer-menu-mode"
+                                            "gnus-.*-mode"
+                                            "occur-mode"
+                                            ".*Log.*"
+                                            ".*log.*"
+                                            "recentf-save.el"
+                                            ".*help.*"
                                             "^#.*#$"
                                             "*Shell Command Output*"
                                             "*Calculator*"
@@ -96,16 +107,14 @@
                                             "*eclimd*"
                                             "*compilation*"
                                             "*Bongo Library*"
+                                            ;; ".*pdf"
+                                            "*Outline.*"
                                             "*blacken*"
                                             "*server*"
                                             "*code-conversion-work*"
                                             "*blacken-error*"
-                                            "*Outline.**"
-                                            ;; ".*pdf"
                                             "*quickrun*"))
 
-(setq projectile-globally-ignored-modes '("erc-mode" "help-mode" "completion-list-mode" "Buffer-menu-mode" "gnus-.*-mode" "occur-mode"))
-;; (setq projectile-project-search-path '("~"))
 (setq projectile-project-search-path nil)
 
 (setq projectile-sort-order 'recently-active)
