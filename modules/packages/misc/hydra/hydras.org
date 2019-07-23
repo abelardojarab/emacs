@@ -516,7 +516,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        _g_: olivetti
        _p_: projectile
        _q_: elec operator
-       _a_: auto compile
+       _f_: auto fill
+       _a_: agg fill
 
        "
 
@@ -527,7 +528,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("g" olivetti-mode)
   ("p" counsel-projectile-mode)
   ("q" electric-operator-mode)
-  ("a" auto-compile-toggle))
+  ("f" auto-fill-mode)
+  ("a" aggressive-fill-paragraph-mode))
 #+END_SRC
 
 ** Eval
@@ -679,14 +681,12 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        _z_: capitalize         _t_: truncate lines
        _d_: del blank lines    _h_: hl sentences
        _n_: hl line            _p_: fill paragraph
-                             _a_: unfill paragraph
-                             _b_: fil buffer
-                             _u_: unfill buffer
-
-"
+       _H_: hl lines           _a_: unfill paragraph
+       _h_: hl sents           _b_: fil buffer
+                               _u_: unfill buffer "
 
   ("<escape>" nil)
-  ("C-;" hydra-text-commands/body)
+  ("SPC" hydra-text-commands/body)
   (";" hydra-text-commands/body)
 
   ("d" delete-blank-lines)
@@ -706,7 +706,8 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("b" fill-buffer)
   ("u" unfill-buffer)
 
-  )
+  ("h" my/hl-only-sentences)
+  ("H" my/hl-only-lines))
 #+END_SRC
 
 *** motions
@@ -755,20 +756,20 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
        ---------------------------------------------
        _s_: setq        _m_: move line     _g_: agg fill
        _f_: hydra key   _l_: copy line     _i_: auto fill
-       _h_: hook        _a_: text adju     _z_: show fill
-       _p_: insert par  _v_: visible mode  _e_: enable fills
-       _w_: to msger    _c_: to chrome     _d_: disable fills
-
+       _h_: hl sents    _a_: text adju     _z_: show fill
+                      _v_: visible mode  _e_: enable fills
+                      _c_: to chrome     _d_: disable fills
+                                        _p_: insert par
        ^^
   "
   ("<escape>" nil)
   ("C-;" nil)
+  ("SPC" nil)
   (";" nil)
   ("<menu>" nil)
 
   ("s" create-setq)
   ("f" format-hydra-binding)
-  ("h" add-hook-macro)
   ("p" Lorem-ipsum-insert-paragraphs)
   ("m" avy-move-line)
   ("l" avy-copy-line)

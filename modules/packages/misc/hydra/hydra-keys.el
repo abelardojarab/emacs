@@ -5,11 +5,13 @@
   "SPC" 'hydra-text-main/body
   ;; "v" 'hydra-more-commands/body
   "z" 'hydra-window/body
-  "h" 'split-window-horizontally
-  "j" 'my/split-vertically
+
+  ;; "h" 'split-window-horizontally
+  ;; "j" 'my/split-vertically
+  ;; "l" 'my/split-right
+  ;; "k" 'split-window-below
+
   "p" 'hydra-projectile-mode/body
-  "l" 'my/split-right
-  "k" 'split-window-below
   ";" 'hydra-text-main/body
   "m" 'hydra-modes/body
   "c" 'hydra-commands/body

@@ -44,6 +44,7 @@
 
 (general-nvmap
   :prefix "SPC"
+  "ç" 'fill-buffer
   "H" 'evil-window-move-far-left
   "K" 'evil-window-move-very-top
   "L" 'evil-window-move-far-right
@@ -63,6 +64,10 @@
   "M-/" 'hippie-expand
   "C-h" 'delete-backward-char
   "C-v " nil)
+
+(general-nvmap
+  :keymaps 'text-mode-map
+  "ç" 'fill-paragraph)
 
 (general-nvmap
   "Q" 'save-buffers-kill-terminal

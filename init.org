@@ -1,4 +1,5 @@
 #+PROPERTY: header-args :tangle yes
+
 * Init
 #+BEGIN_SRC emacs-lisp
 (require 'package)

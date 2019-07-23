@@ -204,11 +204,11 @@
 
 ;;  WITH LOGGING
 ;; (setq org-todo-keywords
-;;       '((sequence "TODO(t!)" "STARTED(s!)" "|"  "DONE(d!)")))
+;;       '((sequence "T(t!) TODO(t!)" "S(s!) ""STARTED(s!)" "|"  "DONE(d!) "D(d!)")))
 
 ;;  WITHOUT LOGGING
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "STARTED(s)" "|"  "DONE(d)")))
+      '((sequence "T(t)" "TODO(t)" "S(s)" "STARTED(s)" "|"  "DONE(d)" "D(d)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
@@ -563,18 +563,18 @@
 (use-package org2blog
   :init
   (setq org2blog/wp-blog-alist
-	'(("daviramos-en"
-	   :url "http://daviramos.com/en/xmlrpc.php"
-	   :username "daviramos"
-	   :default-title "Hello World"
-	   :default-categories ("sci-fi")
-	   :tags-as-categories nil)
-	  ("daviramos-br"
-	   :url "http://daviramos.com/br/xmlrpc.php"
-	   :username "daviramos"
-	   :default-title "Hello World"
-	   :default-categories ("sci-fi")
-	   :tags-as-categories nil)))
+        '(("daviramos-en"
+           :url "http://daviramos.com/en/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)
+          ("daviramos-br"
+           :url "http://daviramos.com/br/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)))
   :ensure t)
 
 (use-package org-pdfview

@@ -393,6 +393,19 @@
 (use-package text-mode
   :init
   (add-hook 'text-mode-hook 'my/text-hooks)
+  :ensure nil
+  :config
+
+  (defun my/hl-only-sentences ()
+    (interactive)
+    (hl-line-mode -1)
+    (hl-sentence-mode +1))
+
+  (defun my/hl-only-lines ()
+    (interactive)
+    (hl-line-mode +1)
+    (hl-sentence-mode -1))
+
   (defun my/text-hooks ()
     (interactive)
     (subword-mode 1)
@@ -400,9 +413,6 @@
     ;; (olivetti-mode +1)
     ;; (turn-on-auto-fill)
     )
-
-  :ensure nil
-  :config
 
   (defun my/paragraph-backwards ()
     (interactive)
@@ -901,23 +911,21 @@
 (use-package recentf
   :ensure nil
   :config
-  (setq recentf-max-saved-items '10
-        recentf-auto-cleanup '600
+  (setq recentf-max-saved-items '30
+        recentf-max-menu-items '30
+        recentf-auto-cleanup 'mode
         recentf-save-file (expand-file-name "recentf" "\~/.emacs.d/var/")
-        recentf-exclude   '("^\\*.*\\*"
-                            "Dired"
+        recentf-exclude   '("Dired"
                             "*slime-repl sbcl"
                             "erc-mode" "help-mode"
                             "completion-list-mode"
                             "/home/dotfiles/emacs/em/var/*.*"
-                            "/home/dotfiles/emacs/em/var/recentf-save.el"
                             "custom.el"
                             "Buffer-menu-mode"
                             "gnus-.*-mode"
                             "occur-mode"
-                            ".*Log.*"
-                            ".*log.*"
-                            "recentf-save.el"
+                            "*.Log.*"
+                            "*.*log.*"
                             ".*help.*"
                             "^#.*#$"
                             "*Shell Command Output*"
@@ -986,9 +994,15 @@
                             "*blacken-error*"
                             "*quickrun*"
                             "~/.emacs.d/var/*"))
-  (recentf-cleanup)
+
+  (defun my/recentf-cleanup-and-save ()
+    (interactive)
+    (recentf-cleanup)
+    (recentf-save-list))
+
+  (run-at-time nil (* 5 60) 'my/recentf-cleanup-and-save)
+
   (recentf-load-list)
-  (run-at-time nil (* 5 60) 'recentf-save-list)
   (recentf-mode 1))
 
 (use-package time-date

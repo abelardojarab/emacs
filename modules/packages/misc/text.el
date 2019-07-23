@@ -13,7 +13,10 @@
 
 (use-package hl-sentence
   :defer t
-  :ensure t)
+  :ensure t
+:config
+  (custom-set-faces
+   '(hl-sentence ((t (:inherit hl-line))))))
 
 (use-package flyspell
   :defer t
@@ -63,8 +66,8 @@
   :defer t
   :ensure t
   :config
-  (setq-default olivetti-body-width 100)
-  (setq olivetti-body-width 100))
+  (setq-default olivetti-body-width 90)
+  (setq olivetti-body-width 90))
 
 (use-package markdown-mode
   :defer t
