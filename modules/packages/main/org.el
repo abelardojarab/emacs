@@ -538,10 +538,9 @@
   (interactive)
   (org-capture t "m"))
 
-
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
-  (concat "[s] " org-buffer-name "")))
+  (concat "[S] " org-buffer-name "")))
 
 
 (use-package org-bullets

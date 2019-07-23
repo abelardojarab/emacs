@@ -61,7 +61,6 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
 
 (general-nvmap
   :prefix "SPC"
-  "key" 'command
   "H" 'evil-window-move-far-left
   "K" 'evil-window-move-very-top
   "L" 'evil-window-move-far-right
@@ -129,8 +128,8 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
  "C-c W" 'evil-window-prev)
 
 (general-define-key
- :keymaps 'global
- :states '(normal visual))
+ :states '(normal visual insert)
+ "M-t" 'counsel-recentf)
 
 (general-imap
   :keymaps 'i3wm-emacs-map
@@ -149,6 +148,7 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   "C-S-a" 'evil-numbers/inc-at-pt
   "C-S-x" 'evil-numbers/dec-at-pt)
 #+END_SRC
+
 **** Settings
 #+BEGIN_SRC emacs-lisp
 (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)

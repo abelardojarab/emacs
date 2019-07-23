@@ -2,29 +2,9 @@
   :ensure t
 
 :config
-
 (defun my/kill-previous-buffer ()
   (interactive)
   (kill-buffer (last-buffer)))
-
-;; (defun my/gui-keybindings-load ()
-;;   (interactive)
-;;   (general-define-key
-;;    "M-[" 'bs-cycle-next
-;;    "M-]" 'bs-cycle-previous)
-
-;;   (general-define-key
-;;    :keymaps 'projectile-mode-map
-;;    "M-[" 'projectile-next-project-buffer
-;;    "M-]" 'projectile-previous-project-buffer)
-;;   (message " gui keys loaded"))
-
-;; (defun my/gui-keybindings-unload ()
-;;   (interactive)
-;;   (general-define-key
-;;    "M-[" nil
-;;    "M-]" nil))
-
 
 (define-key key-translation-map (kbd "<f9>") (kbd "C-c"))
 
@@ -34,20 +14,23 @@
 (leader
   :states '(normal visual)
   :keymaps 'override
-    ;;;; SPLITTING ;;;;
+
+  ;;;; SPLITTING ;;;;
+
+  ;; "h" 'split-window-horizontally
+  ;; "j" 'my/split-vertically
+  ;; "k" 'split-window-below
+  ;; "l" 'my/split-right
   "r" 'ranger
   "g" 'my/ranger
-  "h" 'split-window-horizontally
-  "j" 'my/split-vertically
-  "k" 'split-window-below
-  "l" 'my/split-right
-  "t" 'hydra-text-commands/body
+
   "q" 'my/kill-this-buffer
   "0" 'delete-window
   "U" 'widenToCenter
   "u" 'my/org-capture-math-notes
   "o" 'hydra-org-mode/body
-  "e" 'widen)
+  "e" 'widen
+  "t" 'counsel-recentf)
 
 (leader
   :states '(normal)
@@ -180,11 +163,5 @@
  :keymaps 'minibuffer-local-map
  "C-u" 'backward-kill-line
  "C-w" 'backward-kill-word)
-
-;; (general-define-key
-;;  :keymaps 'projectile-mode-map
-;;  "M-[" nil
-;;  "M-]" nil
-;;  (message " gui keys unloaded"))
 
 (general-evil-setup t))

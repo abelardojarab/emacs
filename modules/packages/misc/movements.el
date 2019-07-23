@@ -330,6 +330,7 @@ t : studying
                              "fundamental_scratch"
                              "org_scratch"
                              "prog_scratch"
+                             "*scratch*"
                              ;; "*scratch*"
                              "*Warning*"
                              "*Messages*"
@@ -371,7 +372,7 @@ t : studying
 
   (setq counsel-ag-base-command "ag --filename --nocolor --nogroup --smart-case --skip-vcs-ignores --silent --ignore *.html %s")
 
-  (setq ivy-use-virtual-buffers t)
+  (setq ivy-use-virtual-buffers nil)
   (setq ivy-count-format "(%d/%d) ")
   (setq counsel-bookmark-avoid-dired t)
   (setq counsel-find-file-at-point t)
@@ -398,7 +399,9 @@ t : studying
 
   (general-unbind 'ivy-minibuffer-map
     :with 'ivy-next-line
-    [remap counsel-projectile-switch-to-buffer])
+    [remap counsel-projectile-switch-to-buffer]
+    [remap transpose-chars]
+    [remap transpose-words])
 
   (general-unbind 'ivy-minibuffer-map
     :with 'ivy-next-line
@@ -423,6 +426,7 @@ t : studying
    "C--" 'ivy-next-line
    "C-=" 'ivy-previous-line
    "M-d" 'ivy-next-line
+   "C-t" 'ivy-next-line
    "M-u" 'ivy-previous-line
    "C-w" 'ivy-backward-kill-word
    "C-u" 'backward-kill-line

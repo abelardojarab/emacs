@@ -44,7 +44,6 @@
 
 (general-nvmap
   :prefix "SPC"
-  "key" 'command
   "H" 'evil-window-move-far-left
   "K" 'evil-window-move-very-top
   "L" 'evil-window-move-far-right
@@ -112,8 +111,8 @@
  "C-c W" 'evil-window-prev)
 
 (general-define-key
- :keymaps 'global
- :states '(normal visual))
+ :states '(normal visual insert)
+ "M-t" 'counsel-recentf)
 
 (general-imap
   :keymaps 'i3wm-emacs-map

@@ -1,8 +1,8 @@
 (use-package gitignore-mode
-:defer t
-:init
-(add-hook 'gitignore-mode-hook 'my/prog-mode-hooks)
-:ensure t)
+  :defer t
+  :init
+  (add-hook 'gitignore-mode-hook 'my/prog-mode-hooks)
+  :ensure t)
 
 (use-package elisp-mode
   :defer t
@@ -108,18 +108,18 @@
   (smart-hungry-delete-add-default-hooks))
 
 (use-package dumb-jump
-:defer t
-:ensure t
-:config
-(setq dumb-jump-selector 'ivy))
+  :defer t
+  :ensure t
+  :config
+  (setq dumb-jump-selector 'ivy))
 
 (use-package highlight-numbers
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package highlight-operators
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package flycheck
   :defer t
@@ -145,23 +145,78 @@
   (setq-default flymake-no-changes-timeout 0.2))
 
 (use-package subword
-:defer t
-:ensure nil
-:config
-(global-subword-mode +1))
+  :defer t
+  :ensure nil
+  :config
+  (global-subword-mode +1))
 
 (use-package company
   :defer t
   :ensure t
-  :config
-  (defun my/company-yasnippet ()
-    (interactive)
-    (company-abort)
-    (yas-expand))
 
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_settings.el")
-  (load-file "~/.emacs.d/modules/packages/prog/misc/company_keys.el")
-  (global-company-mode t))
+:config
+
+(general-define-key
+ :keymaps 'company-active-map
+ "1" 'company-complete-number
+ "2" 'company-complete-number
+ "3" 'company-complete-number
+ "4" 'company-complete-number
+ "5" 'company-complete-number
+ "6" 'company-complete-number
+ "7" 'company-complete-number
+ "8" 'company-complete-number
+ "9" 'company-complete-number
+ "0" 'company-complete-number
+ "M-f" 'company-filter-candidates
+ "M-d" 'my/company-complete-paren
+ "M-r" 'my/company-yasnippet
+ "M-k" nil
+ "M-l" nil
+ "C-w" 'evil-delete-backward-word
+ "C-h" 'delete-backward-char
+ "<tab>" nil
+ "M-w" 'my/company-complete-first
+ "<escape>" 'company-abort
+ ;; "<return>" 'company-complete
+ "M-j" 'my/company-complete-first-add-space
+ "M-o" 'my/company-yasnippet)
+
+(general-define-key
+ :keymaps 'company-filter-map
+ "TAB" nil
+ "M-h" 'company-quickhelp-manual-begin
+ "M-d" 'company-filter-candidates
+ "C-k" 'my/company-complete
+ "M-o" 'my/company-yasnippet)
+;; "RET" 'company-complete)
+
+(general-imap
+  :keymaps 'company-mode-map
+  "C-SPC" 'company-complete
+  ;; "C-l" 'company-complete
+  "M-/" 'hippie-expand)
+
+(setq company-show-numbers t)
+(setq company-idle-delay 0.5)
+(setq company-auto-complete t)
+(setq company-tooltip-limit 10)
+(setq company-dabbrev-code-modes t)
+(setq company-dabbrev-downcase nil)
+(setq company-dabbrev-ignore-case t)
+(setq-default company-idle-delay 0.5)
+(setq company-dabbrev-other-buffers t)
+(setq company-selection-wrap-around t)
+(setq company-minimum-prefix-length 2)
+(setq company-dabbrev-code-everywhere t)
+(setq company-dabbrev-code-ignore-case t)
+(setq company-auto-complete-chars '(46 61))
+(setq company-dabbrev-ignore-buffers "nil")
+
+(defun my/company-yasnippet ()
+  (interactive)
+  (company-abort)
+  (yas-expand)))
 
 (use-package company-shell
   :after company
@@ -174,13 +229,13 @@
   (setq company-fish-shell-modes nil))
 
 (use-package pos-tip
-:defer t
-:ensure t
-:config
-(setq pos-tip-border-width 3)
-(setq pos-tip-internal-border-width 3)
-(setq pos-tip-background-color "grey9")
-(setq pos-tip-foreground-color "yellow1"))
+  :defer t
+  :ensure t
+  :config
+  (setq pos-tip-border-width 3)
+  (setq pos-tip-internal-border-width 3)
+  (setq pos-tip-background-color "grey9")
+  (setq pos-tip-foreground-color "yellow1"))
 
 (use-package tab-jump-out
   :defer t
@@ -189,14 +244,14 @@
   (tab-jump-out-mode t))
 
 (use-package electric-operator
-:defer t
-:ensure t
-:config
-(electric-operator-add-rules-for-mode 'python-mode
-                                      (cons "+" " + ")
-                                      (cons "-" " - ")
-                                      (cons "ndd" " and ")
-                                      (cons "ntt" " not ")))
+  :defer t
+  :ensure t
+  :config
+  (electric-operator-add-rules-for-mode 'python-mode
+                                        (cons "+" " + ")
+                                        (cons "-" " - ")
+                                        (cons "ndd" " and ")
+                                        (cons "ntt" " not ")))
 
 (use-package aggressive-indent
   :defer t
@@ -298,12 +353,12 @@
   :ensure t)
 
 (use-package rainbow-delimiters
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package highlight-indent-guides
-:defer t
-:ensure t)
+  :defer t
+  :ensure t)
 
 (use-package string-inflection
   :defer t
@@ -312,10 +367,10 @@
   (setq string-inflection-skip-backward-when-done nil))
 
 (use-package prescient
-:defer t
-:ensure t
-:config
-(prescient-persist-mode +1))
+  :defer t
+  :ensure t
+  :config
+  (prescient-persist-mode +1))
 
 (use-package ivy-prescient
   :after ivy
@@ -328,11 +383,11 @@
   (ivy-prescient-mode +1))
 
 (use-package company-prescient
-:after company
-:ensure t
-:config
-(company-prescient-mode +1)
-(prescient-persist-mode +1))
+  :after company
+  :ensure t
+  :config
+  (company-prescient-mode +1)
+  (prescient-persist-mode +1))
 
 (use-package smartparens
   :defer t

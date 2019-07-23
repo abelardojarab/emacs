@@ -408,14 +408,14 @@
 (defhydra hydra-window (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-      ^Move^      ^Resize^      ^Layouts
+      ^Move^   ^Resize       ^Split
       ------------------------------------
-      _K_: up     _h_: width+   _1_: save 1
-      _J_: down   _l_: width-   _q_: load 1
-      _H_: left   _k_: height   _2_: save 2
-      _L_: right  _j_: height   _w_: load 2
-      ^^          _b_: balance
-      ^^          _r_: botright
+      _K_: ↑   _H_: width+    _h_: left
+      _J_: ↓   _L_: width-    _l_: righ
+      _H_: ←   _K_: height    _k_: up
+      _L_: →   _J_: height    _j_: down
+      ^^       _b_: balance
+      ^^       _r_: botright
   "
   ("<escape>" nil)
   ("RET" nil)
@@ -425,15 +425,16 @@
   ("J" buf-move-down)
   ("L" buf-move-right)
 
-  ("h" my/evil-inc-width :exit nil)
-  ("l" my/evil-dec-width :exit nil)
-  ("j" my/evil-dec-height :exit nil)
-  ("k" my/evil-inc-height :exit nil)
+  ("H" my/evil-inc-width :exit nil)
+  ("L" my/evil-dec-width :exit nil)
+  ("J" my/evil-dec-height :exit nil)
+  ("K" my/evil-inc-height :exit nil)
 
-  ("1" my/window-to-register-91)
-  ("q" my/jump-to-register-91)
-  ("2" my/window-to-register-eight)
-  ("w" my/jump-to-register-eight)
+  ("h" split-window-horizontally)
+  ("j" my/split-vertically)
+  ("k" split-window-below)
+  ("l" my/split-right)
+
   ("b" balance-windows :exit t)
   ("r" my/evil-botright))
 
@@ -531,7 +532,7 @@
        _d_: dup line        _i_: define abbrev  _B_: eval buffer
        _e_: sort by length  _J_: del dup lines  _l_: eval line
        _E_: sort lines      _i_: i3 restart     _w_: word count
-                          _3_: i3 reload      _p_: packages
+       _x_: copy filename   _3_: i3 reload      _p_: packages
 
 "
 
@@ -556,7 +557,8 @@
   ("w" wc-count)
   ("i" i3-restart)
   ("3" i3-reload)
-  ("p" hydra-packages/body))
+  ("p" hydra-packages/body)
+  ("x" my/copy-filename-only))
 
 (defhydra hydra-quick-commands (:color blue :hint nil :exit nil :foreign-keys nil)
   "

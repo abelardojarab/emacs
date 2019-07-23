@@ -274,4 +274,4 @@
   (org-capture t "m"))
 
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
-  (concat "[s] " org-buffer-name ""))
+  (concat "[S] " org-buffer-name ""))

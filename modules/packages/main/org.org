@@ -562,11 +562,11 @@ DEADLINE: <2019-07-13 Sat -14d>
   (interactive)
   (org-capture t "m"))
 
-
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
-  (concat "[s] " org-buffer-name "")))
+  (concat "[S] " org-buffer-name "")))
 #+END_SRC
+
 * Org Others
 #+BEGIN_SRC emacs-lisp
 

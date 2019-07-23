@@ -900,9 +900,10 @@
 
 (use-package recentf
   :ensure nil
-  :init
-  (setq recentf-save-file "~/.emacs.d/var/recentf-save.el")
   :config
+  (setq recentf-max-saved-items 10)
+  (run-at-time nil (* 10 60) 'recentf-save-list)
+  (setq recentf-save-file "~/.emacs.d/var/recentf-save.el")
   (recentf-mode 1))
 
 (use-package time-date
