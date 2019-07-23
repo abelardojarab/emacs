@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: block beging
+# key: b
+# --
+#+BEGIN_SRC emacs-lisp

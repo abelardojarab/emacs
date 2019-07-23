@@ -1,0 +1,7 @@
+# key: elh
+# name: elisp heading
+# --
+* ${1: Title}
+#+BEGIN_SRC emacs-lisp
+`(yank)`
+#+END_SRC

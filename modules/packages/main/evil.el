@@ -11,138 +11,141 @@
   (setq evil-jumps-cross-buffers t)
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-Y-yank-to-eol t)
-  :config
-  (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
-  (evil-set-initial-state 'pomidor-mode 'emacs)
-  (evil-set-initial-state 'Info-mode 'normal)
-  (evil-set-initial-state 'bongo-mode 'emacs)
-  (evil-set-initial-state 'shell-mode 'insert)
-  (evil-set-initial-state 'cheatsheet-mode 'emacs)
-  (setq undo-tree-auto-save-history nil)
-  (setq undo-tree-history-directory-alist
-        '(("." . "~/.emacs.d/var/undo-tree-hist/")))
-  (setq evil-insert-state-message nil)
-  (setq evil-respect-visual-line-mode nil)
 
-  (general-vmap
-    "C-c a" 'align-regexp)
+:config
 
-  (general-nmap
-    "`" 'evil-goto-mark-line
-    "'" 'evil-goto-mark
-    "M" 'evil-set-marker
-    "gm" 'hydra-text-motions/body
-    "gM" 'evil-middle-of-visual-line
-    "gu" 'fix-word-upcase
-    "gU" 'fix-word-downcase
-    "-" 'evil-next-line
-    "DEL" nil
-    "gr" 'sel-to-end
-    ;; "; " 'evil-ex
-    "; " 'hydra-org-agenda/body
-    "zn" 'org-hide-other
-    "zi" 'outline-show-all
-    "}" 'my/paragraph-forward
-    "go" 'cool-moves/open-line-below
-    "gi" 'cool-moves/open-line-above
-    "{" 'my/paragraph-backwards
-    "zj" 'evil-backward-word-end
-    "zk" 'evil-backward-WORD-end
-    "X" 'whack-whitespace
-    "ge" 'evil-end-of-visual-line
-    [escape] 'my/quiet-save-buffer)
+(general-vmap
+  "C-c a" 'align-regexp)
 
-  (general-nvmap
-    :prefix "SPC"
-    "key" 'command
-    "H" 'evil-window-move-far-left
-    "K" 'evil-window-move-very-top
-    "L" 'evil-window-move-far-right
-    "J" 'evil-window-move-very-bottom)
+(general-nmap
+  "`" 'evil-goto-mark-line
+  "'" 'evil-goto-mark
+  "M" 'evil-set-marker
+  "gm" 'hydra-text-motions/body
+  "gM" 'evil-middle-of-visual-line
+  "gu" 'fix-word-upcase
+  "gU" 'fix-word-downcase
+  "-" 'evil-next-line
+  "DEL" nil
+  "gr" 'sel-to-end
+  ;; "; " 'evil-ex
+  "; " 'hydra-org-agenda/body
+  "zn" 'org-hide-other
+  "zi" 'outline-show-all
+  "}" 'my/paragraph-forward
+  "go" 'cool-moves/open-line-below
+  "gi" 'cool-moves/open-line-above
+  "{" 'my/paragraph-backwards
+  "zj" 'evil-backward-word-end
+  "zk" 'evil-backward-WORD-end
+  "X" 'whack-whitespace
+  "ge" 'evil-end-of-visual-line
+  [escape] 'my/quiet-save-buffer)
 
-  (general-imap
-    "C-k" 'kill-line
-    "C-u" 'backward-kill-line
-    "C-SPC" nil
-    "C-c SPC" 'fix-word-capitalize
-    "C-c n" 'fix-word-upcase
-    "C-c d" 'fix-word-downcase)
+(general-nvmap
+  :prefix "SPC"
+  "key" 'command
+  "H" 'evil-window-move-far-left
+  "K" 'evil-window-move-very-top
+  "L" 'evil-window-move-far-right
+  "J" 'evil-window-move-very-bottom)
 
-  (general-imap
-    :keymaps 'override
-    "C-w" 'evil-delete-backward-word
-    "M-/" 'hippie-expand
-    "C-h" 'delete-backward-char
-    "C-v " nil)
+(general-imap
+  "C-k" 'kill-line
+  "C-u" 'backward-kill-line
+  "C-SPC" nil
+  "C-c SPC" 'fix-word-capitalize
+  "C-c n" 'fix-word-upcase
+  "C-c d" 'fix-word-downcase)
 
-  (general-nvmap
-    "Q" 'save-buffers-kill-terminal
-    "C-," 'helpful-at-point
-    "C-." 'helpful-variable
-    "C-;" 'helpful-function
-    "<left>" 'eyebrowse-prev-window-config
-    "<right>" 'eyebrowse-next-window-config
-    "k" 'evil-previous-visual-line
-    "j" 'evil-next-visual-line
-    "K" 'org-shiftdown
-    "C-SPC" 'caps-lock-mode
-    "M-e" 'evil-forward-sentence-begin
-    "M-a" 'evil-backward-sentence-begin)
+(general-imap
+  :keymaps 'override
+  "C-w" 'evil-delete-backward-word
+  "M-/" 'hippie-expand
+  "C-h" 'delete-backward-char
+  "C-v " nil)
 
-  (general-nvmap
-    :keymaps 'override
-    ;; "u" 'undo-only
+(general-nvmap
+  "Q" 'save-buffers-kill-terminal
+  "C-," 'helpful-at-point
+  "C-." 'helpful-variable
+  "C-;" 'helpful-function
+  "<left>" 'eyebrowse-prev-window-config
+  "<right>" 'eyebrowse-next-window-config
+  "k" 'evil-previous-visual-line
+  "j" 'evil-next-visual-line
+  "K" 'org-shiftdown
+  "C-SPC" 'caps-lock-mode
+  "M-e" 'evil-forward-sentence-begin
+  "M-a" 'evil-backward-sentence-begin)
 
-    "gn" 'my/evil-format-paragraph-function
-    "C-u" 'hydra-find-emacs-files/body
-    "!" 'delete-frame
-    "z=" 'endless/ispell-word-then-abbrev
-    "C-S-j" 'cool-moves/move-line-down
-    "C-S-k" 'cool-moves/move-line-up
-    "C-c k" nil
-    "<S-SPC>" nil
-    "z," 'evil-repeat
-    "gI" 'evil-insert-line
-    "gt" 'fix-word-capitalize
-    "gA" 'evil-append-line
-    "\\" 'evil-execute-in-god-state
-    ;; "g," 'evil-execute-in-god-state
-    "M-i" 'evil-jump-forward
-    "M-o" 'evil-jump-backward
-    "<M-S-f11>" 'my/evil-botright
-    "M-s" 'last-buffer
-    "$" 'evil-end-of-visual-line
-    "zd" 'evil-scroll-line-to-bottom
-    "0" 'evil-beginning-of-visual-line
-    "M-." 'nswbuff-switch-to-next-buffer
-    "M-," 'nswbuff-switch-to-previous-buffer)
+(general-nvmap
+  :keymaps 'override
+  ;; "u" 'undo-only
 
-  (general-define-key
-   "C-c w" 'evil-window-next
-   "C-c W" 'evil-window-prev)
+  "gn" 'my/evil-format-paragraph-function
+  "C-u" 'hydra-find-emacs-files/body
+  "!" 'delete-frame
+  "z=" 'endless/ispell-word-then-abbrev
+  "C-S-j" 'cool-moves/move-line-down
+  "C-S-k" 'cool-moves/move-line-up
+  "C-c k" nil
+  "<S-SPC>" nil
+  "z," 'evil-repeat
+  "gI" 'evil-insert-line
+  "gt" 'fix-word-capitalize
+  "gA" 'evil-append-line
+  "\\" 'evil-execute-in-god-state
+  ;; "g," 'evil-execute-in-god-state
+  "M-i" 'evil-jump-forward
+  "M-o" 'evil-jump-backward
+  "<M-S-f11>" 'my/evil-botright
+  "M-s" 'last-buffer
+  "$" 'evil-end-of-visual-line
+  "zd" 'evil-scroll-line-to-bottom
+  "0" 'evil-beginning-of-visual-line
+  "M-." 'nswbuff-switch-to-next-buffer
+  "M-," 'nswbuff-switch-to-previous-buffer)
 
-  (general-define-key
-   :keymaps 'global
-   :states '(normal visual))
+(general-define-key
+ "C-c w" 'evil-window-next
+ "C-c W" 'evil-window-prev)
 
-  (general-imap
-    :keymaps 'i3wm-emacs-map
-    "<escape>" 'evil-normal-state)
-  (general-define-key
-   :keymaps 'evil-emacs-state-map
-   "<escape>" 'evil-normal-state)
+(general-define-key
+ :keymaps 'global
+ :states '(normal visual))
 
-  (general-define-key
-   :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
-   "C-h" 'delete-backward-char
-   "C-h" 'delete-backward-char)
+(general-imap
+  :keymaps 'i3wm-emacs-map
+  "<escape>" 'evil-normal-state)
+(general-define-key
+ :keymaps 'evil-emacs-state-map
+ "<escape>" 'evil-normal-state)
 
-  (general-nvmap
-    :keymaps 'override
-    "C-S-a" 'evil-numbers/inc-at-pt
-    "C-S-x" 'evil-numbers/dec-at-pt)
+(general-define-key
+ :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
+ "C-h" 'delete-backward-char
+ "C-h" 'delete-backward-char)
 
-  (evil-mode 1))
+(general-nvmap
+  :keymaps 'override
+  "C-S-a" 'evil-numbers/inc-at-pt
+  "C-S-x" 'evil-numbers/dec-at-pt)
+
+(evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
+(evil-set-initial-state 'pomidor-mode 'emacs)
+(evil-set-initial-state 'Info-mode 'normal)
+(evil-set-initial-state 'bongo-mode 'emacs)
+(evil-set-initial-state 'shell-mode 'insert)
+(evil-set-initial-state 'cheatsheet-mode 'emacs)
+(setq undo-tree-auto-save-history nil)
+(setq undo-tree-history-directory-alist
+      '(("." . "~/.emacs.d/var/undo-tree-hist/")))
+(setq evil-insert-state-message nil)
+(setq evil-respect-visual-line-mode nil)
+
+;;;; END EVIL-MODE USE-PACKACE DECLARATION ;;;;
+(evil-mode 1))
 
 (use-package evil-org
   :ensure t
@@ -215,20 +218,6 @@
 (use-package evil-numbers
   :defer t
   :ensure t)
-
-;; (use-package evil-mc
-;;   :after evil
-;;   :ensure t
-;;   :config
-;; (general-define-key
-;;  "C-c m" 'evil-mc-make-all-cursors
-;;  "C-x m" 'evil-mc-undo-all-cursors)
-
-;; (general-nvmap
-;;   "C-c m" 'evil-mc-make-all-cursors
-;;   "C-x m" 'evil-mc-undo-all-cursors)
-;;   (global-ev
-;;   il-mc-mode  1))
 
 (use-package evil-multiedit
   :after evil

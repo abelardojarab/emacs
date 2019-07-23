@@ -56,11 +56,10 @@
           evil-window-next
           eyebrowse-next-window-config
           eyebrowse-prev-window-config
-          eyebrowse-create-window-config
-          my/unpop-shell-other-window))
+          eyebrowse-create-window-config))
 
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 10)
+  (setq super-save-idle-duration 5)
 
   (setq auto-save-default nil)
   (super-save-mode +1))
@@ -68,6 +67,7 @@
 (use-package engine-mode
   :ensure t
   :config
+  (defadvice browse-url (after browse-url-after activate) (my/focus-chrome-delayed))
   (defengine google "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
   (defengine devdocs-io "https://devdocs.io/#q=%s")
   (defengine emacs-wiki "https://duckduckgo.com/?q=%s site:emacswiki.org")
@@ -85,7 +85,6 @@
   (defengine the-free-dictionary "https://www.thefreedictionary.com/%s")
 
   (engine-mode t))
-
 
 (use-package vertigo
   :defer t
@@ -441,10 +440,6 @@
                         '(:key "RET" :description "follow node")
                         '(:key "S+Tab" :description "reference ←")
                         '(:key "f" :description "follow reference")))
-
-(use-package bongo
-:defer t
-:ensure t)
 
 ;; (use-package tomatinho
 ;;   :ensure t

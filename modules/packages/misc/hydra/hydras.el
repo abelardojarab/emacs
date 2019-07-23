@@ -794,13 +794,14 @@
     _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
     _c_: capture     _s_: sort          _T_: tstamp inactive
     _z_: export      _x_: todo          _A_: align tags
+                                    _,_: create block
 
 "
+
   ("<escape>" nil)
 
   ("r" my/org-archive)
-  ("R" org-archive-subtree-default)
-  ("a" my/org-agenda)
+  ("R" org-archive-subtree-default) ("a" my/org-agenda)
   ("c" counsel-org-capture)
   ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
@@ -821,7 +822,8 @@
   ("s" org-sort)
   ("x" org-todo)
   ("z" org-export-dispatch)
-  ("A" my/org-align-tags))
+  ("A" my/org-align-tags)
+  ("," my/org-elisp-block-macro))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -889,11 +891,10 @@
 (defhydra hydra-info-mode (:color yellow :hint nil :exit nil :foreign-keys nil)
   "
   ^
-    _u_: ↑  _l_: hist ←  _i_: index  _m_: menu
-    _p_: ←  _h_: hist →  _s_: search _k_: ref ↑
-    _n_: →  _t_: toc     _g_: goto   _j_: ref ↓ "
-
+    _p_: node ←   _l_: hist ←  _k_: ref ←  _u_: info ↑ _s_: search _t_: toc
+    _n_: node →   _h_: hist →  _j_: ref →  _e_: menu   _g_: goto   _i_: index "
   ("<escape>" nil)
+  ("m" nil)
 
   ("u" Info-up)
   ("p" Info-backward-node :exit nil)
@@ -907,39 +908,9 @@
   ("i" Info-index)
   ("g" Info-goto-node)
   ("s" Info-search)
-  ("m" Info-menu)
+  ("e" Info-menu)
   ("j" Info-next-reference)
   ("k" Info-prev-reference))
-
-(defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
-  "
-
-   ^Clock & Todos^
-   ------------------------------------
-   _i_: in       _m_: recent   _e_: effort
-   _o_: out      _c_: cancel   _a_: estimate
-   _l_: last     _y_: display  _s_: started
-   _h_: history  _x_: context  _t_: todo
-   _r_: report   _g_: goto     _d_: done
-  "
-  ("q" nil)
-  ("<escape>" nil)
-
-  ("i" org-clock-in)
-  ("o" org-clock-out)
-  ("l" org-clock-in-last)
-  ("r" org-clock-report)
-  ("c" org-clock-cancel)
-  ("y" org-clock-display)
-  ("m" org-mru-clock-in)
-  ("e" org-set-effort)
-  ("a" org-clock-modify-effort-estimate)
-  ("s" my/org-started)
-  ("d" my/org-done)
-  ("t" my/org-todo)
-  ("x" counsel-org-clock-context)
-  ("g" counsel-org-clock-goto)
-  ("h" counsel-org-clock-history))
 
 (defhydra hydra-help (:color blue :hint nil :exit t :foreign-keys nil)
 

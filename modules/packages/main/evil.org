@@ -10,6 +10,7 @@
 * About
 This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.org][Org file]] tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.el][evil.el]].
 * Evil Main
+** Declaration
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
   :after general
@@ -24,141 +25,148 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   (setq evil-jumps-cross-buffers t)
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-Y-yank-to-eol t)
-  :config
-  (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
-  (evil-set-initial-state 'pomidor-mode 'emacs)
-  (evil-set-initial-state 'Info-mode 'normal)
-  (evil-set-initial-state 'bongo-mode 'emacs)
-  (evil-set-initial-state 'shell-mode 'insert)
-  (evil-set-initial-state 'cheatsheet-mode 'emacs)
-  (setq undo-tree-auto-save-history nil)
-  (setq undo-tree-history-directory-alist
-        '(("." . "~/.emacs.d/var/undo-tree-hist/")))
-  (setq evil-insert-state-message nil)
-  (setq evil-respect-visual-line-mode nil)
-
-  (general-vmap
-    "C-c a" 'align-regexp)
-
-  (general-nmap
-    "`" 'evil-goto-mark-line
-    "'" 'evil-goto-mark
-    "M" 'evil-set-marker
-    "gm" 'hydra-text-motions/body
-    "gM" 'evil-middle-of-visual-line
-    "gu" 'fix-word-upcase
-    "gU" 'fix-word-downcase
-    "-" 'evil-next-line
-    "DEL" nil
-    "gr" 'sel-to-end
-    ;; "; " 'evil-ex
-    "; " 'hydra-org-agenda/body
-    "zn" 'org-hide-other
-    "zi" 'outline-show-all
-    "}" 'my/paragraph-forward
-    "go" 'cool-moves/open-line-below
-    "gi" 'cool-moves/open-line-above
-    "{" 'my/paragraph-backwards
-    "zj" 'evil-backward-word-end
-    "zk" 'evil-backward-WORD-end
-    "X" 'whack-whitespace
-    "ge" 'evil-end-of-visual-line
-    [escape] 'my/quiet-save-buffer)
-
-  (general-nvmap
-    :prefix "SPC"
-    "key" 'command
-    "H" 'evil-window-move-far-left
-    "K" 'evil-window-move-very-top
-    "L" 'evil-window-move-far-right
-    "J" 'evil-window-move-very-bottom)
-
-  (general-imap
-    "C-k" 'kill-line
-    "C-u" 'backward-kill-line
-    "C-SPC" nil
-    "C-c SPC" 'fix-word-capitalize
-    "C-c n" 'fix-word-upcase
-    "C-c d" 'fix-word-downcase)
-
-  (general-imap
-    :keymaps 'override
-    "C-w" 'evil-delete-backward-word
-    "M-/" 'hippie-expand
-    "C-h" 'delete-backward-char
-    "C-v " nil)
-
-  (general-nvmap
-    "Q" 'save-buffers-kill-terminal
-    "C-," 'helpful-at-point
-    "C-." 'helpful-variable
-    "C-;" 'helpful-function
-    "<left>" 'eyebrowse-prev-window-config
-    "<right>" 'eyebrowse-next-window-config
-    "k" 'evil-previous-visual-line
-    "j" 'evil-next-visual-line
-    "K" 'org-shiftdown
-    "C-SPC" 'caps-lock-mode
-    "M-e" 'evil-forward-sentence-begin
-    "M-a" 'evil-backward-sentence-begin)
-
-  (general-nvmap
-    :keymaps 'override
-    ;; "u" 'undo-only
-
-    "gn" 'my/evil-format-paragraph-function
-    "C-u" 'hydra-find-emacs-files/body
-    "!" 'delete-frame
-    "z=" 'endless/ispell-word-then-abbrev
-    "C-S-j" 'cool-moves/move-line-down
-    "C-S-k" 'cool-moves/move-line-up
-    "C-c k" nil
-    "<S-SPC>" nil
-    "z," 'evil-repeat
-    "gI" 'evil-insert-line
-    "gt" 'fix-word-capitalize
-    "gA" 'evil-append-line
-    "\\" 'evil-execute-in-god-state
-    ;; "g," 'evil-execute-in-god-state
-    "M-i" 'evil-jump-forward
-    "M-o" 'evil-jump-backward
-    "<M-S-f11>" 'my/evil-botright
-    "M-s" 'last-buffer
-    "$" 'evil-end-of-visual-line
-    "zd" 'evil-scroll-line-to-bottom
-    "0" 'evil-beginning-of-visual-line
-    "M-." 'nswbuff-switch-to-next-buffer
-    "M-," 'nswbuff-switch-to-previous-buffer)
-
-  (general-define-key
-   "C-c w" 'evil-window-next
-   "C-c W" 'evil-window-prev)
-
-  (general-define-key
-   :keymaps 'global
-   :states '(normal visual))
-
-  (general-imap
-    :keymaps 'i3wm-emacs-map
-    "<escape>" 'evil-normal-state)
-  (general-define-key
-   :keymaps 'evil-emacs-state-map
-   "<escape>" 'evil-normal-state)
-
-  (general-define-key
-   :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
-   "C-h" 'delete-backward-char
-   "C-h" 'delete-backward-char)
-
-  (general-nvmap
-    :keymaps 'override
-    "C-S-a" 'evil-numbers/inc-at-pt
-    "C-S-x" 'evil-numbers/dec-at-pt)
-
-  (evil-mode 1))
 #+END_SRC
+** Config
+**** Keybindings
+#+BEGIN_SRC emacs-lisp
+:config
 
-* Evil Others
+(general-vmap
+  "C-c a" 'align-regexp)
+
+(general-nmap
+  "`" 'evil-goto-mark-line
+  "'" 'evil-goto-mark
+  "M" 'evil-set-marker
+  "gm" 'hydra-text-motions/body
+  "gM" 'evil-middle-of-visual-line
+  "gu" 'fix-word-upcase
+  "gU" 'fix-word-downcase
+  "-" 'evil-next-line
+  "DEL" nil
+  "gr" 'sel-to-end
+  ;; "; " 'evil-ex
+  "; " 'hydra-org-agenda/body
+  "zn" 'org-hide-other
+  "zi" 'outline-show-all
+  "}" 'my/paragraph-forward
+  "go" 'cool-moves/open-line-below
+  "gi" 'cool-moves/open-line-above
+  "{" 'my/paragraph-backwards
+  "zj" 'evil-backward-word-end
+  "zk" 'evil-backward-WORD-end
+  "X" 'whack-whitespace
+  "ge" 'evil-end-of-visual-line
+  [escape] 'my/quiet-save-buffer)
+
+(general-nvmap
+  :prefix "SPC"
+  "key" 'command
+  "H" 'evil-window-move-far-left
+  "K" 'evil-window-move-very-top
+  "L" 'evil-window-move-far-right
+  "J" 'evil-window-move-very-bottom)
+
+(general-imap
+  "C-k" 'kill-line
+  "C-u" 'backward-kill-line
+  "C-SPC" nil
+  "C-c SPC" 'fix-word-capitalize
+  "C-c n" 'fix-word-upcase
+  "C-c d" 'fix-word-downcase)
+
+(general-imap
+  :keymaps 'override
+  "C-w" 'evil-delete-backward-word
+  "M-/" 'hippie-expand
+  "C-h" 'delete-backward-char
+  "C-v " nil)
+
+(general-nvmap
+  "Q" 'save-buffers-kill-terminal
+  "C-," 'helpful-at-point
+  "C-." 'helpful-variable
+  "C-;" 'helpful-function
+  "<left>" 'eyebrowse-prev-window-config
+  "<right>" 'eyebrowse-next-window-config
+  "k" 'evil-previous-visual-line
+  "j" 'evil-next-visual-line
+  "K" 'org-shiftdown
+  "C-SPC" 'caps-lock-mode
+  "M-e" 'evil-forward-sentence-begin
+  "M-a" 'evil-backward-sentence-begin)
+
+(general-nvmap
+  :keymaps 'override
+  ;; "u" 'undo-only
+
+  "gn" 'my/evil-format-paragraph-function
+  "C-u" 'hydra-find-emacs-files/body
+  "!" 'delete-frame
+  "z=" 'endless/ispell-word-then-abbrev
+  "C-S-j" 'cool-moves/move-line-down
+  "C-S-k" 'cool-moves/move-line-up
+  "C-c k" nil
+  "<S-SPC>" nil
+  "z," 'evil-repeat
+  "gI" 'evil-insert-line
+  "gt" 'fix-word-capitalize
+  "gA" 'evil-append-line
+  "\\" 'evil-execute-in-god-state
+  ;; "g," 'evil-execute-in-god-state
+  "M-i" 'evil-jump-forward
+  "M-o" 'evil-jump-backward
+  "<M-S-f11>" 'my/evil-botright
+  "M-s" 'last-buffer
+  "$" 'evil-end-of-visual-line
+  "zd" 'evil-scroll-line-to-bottom
+  "0" 'evil-beginning-of-visual-line
+  "M-." 'nswbuff-switch-to-next-buffer
+  "M-," 'nswbuff-switch-to-previous-buffer)
+
+(general-define-key
+ "C-c w" 'evil-window-next
+ "C-c W" 'evil-window-prev)
+
+(general-define-key
+ :keymaps 'global
+ :states '(normal visual))
+
+(general-imap
+  :keymaps 'i3wm-emacs-map
+  "<escape>" 'evil-normal-state)
+(general-define-key
+ :keymaps 'evil-emacs-state-map
+ "<escape>" 'evil-normal-state)
+
+(general-define-key
+ :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
+ "C-h" 'delete-backward-char
+ "C-h" 'delete-backward-char)
+
+(general-nvmap
+  :keymaps 'override
+  "C-S-a" 'evil-numbers/inc-at-pt
+  "C-S-x" 'evil-numbers/dec-at-pt)
+#+END_SRC
+**** Settings
+#+BEGIN_SRC emacs-lisp
+(evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
+(evil-set-initial-state 'pomidor-mode 'emacs)
+(evil-set-initial-state 'Info-mode 'normal)
+(evil-set-initial-state 'bongo-mode 'emacs)
+(evil-set-initial-state 'shell-mode 'insert)
+(evil-set-initial-state 'cheatsheet-mode 'emacs)
+(setq undo-tree-auto-save-history nil)
+(setq undo-tree-history-directory-alist
+      '(("." . "~/.emacs.d/var/undo-tree-hist/")))
+(setq evil-insert-state-message nil)
+(setq evil-respect-visual-line-mode nil)
+
+;;;; END EVIL-MODE USE-PACKACE DECLARATION ;;;;
+(evil-mode 1))
+#+END_SRC
+* Evil Org
 #+BEGIN_SRC emacs-lisp
 (use-package evil-org
   :ensure t
@@ -199,24 +207,32 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
     (interactive)
     (shut-up
       (evil-org-open-above 1))))
-
+#+END_SRC
+* Evil Commentary
+#+BEGIN_SRC emacs-lisp
 (use-package evil-commentary
   :after evil
   :ensure t
   :config
   (evil-commentary-mode 1))
-
+#+END_SRC
+* Evil Collection
+#+BEGIN_SRC emacs-lisp
 (use-package evil-collection
   :after evil
   :ensure t
   :config
   (evil-collection-init))
-
+#+END_SRC
+* Evil Surround
+#+BEGIN_SRC emacs-lisp
 (use-package evil-surround
   :ensure t
   :config
   (global-evil-surround-mode 1))
-
+#+END_SRC
+* Evil Exchange
+#+BEGIN_SRC emacs-lisp
 (use-package evil-exchange
   :after (evil general)
   :ensure t
@@ -227,26 +243,12 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
     "gX" 'evil-exchange-cancel)
 
   (evil-exchange-cx-install))
-
+#+END_SRC
+* Evil Numbers
+#+BEGIN_SRC emacs-lisp
 (use-package evil-numbers
   :defer t
   :ensure t)
-#+END_SRC
-* Evil MC
-#+BEGIN_SRC emacs-lisp
-;; (use-package evil-mc
-;;   :after evil
-;;   :ensure t
-;;   :config
-;; (general-define-key
-;;  "C-c m" 'evil-mc-make-all-cursors
-;;  "C-x m" 'evil-mc-undo-all-cursors)
-
-;; (general-nvmap
-;;   "C-c m" 'evil-mc-make-all-cursors
-;;   "C-x m" 'evil-mc-undo-all-cursors)
-;;   (global-ev
-;;   il-mc-mode  1))
 #+END_SRC
 * Evil Multiedit
 #+BEGIN_SRC emacs-lisp
@@ -262,7 +264,7 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
     "C-c m" 'evil-multiedit-match-all
     "C-x m" 'evil-multiedit-abort))
 #+END_SRC
-* evil-god-state
+* Evil God State
 #+BEGIN_SRC emacs-lisp
 (use-package evil-god-state
   :ensure t
@@ -273,6 +275,3 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   :ensure t
   :config  (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
 #+END_SRC
-
-
-

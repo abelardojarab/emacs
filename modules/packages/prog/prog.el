@@ -207,9 +207,9 @@
 (use-package yasnippet
   :ensure t
   ;; from http://bit.ly/2TEkmif
-  :bind (:map yas-minor-mode-map
-              ("TAB" . nil)
-              ("<tab>" . nil))
+  ;; :bind (:map yas-minor-mode-map
+  ;;             ("TAB" . nil)
+  ;;             ("<tab>" . nil))
   :init
   (setq yas--default-user-snippets-dir "~/.emacs.d/etc/yasnippet/snippets")
   ;; (add-hook 'yas-before-expand-snippet-hook 'my/yas-before-hooks)

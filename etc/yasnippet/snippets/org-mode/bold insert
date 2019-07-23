@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: bold insert 
-# key: b
+# key: bi
 # --
 *$1 * $0

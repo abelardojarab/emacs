@@ -57,7 +57,8 @@
   (defun my/info-hook-commands ()
     (interactive)
     (line-no-numbers)
-    (hl-line-mode +1))
+    (hl-line-mode +1)
+    (message ""))
 
   (defun my/info-commands ()
     (interactive)

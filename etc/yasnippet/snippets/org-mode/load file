@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: load file
+# key: load-file
+# --
+(load-file "`(yank)`")

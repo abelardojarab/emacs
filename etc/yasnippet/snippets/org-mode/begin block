@@ -1,4 +1,4 @@
-# key: beg
+# key: b
 # name: begin block
 # --
 #+BEGIN_SRC emacs-lisp
