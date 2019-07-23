@@ -397,7 +397,7 @@
     (subword-mode 1)
     (tab-jump-out-mode 1)
     ;; (olivetti-mode +1)
-    (turn-on-auto-fill)
+    ;; (turn-on-auto-fill)
     )
 
   :ensure nil
