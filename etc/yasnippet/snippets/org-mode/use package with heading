@@ -3,11 +3,9 @@
 # --
 * ${1:package}
 #+BEGIN_SRC emacs-lisp
-(use-package $1${2:
-:defer t}
-:ensure ${3:
-$$(yas-choose-value '("t" "nil"))}${4:
-:config}
-;;;; END OF ${1:$$(upcase yas-text)} USE-PACKACE DECLARATION ;;;;$0
+(use-package $2
+:defer t
+:ensure ${3: $$(yas-choose-value '("t" "nil"))}${4:
+:config}$0
 #+END_SRC
 

@@ -26,12 +26,12 @@
 
 (general-define-key
  :keymaps 'company-filter-map
- "TAB" 'my/company-complete-first
+ "TAB" nil
  "M-h" 'company-quickhelp-manual-begin
  "M-d" 'company-filter-candidates
  "C-k" 'my/company-complete
  "M-o" 'my/company-yasnippet)
- ;; "RET" 'company-complete)
+;; "RET" 'company-complete)
 
 (general-imap
   :keymaps 'company-mode-map

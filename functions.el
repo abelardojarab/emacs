@@ -1,5 +1,0 @@
-(defun my/settings-leituras.org ()
-  (interactive)
-  (company-mode)
-  (my/company-idle-one-prefix-one-quiet)
-  (org-hide-drawers-disable))
