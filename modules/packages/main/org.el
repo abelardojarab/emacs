@@ -202,13 +202,8 @@
 (setq org-fontify-done-headline t)
 (setq org-fontify-whole-heading-line nil)
 
-;;  WITH LOGGING
-;; (setq org-todo-keywords
-;;       '((sequence "T(t!) TODO(t!)" "S(s!) ""STARTED(s!)" "|"  "DONE(d!) "D(d!)")))
-
-;;  WITHOUT LOGGING
 (setq org-todo-keywords
-      '((sequence "T(t)" "TODO(t)" "S(s)" "STARTED(s)" "|"  "DONE(d)" "D(d)")))
+      '((sequence "TODO(t)" "STARTED(s)" "|"  "DONE(d)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)

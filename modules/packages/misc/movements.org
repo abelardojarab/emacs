@@ -1,4 +1,5 @@
 #+PROPERTY: header-args :tangle yes
+#+STARTUP: overview
 
 * TOC                                                                     :toc:
 - [[#visual-line][visual line]]
@@ -43,14 +44,18 @@
   (diredp-toggle-find-file-reuse-dir t))
 #+END_SRC
 * Ranger
+** Ranger Declaration
 #+BEGIN_SRC emacs-lisp
 (use-package ranger
   :ensure t
   :init
   (add-hook 'ranger-mode-hook 'my/ranger-options)
   (add-hook 'ranger-parent-dir-hook 'my/ranger-options-parent)
+#+END_SRC
+** Ranger Config
+*** Ranger Keybindings
+#+BEGIN_SRC emacs-lisp
   :config
-  ;;;; KEYS ;;;;
   (general-define-key
    :keymaps 'ranger-mode-map
    "," 'olivetti-mode
@@ -105,142 +110,141 @@
     :keymaps 'override
     ;; "SPC" 'ranger-find-links-dir
     "r" 'ranger)
-
-  ;;;; SETTINGS ;;;;
-  (setq ranger-footer-delay nil)
-  (setq ranger-minimal t)
-  (setq ranger-footer-delay 0)
-  (setq ranger-parent-depth 1)
-  (setq ranger-preview-file nil)
-  (setq ranger-override-dired t)
-  (setq ranger-persistent-sort t)
-  (setq ranger-cleanup-eagerly t)
-  (setq ranger-dont-show-binary t)
-  (setq ranger-width-preview 0.40)
-  (setq ranger-width-parents 0.20)
-  (setq ranger-max-preview-size 0.1)
-  (setq ranger-cleanup-on-disable t)
-  (setq ranger-return-to-ranger nil)
-  (setq ranger-deer-show-details nil)
-  (setq ranger-max-parent-width 0.45)
-  (setq ranger-excluded-extensions '("mkv" "iso" "mp4" "bin" "exe" "msi" "pdf" "doc" "docx"))
-
-  ;;;; FUNCTIONS ;;;;
-  (defun my/ranger-go (path)
-    (interactive
-     (list
-      (read-char-choice
-       "
-
-a : math
-d : dotfiles
-e : emacs.d
-h : home
+#+END_SRC
+*** Ranger Settings
+#+BEGIN_SRC emacs-lisp
+(setq ranger-footer-delay nil)
+(setq ranger-minimal t)
+(setq ranger-footer-delay 0)
+(setq ranger-parent-depth 1)
+(setq ranger-preview-file nil)
+(setq ranger-override-dired t)
+(setq ranger-persistent-sort t)
+(setq ranger-cleanup-eagerly t)
+(setq ranger-dont-show-binary t)
+(setq ranger-width-preview 0.40)
+(setq ranger-width-parents 0.20)
+(setq ranger-max-preview-size 0.1)
+(setq ranger-cleanup-on-disable t)
+(setq ranger-return-to-ranger nil)
+(setq ranger-deer-show-details nil)
+(setq ranger-max-parent-width 0.45)
+(setq ranger-excluded-extensions '("mkv" "iso" "mp4" "bin" "exe" "msi" "pdf" "doc" "docx"))
+#+END_SRC
+*** Ranger Functions
+#+BEGIN_SRC emacs-lisp
+(defun my/ranger-go (path)
+  (interactive
+   (list
+    (read-char-choice
+     "
+a : math       o : org
+d : dotfiles   p : posts
+e : emacs.d    s : scripts
+h : home       t : studying
 m : modules
-o : org
-s : scripts
-t : studying
 > "
-       '(?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?l ?m ?n ?o ?p ?q ?r ?s ?t ?z))))
-    (message nil)
-    (let* ((c (char-to-string path))
-           (new-path
-            (cl-case (intern c)
-              ('a "~/Math")
-              ('d "~/dotfiles")
-              ('e "~/.emacs.d")
-              ('h "~")
-              ('m "~/.emacs.d/modules")
-              ('o "~/org")
-              ('s "~/scripts")
-              ('t "~/Studying")
-              ('q nil)))
-           (alt-option
-            (cl-case (intern c)
-              ;; Subdir Handlng
-              ('j 'ranger-next-subdir)
-              ('k 'ranger-prev-subdir)
-              ;; Tab Handling
-              ('n 'ranger-new-tab)
-              ('T 'ranger-prev-tab)
-              ('t 'ranger-next-tab)
-              ('c 'ranger-close-tab))))
-      (when (string-equal c "q")
-        (keyboard-quit))
-      (when (and new-path (file-directory-p new-path))
-        (ranger-find-file new-path))
-      (when (eq system-type 'windows-nt)
-        (when (string-equal c "D")
-          (ranger-show-drives)))
-      (when alt-option
-        (call-interactively alt-option))))
-  (advice-add 'ranger-go :override #'my/ranger-go)
+     '(?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?l ?m ?n ?o ?p ?q ?r ?s ?t ?z))))
+  (message nil)
+  (let* ((c (char-to-string path))
+         (new-path
+          (cl-case (intern c)
+            ('a "~/Math")
+            ('d "~/dotfiles")
+            ('e "~/.emacs.d")
+            ('h "~")
+            ('m "~/.emacs.d/modules")
+            ('o "~/org")
+            ('p "~/Literatura/Blog/posts")
+            ('s "~/scripts")
+            ('t "~/Studying")
+            ('q nil)))
+         (alt-option
+          (cl-case (intern c)
+            ;; Subdir Handlng
+            ('j 'ranger-next-subdir)
+            ('k 'ranger-prev-subdir)
+            ;; Tab Handling
+            ('n 'ranger-new-tab)
+            ('T 'ranger-prev-tab)
+            ('t 'ranger-next-tab)
+            ('c 'ranger-close-tab))))
+    (when (string-equal c "q")
+      (keyboard-quit))
+    (when (and new-path (file-directory-p new-path))
+      (ranger-find-file new-path))
+    (when (eq system-type 'windows-nt)
+      (when (string-equal c "D")
+        (ranger-show-drives)))
+    (when alt-option
+      (call-interactively alt-option))))
+(advice-add 'ranger-go :override #'my/ranger-go)
 
 ;;;; OPTIONS ;;;
-  (defun my/ranger-options
-      () (interactive)
-      (let ((inhibit-message t))
-        (setq truncate-lines t))
-      (line-numbers)
-      (olivetti-mode 1))
+(defun my/ranger-options
+    () (interactive)
+    (let ((inhibit-message t))
+      (setq truncate-lines t))
+    (line-numbers)
+    (olivetti-mode 1))
 
-  (defun my/ranger-options-parent () (interactive)
-         (let ((inhibit-message t))
-           (setq truncate-lines t)
-           (line-no-numbers)
-           (dired-hide-details-mode)))
+(defun my/ranger-options-parent () (interactive)
+       (let ((inhibit-message t))
+         (setq truncate-lines t)
+         (line-no-numbers)
+         (dired-hide-details-mode)))
 
 ;;;; COMMANDS ;;;;
-  (defun my/ranger-toggle-mark ()
-    (interactive)
-    (ranger-toggle-mark)
-    (ranger-next-file 1))
+(defun my/ranger-toggle-mark ()
+  (interactive)
+  (ranger-toggle-mark)
+  (ranger-next-file 1))
 
-  (defun my/ranger-toggle-mark ()
-    (interactive)
-    (ranger-toggle-mark)
-    (ranger-next-file 1))
+(defun my/ranger-toggle-mark ()
+  (interactive)
+  (ranger-toggle-mark)
+  (ranger-next-file 1))
 
-  (defun my/dired-do-find-marked-files ()
-    (interactive)
-    (dired-do-find-marked-files)
-    (delete-other-windows))
+(defun my/dired-do-find-marked-files ()
+  (interactive)
+  (dired-do-find-marked-files)
+  (delete-other-windows))
 
 ;;;; FIND ;;;;
-  (defun ranger-find-bashdot ()
-    (interactive)
-    (let ((inhibit-message t))
-      (ranger-find-file "/home/dotfiles/bash/")))
+(defun ranger-find-bashdot ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "/home/dotfiles/bash/")))
 
-  (defun ranger-find-nvim-dir ()
-    (interactive)
-    (let ((inhibit-message t))
-      (ranger-find-file "~/.config/nvim")))
+(defun ranger-find-nvim-dir ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "~/.config/nvim")))
 
-  (defun ranger-find-scripts-dir ()
-    (interactive)
-    (let ((inhibit-message t))
-      (ranger-find-file "~/scripts")))
+(defun ranger-find-scripts-dir ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "~/scripts")))
 
-  (defun ranger-find-emacs-dir ()
-    (interactive)
-    (let ((inhibit-message t))
-      (ranger-find-file "~/.emacs.d")))
+(defun ranger-find-emacs-dir ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "~/.emacs.d")))
 
-  (defun my/ranger-find-math-dir ()
-    (interactive)
-    (let ((inhibit-message t))
-      (ranger-find-file "~/Math")))
+(defun my/ranger-find-math-dir ()
+  (interactive)
+  (let ((inhibit-message t))
+    (ranger-find-file "~/Math")))
 
-  (defun ranger-find-file-in-workspace ()
-    (interactive)
-    (ranger-find-file)
-    (duplicate-workspace-buffer))
+(defun ranger-find-file-in-workspace ()
+  (interactive)
+  (ranger-find-file)
+  (duplicate-workspace-buffer))
 
-  (defun my/ranger ()
-    (interactive)
-    (my/copy-dir)
-    (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger")))
+(defun my/ranger ()
+  (interactive)
+  (my/copy-dir)
+  (start-process-shell-command "my/show-ranger" nil "~/scripts/emacs_scripts/show-ranger")))
 #+END_SRC
 
 * buffer move
@@ -587,6 +591,14 @@ t : studying
 * targets
 #+BEGIN_SRC emacs-lisp
 (use-package targets
+  :load-path "~/.emacs.d/modules/packages/lisp/"
+  :config
+  (targets-setup t))
+#+END_SRC
+
+* hercules
+#+BEGIN_SRC emacs-lisp
+(use-package hercules
   :load-path "~/.emacs.d/modules/packages/lisp/"
   :config
   (targets-setup t))

@@ -49,7 +49,7 @@
 
 (defun my/org-align-tags ()
   (interactive)
-  (org-align-tags))
+  (org-align-all-tags))
 
 (defun my/org-property-commands ()
   (interactive)

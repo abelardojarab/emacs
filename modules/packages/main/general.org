@@ -1,4 +1,5 @@
 #+PROPERTY: header-args :tangle yes
+#+STARTUP: overview
 
 * Declaration
 #+BEGIN_SRC emacs-lisp

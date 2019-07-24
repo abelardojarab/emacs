@@ -1078,23 +1078,21 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
      -------------------------
      _a_: main      _d_: dotfiles
      _r_: org       _e_: emacs
-     _m_: markdown  _u_: modules
-     _i_: elisp     _o_: agenda.org
+     _m_: markdown  _o_: quick files
+     _i_: elisp
 "
   ("<escape>" nil)
 
   ("a" my/goto-scratch-buffer)
   ("r" find-scratch-org)
-  ("o" my/find-org-agenda-file)
-  ("C-o" my/find-org-agenda-file)
+  ("o" hydra-quickfiles-fzf/body)
+  ("C-o" hydra-quickfiles-fzf/body)
 
   ("i" find-scratch-elisp)
   ("m" find-scratch-markdown)
 
   ("d" hydra-find-dotfiles/body)
-  ("e" hydra-find-emacs-files/body)
-  ("C-u" my/counsel-fzf-modules)
-  ("u" my/counsel-fzf-modules))
+  ("e" hydra-find-emacs-files/body))
 #+END_SRC
 
 *** emacs
@@ -1104,11 +1102,10 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ^
      ^Emacs Files^
      --------------------------
-     _I_: init.el   _o_: org
-     _i_: init.org  _h_: hydras
-     _p_: packages  _u_: all files
-     _s_: settings
-     _f_: functions
+      _i_: init.org   _o_: org
+      _p_: packages   _h_: hydras
+      _s_: settings   _u_: all files
+      _f_: functions
 
 "
   ("<escape>" nil)
@@ -1132,6 +1129,10 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 
   ("C-h" my/emacs-hydras-counsel-ag)
   ("h" my/emacs-hydras-counsel-ag))
+
+(defun my/emacs-dir-counsel-ag ()
+  (interactive)
+  (counsel-ag nil "~/.emacs.d/modules"))
 
 (defun my/emacs-dir-counsel-ag ()
   (interactive)
@@ -1189,7 +1190,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
       _a_: aliases      _n_: conf/nvim
       _d_: files        _t_: tmux.conf
       _c_: completions  _3_: i3/config
-      _z_: zathurarc
+      _z_: zathurarc    _f_: files
 "
 
   ("<escape>" nil)
@@ -1206,5 +1207,50 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("s" ranger-find-scripts-dir)
   ("3" find-i3-config)
   ("#" my/goto-i3-screen-configs)
-  ("c" find-bash-completion))
+  ("c" find-bash-completion)
+  ("f" hydra-find-dotfiles-fzf/body))
+#+END_SRC
+
+*** dotfiles-fzf
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-quickfiles-fzf (:hint nil :color blue)
+  "
+
+     ^Find Files^
+     ---------------
+     _o_: org
+     _b_: bash
+     _m_: modules
+     _p_: packages
+     _s_: settings
+
+ "
+
+  ("<escape>" nil)
+  ("o" my/find-org-files-fzf)
+  ("C-o" my/find-org-files-fzf)
+  ("b" my/find-bash-dotfiles-fzf)
+  ("m" my/find-emacs-modules-fzf)
+  ("p" my/find-emacs-packages-fzf)
+  ("s" my/find-emacs-settings-fzf))
+
+(defun my/find-org-files-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/org"))
+
+(defun my/find-bash-dotfiles-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/.bash"))
+
+(defun my/find-emacs-modules-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/.emacs.d/modules"))
+
+(defun my/find-emacs-packages-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/.emacs.d/modules/packages"))
+
+(defun my/find-emacs-settings-fzf ()
+  (interactive)
+  (counsel-fzf nil "~/.emacs.d/modules/settings"))
 #+END_SRC

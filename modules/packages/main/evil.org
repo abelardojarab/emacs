@@ -10,7 +10,7 @@
 * About
 This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.org][Org file]] tangles to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.el][evil.el]].
 * Evil Main
-** Declaration
+** Evil Declaration
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil
   :after general
@@ -26,8 +26,8 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-Y-yank-to-eol t)
 #+END_SRC
-** Config
-**** Keybindings
+** Evil Config
+**** Evil Keybindings
 #+BEGIN_SRC emacs-lisp
 :config
 
@@ -154,7 +154,7 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
   "C-S-x" 'evil-numbers/dec-at-pt)
 #+END_SRC
 
-**** Settings
+**** Evil Settings
 #+BEGIN_SRC emacs-lisp
 (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
 (evil-set-initial-state 'pomidor-mode 'emacs)
