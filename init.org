@@ -32,10 +32,11 @@
 (setq initial-buffer-choice nil)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
-(setq default-frame-alist '((font . "Input Mono Light 13")))
+(setq default-frame-alist '((font . "Input Mono Light 14")))
 (require 'bind-key)
 (require 'use-package)
 #+END_SRC
+
 * Menu Bar
 #+BEGIN_SRC emacs-lisp
 (use-package menu-bar

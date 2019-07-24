@@ -394,7 +394,7 @@
   :ensure t
   :config
   (setq sp-escape-quotes-after-insert nil)
-  (smartparens-global-mode +1)
+  ;; (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
 
 (use-package elec-pair

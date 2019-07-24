@@ -23,7 +23,7 @@
   ;; "l" 'my/split-right
   "r" 'ranger
   "g" 'my/ranger
-
+  "k" 'hydra-kill/body
   "q" 'my/kill-this-buffer
   "0" 'delete-window
   "U" 'widenToCenter
@@ -47,6 +47,19 @@
 
 (general-unbind 'global
   "<C-next>"
+ ;; "[("
+ ;; "[)"
+ ;; "[{"
+ ;; "[}"
+ ;; "[]"
+ ;; "]("
+ ;; "])"
+ ;; "]{"
+ ;; "]}"
+ ;; "]]"
+ ;; "[["
+ ;; "["
+ ;; "[["
   "C-w"
   "C-c w"
   "M-u"

@@ -664,7 +664,7 @@
        ---------------------------------------------
        _s_: setq        _m_: move line     _g_: agg fill
        _f_: hydra key   _l_: copy line     _i_: auto fill
-       _h_: hl sents    _a_: text adju     _z_: show fill
+                        _a_: text adju     _z_: show fill
                       _v_: visible mode  _e_: enable fills
                       _c_: to chrome     _d_: disable fills
                                         _p_: insert par

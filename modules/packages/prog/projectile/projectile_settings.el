@@ -113,6 +113,7 @@
                                             "*server*"
                                             "*code-conversion-work*"
                                             "*blacken-error*"
+                                            "*Org PDF LaTeX Output*"
                                             "*quickrun*"))
 
 (setq projectile-project-search-path nil)

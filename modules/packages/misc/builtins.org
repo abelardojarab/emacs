@@ -77,6 +77,9 @@
     (interactive)
     (counsel-M-x "^Info- "))
 
+  (general-unbind 'info-mode-map
+    "]]")
+
   (general-unbind 'Info-mode-map
     :with 'ignore
     [remap evil-exit-emacs-state])

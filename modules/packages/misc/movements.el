@@ -335,7 +335,8 @@ t : studying
                              "*Warning*"
                              "*Messages*"
                              "i3keys.org"
-                             "info_keys.org"))
+                             "info_keys.org"
+                             "*Org PDF LaTeX Output*"))
 
 ;;;; CONFIG ;;;;
   :config
@@ -608,6 +609,7 @@ t : studying
 
   (setq nswbuff-exclude-buffer-regexps '("^\\*.*\\*"
                                          "Dired"
+                                         "*counsel*"
                                          "*slime-repl sbcl"
                                          "erc-mode"
                                          "help-mode"
@@ -636,7 +638,6 @@ t : studying
                                          "\\`\\*Minibuf"
                                          "Ibuffer"
                                          "epc con"
-                                         "*Shell Command Output*"
                                          "*Calculator*"
                                          "*Calendar*"
                                          "*cheatsheet*"
@@ -672,7 +673,6 @@ t : studying
                                          "^.archive.org$"
                                          ".*magit.*"
                                          ".*elc"
-                                         "*shell*"
                                          "*new*"
                                          "*Flycheck error messages*"
                                          "*clang-output*"
@@ -686,8 +686,14 @@ t : studying
                                          "*blacken*"
                                          "*server*"
                                          "*code-conversion-work*"
+                                         "*Org PDF LaTeX Output*"
                                          "*blacken-error*"
-                                         "*quickrun*")))
+                                         "*quickrun*"
+                                         "*pdf-info-query--parse-response*"
+                                         "*pdf-info-query--escape*"
+                                         "*epdfinfo*"
+                                         "*org-src-fontification:emacs-lisp-mode*"
+                                         "tq-temp-epdfinfo")))
 
 (use-package link-hint
   :ensure t)

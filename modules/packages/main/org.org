@@ -185,7 +185,7 @@ DEADLINE: <2019-07-13 Sat -14d>
 (setq org-edit-src-persistent-message nil)
 (setq org-edit-src-auto-save-idle-delay 1)
 
-(setq org-src-fontify-natively t)
+(setq org-src-fontify-natively nil)
 (setq org-src-tab-acts-natively t)
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c t)
@@ -475,7 +475,7 @@ DEADLINE: <2019-07-13 Sat -14d>
 (defun org-1-day-agenda ()
   (interactive)
   (let ((current-prefix-arg 1)
-        (org-deadline-warning-days -1))
+        (org-deadline-warning-days 0))
     (org-agenda t "a")))
 
 (defun org-2-days-agenda ()
