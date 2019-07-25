@@ -475,7 +475,7 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
 
       ^Move^   ^Resize       ^Split
       ------------------------------------
-      _K_: ↑   _H_: width+    _h_: left
+      _up_: ↑   _H_: width+    _h_: left
       _J_: ↓   _L_: width-    _l_: righ
       _H_: ←   _K_: height    _k_: up
       _L_: →   _J_: height    _j_: down
@@ -485,10 +485,10 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   ("<escape>" nil)
   ("RET" nil)
 
-  ("K" buf-move-up)
-  ("H" buf-move-left)
-  ("J" buf-move-down)
-  ("L" buf-move-right)
+  ("<up>" buf-move-up)
+  ("<left>" buf-move-left)
+  ("<down>" buf-move-down)
+  ("<right>" buf-move-right)
 
   ("H" my/evil-inc-width :exit nil)
   ("L" my/evil-dec-width :exit nil)

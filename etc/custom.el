@@ -9,7 +9,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(centered-cursor-mode centered-cursor use-package)))
+ '(line-spacing 0.2)
+ '(org-agenda-files
+   '("/home/george/org/Agenda/agenda.org" "/home/george/org/Agenda/contatos.org" "/home/george/org/Agenda/estudos.org" "/home/george/org/Agenda/leituras.org" "/home/george/org/Agenda/notes_refile.org" "/home/george/org/Agenda/projetos.org" "/home/george/org/Agenda/saude.org" "/home/george/org/Agenda/writing.org"))
+ '(package-selected-packages
+   '(poet-theme centered-cursor-mode centered-cursor use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

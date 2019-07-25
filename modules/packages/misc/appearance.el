@@ -59,3 +59,9 @@
   (setq custom-safe-themes t)
   :config
   (load-theme 'doom-dracula))
+
+(use-package poet-theme
+  :defer t
+  :ensure t
+  :init
+  (setq custom-safe-themes t))

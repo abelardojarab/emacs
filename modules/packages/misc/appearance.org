@@ -75,3 +75,11 @@
   :config
   (load-theme 'doom-dracula))
 #+END_SRC
+** poet-theme
+#+BEGIN_SRC emacs-lisp
+(use-package poet-theme
+  :defer t
+  :ensure t
+  :init
+  (setq custom-safe-themes t))
+  #+END_SRC

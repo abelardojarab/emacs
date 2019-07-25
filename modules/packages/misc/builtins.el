@@ -70,11 +70,7 @@
     [remap evil-exit-emacs-state])
 
   (general-unbind 'Info-mode-map
-    :with 'ignore
-    [remap my/quiet-save-buffer])
-
-  (general-unbind 'Info-mode-map
-    :with 'ignore
+    :with 'evil-ex-nohighlight
     [remap my/quiet-save-buffer])
 
   (general-unbind 'Info-mode-map
@@ -87,6 +83,7 @@
 
   (general-nvmap
     :keymaps 'Info-mode-map
+    "C-c C-c" 'eval-last-sexp
     "<left>" 'evil-backward-sentence-begin
     "<right>" 'evil-forward-sentence-begin
     "<up>" 'my/paragraph-backwards
@@ -1053,7 +1050,7 @@
     (interactive)
     (switch-to-buffer (other-buffer (current-buffer) 1)))
 
-  (add-hook 'after-change-major-mode-hook 'line-numbers)
+  ;; (add-hook 'after-change-major-mode-hook 'line-numbers)
   (fset 'yes-or-no-p 'y-or-n-p)
 
   (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))

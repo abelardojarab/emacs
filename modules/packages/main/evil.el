@@ -44,6 +44,7 @@
 
 (general-nvmap
   :prefix "SPC"
+  :keymaps 'override
   "ç" 'fill-buffer
   "H" 'evil-window-move-far-left
   "K" 'evil-window-move-very-top
