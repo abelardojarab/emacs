@@ -65,3 +65,7 @@
   :ensure t
   :init
   (setq custom-safe-themes t))
+
+(use-package kaolin-themes
+  :defer t
+  :ensure t)

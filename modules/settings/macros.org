@@ -111,8 +111,8 @@
 (fset 'my/show-variable-at-point
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([8 118 return] 0 "%d") arg)))
 
-(fset 'my/disable-current-theme
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '("Ld" 0 "%d") arg)))
+(fset 'my/disable-theme
+   (kmacro-lambda-form [134217848 ?d ?i ?s ?a ?b ?l ?e ?- ?t ?h ?e ?m ?e return return] 0 "%d"))
 
 (fset 'adjust-cheatsheet-window
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([32 116 106 escape] 0 "%d") arg)))

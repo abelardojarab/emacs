@@ -96,7 +96,7 @@
     "C-j" 'counsel-M-x
     "H" 'Info-history-back
     "L" 'Info-history-forward
-    "m" 'hydra-info-mode/body
+    "m" 'Info-menu
     "c" 'my/info-commands)
 
   (general-define-key
@@ -109,7 +109,7 @@
 
   (general-define-key
    :keymaps 'Info-mode-map
-   "m" 'hydra-info-mode/body
+   "m" 'Info-menu
    "C-q" 'my/cheat-sheet))
 
 ;; (use-package bs
@@ -1050,7 +1050,7 @@
     (interactive)
     (switch-to-buffer (other-buffer (current-buffer) 1)))
 
-  ;; (add-hook 'after-change-major-mode-hook 'line-numbers)
+  (add-hook 'after-change-major-mode-hook 'line-numbers)
   (fset 'yes-or-no-p 'y-or-n-p)
 
   (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))

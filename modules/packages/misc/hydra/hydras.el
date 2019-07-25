@@ -408,22 +408,17 @@
 (defhydra hydra-window (:color blue :hint nil :exit nil :foreign-keys nil)
   "
 
-      ^Move^   ^Resize       ^Split
-      ------------------------------------
-      _up_: ↑   _H_: width+    _h_: left
-      _J_: ↓   _L_: width-    _l_: righ
-      _H_: ←   _K_: height    _k_: up
-      _L_: →   _J_: height    _j_: down
-      ^^       _b_: balance
-      ^^       _r_: botright
+      ^Resize       ^Split
+      ---------------------------
+      _H_: width+    _h_: left
+      _L_: width-    _l_: righ
+      _K_: height    _k_: up
+      _J_: height    _j_: down
+      _b_: balance
+      _r_: botright
   "
   ("<escape>" nil)
   ("RET" nil)
-
-  ("<up>" buf-move-up)
-  ("<left>" buf-move-left)
-  ("<down>" buf-move-down)
-  ("<right>" buf-move-right)
 
   ("H" my/evil-inc-width :exit nil)
   ("L" my/evil-dec-width :exit nil)
@@ -596,7 +591,7 @@
        _n_: hl line            _p_: fill paragraph
        _H_: hl lines           _a_: unfill paragraph
        _h_: hl sents           _b_: fil buffer
-                               _u_: unfill buffer "
+       _x_: disable theme      _u_: unfill buffer "
 
   ("<escape>" nil)
   ("SPC" hydra-text-commands/body)
@@ -620,7 +615,14 @@
   ("u" unfill-buffer)
 
   ("h" my/hl-only-sentences)
-  ("H" my/hl-only-lines))
+  ("H" my/hl-only-lines)
+
+  ("x" my/counsel-load-theme))
+
+(defun my/counsel-load-theme ()
+  (interactive)
+  (my/disable-theme)
+  (counsel-M-x "load-theme"))
 
 (defhydra hydra-text-motions (:color amaranth :hint nil :foreign-keys nil)
   "
@@ -662,12 +664,12 @@
  ^
        ^More Text^
        ---------------------------------------------
-       _s_: setq        _m_: move line     _g_: agg fill
-       _f_: hydra key   _l_: copy line     _i_: auto fill
-                        _a_: text adju     _z_: show fill
-                      _v_: visible mode  _e_: enable fills
-                      _c_: to chrome     _d_: disable fills
-                                        _p_: insert par
+       _s_: setq         _m_: move line      _g_: agg fill
+       _f_: hydra key    _l_: copy line      _i_: auto fill
+       _a_: text adju    _z_: show fill      _p_: insert par
+       _v_: visible mode _e_: enable fills
+       _c_: to chrome    _d_: disable fills
+
        ^^
   "
   ("<escape>" nil)
@@ -891,27 +893,23 @@
   ("p" my/update-agenda-files))
 
 
-(defhydra hydra-info-mode (:color yellow :hint nil :exit nil :foreign-keys nil)
+(defhydra hydra-info-mode (:color blue :hint nil :foreign-keys nil)
   "
   ^
-    _p_: node ←   _l_: hist ←  _k_: ref ←  _u_: info ↑ _s_: search _t_: toc
-    _n_: node →   _h_: hist →  _j_: ref →  _e_: menu   _g_: goto   _i_: index "
+    _p_: node ←  _k_: ref ←  _u_: info ↑ _s_: search _t_: toc
+    _n_: node →  _j_: ref →  _m_: menu   _g_: goto   _i_: index "
+
   ("<escape>" nil)
-  ("m" nil)
+  ("q" nil)
 
   ("u" Info-up)
-  ("p" Info-backward-node :exit nil)
-  ("n" Info-forward-node :exit nil)
-
-  ("H" Info-history)
-  ("h" Info-history-back)
-  ("l" Info-history-forward)
-
+  ("p" Info-backward-node)
+  ("n" Info-forward-node)
   ("t" Info-toc)
-  ("i" Info-index)
+  ("i" Info-inde )
   ("g" Info-goto-node)
   ("s" Info-search)
-  ("e" Info-menu)
+  ("m" Info-menu)
   ("j" Info-next-reference)
   ("k" Info-prev-reference))
 
