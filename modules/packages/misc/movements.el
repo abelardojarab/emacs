@@ -697,3 +697,9 @@ m : modules
 
 (use-package link-hint
   :ensure t)
+
+(use-package centered-cursor-mode
+  :defer t
+  :ensure t
+  :config
+  (setq ccm-recenter-at-end-of-file t))

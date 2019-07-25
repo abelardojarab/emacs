@@ -51,25 +51,27 @@
 
   (defun my/eval-next-sexp-function ()
     (interactive)
-    (save-excursion
-      (my/eval-next-sexp-macro)))
+    (my/eval-next-sexp-macro))
 
   (defun my/info-hook-commands ()
     (interactive)
     (line-no-numbers)
     (hl-line-mode +1)
+    (centered-cursor-mode +1)
+    (my/hl-only-sentences)
     (message ""))
 
   (defun my/info-commands ()
     (interactive)
     (counsel-M-x "^Info- "))
 
-  (general-unbind 'info-mode-map
-    "]]")
-
   (general-unbind 'Info-mode-map
     :with 'ignore
     [remap evil-exit-emacs-state])
+
+  (general-unbind 'Info-mode-map
+    :with 'ignore
+    [remap my/quiet-save-buffer])
 
   (general-unbind 'Info-mode-map
     :with 'ignore
@@ -85,8 +87,15 @@
 
   (general-nvmap
     :keymaps 'Info-mode-map
+    "<left>" 'evil-backward-sentence-begin
+    "<right>" 'evil-forward-sentence-begin
+    "<up>" 'my/paragraph-backwards
+    "<down>" 'my/paragraph-forward
+    "C-n" 'Info-forward-node
+    "C-p" 'Info-backward-node
     "<backspace>" 'link-hint-open-link
     "<C-return>" 'my/eval-next-sexp-function
+    "M-n" 'my/paragraph-forward
     "C-j" 'counsel-M-x
     "H" 'Info-history-back
     "L" 'Info-history-forward
@@ -95,6 +104,8 @@
 
   (general-define-key
    :keymaps 'Info-mode-map
+   "<left>" 'evil-backward-sentence-begin
+   "<right>" 'evil-forward-sentence-begin
    "H" 'Info-history-back
    "L" 'Info-history-forward
    "c" 'my/info-commands)

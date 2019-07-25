@@ -23,6 +23,7 @@
   "q" 'my/kill-this-buffer)
 
 (general-nvmap
+  :keymaps 'override
   "C-o" 'hydra-find-file/body)
 
 (general-imap

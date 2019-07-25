@@ -2,24 +2,29 @@
 #+STARTUP: overview
 
 * TOC                                                                     :toc:
-- [[#visual-line][visual line]]
-- [[#find-file-in-projects][find file in projects]]
-- [[#centered-cursor][centered cursor]]
-- [[#buffer-move][buffer move]]
-- [[#avy][Avy]]
-- [[#frog-jump-buffer][frog-jump-buffer]]
 - [[#dired][dired]]
 - [[#ranger][Ranger]]
+  - [[#ranger-declaration][Ranger Declaration]]
+  - [[#ranger-config][Ranger Config]]
+- [[#buffer-move][buffer move]]
+- [[#avy][Avy]]
 - [[#windmove][windmove]]
 - [[#ivy--counsel][Ivy & Counsel]]
   - [[#ivy][Ivy]]
   - [[#counsel][Counsel]]
 - [[#eyebrowse][eyebrowse]]
-- [[#ace-window][Ace-window]]
 - [[#winner-mode][Winner Mode]]
 - [[#ivy-hydra][ivy hydra]]
 - [[#targets][targets]]
+- [[#hercules][hercules]]
+- [[#i3wm-config-mode][i3wm-Config-Mode]]
 - [[#cool-moves][cool-moves]]
+- [[#emacs-anyhwere][emacs anyhwere]]
+  - [[#popup-handler][popup-handler]]
+  - [[#atomic-chrome][atomic-chrome]]
+- [[#nswbuff][nswbuff]]
+- [[#link-hint][link-hint]]
+- [[#centered-cursor][centered-cursor]]
 
 * dired
 #+BEGIN_SRC emacs-lisp
@@ -784,3 +789,11 @@ m : modules
 (use-package link-hint
   :ensure t)
 #+END_SRC
+* centered-cursor
+#+BEGIN_SRC emacs-lisp
+(use-package centered-cursor-mode
+  :defer t
+  :ensure t
+  :config
+  (setq ccm-recenter-at-end-of-file t))
+  #+END_SRC
