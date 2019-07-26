@@ -821,33 +821,31 @@ This file is tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/
   "
   ^
        ^Search^
-       --------------------------------
-       _a_: counsel ag    _r_: recentf
-       _s_: grep/swipe    _p_: processes
-       _e_: swiper        _u_: substitute
-       _o_: outline       _g_: grep
-       _i_: my outline    _l_: online
-       _n_: agenda        _j_: fzf org
-       _d_: a. prjctle    _k_: ag org
+       ---------------
+       _s_: evil
+       _i_: grep
+       _o_: outline
+       _p_: processes
+       _u_: substitute
+       _l_: online
 
   "
   ("<escape>" nil)
 
-  ("a" counsel-ag)
-  ("s" counsel-grep-or-swiper)
-  ("e" swiper)
+  ("s" evil-ex-search-forward)
+  ("C-s" evil-ex-search-forward)
+
+  ("i" counsel-grep)
+  ("C-i" counsel-grep)
+
   ("o" counsel-outline)
-  ("i" my/search-outline)
-  ("n" counsel-org-agenda-headlines)
-  ("C-n" counsel-org-agenda-headlines)
-  ("d" my/org-projectile-agenda)
-  ("C-d" my/org-projectile-agenda)
-  ("r" counsel-recentf)
+  ("C-o" counsel-outline)
+
   ("p" counsel-list-processes)
+  ("C-p" counsel-list-processes)
+
   ("u" my/evil-substitute)
-  ("g" counsel-grep)
-  ("j" my/org-dir-fzf)
-  ("k" my/org-dir-ag)
+
   ("l" hydra-search-online/body))
 
 (defun my/org-dir-ag ()
