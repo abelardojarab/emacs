@@ -103,13 +103,13 @@
    (list
     (read-char-choice
      "
-a : math       o : org
+a : math       o : org      w: web
 d : dotfiles   p : posts
 e : emacs.d    s : scripts
 h : home       t : studying
 m : modules
 > "
-     '(?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?l ?m ?n ?o ?p ?q ?r ?s ?t ?z))))
+     '(?a ?b ?c ?d ?e ?f ?g ?h ?i ?j ?l ?m ?n ?o ?p ?q ?r ?s ?t ?z ?w))))
   (message nil)
   (let* ((c (char-to-string path))
          (new-path
@@ -123,6 +123,7 @@ m : modules
             ('p "~/Literatura/Blog/posts")
             ('s "~/scripts")
             ('t "~/Studying")
+            ('w "~/Studying/Prog/WebDev")
             ('q nil)))
          (alt-option
           (cl-case (intern c)

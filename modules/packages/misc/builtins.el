@@ -640,9 +640,7 @@
   (general-nvmap
     :keymaps 'prog-mode-map
     "<backspace>" 'my/org-src-exit
-    "<tab>" 'hs-toggle-hiding
-    ;; "RET" 'hydra-prog-mode/body
-    "RET" 'quick-calc)
+    "<tab>" 'hs-toggle-hiding)
 
   (general-nmap
     :keymaps 'prog-mode-map

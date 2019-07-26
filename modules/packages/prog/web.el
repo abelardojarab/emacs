@@ -55,13 +55,17 @@
     ))
 
 (use-package web-beautify
-:after web-mode
-:ensure t)
+  :after web-mode
+  :ensure t
+  :config
+  (setq web-beautify-args '("--indent-inner-html" "--indent-size 8" "--file"  "-")))
 
 (use-package emmet-mode
   :defer t
   :ensure t
   :config
+
+  (setq emmet-insert-flash-time 0.1)
 
   (imap
     :keymaps 'emmet-mode-keymap

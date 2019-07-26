@@ -62,8 +62,10 @@
 * web-beautify
 #+BEGIN_SRC emacs-lisp
 (use-package web-beautify
-:after web-mode
-:ensure t)
+  :after web-mode
+  :ensure t
+  :config
+  (setq web-beautify-args '("--indent-inner-html" "--indent-size 8" "--file"  "-")))
 #+END_SRC
 
 * emmet
@@ -72,6 +74,8 @@
   :defer t
   :ensure t
   :config
+
+  (setq emmet-insert-flash-time 0.1)
 
   (imap
     :keymaps 'emmet-mode-keymap
@@ -96,6 +100,7 @@
   (setq emmet-move-cursor-between-quotes t)
   (emmet-mode +1))
 #+END_SRC
+
 * css
 #+BEGIN_SRC emacs-lisp
 (use-package css
