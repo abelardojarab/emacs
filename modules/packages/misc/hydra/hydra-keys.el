@@ -6,6 +6,7 @@
   ;; "v" 'hydra-more-commands/body
   "z" 'hydra-window/body
 
+  "s"    'hydra-search/body
   ;; "h" 'split-window-horizontally
   ;; "j" 'my/split-vertically
   ;; "l" 'my/split-right
@@ -40,5 +41,5 @@
 (general-define-key
  :keymaps 'override
  "M-;" 'hydra-yasnippet/body
- "C-s" 'hydra-search/body
+ "C-s" 'evil-ex-search-forward
  "<f1>" 'hydra-help/body)

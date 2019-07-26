@@ -186,3 +186,9 @@ https://is.gd/JyKZsg
 (use-package all-the-icons
 :defer t)
 #+END_SRC
+* typo
+#+BEGIN_SRC emacs-lisp
+(use-package typo
+ :defer t
+  :ensure t)
+  #+END_SRC

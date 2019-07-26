@@ -129,7 +129,6 @@
 
 (general-define-key
  :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
- "C-h" 'delete-backward-char
  "C-h" 'delete-backward-char)
 
 (general-nvmap

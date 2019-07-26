@@ -146,7 +146,6 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
 
 (general-define-key
  :keymaps '(evil-ex-search-keymap evil-ex-completion-map)
- "C-h" 'delete-backward-char
  "C-h" 'delete-backward-char)
 
 (general-nvmap

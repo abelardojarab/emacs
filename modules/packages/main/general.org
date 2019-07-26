@@ -151,7 +151,6 @@
 "C-x C-p" 'org-noter-insert-precise-note
 "C-x p"    'my/counsel-projectile-commands
 "C-c r"    'restart-emacs
-"C-x s"    'magit-stage-modified
 "C-x g"    'magit-status
 "C-c F r" 'byte-recompile-file
 ;; "C-c ç"   'my/goto-info-buffer-other-window

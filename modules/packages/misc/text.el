@@ -139,3 +139,7 @@
 
 (use-package all-the-icons
 :defer t)
+
+(use-package typo
+ :defer t
+  :ensure t)
