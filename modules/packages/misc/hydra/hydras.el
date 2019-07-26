@@ -775,7 +775,7 @@
        _h_: translate  _m_: urban dic
        _i_: wordnut    _n_: tfree dic
        _j_: michaelis  _o_: wiki en
-                     _p_: wiki pt
+       _z_: mdn        _p_: wiki pt
 
   "
   ("<escape>" nil)
@@ -788,7 +788,8 @@
   ("m" engine/search-urban-dictionary)
   ("n" engine/search-the-free-dictionary)
   ("o" engine/search-wiki-en)
-  ("p" engine/search-wiki-pt))
+  ("p" engine/search-wiki-pt)
+  ("z" engine/search-mdn))
 
 
 (defhydra hydra-org-mode (:color blue :hint nil :exit nil :foreign-keys nil)

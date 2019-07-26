@@ -116,10 +116,6 @@
  "C-c w" 'evil-window-next
  "C-c W" 'evil-window-prev)
 
-(general-define-key
- :states '(normal visual insert)
- "M-t" 'counsel-recentf)
-
 (general-imap
   :keymaps 'i3wm-emacs-map
   "<escape>" 'evil-normal-state)

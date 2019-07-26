@@ -18,30 +18,41 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
   :config
+
   (defun my/web-mode-hooks ()
     (interactive)
     (emmet-mode +1)
     (flycheck-mode +1)
-    (evil-swap-keys-swap-double-single-quotes)
-    (my/company-idle-one-prefix-one-quiet)
-    (my/set-web-theme))
+    ;; (evil-swap-keys-swap-double-single-quotes)
+    (my/company-idle-two-prefix-two-quiet))
 
   (general-nvmap
     :keymaps 'web-mode-map
     "C-ç" 'my/erase-buffer-yank
+    "C-t" 'web-mode-tag-previous
+    "M-t" 'web-mode-tag-next
     "M-ç" 'copy-to-chrome
-    "C-c ç" 'web-beautify-html)
+    "<M-return>" 'my/web-beautify)
+
+  (general-imap
+    :keymaps 'web-mode-map
+    "C-t" 'web-mode-tag-previous
+    "M-t" 'web-mode-tag-next)
 
   (defun my/set-web-theme ()
     (interactive)
     (disable-theme 'noctilux)
     (load-theme 'doom-dracula))
 
+  (general-unbind 'web-mode-map
+    :with 'my/web-beautify
+    [remap indent-buffer])
+
   (general-define-key
    :keymaps 'web-mode-map
+   "<M-return>" 'my/web-beautify
    "C-ç" 'my/erase-buffer-yank
    "M-ç" 'copy-to-chrome
-   "C-c ç" 'web-beautify-html
    "<C-M-return>" 'browse-url-of-file)
 
   (general-unbind 'web-mode-map
@@ -65,7 +76,13 @@
   :after web-mode
   :ensure t
   :config
-  (setq web-beautify-args '("--indent-inner-html" "--indent-size 8" "--file"  "-")))
+
+  (defun my/web-beautify ()
+    (interactive)
+    (web-beautify-html)
+    (my/quiet-save-buffer))
+
+  (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
 #+END_SRC
 
 * emmet
@@ -107,7 +124,7 @@
   :init
   (add-hook 'css-mode-hook  'emmet-mode)
   :ensure nil)
-  #+END_SRC
+#+END_SRC
 * js2-mode
 #+BEGIN_SRC emacs-lisp
 (use-package js2-mode
@@ -121,10 +138,10 @@
    "<return>" 'js2-refactor-hydra/body)
 
   )
-  #+END_SRC
+#+END_SRC
 * js2-refactor
 #+BEGIN_SRC emacs-lisp
 (use-package js2-refactor
   :defer t
   :ensure t)
-  #+END_SRC
+#+END_SRC

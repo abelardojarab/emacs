@@ -163,7 +163,6 @@
 "M-," 'nswbuff-switch-to-previous-buffer
 "C-SPC" nil
 "M-s" 'last-buffer
-"M-t" 'transpose-words
 "M-y" 'counsel-yank-pop
 "C-t" 'transpose-chars
 "C-x ," 'my/jump-to-register-91

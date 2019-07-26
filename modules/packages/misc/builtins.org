@@ -672,9 +672,9 @@
     (tab-jump-out-mode 1)
     (hs-minor-mode 1)
     (hl-line-mode 1)
-    ;; (yas-minor-mode)
     (comment-auto-fill)
-    (highlight-indent-guides-mode 1))
+    ;; (highlight-indent-guides-mode 1)
+    )
 
   ;; https://www.emacswiki.org/emacs/AutoFillMode
   (defun comment-auto-fill ()
@@ -698,7 +698,7 @@
   (general-define-key
    :keymaps 'prog-mode-map
    "C-c y" 'my/company-show-options
-   "<C-return>" 'hydra-prog-mode/body
+   "<C-return>" nil
    "<M-return>" 'indent-buffer)
 
   (general-define-key

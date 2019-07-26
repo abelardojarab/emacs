@@ -95,6 +95,7 @@
   (defengine translate "https://translate.google.com/?source=osdd#view=home&op=translate&sl=auto&tl=pt&text=%s")
   (defengine urban-dictionary "https://www.urbandictionary.com/define.php?term=%s")
   (defengine the-free-dictionary "https://www.thefreedictionary.com/%s")
+  (defengine MDN "https://developer.mozilla.org/en-US/search?q=%s")
 
   (engine-mode t))
 #+END_SRC
