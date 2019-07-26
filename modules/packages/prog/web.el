@@ -96,7 +96,12 @@
   :ensure t
   :init
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (general-define-key
+   :keymaps '  js2-mode-map
+   "<return>" 'js2-refactor-hydra/body)
+
+  )
 
 (use-package js2-refactor
   :defer t
