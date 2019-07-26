@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: exportar em português
+# key: exp
+# --
+#+LANGUAGE: pt
+#+LATEX_HEADER: \usepackage[AUTO]{babel}

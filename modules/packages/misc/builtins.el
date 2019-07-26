@@ -927,6 +927,7 @@
         recentf-auto-cleanup 'mode
         recentf-save-file (expand-file-name "recentf" "\~/.emacs.d/var/")
         recentf-exclude   '("Dired"
+                            "*.tex"
                             "*slime-repl sbcl"
                             "erc-mode" "help-mode"
                             "completion-list-mode"
