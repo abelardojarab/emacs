@@ -12,6 +12,7 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
   :config
   (defun my/web-mode-hooks ()
     (interactive)
@@ -72,15 +73,31 @@
    "C-M-h" 'my/emmet-prev
    "C-M-l" 'my/emmet-next)
 
-(defun my/emmet-prev ()
-(interactive)
-(emmet-prev-edit-point 1)
-(evil-insert-state))
+  (defun my/emmet-prev ()
+    (interactive)
+    (emmet-prev-edit-point 1)
+    (evil-insert-state))
 
-(defun my/emmet-next ()
-(interactive)
-(emmet-next-edit-point 1)
-(evil-insert-state))
+  (defun my/emmet-next ()
+    (interactive)
+    (emmet-next-edit-point 1)
+    (evil-insert-state))
 
   (setq emmet-move-cursor-between-quotes t)
   (emmet-mode +1))
+
+(use-package css
+  :init
+  (add-hook 'css-mode-hook  'emmet-mode)
+  :ensure nil)
+
+(use-package js2-mode
+  :defer t
+  :ensure t
+  :init
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode)))
+
+(use-package js2-refactor
+  :defer t
+  :ensure t)
