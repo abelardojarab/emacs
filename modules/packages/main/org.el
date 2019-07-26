@@ -124,6 +124,7 @@
 (setq org-agenda-skip-timestamp-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
 ;; (setq org-footnote-section "Notas")
+(setq org-footnote-auto-adjust 't)
 (setq org-global-properties
       '(("Effort_ALL" .
          "0:05 0:10 0:15 0:25 0:30 0:45 1:00 2:00 4:00 6:00")))

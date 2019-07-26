@@ -2,5 +2,5 @@
 # name: latex block
 # --
 #+BEGIN_LATEX
-\$0
+\\$0
 #+END_LATEX
