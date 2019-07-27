@@ -154,6 +154,10 @@
                                   directory org-agenda-file-regexp))
                                '("~/org/Agenda"))))
 
+;; Refile to agenda
+(setq org-refile-targets '((nil :maxlevel . 9)
+                           (org-agenda-files :maxlevel . 9)))
+
 (setq org-deadline-warning-days 7)
 (setq org-enforce-todo-checkbox-dependencies t)
 (setq org-link-file-path-type 'relative)
@@ -225,9 +229,6 @@
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
 
-;; Refile to agenda
-(setq org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9)))
 
 ;; Refile to same file
 ;; (setq org-refile-targets '((nil :maxlevel . 1)))

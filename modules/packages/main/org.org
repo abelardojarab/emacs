@@ -9,7 +9,7 @@
 - [[#org-others][Org Others]]
 - [[#org-journal][Org Journal]]
   - [[#basic-usage][Basic Usage]]
-  - [[#main][Main]]
+  - [[#org-journal-main][Org Journal Main]]
 
 * About
 This archive contains all my Org Mode configurade. It's tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/org.el][org.el]].
@@ -777,7 +777,7 @@ To see journal entries do =M-x calendar=. Bindings available in the
 - =[= - go to previous day with journal entries.
 
 - =]= - go to next day with journal entries.
-** Main
+** Org Journal Main
 #+BEGIN_SRC emacs-lisp
 (use-package org-journal
   :ensure t
