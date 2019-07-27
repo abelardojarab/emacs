@@ -265,25 +265,25 @@
          (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
         ("f" "Fixed" entry
-         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("m" "Math" entry
-         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("p" "Posts" entry
-         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("r" "Repeated" entry
-         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("w" "WebDev" entry
-         (file+headline "~/org/Agenda/inactive/webdev.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/webdev.org" "WebDev Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("i" "Inactive" entry
-         (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("t" "Tech" entry
-         (file+headline "~/org/Agenda/data/tech.org" "Tech Notes") "* %i%^{1|Title}\n\%u%?\n*From*: %f")))
+         (file+headline "~/org/Agenda/data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -428,7 +428,7 @@
   (evil-org-mode +1)
   (visual-line-mode +1)
   (hl-line-mode +1)
-  (turn-on-olivetti-mode)
+  (olivetti-mode +1)
   (org-bullets-mode +1))
 
 (defun my/org-insert-file-link ()
@@ -651,7 +651,7 @@
 (defun my/org-src-hooks ()
   (interactive)
   (indent-buffer)
-  (turn-on-olivetti-mode))
+  (olivetti-mode +1))
 
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
@@ -695,3 +695,9 @@
 (use-package org-pdfview
   :after org
   :ensure t)
+
+(use-package org-journal
+  :ensure t
+  :defer t
+  :custom
+  (org-journal-dir "~/org/Agenda/journal"))

@@ -74,7 +74,7 @@
     (interactive)
     (web-beautify-html)
     (my/quiet-save-buffer)
-    (turn-on-olivetti-mode))
+    (olivetti-mode +1))
 
   (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
 
@@ -108,7 +108,7 @@
   (setq emmet-move-cursor-between-quotes t)
   (emmet-mode +1))
 
-(use-package css
+(use-package css-mode
   :init
   (add-hook 'css-mode-hook  'emmet-mode)
   :ensure nil)

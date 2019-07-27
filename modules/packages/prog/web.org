@@ -81,7 +81,7 @@
     (interactive)
     (web-beautify-html)
     (my/quiet-save-buffer)
-    (turn-on-olivetti-mode))
+    (olivetti-mode +1))
 
   (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
 #+END_SRC
@@ -121,7 +121,7 @@
 
 * css
 #+BEGIN_SRC emacs-lisp
-(use-package css
+(use-package css-mode
   :init
   (add-hook 'css-mode-hook  'emmet-mode)
   :ensure nil)

@@ -1043,10 +1043,10 @@
   ^
      ^Emacs Files^
      --------------------------
-      _i_: init.org   _o_: org
-      _p_: packages   _h_: hydras
-      _s_: settings   _u_: all files
-      _f_: functions
+     _i_: init.org   _o_: org
+     _p_: packages   _h_: hydras
+     _s_: settings   _u_: all files
+     _f_: functions
 
 "
   ("<escape>" nil)

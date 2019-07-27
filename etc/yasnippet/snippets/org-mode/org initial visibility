@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: org initial visibility
+# key: vis
+# --
+#+STARTUP: ${1:$$(yas-choose-value '("overview" "content" "showall" "showeverything"))}

@@ -75,8 +75,6 @@
 (load-file "~/.emacs.d/modules/packages/main/general.el")
 (load-file "~/.emacs.d/modules/packages/main/evil.el")
 (load-file "~/.emacs.d/modules/packages/main/org.el")
-(load-file "~/.emacs.d/modules/packages/main/org/org_functions.el")
-(load-file "~/.emacs.d/modules/packages/main/org/org_keys.el")
 (load-file "~/.emacs.d/modules/packages/misc/hydra.el")
 
 ;;;; LOAD DIRECTORIES ;;;;
