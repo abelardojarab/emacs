@@ -3,7 +3,7 @@
 #+OPTIONS: toc:3
 #+OPTIONS: num:1
 
-* Contents                                                                :toc:
+* Contents
 - [[#about][About]]
 - [[#hydras][Hydras]]
   - [[#programming][Programming]]
@@ -14,9 +14,11 @@
   - [[#modes][Modes]]
   - [[#eval][Eval]]
   - [[#packages][Packages]]
+  - [[#pomidor][Pomidor]]
   - [[#commands][Commands]]
   - [[#searching][Searching]]
   - [[#org-mode][Org Mode]]
+  - [[#info-mode][Info Mode]]
   - [[#help][Help]]
   - [[#files][Files]]
 
@@ -399,7 +401,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
        _a_: american  _y_: return py
        _b_: brasilei  _d_: show dictro
        _p_: prose on  _f_: fills
-       _f_: flyspell  _F_: no-fills
+       _m_: flyspell  _F_: no-fills
        _u_: f. buff   _g_: agg fill
 
          ^^
@@ -411,7 +413,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("b" brasileiro)
   ("p" prose-enable)
 
-  ("f" flyspell-mode)
+  ("m" flyspell-mode)
   ("y" my/make-return-python)
   ("u" flyspell-buffer)
   ("d" my/ispell-show-dictionary)
@@ -657,8 +659,8 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
        _c_: buffer       _f_: gl. abbrev
        _d_: hydra        _F_: mode abbrev
        _l_: line
-       _i_: \" and show
-
+       _i_: line and show
+       _p_: paren
   "
   ("<escape>" nil nil)
 
@@ -666,6 +668,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("d" hydra-eval/body)
   ("l" my/eval-line-macro)
   ("i" my/eval-line-function)
+  ("p" my/eval-parentheses-macro)
 
   ("f" define-global-abbrev)
   ("F" define-mode-abbrev))
@@ -1258,4 +1261,21 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
 (defun my/find-emacs-settings-fzf ()
   (interactive)
   (counsel-fzf nil "~/.emacs.d/modules/settings"))
+#+END_SRC
+** Org Capture
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-org-capture (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Org Capture^
+   ------------------------------------
+   _a_: agenda  _r_: repeated
+   _f_: fixed   _w_: webdev
+   _m_: math    _i_: inactive
+   _p_: posts
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" nil))
 #+END_SRC

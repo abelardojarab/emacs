@@ -275,8 +275,8 @@
 (fset 'alg-goto-inicio
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 103 47 105 110 105 99 105 111 return 106 106] 0 "%d") arg)))
 
-(fset 'evaluate-parentheses
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([103 93 122 118 97 40 32 99 114 escape 96 122] 0 "%d") arg)))
+(fset 'my/eval-parentheses-macro
+   (kmacro-lambda-form [?v ?a ?\( 134217848 ?e ?v ?a ?l ?- return escape] 0 "%d"))
 
 (fset 'my/calc-region
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item '([121 XF86Calculator insert return 103 111 112] 0 "%d") arg)))

@@ -2,7 +2,23 @@
   :ensure nil
   :defer t
   :init
-  (load-file "~/.emacs.d/modules/packages/main/org/org_hooks.el")
+  (add-hook 'org-mode-hook 'my/org-mode-hooks)
+
+  (add-hook 'org-agenda-mode-hook
+            (lambda ()
+              (setq display-line-numbers nil)
+              (setq truncate-lines t)))
+
+  (add-hook 'org-capture-mode-hook (lambda ()
+                                     (evil-insert-state)
+                                     (evil-window-move-very-bottom)
+                                     (electric-operator-mode t)))
+
+  (remove-hook 'org-cycle-hook #'org-optimize-window-after-visibility-change)
+
+  (add-hook 'org-src-mode-hook 'my/org-src-hooks)
+
+  ;; (add-hook 'org-cycle-hook #'org-cycle-hide-drawers)
 
 :config
 
@@ -204,23 +220,17 @@
 (setq org-fontify-whole-heading-line nil)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "STARTED(s)" "|"  "DONE(d)")))
+      '((sequence "TODO(t)" "MAYBE(t)" "STARTED(s)" "|"  "DONE(d)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
 
 ;; Refile to agenda
-;; (setq org-refile-targets '((nil :maxlevel . 9)
-;; 			   (org-agenda-files :maxlevel . 9)))
+(setq org-refile-targets '((nil :maxlevel . 9)
+                           (org-agenda-files :maxlevel . 9)))
 
 ;; Refile to same file
 ;; (setq org-refile-targets '((nil :maxlevel . 1)))
-
-;; Refile Math
-
-(setq my/org-refile-targets '("/home/Documents/Studying/Math/m_notes.org"
-                              "/home/Documents/Studying/Math/m_refile.org"
-                              "/home/Documents/Studying/Math/m_resources.org"))
 
 (setq org-refile-targets '((nil :maxlevel . 2)
                            (my/org-refile-targets :maxlevel . 2)))
@@ -247,13 +257,32 @@
 
   ;;;; See:
   ;;;;; https://orgmode.org/manual/Template-expansion.html#Template-expansion
+
 (setq org-capture-templates
-      '(("a" "Agenda" entry
-         (file+headline "~/org/Agenda/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
-        ("n" "Notes Refile" entry
-         (file+headline "~/org/Agenda/notes_refile.org" "Notes") "* TODO %?\n*From*: %f")
-        ("m" "Math Refiles" entry
-         (file+headline "/home/Documents/Studying/Math/m_refile.org" "Notes") "* TODO %i%^{1|Title}\n\%u\n%?")))
+      '(
+
+        ("a" "Agenda" entry
+         (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
+
+        ("f" "Fixed" entry
+         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+
+        ("m" "Math" entry
+         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+
+        ("p" "Posts" entry
+         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+
+        ("r" "Repeated" entry
+         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+
+        ("w" "WebDev" entry
+         (file+headline "~/org/Agenda/inactive/webdev.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+
+        ("i" "Inactive" entry
+         (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %?\n*From*: %f")
+
+        ))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -325,8 +354,7 @@
                                  (lambda (directory)
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
-                                 '("~/org/Agenda"
-                                   "~/Studying/Unifacs/Segundo_Semestre/Matérias"))))
+                                 '("~/org/Agenda"))))
   (my/org-agenda))
 
 (defun my/org-archive ()
@@ -351,6 +379,7 @@
   (evil-org-mode +1)
   (visual-line-mode +1)
   (hl-line-mode +1)
+  (turn-on-olivetti-mode)
   (org-bullets-mode +1))
 
 (defun my/org-insert-file-link ()
@@ -393,7 +422,7 @@
 
 (defun my/find-org-agenda-file ()
   (interactive)
-  (find-file "~/org/Agenda/agenda.org"))
+  (find-file "~/org/Agenda/active/agenda.org"))
 
 (defun my/org-open-next-link()
   (interactive)
@@ -533,6 +562,16 @@
 (defun my/org-capture-math-notes ()
   (interactive)
   (org-capture t "m"))
+
+(defun my/org-capture-math-notes ()
+  (interactive)
+  (org-capture t "m"))
+
+(defun my/org-src-hooks ()
+  (interactive)
+  (indent-buffer)
+  ;; (olivetti-mode +1)
+  )
 
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)

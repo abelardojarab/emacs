@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Title with top heading of the same name
+# key: tii
+# --
+#+TITLE: $1
+
+* $1
+
+$0

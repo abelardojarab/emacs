@@ -341,7 +341,7 @@
        _a_: american  _y_: return py
        _b_: brasilei  _d_: show dictro
        _p_: prose on  _f_: fills
-       _f_: flyspell  _F_: no-fills
+       _m_: flyspell  _F_: no-fills
        _u_: f. buff   _g_: agg fill
 
          ^^
@@ -353,7 +353,7 @@
   ("b" brasileiro)
   ("p" prose-enable)
 
-  ("f" flyspell-mode)
+  ("m" flyspell-mode)
   ("y" my/make-return-python)
   ("u" flyspell-buffer)
   ("d" my/ispell-show-dictionary)
@@ -572,8 +572,8 @@
        _c_: buffer       _f_: gl. abbrev
        _d_: hydra        _F_: mode abbrev
        _l_: line
-       _i_: \" and show
-
+       _i_: line and show
+       _p_: paren
   "
   ("<escape>" nil nil)
 
@@ -581,6 +581,7 @@
   ("d" hydra-eval/body)
   ("l" my/eval-line-macro)
   ("i" my/eval-line-function)
+  ("p" my/eval-parentheses-macro)
 
   ("f" define-global-abbrev)
   ("F" define-mode-abbrev))
@@ -1126,3 +1127,18 @@
 (defun my/find-emacs-settings-fzf ()
   (interactive)
   (counsel-fzf nil "~/.emacs.d/modules/settings"))
+
+(defhydra hydra-org-capture (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Org Capture^
+   ------------------------------------
+   _a_: agenda  _r_: repeated
+   _f_: fixed   _w_: webdev
+   _m_: math    _i_: inactive
+   _p_: posts
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" nil))

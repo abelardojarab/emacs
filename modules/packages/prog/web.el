@@ -73,7 +73,8 @@
   (defun my/web-beautify ()
     (interactive)
     (web-beautify-html)
-    (my/quiet-save-buffer))
+    (my/quiet-save-buffer)
+    (turn-on-olivetti-mode))
 
   (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
 
