@@ -733,5 +733,13 @@ DEADLINE: <2019-07-13 Sat -14d>
   :ensure t
   :defer t
   :custom
-  (org-journal-dir "~/org/Agenda/journal"))
+  (org-journal-dir "~/org/Agenda/journal")
+  (org-journal-date-format "%B %m, %Y")
+  :config
+
+  (general-nvmap
+    :keymaps 'org-journal-mode-map
+
+    "C-M-p" 'org-journal-open-next-entry
+    "C-M-n" 'org-journal-next-entry))
   #+END_SRC

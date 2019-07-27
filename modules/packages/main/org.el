@@ -700,4 +700,5 @@
   :ensure t
   :defer t
   :custom
-  (org-journal-dir "~/org/Agenda/journal"))
+  (org-journal-dir "~/org/Agenda/journal")
+  (org-journal-date-format "%B %m, %Y"))

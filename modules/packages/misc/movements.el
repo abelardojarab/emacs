@@ -550,9 +550,7 @@ m : modules
    "<C-down>" 'cool-moves/paragraph-forward
    "<C-up>" 'cool-moves/paragraph-backward
    "C-S-j" 'cool-moves/line-forward
-   "C-S-k" 'cool-moves/line-backward
-   "C-M-n" 'cool-moves/word-forward
-   "C-M-p" 'cool-moves/word-backwards))
+   "C-S-k" 'cool-moves/line-backward))
 
 ;; (add-hook 'ea-popup-hook 'popup-handler)
 
