@@ -797,28 +797,22 @@
   "
 
     ^Org Mode^
-    -----------------------------------------------
-    _r_: my archive  _a_: agenda        _h_: hydra
-    _R_: archive     _i_: tags          _f_: files
-    _p_: last capt.  _u_: insert url    _o_: agenda.org
-    _d_: deadline    _l_: store link    _b_: list bullets
-    _S_: schedule    _y_: overlay       _g_: refile
-    _e_: tog.stamp.  _t_: time stamp    _G_: goto refiled
-    _c_: capture     _s_: sort          _T_: tstamp inactive
-    _z_: export      _x_: todo          _A_: align tags
-                                    _,_: create block
+    ----------------------------------------------------------------
+    _r_: my/archive   _l_: store link    _u_: insert url   _G_: last refile
+    _R_: archive      _i_: tags          _e_: togg tstamp  _x_: todo
+    _c_: capture      _I_: align tags    _t_: tstamp       _z_: export
+    _p_: last capture _o_: agenda file   _T_: tstamp inact
+    _d_: deadline     _f_: agenda files  _g_: refile
 
 "
 
   ("<escape>" nil)
 
   ("r" my/org-archive)
-  ("R" org-archive-subtree-default) ("a" my/org-agenda)
+  ("R" org-archive-subtree-default)
   ("c" hydra-org-capture/body)
   ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
-  ("S" org-schedule)
-  ("h" hydra-org-agenda/body)
   ("l" org-store-link)
   ("i" counsel-org-tag)
   ("o" my/find-org-agenda-file)
@@ -826,16 +820,13 @@
   ("y" org-toggle-time-stamp-overlays)
   ("e" org-toggle-timestamp-type)
   ("f" my/agenda-files)
-  ("b" org-cycle-list-bullet)
   ("t" org-time-stamp)
   ("T" org-time-stamp-inactive)
   ("g" org-refile)
   ("G" org-refile-goto-last-stored)
-  ("s" org-sort)
   ("x" org-todo)
   ("z" org-export-dispatch)
-  ("A" my/org-align-tags)
-  ("," my/org-elisp-block-macro))
+  ("I" my/org-align-tags))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "

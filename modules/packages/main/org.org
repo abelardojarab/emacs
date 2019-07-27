@@ -1,6 +1,18 @@
 #+PROPERTY: header-args :tangle yes
 #+STARTUP: overview
 
+* Contents                                                                :toc:
+- [[#about][About]]
+- [[#org-main][Org Main]]
+  - [[#org-tips][Org Tips]]
+  - [[#org-package][Org Package]]
+- [[#org-others][Org Others]]
+- [[#org-journal][Org Journal]]
+  - [[#basic-usage][Basic Usage]]
+  - [[#main][Main]]
+
+* About
+This archive contains all my Org Mode configurade. It's tangled to [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/org.el][org.el]].
 * Org Main
 ** Org Tips
 *** Shift Dates in Agenda View
@@ -178,6 +190,10 @@ DEADLINE: <2019-07-13 Sat -14d>
                                   directory org-agenda-file-regexp))
                                '("~/org/Agenda"))))
 
+;; Refile to agenda
+(setq org-refile-targets '((nil :maxlevel . 9)
+                           (org-agenda-files :maxlevel . 9)))
+
 (setq org-deadline-warning-days 7)
 (setq org-enforce-todo-checkbox-dependencies t)
 (setq org-link-file-path-type 'relative)
@@ -249,15 +265,12 @@ DEADLINE: <2019-07-13 Sat -14d>
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
 
-;; Refile to agenda
-(setq org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9)))
 
 ;; Refile to same file
 ;; (setq org-refile-targets '((nil :maxlevel . 1)))
 
-(setq org-refile-targets '((nil :maxlevel . 2)
-                           (my/org-refile-targets :maxlevel . 2)))
+;; (setq org-refile-targets '((nil :maxlevel . 2)
+;;                            (my/org-refile-targets :maxlevel . 2)))
 
 ;; Refile in a single go
 (setq org-outline-path-complete-in-steps nil)
@@ -728,6 +741,43 @@ DEADLINE: <2019-07-13 Sat -14d>
 #+END_SRC
 
 * Org Journal
+** Basic Usage
+*** Journal Mode
+
+- =C-c C-f= - go to the next journal file.
+
+- =C-c C-b= - go to the previous journal file.
+
+- =C-c C-j= - insert a new entry into the current journal file
+(creates the file if not present).
+
+- =C-c C-s= - search the journal for a string.
+
+*** Calendar
+
+To see journal entries do =M-x calendar=. Bindings available in the
+=calendar-mode=:
+
+- =j= - view an entry in a new buffer.
+
+- =C-j= - view an entry but do not switch to it.
+
+- =i j= - add a new entry into the day's file (creates the file if not present).
+
+- =f w= - search in all entries of the current week.
+
+- =f m= - search in all entries of the current month.
+
+- =f y= - search in all entries of the current year.
+
+- =f f= - search in all entries of all time.
+
+- =f F= - search in all entries in the future.
+
+- =[= - go to previous day with journal entries.
+
+- =]= - go to next day with journal entries.
+** Main
 #+BEGIN_SRC emacs-lisp
 (use-package org-journal
   :ensure t
@@ -737,9 +787,10 @@ DEADLINE: <2019-07-13 Sat -14d>
   (org-journal-date-format "%B %m, %Y")
   :config
 
+(setq org-journal-find-file 'find-file)
   (general-nvmap
     :keymaps 'org-journal-mode-map
 
-    "C-M-p" 'org-journal-open-next-entry
-    "C-M-n" 'org-journal-next-entry))
+    "C-M-p" 'org-journal-open-previous-entry
+    "C-M-n" 'org-journal-open-next-entry))
   #+END_SRC

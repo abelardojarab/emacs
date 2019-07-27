@@ -232,8 +232,8 @@
 ;; Refile to same file
 ;; (setq org-refile-targets '((nil :maxlevel . 1)))
 
-(setq org-refile-targets '((nil :maxlevel . 2)
-                           (my/org-refile-targets :maxlevel . 2)))
+;; (setq org-refile-targets '((nil :maxlevel . 2)
+;;                            (my/org-refile-targets :maxlevel . 2)))
 
 ;; Refile in a single go
 (setq org-outline-path-complete-in-steps nil)
@@ -701,4 +701,12 @@
   :defer t
   :custom
   (org-journal-dir "~/org/Agenda/journal")
-  (org-journal-date-format "%B %m, %Y"))
+  (org-journal-date-format "%B %m, %Y")
+  :config
+
+(setq org-journal-find-file 'find-file)
+  (general-nvmap
+    :keymaps 'org-journal-mode-map
+
+    "C-M-p" 'org-journal-open-previous-entry
+    "C-M-n" 'org-journal-open-next-entry))

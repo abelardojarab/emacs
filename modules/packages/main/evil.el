@@ -135,6 +135,7 @@
 
 (evil-set-initial-state 'atomic-chrome-edit-mode 'normal)
 (evil-set-initial-state 'pomidor-mode 'emacs)
+(evil-set-initial-state 'org-journal-mode 'insert)
 (evil-set-initial-state 'Info-mode 'normal)
 (evil-set-initial-state 'bongo-mode 'emacs)
 (evil-set-initial-state 'shell-mode 'insert)
