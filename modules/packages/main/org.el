@@ -155,8 +155,8 @@
                                '("~/org/Agenda"))))
 
 ;; Refile to agenda
-(setq org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9)))
+(setq org-refile-targets '((nil :maxlevel . 3)
+                           (org-agenda-files :maxlevel . 3)))
 
 (setq org-deadline-warning-days 7)
 (setq org-enforce-todo-checkbox-dependencies t)
@@ -229,7 +229,6 @@
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
 
-
 ;; Refile to same file
 ;; (setq org-refile-targets '((nil :maxlevel . 1)))
 
@@ -284,7 +283,7 @@
          (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("t" "Tech" entry
-         (file+headline "~/org/Agenda/data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
+         (file+headline "~/org/Data/tech.org" "Tech Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
