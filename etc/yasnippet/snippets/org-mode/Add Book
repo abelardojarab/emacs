@@ -2,7 +2,7 @@
 # name: Add Book
 # expand-env ((yas-indent-line 'fixed))
 # --
-** T ${1:`(yank)`}
+*** TODO ${1:`(yank)`}
 :PROPERTIES:
 :TITLE:    $1
 :PAGES:    ${2:400}
