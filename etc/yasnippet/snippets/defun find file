@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: defun find file
+# key: deff
+# --
+(defun my/find-$1 ()
+  (interactive)
+  (find-file "`(yank)`"))

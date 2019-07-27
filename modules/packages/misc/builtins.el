@@ -1063,11 +1063,13 @@
 
   (defun my/eval-buffer ()
     (interactive)
+    (progn
     (save-excursion
       (my/save-all)
       (indent-buffer)
       (eval-buffer)
-      (message " buffer evaluated")))
+      (my/quiet-save-buffer)
+      (message " buffer evaluated"))))
 
   (defun my/eval-buffer-no-save ()
     (interactive)

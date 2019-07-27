@@ -814,7 +814,7 @@
 
   ("r" my/org-archive)
   ("R" org-archive-subtree-default) ("a" my/org-agenda)
-  ("c" counsel-org-capture)
+  ("c" hydra-org-capture/body)
   ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
   ("S" org-schedule)
@@ -898,6 +898,65 @@
   ("r" org-remove-file)
   ("d" org-agenda-file-to-front)
   ("p" my/update-agenda-files))
+
+(defhydra hydra-org-capture (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Org Capture^
+   -------------------------------
+   _a_: agenda    _p_: posts
+   _c_: contacts  _r_: repeated
+   _f_: fixed     _t_: tech
+   _i_: inactive  _w_: webdev
+   _m_: math      _g_: goto last
+                _._: files
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" my/org-capture-agenda)
+  ("." hydra-org-agenda-files/body)
+
+  ("c" my/org-capture-contacts)
+  ("f" my/org-capture-fixed)
+  ("i" my/org-capture-inactive)
+  ("m" my/org-capture-math)
+
+  ("p" my/org-capture-posts)
+  ("r" my/org-capture-repeated)
+  ("t" my/org-capture-tech)
+  ("w" my/org-capture-webdev)
+  ("g" org-capture-goto-last-stored))
+
+(defhydra hydra-org-agenda-files (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Agenda Files^
+   -------------------------------
+   _a_: agenda    _p_: posts
+   _c_: contacts  _r_: repeated
+   _f_: fixed     _t_: tech
+   _i_: inactive  _w_: webdev
+   _m_: math      _g_: goto last
+  "
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("a" my/org-agenda-agenda-file)
+  ("." my/org-agenda-agenda-file)
+
+  ("c" my/org-agenda-contacts-file)
+  ("f" my/org-agenda-fixed-file)
+  ("i" my/org-agenda-inactive-file)
+  ("m" my/org-agenda-math-file)
+
+  ("p" my/org-agenda-posts-file)
+  ("r" my/org-agenda-repeated-file)
+
+  ("t" my/org-agenda-tech-file)
+  ("w" my/org-agenda-webdev-file)
+  ("g" org-capture-goto-last-stored)
+  )
 
 
 (defhydra hydra-info-mode (:color blue :hint nil :foreign-keys nil)
@@ -1127,18 +1186,3 @@
 (defun my/find-emacs-settings-fzf ()
   (interactive)
   (counsel-fzf nil "~/.emacs.d/modules/settings"))
-
-(defhydra hydra-org-capture (:color blue :hint nil :exit nil :foreign-keys nil)
-  "
-
-   ^Org Capture^
-   ------------------------------------
-   _a_: agenda  _r_: repeated
-   _f_: fixed   _w_: webdev
-   _m_: math    _i_: inactive
-   _p_: posts
-  "
-  ("q" nil)
-  ("<escape>" nil)
-
-  ("a" nil))

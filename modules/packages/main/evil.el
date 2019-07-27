@@ -88,6 +88,7 @@
   :keymaps 'override
   ;; "u" 'undo-only
 
+  "." 'hydra-org-capture/body
   "gn" 'my/evil-format-paragraph-function
   "C-u" 'hydra-find-emacs-files/body
   "!" 'delete-frame

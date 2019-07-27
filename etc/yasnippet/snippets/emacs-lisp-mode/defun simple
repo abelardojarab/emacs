@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: defun simple
-# key: defs
+# name: defun find agenda file
+# key: defa
 # --
-(defun my/$1 ()
-(interactive)
-($0))
+(defun my/find-agenda-$1 ()
+  (interactive)
+  (find-file "~/org/Agenda/$0"))

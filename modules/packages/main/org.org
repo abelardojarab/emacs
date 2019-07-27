@@ -151,6 +151,7 @@ DEADLINE: <2019-07-13 Sat -14d>
   [remap evil-ex-search-forward]
   [remap org-agenda-goto-today])
 #+END_SRC
+
 **** Settings
 #+BEGIN_SRC emacs-lisp
 (require 'org-tempo)
@@ -288,24 +289,25 @@ DEADLINE: <2019-07-13 Sat -14d>
          (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
         ("f" "Fixed" entry
-         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
         ("m" "Math" entry
-         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
         ("p" "Posts" entry
-         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
         ("r" "Repeated" entry
-         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
         ("w" "WebDev" entry
-         (file+headline "~/org/Agenda/inactive/webdev.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n%?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive/webdev.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
         ("i" "Inactive" entry
-         (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %?\n*From*: %f")
+         (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u%?\n*From*: %f")
 
-        ))
+        ("t" "Tech" entry
+         (file+headline "~/org/Agenda/data/tech.org" "Tech Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:\n%?")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -314,9 +316,57 @@ DEADLINE: <2019-07-13 Sat -14d>
 
 **** Functions
 #+BEGIN_SRC emacs-lisp
+(defun my/find-agenda-file ()
+  (interactive)
+  (find-file "/home/george/org/Agenda/active/agenda.org"))
+
 (defun my/agenda-files ()
   (interactive)
   (ranger-find-file "/home/Documents/Org/Agenda"))
+
+(defun my/org-agenda-agenda-file ()
+  (interactive)
+  (find-file "~/org/Agenda/active/agenda.org"))
+
+(defun my/org-agenda-webdev-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/webdev.org"))
+
+(defun my/org-agenda-repeated-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/repeated.org"))
+
+(defun my/org-agenda-posts-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/posts.org"))
+
+(defun my/org-agenda-math-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/math.org"))
+
+(defun my/org-agenda-fixed-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/fixed.org"))
+
+(defun my/org-agenda-fixed-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive/fixed.org"))
+
+(defun my/org-agenda-tech-file ()
+  (interactive)
+  (find-file "~/org/Agenda/data/tech.org"))
+
+(defun my/org-agenda-links-file ()
+  (interactive)
+  (find-file "~/org/Agenda/data/links.org"))
+
+(defun my/org-agenda-contacts-file ()
+  (interactive)
+  (find-file "~/org/Agenda/data/contacts.org"))
+
+(defun my/org-agenda-inactive-file ()
+  (interactive)
+  (find-file "~/org/Agenda/inactive.org"))
 
 (defun org-hide-drawers-enable ()
   (interactive)
@@ -585,40 +635,50 @@ DEADLINE: <2019-07-13 Sat -14d>
   (eval-buffer)
   (org-edit-src-exit))
 
-(defun my/org-capture-math-notes ()
-  (interactive)
-  (org-capture t "m"))
-
-(defun my/org-capture-math-fixed ()
-  (interactive)
-  (org-capture t "f"))
-
-(defun my/org-capture-math- ()
-  (interactive)
-  (org-capture t "p"))
-
-(defun my/org-capture-math-notes ()
-  (interactive)
-  (org-capture t "w"))
-
-(defun my/org-capture-math-notes ()
+(defun my/org-capture-agenda ()
   (interactive)
   (org-capture t "a"))
 
-(defun my/org-capture-math-notes ()
+(defun my/org-capture-fixed ()
   (interactive)
-  (org-capture t "i"))
+  (org-capture t "f"))
 
-(defun my/org-capture-math-notes ()
+(defun my/org-capture-math ()
+  (interactive)
+  (org-capture t "m"))
+
+(defun my/org-capture-posts ()
+  (interactive)
+  (org-capture t "p"))
+
+(defun my/org-capture-repeated ()
   (interactive)
   (org-capture t "r"))
 
+(defun my/org-capture-webdev ()
+  (interactive)
+  (org-capture t "w"))
+
+(defun my/org-capture-inactive ()
+  (interactive)
+  (org-capture t "i"))
+
+(defun my/org-capture-tech ()
+  (interactive)
+  (org-capture t "t"))
+
+(defun my/org-capture-links ()
+  (interactive)
+  (org-capture t "l"))
+
+(defun my/org-capture-contacts ()
+  (interactive)
+  (org-capture t "c"))
 
 (defun my/org-src-hooks ()
   (interactive)
   (indent-buffer)
-  ;; (olivetti-mode +1)
-  )
+  (turn-on-olivetti-mode))
 
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
