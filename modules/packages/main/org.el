@@ -276,7 +276,7 @@
          (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("r" "Repeated" entry
-         (file+headline "~/org/Agenda/active/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("w" "WebDev" entry
          (file+headline "~/org/Agenda/inactive/webdev.org" "WebDev Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
@@ -527,8 +527,14 @@
 (defun org-1-day-agenda ()
   (interactive)
   (let ((current-prefix-arg 1)
-        (org-deadline-warning-days 0))
+        (org-deadline-warning-days -1))
     (org-agenda t "a")))
+
+;; (defun org-1-day-agenda ()
+;;   (interactive)
+;;   (let ((current-prefix-arg 0)
+;;         (org-deadline-warning-days -1))
+;;     (org-agenda t "a")))
 
 (defun org-2-days-agenda ()
   (interactive)
@@ -706,7 +712,7 @@
   (org-journal-date-format "%B %m, %Y")
   :config
 
-(setq org-journal-find-file 'find-file)
+  (setq org-journal-find-file 'find-file)
   (general-nvmap
     :keymaps 'org-journal-mode-map
 
