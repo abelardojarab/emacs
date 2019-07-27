@@ -328,15 +328,15 @@
 
 (defun my/org-agenda-tech-file ()
   (interactive)
-  (find-file "~/org/Agenda/data/tech.org"))
+  (find-file "~/org/Data/tech.org"))
 
 (defun my/org-agenda-links-file ()
   (interactive)
-  (find-file "~/org/Agenda/data/links.org"))
+  (find-file "~/org/Data/links.org"))
 
 (defun my/org-agenda-contacts-file ()
   (interactive)
-  (find-file "~/org/Agenda/data/contacts.org"))
+  (find-file "~/org/Data/contacts.org"))
 
 (defun my/org-agenda-inactive-file ()
   (interactive)
@@ -395,7 +395,7 @@
   (interactive)
   (counsel-M-x "^org property "))
 (plist-put org-format-latex-options :scale 2.0)
-(setq org-bookmark-names-plist nil)
+;; (setq org-bookmark-names-plist nil)
 
 (defun my/update-agenda-files ()
   (interactive)

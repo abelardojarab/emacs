@@ -803,7 +803,7 @@
     _c_: capture      _I_: align tags    _t_: tstamp       _z_: export
     _p_: last capture _o_: agenda file   _T_: tstamp inact
     _d_: deadline     _f_: agenda files  _g_: refile
-
+    _s_: schedule
 "
 
   ("<escape>" nil)
@@ -813,6 +813,8 @@
   ("c" hydra-org-capture/body)
   ("p" org-capture-goto-last-stored)
   ("d" org-deadline)
+  ("s" org-schedule)
+
   ("l" org-store-link)
   ("i" counsel-org-tag)
   ("o" my/find-org-agenda-file)
