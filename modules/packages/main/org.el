@@ -141,9 +141,10 @@
 (setq org-agenda-skip-scheduled-if-done t)
 ;; (setq org-footnote-section "Notas")
 (setq org-footnote-auto-adjust 't)
+
 (setq org-global-properties
       '(("Effort_ALL" .
-         "0:05 0:10 0:15 0:25 0:30 0:45 1:00 2:00 4:00 6:00")))
+         "0:05 0:10 0:15 0:25 0:30 0:45 01:00 02:00 03:00 04:00")))
 (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-eww org-habit))
 
     ;;; http://bit.ly/2KJHooJ
@@ -225,7 +226,7 @@
 (setq org-fontify-whole-heading-line nil)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "MAYBE(t)" "STARTED(s)" "|"  "DONE(d)")))
+      '((sequence "TODO(t!)" "MAYBE(m!)" "STARTED(s!)" "|"  "DONE(d!)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
@@ -275,7 +276,7 @@
          (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("r" "Repeated" entry
-         (file+headline "~/org/Agenda/inactive/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/repeated.org" "Repeated Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("w" "WebDev" entry
          (file+headline "~/org/Agenda/inactive/webdev.org" "WebDev Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")

@@ -801,7 +801,7 @@
     _r_: my/archive   _l_: store link    _u_: insert url   _G_: last refile
     _R_: archive      _i_: tags          _e_: togg tstamp  _x_: todo
     _c_: capture      _I_: align tags    _t_: tstamp       _z_: export
-    _p_: last capture _o_: agenda file   _T_: tstamp inact
+    _p_: last capture _o_: agenda file   _T_: tstamp inact _ç_: sort
     _d_: deadline     _f_: agenda files  _g_: refile
     _s_: schedule
 "
@@ -828,7 +828,9 @@
   ("G" org-refile-goto-last-stored)
   ("x" org-todo)
   ("z" org-export-dispatch)
-  ("I" my/org-align-tags))
+  ("I" my/org-align-tags)
+
+  ("ç" org-sort-entries))
 
 (defhydra hydra-org-clock (:color blue :hint nil :exit nil :foreign-keys nil)
   "
