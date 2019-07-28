@@ -1,0 +1,26 @@
+# key: hydra
+# name: hydra creation snippet
+# --
+** ${1:Hydra}
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-${1:$(downcase yas-text)} (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^$1^
+       -------------
+       _$2_: $3
+       _$4_: $5
+       _$6_: $7
+       _$8_: $9
+       _$10_: $11
+"
+
+  ("<escape>" nil)
+  ("q" nil)
+  $0
+  ("$2" $12)
+  ("$4" $13)
+  ("$6" $14)
+  ("$8" $15)
+  ("$10" $16))
+#+END_SRC

@@ -265,8 +265,10 @@ This [[https://github.com/mrbig033/emacs/blob/master/modules/packages/main/evil.
 
   (general-nvmap
     "C-c m" 'evil-multiedit-match-all
-    "C-x m" 'evil-multiedit-abort))
+    "C-c p" 'evil-multiedit-match-and-prev
+    "C-c n" 'evil-multiedit-match-and-next))
 #+END_SRC
+
 * Evil God State
 #+BEGIN_SRC emacs-lisp
 (use-package evil-god-state

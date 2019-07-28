@@ -231,7 +231,8 @@
 
   (general-nvmap
     "C-c m" 'evil-multiedit-match-all
-    "C-x m" 'evil-multiedit-abort))
+    "C-c p" 'evil-multiedit-match-and-prev
+    "C-c n" 'evil-multiedit-match-and-next))
 
 (use-package evil-god-state
   :ensure t

@@ -48,8 +48,8 @@
  :keymaps 'org-mode-map
  "<C-M-return>" 'zin/org-open-other-frame
  "C-c C-b" nil
- "C-c n" 'my/org-open-next-link
- "C-c p" 'my/org-open-prev-link
+ ;; "C-c n" 'my/org-open-next-link
+ ;; "C-c p" 'my/org-open-prev-link
  "C-j" 'counsel-M-x
  "C-M-k" 'org-metaup
  "M-ç" 'indent-buffer
@@ -533,7 +533,7 @@
 (defun org-1-day-agenda ()
   (interactive)
   (let ((current-prefix-arg 0)
-        (org-deadline-warning-days -1))
+        (org-deadline-warning-days 1))
     (org-agenda t "a")))
 
 (defun org-2-days-agenda ()
@@ -706,7 +706,6 @@
 
 (use-package org-journal
   :ensure t
-  :defer t
   :custom
   (org-journal-dir "~/org/Agenda/journal")
   (org-journal-date-format "%B %m, %Y")
