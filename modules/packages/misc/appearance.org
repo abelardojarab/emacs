@@ -71,10 +71,12 @@
 (use-package doom-themes
   :ensure t
   :init
+  (setq doom-themes-enable-bold 't)
   (setq custom-safe-themes t)
   :config
   (load-theme 'doom-dracula))
 #+END_SRC
+
 ** poet-theme
 #+BEGIN_SRC emacs-lisp
 (use-package poet-theme

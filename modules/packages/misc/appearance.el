@@ -56,6 +56,7 @@
 (use-package doom-themes
   :ensure t
   :init
+  (setq doom-themes-enable-bold 't)
   (setq custom-safe-themes t)
   :config
   (load-theme 'doom-dracula))

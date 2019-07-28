@@ -836,12 +836,12 @@
   "
 
    ^Clock & Todos^
-   ------------------------------------
+   --------------------------------------------
    _i_: in       _m_: recent   _e_: effort
    _o_: out      _c_: cancel   _a_: estimate
-   _l_: last     _y_: display  _s_: started
-   _h_: history  _x_: context  _t_: todo
-   _r_: report   _g_: goto     _d_: done
+   _l_: last     _s_: started  _h_: counsel history
+   _y_: display  _t_: todo     _x_: counsel context
+   _r_: report   _d_: done     _g_: counsel goto
   "
   ("q" nil)
   ("<escape>" nil)

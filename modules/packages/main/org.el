@@ -228,7 +228,7 @@
 (setq org-fontify-whole-heading-line nil)
 
 (setq org-todo-keywords
-      '((sequence "TODO(t!)" "MAYBE(m!)" "STARTED(s!)" "|"  "DONE(d!)")))
+      '((sequence "TODO(t!)" "MAYBE(m!)" "STRT(s!)" "|"  "DONE(d!)")))
 
 (setq org-tags-column -79)
 (setq org-agenda-tags-column -80)
@@ -253,6 +253,8 @@
 
 (setq org-file-apps (quote ((auto-mode . emacs)
                             ("\\.mm\\'" . default)
+                            ;; ("\\.x?html?\\'" . default)
+                            ("\\.x?html?\\'" . firefox)
                             ("\\.x?html?\\'" . default)
                             ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
                             ("\\.jpg\\'" . "viewnior %s")
@@ -362,7 +364,7 @@
 
 (defun my/org-started ()
   (interactive)
-  (org-todo "STARTED")
+  (org-todo "STRT")
   (org-clock-in))
 
 (defun my/org-done ()
