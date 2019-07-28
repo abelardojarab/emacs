@@ -181,7 +181,7 @@ DEADLINE: <2019-07-13 Sat -14d>
 
 (setq org-global-properties
       '(("Effort_ALL" .
-         "0:05 0:10 0:15 0:25 0:30 0:45 01:00 02:00 03:00 04:00")))
+         "00:05 00:10 00:15 00:25 00:30 00:45 01:00 01:30 02:00 02:30 03:00 03:40 04:00")))
 (setq org-modules '(org-w3m org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-eww org-habit))
 
     ;;; http://bit.ly/2KJHooJ

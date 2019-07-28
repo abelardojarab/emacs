@@ -1,7 +1,6 @@
 #+PROPERTY: header-args :tangle yes
 #+STARTUP: overview
 
-* asdasd
 * Init
 #+BEGIN_SRC emacs-lisp
 (require 'package)
@@ -34,7 +33,7 @@
 (setq initial-buffer-choice nil)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
-(setq default-frame-alist '((font . "Input Mono Light 13")))
+(setq default-frame-alist '((font . "Input Mono Light 12")))
 (require 'bind-key)
 (require 'use-package)
 #+END_SRC
