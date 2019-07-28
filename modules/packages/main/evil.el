@@ -225,9 +225,11 @@
   :after evil
   :ensure t
   :config
+
   (general-define-key
-   "C-c m" 'evil-multiedit-match-all
-   "C-x m" 'evil-multiedit-abort)
+   "C-c p" 'evil-multiedit-match-and-prev
+   "C-c n" 'evil-multiedit-match-and-next
+   "C-c m" 'evil-multiedit-match-all)
 
   (general-nvmap
     "C-c m" 'evil-multiedit-match-all

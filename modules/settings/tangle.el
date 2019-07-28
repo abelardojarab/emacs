@@ -62,12 +62,13 @@
 
 (defun my/tangle-reload-keys ()
   (interactive)
-  (my/quiet-save-buffer)
-  (defvar foo)
-  (setq foo (concat "nt " (prelude-copy-file-name-to-clipboard)))
-  (shell-command foo)
-  (load-file "~/.emacs.d/modules/packages/main/general.el")
-  (message "keys reloaded"))
+  (progn
+    (my/quiet-save-buffer)
+    (defvar foo)
+    (setq foo (concat "nt " (prelude-copy-file-name-to-clipboard)))
+    (shell-command foo)
+    (load-file "~/.emacs.d/modules/packages/main/general.el")
+    (message "keys reloaded")))
 
 (defun my/tangle-this-file ()
   (interactive)

@@ -979,12 +979,13 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   "
 
        ^Org Agenda^
-       ---------------------------
+       ----------------------
        _a_: agenda  _l_: lock
        _1_: 1 day   _u_: unlock
        _2_: 2 days  _d_: add
        _3_: 3 days  _r_: remove
        _7_: 7 days  _p_: update
+       _;_: today
   "
   ("q" nil)
   ("<escape>" nil)
@@ -992,7 +993,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("a" my/org-agenda)
 
   ("1" org-1-day-agenda)
-  (";" org-1-day-agenda)
+  (";" org-today-agenda)
 
   ("2" org-2-days-agenda)
   ("." org-2-days-agenda)
@@ -1007,6 +1008,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("d" org-agenda-file-to-front)
   ("p" my/update-agenda-files))
 #+END_SRC
+
 *** Org Capture
 #+BEGIN_SRC emacs-lisp
 (defhydra hydra-org-capture (:color blue :hint nil :exit nil :foreign-keys nil)
@@ -1321,4 +1323,3 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   (interactive)
   (counsel-fzf nil "~/.emacs.d/modules/settings"))
 #+END_SRC
-* Test

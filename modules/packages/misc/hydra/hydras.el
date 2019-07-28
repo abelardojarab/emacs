@@ -866,12 +866,13 @@
   "
 
        ^Org Agenda^
-       ---------------------------
+       ----------------------
        _a_: agenda  _l_: lock
        _1_: 1 day   _u_: unlock
        _2_: 2 days  _d_: add
        _3_: 3 days  _r_: remove
        _7_: 7 days  _p_: update
+       _;_: today
   "
   ("q" nil)
   ("<escape>" nil)
@@ -879,7 +880,7 @@
   ("a" my/org-agenda)
 
   ("1" org-1-day-agenda)
-  (";" org-1-day-agenda)
+  (";" org-today-agenda)
 
   ("2" org-2-days-agenda)
   ("." org-2-days-agenda)
