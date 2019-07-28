@@ -66,8 +66,8 @@
   :defer t
   :ensure t
   :config
-  (setq-default olivetti-body-width 90)
-  (setq olivetti-body-width 90))
+  (setq-default olivetti-body-width 100)
+  (setq olivetti-body-width 100))
 
 (use-package markdown-mode
   :defer t

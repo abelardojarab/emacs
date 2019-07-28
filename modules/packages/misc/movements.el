@@ -332,7 +332,8 @@ m : modules
                              "*Messages*"
                              "i3keys.org"
                              "info_keys.org"
-                             "*Org PDF LaTeX Output*"))
+                             "*Org PDF LaTeX Output*"
+                             "*Disabled Command*"))
 
 ;;;; CONFIG ;;;;
   :config
@@ -692,7 +693,8 @@ m : modules
                                          "*pdf-info-query--escape*"
                                          "*epdfinfo*"
                                          "*org-src-fontification:emacs-lisp-mode*"
-                                         "tq-temp-epdfinfo")))
+                                         "tq-temp-epdfinfo"
+                                         "*Disabled Command*")))
 
 (use-package link-hint
   :ensure t)

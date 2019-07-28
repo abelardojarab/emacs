@@ -9,6 +9,8 @@
                 <title>${2:Document Title}</title>
         </head>
 
-        <body>$0</body>
+        <body>
+            $0
+        </body>
 
 </html>

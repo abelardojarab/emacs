@@ -17,17 +17,19 @@
 
   (defun my/web-mode-hooks ()
     (interactive)
-    (emmet-mode +1)
-    (flycheck-mode +1)
-    ;; (evil-swap-keys-swap-double-single-quotes)
-    (olivetti-mode +1)
-    (my/company-idle-two-prefix-two-quiet))
+    (progn
+      (emmet-mode +1)
+      (flycheck-mode +1)
+      (evil-swap-keys-swap-double-single-quotes)
+      (olivetti-mode +1)
+      (olivetti-set-width 100)
+      (my/company-idle-two-prefix-two-quiet)))
 
   (general-nvmap
     :keymaps 'web-mode-map
     "<return>" 'hydra-web-mode/body
+    "C-c ç" 'my/web-beautify
     "C-c h" 'my/html-clear-file-macro
-    "C-ç" 'my/erase-buffer-yank
     "C-t" 'web-mode-tag-previous
     "M-t" 'web-mode-tag-next
     "M-ç" 'copy-to-chrome
@@ -35,6 +37,7 @@
 
   (general-imap
     :keymaps 'web-mode-map
+    "C-c ç" 'my/web-beautify
     "C-t" 'web-mode-tag-previous
     "<M-return>" 'indent-buffer
     "M-t" 'web-mode-tag-next)
@@ -46,7 +49,7 @@
 
   (general-define-key
    :keymaps 'web-mode-map
-   "C-ç" 'my/erase-buffer-yank
+   "C-c ç" 'my/web-beautify
    "<M-return>" 'indent-buffer
    "M-ç" 'copy-to-chrome
    "<C-M-return>" 'browse-url-of-file)
