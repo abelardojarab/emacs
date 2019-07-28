@@ -193,7 +193,7 @@
 (setq org-src-ask-before-returning-to-edit-buffer nil)
 (setq org-src-window-setup 'current-window)
 
-(setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
+;; (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
 ;; (setq org-time-stamp-custom-formats '("<%d/%m/%Y %a>" . "<%d/%m/%Y %H:%M %a>"))
 ;; (setq org-display-custom-times t)
 ;; (setq-default org-display-custom-times t)
@@ -524,17 +524,17 @@
   (interactive)
   (counsel-projectile-org-agenda t "a"))
 
-(defun org-1-day-agenda ()
-  (interactive)
-  (let ((current-prefix-arg 1)
-        (org-deadline-warning-days -1))
-    (org-agenda t "a")))
-
 ;; (defun org-1-day-agenda ()
 ;;   (interactive)
-;;   (let ((current-prefix-arg 0)
+;;   (let ((current-prefix-arg 1)
 ;;         (org-deadline-warning-days -1))
 ;;     (org-agenda t "a")))
+
+(defun org-1-day-agenda ()
+  (interactive)
+  (let ((current-prefix-arg 0)
+        (org-deadline-warning-days -1))
+    (org-agenda t "a")))
 
 (defun org-2-days-agenda ()
   (interactive)

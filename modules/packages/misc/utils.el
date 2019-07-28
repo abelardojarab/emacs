@@ -289,8 +289,8 @@
     "p" 'pdf-view-previous-page
     "n" 'pdf-view-next-page
     "w" 'pdf-view-fit-width-to-window
-    "<left>" 'eyebrowse-prev-window-config
-    "<right>" 'eyebrowse-next-window-config
+    ;; "<left>" 'eyebrowse-prev-window-config
+    ;; "<right>" 'eyebrowse-next-window-config
     "C-c h" 'pdf-annot-add-highlight-markup-annotation)
 
   (pdf-loader-install))
