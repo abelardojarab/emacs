@@ -114,7 +114,8 @@
                                             "*code-conversion-work*"
                                             "*blacken-error*"
                                             "*Org PDF LaTeX Output*"
-                                            "*quickrun*"))
+                                            "*quickrun*"
+                                            "*Disabled Command*"))
 
 (setq projectile-project-search-path nil)
 

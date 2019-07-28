@@ -6,7 +6,7 @@
 (defhydra hydra-${1:$(downcase yas-text)} (:color blue :hint nil :exit nil :foreign-keys nil)
   "
   ^
-       ^$1^
+       ^${1:$(capitalize yas-text)}^
        -------------
        _$2_: $3
        _$4_: $5

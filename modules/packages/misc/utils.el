@@ -329,7 +329,8 @@
   :defer nil
   :ensure t
   :config
-  ;; (setq unkillable-buffers '("^\\*scratch\\*$"))
+  (setq unkillable-buffers '("^\\*scratch\\*$"))
+  ;; (setq unkillable-buffers '("^\\*scratch\\*$" "agenda.org"))
   (setq unkillable-scratch-behavior 'bury)
   :config
   (unkillable-scratch))

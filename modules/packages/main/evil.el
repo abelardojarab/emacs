@@ -75,8 +75,8 @@
   "C-," 'helpful-at-point
   "C-." 'helpful-variable
   "C-;" 'helpful-function
-  "<left>" 'eyebrowse-prev-window-config
-  "<right>" 'eyebrowse-next-window-config
+  ;; "<left>" 'eyebrowse-prev-window-config
+  ;; "<right>" 'eyebrowse-next-window-config
   "k" 'evil-previous-visual-line
   "j" 'evil-next-visual-line
   "K" 'org-shiftdown

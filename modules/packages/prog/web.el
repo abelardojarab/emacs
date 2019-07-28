@@ -20,19 +20,23 @@
     (emmet-mode +1)
     (flycheck-mode +1)
     ;; (evil-swap-keys-swap-double-single-quotes)
+    (olivetti-mode +1)
     (my/company-idle-two-prefix-two-quiet))
 
   (general-nvmap
     :keymaps 'web-mode-map
+    "<return>" 'hydra-web-mode/body
+    "C-c h" 'my/html-clear-file-macro
     "C-ç" 'my/erase-buffer-yank
     "C-t" 'web-mode-tag-previous
     "M-t" 'web-mode-tag-next
     "M-ç" 'copy-to-chrome
-    "<M-return>" 'my/web-beautify)
+    "<M-return>" 'indent-buffer)
 
   (general-imap
     :keymaps 'web-mode-map
     "C-t" 'web-mode-tag-previous
+    "<M-return>" 'indent-buffer
     "M-t" 'web-mode-tag-next)
 
   (defun my/set-web-theme ()
@@ -40,14 +44,10 @@
     (disable-theme 'noctilux)
     (load-theme 'doom-dracula))
 
-  (general-unbind 'web-mode-map
-    :with 'my/web-beautify
-    [remap indent-buffer])
-
   (general-define-key
    :keymaps 'web-mode-map
-   "<M-return>" 'my/web-beautify
    "C-ç" 'my/erase-buffer-yank
+   "<M-return>" 'indent-buffer
    "M-ç" 'copy-to-chrome
    "<C-M-return>" 'browse-url-of-file)
 
@@ -62,7 +62,6 @@
     ;; (emmet-expand-line nil)
     (yank nil)
     (evil-window-middle)
-    ;; (web-beautify-html)
     ))
 
 (use-package web-beautify

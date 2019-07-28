@@ -1182,3 +1182,22 @@
 (defun my/find-emacs-settings-fzf ()
   (interactive)
   (counsel-fzf nil "~/.emacs.d/modules/settings"))
+
+(defhydra hydra-web-mode (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^Web^
+       ----------
+       _m_: MDN
+       _c_: clear
+       _b_: beautify
+       _i_: indent "
+
+  ("<escape>" nil)
+  ("q" nil)
+
+  ("m" engine/search-mdn)
+  ("<return>" engine/search-mdn)
+  ("c" my/html-clear-file-macro)
+  ("b" my/web-beautify)
+  ("i" indent-buffer))
