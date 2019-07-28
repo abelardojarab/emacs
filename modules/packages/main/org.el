@@ -6,6 +6,7 @@
 
   (add-hook 'org-agenda-mode-hook
             (lambda ()
+              (hl-line-mode)
               (setq display-line-numbers nil)
               (setq truncate-lines t)))
 
@@ -164,7 +165,8 @@
 (setq org-link-file-path-type 'relative)
 (setq org-export-with-toc nil)
 (setq calendar-date-style 'european)
-
+(setq org-scheduled-string "S:")
+(setq org-deadline-string "D:")
 ;; (setq org-clock-persist nil)
 ;; (org-clock-persistence-insinuate)
 (setq org-clock-in-resume t)
@@ -193,7 +195,7 @@
 (setq org-src-ask-before-returning-to-edit-buffer nil)
 (setq org-src-window-setup 'current-window)
 
-;; (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
+(setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %H:%M %a>"))
 ;; (setq org-time-stamp-custom-formats '("<%d/%m/%Y %a>" . "<%d/%m/%Y %H:%M %a>"))
 ;; (setq org-display-custom-times t)
 ;; (setq-default org-display-custom-times t)
