@@ -165,8 +165,6 @@
 (setq org-link-file-path-type 'relative)
 (setq org-export-with-toc nil)
 (setq calendar-date-style 'european)
-(setq org-scheduled-string "S:")
-(setq org-deadline-string "D:")
 ;; (setq org-clock-persist nil)
 ;; (org-clock-persistence-insinuate)
 (setq org-clock-in-resume t)
