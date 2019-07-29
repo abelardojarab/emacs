@@ -675,11 +675,11 @@ m : modules
   (defun my/atomic-chrome-hooks ()
     (interactive)
     (focus-emacs)
-    ;; (olivetti-mode)
-    )
+    (olivetti-mode +1))
 
   (atomic-chrome-start-server))
 #+END_SRC
+
 * nswbuff
 #+BEGIN_SRC emacs-lisp
 (use-package nswbuff

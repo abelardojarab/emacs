@@ -85,7 +85,7 @@
 
   (defun my/markdown-hooks ()
     (interactive)
-    (prose-enable))
+    (prose-enable-quiet))
 
   (defun my/markdown-copy-buffer ()
     (interactive)

@@ -471,6 +471,17 @@
     (pabbrev-mode 1)
     (message "prose on"))
 
+  (defun prose-enable-quiet ()
+    (interactive)
+    (flyspell-mode 1)
+    ;; (olivetti-mode +1)
+    (auto-capitalize-mode 1)
+    (tab-jump-out-mode 1)
+    (electric-operator-mode 1)
+    (wc-mode 1)
+    (pabbrev-mode 1)
+    (message "prose on"))
+
   (defun my/ispell-dict-options ()
     (interactive)
     (counsel-M-x "^my/ispell-ask-dict "))

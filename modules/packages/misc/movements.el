@@ -588,8 +588,7 @@ m : modules
   (defun my/atomic-chrome-hooks ()
     (interactive)
     (focus-emacs)
-    ;; (olivetti-mode)
-    )
+    (olivetti-mode +1))
 
   (atomic-chrome-start-server))
 

@@ -1,0 +1,99 @@
+#+PROPERTY: header-args :tangle yes
+#+STARTUP: overview
+
+* Org Extras
+#+BEGIN_SRC emacs-lisp
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◉"))))
+
+(use-package org-web-tools
+  :after org
+  :ensure t)
+
+(use-package ox-epub
+  :after org
+  :ensure t)
+
+(use-package toc-org
+  :defer t
+  :ensure t)
+
+(use-package org2blog
+  :init
+  (setq org2blog/wp-blog-alist
+        '(("daviramos-en"
+           :url "http://daviramos.com/en/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)
+          ("daviramos-br"
+           :url "http://daviramos.com/br/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)))
+  :ensure t)
+
+(use-package org-pdfview
+  :after org
+  :ensure t)
+#+END_SRC
+
+* Org Journal
+** Basic Usage
+*** Journal Mode
+
+- =C-c C-f= - go to the next journal file.
+
+- =C-c C-b= - go to the previous journal file.
+
+- =C-c C-j= - insert a new entry into the current journal file
+(creates the file if not present).
+
+- =C-c C-s= - search the journal for a string.
+
+*** Calendar
+To see journal entries do =M-x calendar=. Bindings available in the
+=calendar-mode=:
+
+- =j= - view an entry in a new buffer.
+
+- =C-j= - view an entry but do not switch to it.
+
+- =i j= - add a new entry into the day's file (creates the file if not present).
+
+- =f w= - search in all entries of the current week.
+
+- =f m= - search in all entries of the current month.
+
+- =f y= - search in all entries of the current year.
+
+- =f f= - search in all entries of all time.
+
+- =f F= - search in all entries in the future.
+
+- =[= - go to previous day with journal entries.
+
+- =]= - go to next day with journal entries.
+** Org Journal Packages
+#+BEGIN_SRC emacs-lisp
+(use-package org-journal
+  :ensure t
+  :custom
+  (org-journal-dir "~/org/Agenda/journal")
+  (org-journal-date-format "%A, %B %m, %Y")
+  (org-journal-file-format "%d-%m-%Y")
+  :config
+
+  (setq org-journal-find-file 'find-file)
+
+  (general-nvmap
+    :keymaps 'org-journal-mode-map
+
+    "C-M-p" 'org-journal-open-previous-entry
+    "C-M-n" 'org-journal-open-next-entry))
+#+END_SRC

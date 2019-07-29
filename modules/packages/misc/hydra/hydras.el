@@ -903,9 +903,10 @@
    _a_: agenda    _p_: posts
    _c_: contacts  _r_: repeated
    _f_: fixed     _t_: tech
-   _i_: inactive  _w_: webdev
-   _m_: math      _g_: goto last
-                _._: files
+   _i_: inactive  _w_: webdev tasks
+   _m_: math      _e_: webdev notes
+   _._: files     _g_: goto last
+
   "
   ("q" nil)
   ("<escape>" nil)
@@ -921,7 +922,8 @@
   ("p" my/org-capture-posts)
   ("r" my/org-capture-repeated)
   ("t" my/org-capture-tech)
-  ("w" my/org-capture-webdev)
+  ("w" my/org-capture-webdev-tasks)
+  ("e" my/org-capture-webdev-notes)
   ("g" org-capture-goto-last-stored))
 
 (defhydra hydra-org-agenda-files (:color blue :hint nil :exit nil :foreign-keys nil)

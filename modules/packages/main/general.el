@@ -147,6 +147,7 @@
 "C-c i" 'ibuffer
 
 ;;;; QUICK KEYS ;;;;
+"<f12>" 'org-journal-new-entry
 "M-c" nil
 "C-x l" nil
 "<C-S-f10>" 'buffer-menu-open

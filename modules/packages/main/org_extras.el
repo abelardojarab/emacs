@@ -1,0 +1,54 @@
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list (quote ("◐" "◑" "◒" "◓" "☉" "◉"))))
+
+(use-package org-web-tools
+  :after org
+  :ensure t)
+
+(use-package ox-epub
+  :after org
+  :ensure t)
+
+(use-package toc-org
+  :defer t
+  :ensure t)
+
+(use-package org2blog
+  :init
+  (setq org2blog/wp-blog-alist
+        '(("daviramos-en"
+           :url "http://daviramos.com/en/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)
+          ("daviramos-br"
+           :url "http://daviramos.com/br/xmlrpc.php"
+           :username "daviramos"
+           :default-title "Hello World"
+           :default-categories ("sci-fi")
+           :tags-as-categories nil)))
+  :ensure t)
+
+(use-package org-pdfview
+  :after org
+  :ensure t)
+
+(use-package org-journal
+  :ensure t
+  :custom
+  (org-journal-dir "~/org/Agenda/journal")
+  (org-journal-date-format "%A, %B %m, %Y")
+  (org-journal-file-format "%d-%m-%Y")
+  :config
+
+  (setq org-journal-find-file 'find-file)
+
+  (general-nvmap
+    :keymaps 'org-journal-mode-map
+
+    "C-M-p" 'org-journal-open-previous-entry
+    "C-M-n" 'org-journal-open-next-entry))
