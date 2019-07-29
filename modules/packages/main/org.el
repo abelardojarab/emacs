@@ -136,7 +136,7 @@
 (setq org-clock-sound "~/Music/Sounds/cuckoo.au")
 (setq org-lowest-priority 73)
 (setq org-default-priority 65)
-
+(setq org-agenda-show-all-dates nil)
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-timestamp-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
@@ -672,7 +672,7 @@
 
 ;;;; END OF ORG-MODE USE-PACKACE DECLARATION ;;;;
 (defun org-src--construct-edit-buffer-name (org-buffer-name lang)
-  (concat "[S] " org-buffer-name "")))
+  (concat "[S] " org-buffer-name ""))))
 
 
 (use-package org-bullets
