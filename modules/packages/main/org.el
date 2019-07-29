@@ -309,27 +309,27 @@
 
 (defun my/org-agenda-webdev-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/webdev.org"))
+  (find-file "~/org/Agenda/active/webdev.org"))
 
 (defun my/org-agenda-repeated-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/repeated.org"))
+  (find-file "~/org/Agenda/active/repeated.org"))
 
 (defun my/org-agenda-posts-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/posts.org"))
+  (find-file "~/org/Agenda/active/posts.org"))
 
 (defun my/org-agenda-math-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/math.org"))
+  (find-file "~/org/Agenda/active/math.org"))
 
 (defun my/org-agenda-fixed-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/fixed.org"))
+  (find-file "~/org/Agenda/active/fixed.org"))
 
 (defun my/org-agenda-fixed-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/fixed.org"))
+  (find-file "~/org/Agenda/active/fixed.org"))
 
 (defun my/org-agenda-tech-file ()
   (interactive)
@@ -343,9 +343,9 @@
   (interactive)
   (find-file "~/org/Data/contacts.org"))
 
-(defun my/org-agenda-inactive-file ()
+(defun my/org-agenda-active-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive.org"))
+  (find-file "~/org/Agenda/active.org"))
 
 (defun org-hide-drawers-enable ()
   (interactive)
@@ -644,7 +644,7 @@
   (interactive)
   (org-capture t "w"))
 
-(defun my/org-capture-inactive ()
+(defun my/org-capture-active ()
   (interactive)
   (org-capture t "i"))
 

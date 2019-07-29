@@ -68,7 +68,7 @@
           eyebrowse-create-window-config))
 
   (setq super-save-auto-save-when-idle t)
-  (setq super-save-idle-duration 5)
+  (setq super-save-idle-duration 2)
 
   (setq auto-save-default nil)
   (super-save-mode +1))
@@ -370,8 +370,8 @@
   :defer nil
   :ensure t
   :config
-  (setq unkillable-buffers '("^\\*scratch\\*$"))
-  ;; (setq unkillable-buffers '("^\\*scratch\\*$" "agenda.org"))
+  ;; (setq unkillable-buffers '("^\\*scratch\\*$"))
+  (setq unkillable-buffers '("^\\*scratch\\*$" "agenda.org"))
   (setq unkillable-scratch-behavior 'bury)
   :config
   (unkillable-scratch))

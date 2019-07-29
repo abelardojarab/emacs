@@ -307,19 +307,19 @@ DEADLINE: <2019-07-13 Sat -14d>
          (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
         ("f" "Fixed" entry
-         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/fixed.org" "Fixed") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("m" "Math" entry
-         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/math.org" "Math") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("p" "Posts" entry
-         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/posts.org" "Posts") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("r" "Repeated" entry
          (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("w" "WebDev" entry
-         (file+headline "~/org/Agenda/inactive/webdev.org" "WebDev Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/webdev.org" "WebDev") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("i" "Inactive" entry
          (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
@@ -348,27 +348,27 @@ DEADLINE: <2019-07-13 Sat -14d>
 
 (defun my/org-agenda-webdev-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/webdev.org"))
+  (find-file "~/org/Agenda/active/webdev.org"))
 
 (defun my/org-agenda-repeated-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/repeated.org"))
+  (find-file "~/org/Agenda/active/repeated.org"))
 
 (defun my/org-agenda-posts-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/posts.org"))
+  (find-file "~/org/Agenda/active/posts.org"))
 
 (defun my/org-agenda-math-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/math.org"))
+  (find-file "~/org/Agenda/active/math.org"))
 
 (defun my/org-agenda-fixed-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/fixed.org"))
+  (find-file "~/org/Agenda/active/fixed.org"))
 
 (defun my/org-agenda-fixed-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive/fixed.org"))
+  (find-file "~/org/Agenda/active/fixed.org"))
 
 (defun my/org-agenda-tech-file ()
   (interactive)
@@ -382,9 +382,9 @@ DEADLINE: <2019-07-13 Sat -14d>
   (interactive)
   (find-file "~/org/Data/contacts.org"))
 
-(defun my/org-agenda-inactive-file ()
+(defun my/org-agenda-active-file ()
   (interactive)
-  (find-file "~/org/Agenda/inactive.org"))
+  (find-file "~/org/Agenda/active.org"))
 
 (defun org-hide-drawers-enable ()
   (interactive)
@@ -683,7 +683,7 @@ DEADLINE: <2019-07-13 Sat -14d>
   (interactive)
   (org-capture t "w"))
 
-(defun my/org-capture-inactive ()
+(defun my/org-capture-active ()
   (interactive)
   (org-capture t "i"))
 

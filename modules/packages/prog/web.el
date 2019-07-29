@@ -64,8 +64,7 @@
     ;; (insert "!")
     ;; (emmet-expand-line nil)
     (yank nil)
-    (evil-window-middle)
-    ))
+    (evil-window-middle)))
 
 (use-package web-beautify
   :after web-mode
@@ -74,9 +73,10 @@
 
   (defun my/web-beautify ()
     (interactive)
-    (web-beautify-html)
-    (my/quiet-save-buffer)
-    (olivetti-mode +1))
+    (shut-up
+      (web-beautify-html)
+      (my/quiet-save-buffer)
+      (olivetti-mode +1)))
 
   (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
 
