@@ -50,12 +50,8 @@
   :ensure t
   :init
   (add-hook 'lispy-mode-hook #'lispyville-mode)
-  ;; (add-hook 'lispy-mode-hook 'my/sp-hooks)
-  :config
 
-  ;; (defun my/sp-hooks ()
-  ;;   (interactive)
-  ;;   (smartparens-mode -1))
+  :config
 
   (general-define-key
    :keymaps 'lispyville-mode-map
@@ -389,16 +385,10 @@
   (company-prescient-mode +1)
   (prescient-persist-mode +1))
 
-(use-package smartparens
-  :defer t
-  :ensure t
-  :config
-  (setq sp-escape-quotes-after-insert nil)
-  ;; (smartparens-global-mode +1)
-  (show-smartparens-global-mode +1))
-
 (use-package elec-pair
-  :defer t)
+  :defer t
+  :config
+  (electric-pair-mode +1))
 
 (use-package slime
   :defer t

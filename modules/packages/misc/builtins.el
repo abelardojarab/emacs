@@ -421,9 +421,7 @@
     (interactive)
     (subword-mode 1)
     (tab-jump-out-mode 1)
-    ;; (olivetti-mode +1)
-    ;; (turn-on-auto-fill)
-    )
+    (electric-pair-local-mode 1))
 
   (defun my/paragraph-backwards ()
     (interactive)
@@ -626,18 +624,14 @@
   (add-hook 'prog-mode-hook 'my/prog-mode-hooks)
   :config
 
-  ;; (yas-reload-all)
   (defun my/prog-mode-hooks ()
     (interactive)
     (company-mode 1)
     (electric-pair-local-mode 1)
-    (smartparens-mode 1)
     (tab-jump-out-mode 1)
     (hs-minor-mode 1)
     (hl-line-mode 1)
-    (comment-auto-fill)
-    ;; (highlight-indent-guides-mode 1)
-    )
+    (comment-auto-fill))
 
   ;; https://www.emacswiki.org/emacs/AutoFillMode
   (defun comment-auto-fill ()
@@ -764,7 +758,6 @@
   (global-eldoc-mode -1))
 
 (use-package paren
-  :defer t
   :ensure nil
   :config
   (custom-set-faces '(show-paren-match ((t(
@@ -774,7 +767,7 @@
                                            :underline nil
                                            :slant normal
                                            :weight bold)))))
-  (show-paren-mode 1))
+  (show-paren-mode +1))
 
 (use-package frame
   :ensure nil
@@ -783,7 +776,7 @@
   :config
   (blink-cursor-mode 0)
   (toggle-frame-maximized)
-  (setq frame-title-format '("%* %b")))
+  (setq frame-title-format '(" %b")))
 
 (use-package autorevert
   :defer t
@@ -1208,3 +1201,8 @@
   (setq display-time-format "| %H:%M | %a, %d/%m |")
   (setq display-time-default-load-average nil)
   (display-time))
+
+(use-package sgml-mode
+  :ensure nil
+  :init
+  (add-hook 'html-mode-hook 'web-mode))

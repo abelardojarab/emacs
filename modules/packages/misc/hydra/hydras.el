@@ -1189,11 +1189,13 @@
   "
   ^
        ^Web^
-       ----------
-       _m_: MDN
-       _c_: clear
+       -----------------------------
+       _m_: MDN       _f_: flycheck
+       _c_: clear     _e_: first error
        _b_: beautify
-       _i_: indent "
+       _i_: indent
+
+"
 
   ("<escape>" nil)
   ("q" nil)
@@ -1202,4 +1204,6 @@
   ("<return>" engine/search-mdn)
   ("c" my/html-clear-file-macro)
   ("b" my/web-beautify)
-  ("i" indent-buffer))
+  ("i" indent-buffer)
+  ("f" flycheck-mode)
+  ("e" flycheck-first-error))

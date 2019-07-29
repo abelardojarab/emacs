@@ -71,7 +71,6 @@
 (defun line-no-numbers ()
   (interactive)
   (setq display-line-numbers nil))
-
 #+END_SRC
 
 * Load Packages

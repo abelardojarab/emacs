@@ -61,7 +61,6 @@
   (interactive)
   (setq display-line-numbers nil))
 
-
 (add-to-list 'load-path "~/.emacs.d/modules/packages/lisp")
 
 ;;;; http://bit.ly/2YQFVQu (defun load-directory (dir)

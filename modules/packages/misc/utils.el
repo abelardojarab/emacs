@@ -457,7 +457,7 @@
 
 (use-package pomidor
   :ensure
-  ;; :bind (("<f12>" . my/pomidor))
+  :bind (("<f11>" . my/pomidor))
   :config (setq pomidor-sound-tick nil
                 pomidor-sound-tack nil)
 

@@ -200,7 +200,7 @@
   (setq org-edit-src-persistent-message nil)
   (setq org-edit-src-auto-save-idle-delay 1)
 
-  (setq org-src-fontify-natively nil)
+  (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
   (setq org-confirm-babel-evaluate nil)
   (setq org-babel-no-eval-on-ctrl-c-ctrl-c t)

@@ -88,12 +88,8 @@ This file tangle to [[https://github.com/mrbig033/emacs/blob/master/modules/pack
   :ensure t
   :init
   (add-hook 'lispy-mode-hook #'lispyville-mode)
-  ;; (add-hook 'lispy-mode-hook 'my/sp-hooks)
-  :config
 
-  ;; (defun my/sp-hooks ()
-  ;;   (interactive)
-  ;;   (smartparens-mode -1))
+  :config
 
   (general-define-key
    :keymaps 'lispyville-mode-map
@@ -501,24 +497,14 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
   (company-prescient-mode +1)
   (prescient-persist-mode +1))
 #+END_SRC
-* parens
-** smartparens
-#+BEGIN_SRC emacs-lisp
-(use-package smartparens
-  :defer t
-  :ensure t
-  :config
-  (setq sp-escape-quotes-after-insert nil)
-  ;; (smartparens-global-mode +1)
-  (show-smartparens-global-mode +1))
-#+END_SRC
-
-** elec pair
+* elec pair
 #+BEGIN_SRC emacs-lisp
 (use-package elec-pair
-  :defer t)
+  :defer t
+  :config
+  (electric-pair-mode +1))
 #+END_SRC
-usep
+
 * slime
 #+BEGIN_SRC emacs-lisp
 (use-package slime

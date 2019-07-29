@@ -85,6 +85,7 @@
 
   (defun my/markdown-hooks ()
     (interactive)
+    (olivetti-mode +1)
     (prose-enable-quiet))
 
   (defun my/markdown-copy-buffer ()
