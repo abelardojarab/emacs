@@ -17,15 +17,14 @@
 
   (defun my/web-mode-hooks ()
     (interactive)
-    (progn
-      (emmet-mode +1)
-      (flycheck-mode +1)
-      (evil-swap-keys-swap-double-single-quotes)
-      (olivetti-mode +1)
-      (olivetti-set-width 100)
-      (my/company-idle-one-prefix-one-quiet)
-      ;; (my/company-idle-two-prefix-two-quiet)
-      ))
+    (shut-up
+      (progn
+        (emmet-mode +1)
+        (flycheck-mode +1)
+        (evil-swap-keys-swap-double-single-quotes)
+        (olivetti-mode +1)
+        (olivetti-set-width 100)
+        (my/company-idle-one-prefix-one-quiet))))
 
   (general-nvmap
     :keymaps 'web-mode-map
@@ -39,6 +38,7 @@
   (general-imap
     :keymaps 'web-mode-map
     "C-t" 'web-mode-tag-previous
+    "C-c RET" 'hydra-web-mode/body
     "<M-return>" 'my/web-beautify
     "M-t" 'web-mode-tag-next)
 
@@ -112,7 +112,7 @@
 (use-package css-mode
   :ensure nil
   :init
-  (add-hook 'css-mode-hook  'my/web-mode-hooks)
+  (add-hook 'css-mode-hook  'my/css-mode-hooks)
   :config
 
   (general-nvmap
@@ -122,7 +122,21 @@
 
   (general-imap
     :keymaps 'css-mode-map
-    "<M-return>" 'web-beautify-css))
+    "C-c RET" 'hydra-css-mode/body
+    "<M-return>" 'web-beautify-css)
+
+  (defun my/css-mode-hooks ()
+    (interactive)
+    (shut-up
+      (progn
+        (emmet-mode +1)
+        (flycheck-mode +1)
+        (evil-swap-keys-swap-double-single-quotes)
+        (olivetti-mode +1)
+        (hl-line-mode -1)
+        (olivetti-set-width 100)
+        (electric-operator-mode +1)
+        (my/company-idle-one-prefix-one-quiet)))))
 
 (use-package js2-mode
   :defer t

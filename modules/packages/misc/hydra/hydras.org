@@ -1356,12 +1356,13 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   "
   ^
        ^CSS^
-       ---------------
-       _m_: MDN
-       _b_: beautify
+       ---------------------------------
+       _m_: MDN         _w_: web colors
+       _b_: beautify    _c_: emacs colors
        _i_: indent
        _e_: first error
        _f_: flycheck
+
 "
 
   ("<escape>" nil)
@@ -1372,5 +1373,9 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("b" web-beautify-css)
   ("i" indent-buffer)
   ("f" flycheck-mode)
-  ("e" flycheck-first-error))
+  ("e" flycheck-first-error)
+
+  ("w" counsel-colors-web)
+  ("c" counsel-colors-emacs)
+  )
 #+END_SRC

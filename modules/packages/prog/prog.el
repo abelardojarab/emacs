@@ -164,15 +164,15 @@
  "8" 'company-complete-number
  "9" 'company-complete-number
  "0" 'company-complete-number
- "M-f" 'company-filter-candidates
  "M-d" 'my/company-complete-paren
  "M-r" 'my/company-yasnippet
  "M-k" nil
  "M-l" nil
  "C-w" 'evil-delete-backward-word
  "C-h" 'delete-backward-char
- ;; "<tab>" nil
- "M-w" 'my/company-complete-first
+ "<tab>" nil
+ "M-q" 'my/company-complete-first
+ "M-w" 'company-filter-candidates
  "<escape>" 'company-abort
  ;; "<return>" 'company-complete
  "M-j" 'my/company-complete-first-add-space
@@ -180,7 +180,7 @@
 
 (general-define-key
  :keymaps 'company-filter-map
- ;; "TAB" nil
+ "<tab>" 'company-complete
  "M-h" 'company-quickhelp-manual-begin
  "M-d" 'company-filter-candidates
  "C-k" 'my/company-complete

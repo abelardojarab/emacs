@@ -1212,12 +1212,13 @@
   "
   ^
        ^CSS^
-       ---------------
-       _m_: MDN
-       _b_: beautify
+       ---------------------------------
+       _m_: MDN         _w_: web colors
+       _b_: beautify    _c_: emacs colors
        _i_: indent
        _e_: first error
        _f_: flycheck
+
 "
 
   ("<escape>" nil)
@@ -1228,4 +1229,8 @@
   ("b" web-beautify-css)
   ("i" indent-buffer)
   ("f" flycheck-mode)
-  ("e" flycheck-first-error))
+  ("e" flycheck-first-error)
+
+  ("w" counsel-colors-web)
+  ("c" counsel-colors-emacs)
+  )

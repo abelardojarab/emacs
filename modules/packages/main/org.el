@@ -268,8 +268,6 @@
   (setq org-file-apps (quote ((auto-mode . emacs)
                               ("\\.mm\\'" . default)
                               ("\\.x?html?\\'" . default)
-                              ("\\.x?html?\\'" . firefox)
-                              ("\\.x?html?\\'" . default)
                               ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
                               ("\\.jpg\\'" . "viewnior %s")
                               ("\\.mp4\\'" . "vlc %s")

@@ -391,15 +391,14 @@
    "<C-return>" 'with-editor-finish
    "<M-return>" 'with-editor-cancel))
 
-;; (use-package desktop
-;;   :ensure nil
-;;   :init
-;;   (setq desktop-load-locked-desktop nil)
-;;   (setq desktop-save t)
-;;   (setq desktop-dirname "~/.emacs.d/var/desktop")
-;;   (setq desktop-auto-save-timeout 30)
-;;   :config
-;;   (desktop-save-mode t))
+(use-package desktop
+  :ensure nil
+  :config
+  (setq desktop-save t)
+  (setq desktop-auto-save-timeout 30)
+  (setq desktop-load-locked-desktop t)
+  (setq desktop-dirname "~/.emacs.d/var/desktop")
+  (desktop-save-mode t))
 
 (use-package text-mode
   :init

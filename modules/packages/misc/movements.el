@@ -602,6 +602,7 @@ m : modules
   (setq nswbuff-start-with-current-centered t)
   (setq nswbuff-clear-delay 1)
   (setq nswbuff-buffer-list-function 'nswbuff-projectile-buffer-list)
+
   (setq nswbuff-include-buffer-regexps '("*Org Src"
                                          "\.pdf$"
                                          "*shell*"
@@ -620,6 +621,8 @@ m : modules
                                          "Buffer-menu-mode"
                                          "gnus-.*-mode"
                                          "occur-mode"
+                                         "*Colors*"
+                                         "*Org Clock*"
                                          ".*Log.*"
                                          ".*log.*"
                                          "recentf-save.el"
