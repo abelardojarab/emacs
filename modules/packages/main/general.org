@@ -27,12 +27,14 @@
   :states '(normal visual)
   :keymaps 'override
 
-  ;;;; SPLITTING ;;;;
+;;;; SPLITTING ;;;;
 
   ;; "h" 'split-window-horizontally
   ;; "j" 'my/split-vertically
   ;; "k" 'split-window-below
   ;; "l" 'my/split-right
+  "f" 'hydra-org-clock/body
+  "R" 'eyebrowse-rename-window-config
   "r" 'ranger
   "g" 'my/ranger
   "k" 'hydra-kill/body

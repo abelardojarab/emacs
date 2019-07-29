@@ -16,7 +16,7 @@
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+  ;; (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
   :config
 
   (defun my/web-mode-hooks ()
@@ -27,23 +27,23 @@
       (evil-swap-keys-swap-double-single-quotes)
       (olivetti-mode +1)
       (olivetti-set-width 100)
-      (my/company-idle-two-prefix-two-quiet)))
+      (my/company-idle-one-prefix-one-quiet)
+      ;; (my/company-idle-two-prefix-two-quiet)
+      ))
 
   (general-nvmap
     :keymaps 'web-mode-map
     "<return>" 'hydra-web-mode/body
-    "C-c ç" 'my/web-beautify
     "C-c h" 'my/html-clear-file-macro
     "C-t" 'web-mode-tag-previous
     "M-t" 'web-mode-tag-next
     "M-ç" 'copy-to-chrome
-    "<M-return>" 'indent-buffer)
+    "<M-return>" 'my/web-beautify)
 
   (general-imap
     :keymaps 'web-mode-map
-    "C-c ç" 'my/web-beautify
     "C-t" 'web-mode-tag-previous
-    "<M-return>" 'indent-buffer
+    "<M-return>" 'my/web-beautify
     "M-t" 'web-mode-tag-next)
 
   (defun my/set-web-theme ()
@@ -53,8 +53,7 @@
 
   (general-define-key
    :keymaps 'web-mode-map
-   "C-c ç" 'my/web-beautify
-   "<M-return>" 'indent-buffer
+   "<M-return>" 'my/web-beautify
    "M-ç" 'copy-to-chrome
    "<C-M-return>" 'browse-url-of-file)
 
@@ -124,10 +123,21 @@
 * css
 #+BEGIN_SRC emacs-lisp
 (use-package css-mode
+  :ensure nil
   :init
-  (add-hook 'css-mode-hook  'emmet-mode)
-  :ensure nil)
+  (add-hook 'css-mode-hook  'my/web-mode-hooks)
+  :config
+
+  (general-nvmap
+    :keymaps 'css-mode-map
+    "<M-return>" 'web-beautify-css
+    "<return>" 'hydra-css-mode/body)
+
+  (general-imap
+    :keymaps 'css-mode-map
+    "<M-return>" 'web-beautify-css))
 #+END_SRC
+
 * js2-mode
 #+BEGIN_SRC emacs-lisp
 (use-package js2-mode

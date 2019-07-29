@@ -48,7 +48,7 @@
     "M-m" 'org-edit-special
     "<backspace>" 'org-edit-special)
 
-  ;;;; OTHER KEYBINDINGS ;;;;
+;;;; OTHER KEYBINDINGS ;;;;
 
   (general-define-key
    :keymaps 'org-mode-map
@@ -110,7 +110,6 @@
   (general-nvmap
     :keymaps 'org-mode-map
     :prefix "SPC"
-    "f" 'hydra-org-clock/body
     "i" 'hydra-org-text-commands/body)
 
   (general-unbind 'org-capture-mode-map
@@ -140,7 +139,6 @@
 ;;;; SETTINGS ;;;;
   (require 'org-tempo)
   (add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
-  (setq org-clock-sound "~/Music/Sounds/cuckoo.au")
   (setq org-lowest-priority 73)
   (setq org-default-priority 65)
   (setq org-agenda-show-all-dates nil)
@@ -177,21 +175,25 @@
   (setq org-link-file-path-type 'relative)
   (setq org-export-with-toc nil)
   (setq calendar-date-style 'european)
-  (org-clock-persistence-insinuate)
 
+  ;;;; ORG CLOCK ;;;;
+
+  (org-clock-persistence-insinuate)
+  (setq org-clock-sound "~/Music/Sounds/cuckoo.au")
   (setq org-clock-persist t)
   (setq org-clock-in-resume t)
   (setq org-clock-persist-query-resume t)
-
   (setq org-pretty-entities t)
   (setq org-clock-into-drawer t)
   (setq org-clock-out-when-done t)
   (setq org-clock-history-length 10)
   (setq org-clock-mode-line-total 'auto)
+  (setq org-clock-mode-line-entry t)
   (setq org-clock-clocked-in-display t)
   (setq org-clock-out-remove-zero-time-clocks nil)
   (setq org-clock-report-include-clocking-task t)
   (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
+
   (setq org-drawers (quote ("PROPERTIES" "LOGBOOK"))) ;; Separate drawers for clocking and logs
   (setq org-log-into-drawer t)
 
@@ -265,7 +267,7 @@
 
   (setq org-file-apps (quote ((auto-mode . emacs)
                               ("\\.mm\\'" . default)
-                              ;; ("\\.x?html?\\'" . default)
+                              ("\\.x?html?\\'" . default)
                               ("\\.x?html?\\'" . firefox)
                               ("\\.x?html?\\'" . default)
                               ;; ("\\.jpg\\'" . "~/scripts/cline_scripts/my_feh %s")
@@ -520,8 +522,9 @@
 
   (defun my/org-src-exit ()
     (interactive)
-    (org-edit-src-exit)
-    (my/quiet-save-buffer))
+    (progn
+      (org-edit-src-exit)
+      (my/quiet-save-buffer)))
 
   (defun org-hide-other ()
     (interactive)

@@ -1207,3 +1207,25 @@
   ("i" indent-buffer)
   ("f" flycheck-mode)
   ("e" flycheck-first-error))
+
+(defhydra hydra-css-mode (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+  ^
+       ^CSS^
+       ---------------
+       _m_: MDN
+       _b_: beautify
+       _i_: indent
+       _e_: first error
+       _f_: flycheck
+"
+
+  ("<escape>" nil)
+  ("q" nil)
+
+  ("m" engine/search-mdn)
+  ("<return>" engine/search-mdn)
+  ("b" web-beautify-css)
+  ("i" indent-buffer)
+  ("f" flycheck-mode)
+  ("e" flycheck-first-error))

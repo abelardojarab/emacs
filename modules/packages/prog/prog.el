@@ -171,7 +171,7 @@
  "M-l" nil
  "C-w" 'evil-delete-backward-word
  "C-h" 'delete-backward-char
- "<tab>" nil
+ ;; "<tab>" nil
  "M-w" 'my/company-complete-first
  "<escape>" 'company-abort
  ;; "<return>" 'company-complete
@@ -180,12 +180,11 @@
 
 (general-define-key
  :keymaps 'company-filter-map
- "TAB" nil
+ ;; "TAB" nil
  "M-h" 'company-quickhelp-manual-begin
  "M-d" 'company-filter-candidates
  "C-k" 'my/company-complete
  "M-o" 'my/company-yasnippet)
-;; "RET" 'company-complete)
 
 (general-imap
   :keymaps 'company-mode-map
