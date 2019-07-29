@@ -98,8 +98,8 @@ DEADLINE: <2019-07-13 Sat -14d>
  "C-c C-b C-b" 'org-reset-checkbox-state-subtree)
 
 (general-unbind 'org-agenda-mode-map
-  :with 'replace with
-  [remap to be replaced])
+  :with 'my/agenda-return
+  [remap evil-ret])
 
 (general-define-key
  :keymaps 'org-agenda-mode-map
@@ -176,6 +176,11 @@ DEADLINE: <2019-07-13 Sat -14d>
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-timestamp-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-skip-timestamp-if-deadline-is-shown t)
+(setq org-agenda-skip-unavailable-files 't)
+(setq org-agenda-skip-additional-timestamps-same-entry 't)
+(setq org-agenda-skip-archived-trees 't)
+
 ;; (setq org-footnote-section "Notas")
 (setq org-footnote-auto-adjust 't)
 
@@ -325,7 +330,7 @@ DEADLINE: <2019-07-13 Sat -14d>
          (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("t" "Tech" entry
-         (file+headline "~/org/Data/tech.org" "Tech Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
+         (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -612,7 +617,7 @@ DEADLINE: <2019-07-13 Sat -14d>
 (defun org-7-days-agenda ()
   (interactive)
   (let ((current-prefix-arg 7)
-        (org-deadline-warning-days -7))
+        (org-deadline-warning-days 7))
     (org-agenda t "a")))
 
 (defun my/agenda-enter ()

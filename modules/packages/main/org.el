@@ -65,8 +65,8 @@
  "C-c C-b C-b" 'org-reset-checkbox-state-subtree)
 
 (general-unbind 'org-agenda-mode-map
-  :with 'replace with
-  [remap to be replaced])
+  :with 'my/agenda-return
+  [remap evil-ret])
 
 (general-define-key
  :keymaps 'org-agenda-mode-map
@@ -140,6 +140,11 @@
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-timestamp-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-skip-timestamp-if-deadline-is-shown t)
+(setq org-agenda-skip-unavailable-files 't)
+(setq org-agenda-skip-additional-timestamps-same-entry 't)
+(setq org-agenda-skip-archived-trees 't)
+
 ;; (setq org-footnote-section "Notas")
 (setq org-footnote-auto-adjust 't)
 
@@ -271,25 +276,25 @@
          (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
         ("f" "Fixed" entry
-         (file+headline "~/org/Agenda/inactive/fixed.org" "Fixed Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/fixed.org" "Fixed") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("m" "Math" entry
-         (file+headline "~/org/Agenda/inactive/math.org" "Math Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/math.org" "Math") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("p" "Posts" entry
-         (file+headline "~/org/Agenda/inactive/posts.org" "Posts Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/posts.org" "Posts") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("r" "Repeated" entry
          (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("w" "WebDev" entry
-         (file+headline "~/org/Agenda/inactive/webdev.org" "WebDev Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+         (file+headline "~/org/Agenda/active/webdev.org" "WebDev") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("i" "Inactive" entry
          (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
         ("t" "Tech" entry
-         (file+headline "~/org/Data/tech.org" "Tech Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
+         (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -573,7 +578,7 @@
 (defun org-7-days-agenda ()
   (interactive)
   (let ((current-prefix-arg 7)
-        (org-deadline-warning-days -7))
+        (org-deadline-warning-days 7))
     (org-agenda t "a")))
 
 (defun my/agenda-enter ()

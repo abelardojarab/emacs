@@ -522,7 +522,7 @@
 #+BEGIN_SRC emacs-lisp
 (use-package pomidor
   :ensure
-  :bind (("<f12>" . my/pomidor))
+  ;; :bind (("<f12>" . my/pomidor))
   :config (setq pomidor-sound-tick nil
                 pomidor-sound-tack nil)
 
@@ -549,6 +549,7 @@
                           ;; force fringe update
                           (set-window-buffer nil (current-buffer)))))
 #+END_SRC
+
 * undo-propose
 #+BEGIN_SRC emacs-lisp
 (use-package undo-propose
