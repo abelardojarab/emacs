@@ -37,8 +37,10 @@ DEADLINE: <2019-07-13 Sat -14d>
   (add-hook 'org-agenda-mode-hook
             (lambda ()
               (hl-line-mode)
+              (delete-other-windows)
               (setq display-line-numbers nil)
-              (setq truncate-lines t)))
+              (setq truncate-lines t)
+              (olivetti-mode +1)))
 
   (add-hook 'org-capture-mode-hook (lambda ()
                                      (evil-insert-state)
