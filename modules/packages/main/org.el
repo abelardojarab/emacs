@@ -179,7 +179,7 @@
   ;;;; ORG CLOCK ;;;;
 
   (org-clock-persistence-insinuate)
-  (setq org-clock-sound "~/Music/Sounds/cuckoo.au")
+  (setq org-clock-sound "~/george/Music/S/Sounds/cuckoo.au")
   (setq org-clock-persist t)
   (setq org-clock-in-resume t)
   (setq org-clock-persist-query-resume t)
@@ -187,10 +187,10 @@
   (setq org-clock-into-drawer t)
   (setq org-clock-out-when-done t)
   (setq org-clock-history-length 10)
+  (setq org-clock-update-period 60)
   (setq org-clock-mode-line-total 'auto)
-  (setq org-clock-mode-line-entry t)
-  (setq org-clock-clocked-in-display t)
-  (setq org-clock-out-remove-zero-time-clocks nil)
+  (setq org-clock-clocked-in-display 'frame-title)
+  (setq org-clock-out-remove-zero-time-clocks t)
   (setq org-clock-report-include-clocking-task t)
   (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
 

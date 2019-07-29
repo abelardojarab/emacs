@@ -16,7 +16,7 @@
 * Keys
 ** Translation
 #+BEGIN_SRC emacs-lisp
-(define-key key-translation-map (kbd "<f9>") (kbd "C-c"))
+(define-key key-translation-map (kbd "<f12>") (kbd "C-c"))
 #+END_SRC
 ** Leader
 #+BEGIN_SRC emacs-lisp
@@ -175,8 +175,10 @@
 ;;;; FILESETS ;;;;
 "C-j" 'counsel-M-x
 "C-c f" 'make-frame
+"C-c e" 'my/eyebrowse-create-named-configs
 ;; "C-c p" 'my/kill-previous-buffer
  #+END_SRC
+
 *** Editing
 #+BEGIN_SRC emacs-lisp
 ;;;; EDITING ;;;;
