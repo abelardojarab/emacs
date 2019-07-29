@@ -1303,7 +1303,7 @@
 (use-package avoid
   :ensure nil
   :config
-  (setq mouse-avoidance-mode 'banish))
+  (mouse-avoidance-mode 'banish))
 #+END_SRC
 
 * avoidance

@@ -1182,7 +1182,7 @@
 (use-package avoid
   :ensure nil
   :config
-  (setq mouse-avoidance-mode 'banish))
+  (mouse-avoidance-mode 'banish))
 
 (use-package image
   :ensure nil
