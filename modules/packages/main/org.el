@@ -313,6 +313,7 @@
           ("t" "Tech" entry
            (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
+
 ;;;; FUNCTIONS ;;;;
 
   (defun my/find-agenda-file ()

@@ -443,48 +443,6 @@
                         '(:key "S+Tab" :description "reference ←")
                         '(:key "f" :description "follow reference")))
 
-;; (use-package tomatinho
-;;   :ensure t
-;;   :config
-
-;;   (defun my/tomatinho ()
-;;     (interactive)
-;;     (progn
-;;       (tomatinho)
-;;       (evil-emacs-state)))
-
-;;   (global-set-key (kbd "<f12>") 'my/tomatinho))
-
-(use-package pomidor
-  :defer t
-  :ensure
-  :bind (("<f11>" . my/pomidor))
-  :config (setq pomidor-sound-tick nil
-                pomidor-sound-tack nil)
-
-  (defun my/pomidor ()
-    (interactive)
-    (hydra-pomidor/body)
-    (pomidor))
-
-  (general-unbind 'pomidor-mode-map
-    :with 'ignore
-    [remap evil-exit-emacs-state])
-
-  (general-unbind 'pomidor-mode-map
-    :with 'ignore
-    [remap evil-normal-state])
-
-  (setq pomidor-seconds (* 35 60)) ;; 35 minutes for the work period
-  (setq pomidor-break-seconds (* 15 60))  ;; 15 minutes break time
-
-  :hook (pomidor-mode . (lambda ()
-                          (display-line-numbers-mode -1) ; Emacs 26.1+
-                          (setq left-fringe-width 0 right-fringe-width 0)
-                          (setq left-margin-width 2 right-margin-width 0)
-                          ;; force fringe update
-                          (set-window-buffer nil (current-buffer)))))
-
 (use-package undo-propose
   :ensure t
   :config
