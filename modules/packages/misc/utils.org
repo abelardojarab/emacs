@@ -521,6 +521,7 @@
 * package
 #+BEGIN_SRC emacs-lisp
 (use-package pomidor
+  :defer t
   :ensure
   :bind (("<f11>" . my/pomidor))
   :config (setq pomidor-sound-tick nil

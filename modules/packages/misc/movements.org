@@ -548,11 +548,10 @@ m : modules
   ;; :defer t
   :ensure t
   :config
-  (setq eyebrowse-new-workspace nil)
   (setq eyebrowse-wrap-around t)
   (setq eyebrowse-new-workspace t)
   (setq eyebrowse-mode-line-style 'smart)
-  (setq eyebrowse-switch-back-and-forth nil)
+  (setq eyebrowse-switch-back-and-forth t)
   (setq eyebrowse-mode-line-left-delimiter " [ ")
   (setq eyebrowse-mode-line-right-delimiter " ]  ")
   (setq eyebrowse-mode-line-separator " | ")
@@ -565,7 +564,12 @@ m : modules
     "2" 'eyebrowse-switch-to-window-config-2
     "3" 'eyebrowse-switch-to-window-config-3
     "4" 'eyebrowse-switch-to-window-config-4
-    "5" 'eyebrowse-switch-to-window-config-5)
+    "5" 'eyebrowse-switch-to-window-config-5
+    "6" 'eyebrowse-switch-to-window-config-6
+    "7" 'eyebrowse-switch-to-window-config-7
+    "8" 'eyebrowse-switch-to-window-config-8
+    "9" 'eyebrowse-switch-to-window-config-9
+    "0" 'eyebrowse-switch-to-window-config-0)
 
   (general-define-key
    "M-q" 'eyebrowse-prev-window-config
@@ -616,6 +620,8 @@ m : modules
 #+BEGIN_SRC emacs-lisp
 (use-package i3wm-config-mode
   :load-path "~/.emacs.d/modules/packages/lisp/"
+  :init
+  (add-hook 'i3wm-config-mode-hook 'my/prog-mode-hooks)
   :config
   (general-nvmap
     :keymaps 'i3wm-config-mode-map

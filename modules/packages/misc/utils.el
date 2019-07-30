@@ -456,6 +456,7 @@
 ;;   (global-set-key (kbd "<f12>") 'my/tomatinho))
 
 (use-package pomidor
+  :defer t
   :ensure
   :bind (("<f11>" . my/pomidor))
   :config (setq pomidor-sound-tick nil
