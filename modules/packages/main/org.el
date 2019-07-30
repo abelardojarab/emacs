@@ -218,7 +218,7 @@
   (setq org-format-latex-options
         (plist-put org-format-latex-options :scale 1.3))
   ;; Archive on other location
-  (setq org-archive-location "~/org/Data/archive.org::* From %s")
+  (setq org-archive-location "~/org/Data/archive.org::datetree/* From %s")
 
   ;; Archive on the same file
   ;; (setq org-archive-location "::* Archived %s")
