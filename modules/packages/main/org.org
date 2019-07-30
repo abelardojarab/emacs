@@ -342,11 +342,6 @@ DEADLINE: <2019-07-13 Sat -14d>
           ("t" "Tech" entry
            (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
-  (org-babel-do-load-languages
-   : t
-
-   'org-babel-load-languages
-   '((python . t)))
 
 ;;;; FUNCTIONS ;;;;
 

@@ -313,12 +313,6 @@
           ("t" "Tech" entry
            (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
-  (org-babel-do-load-languages
-   : t
-
-   'org-babel-load-languages
-   '((python . t)))
-
 ;;;; FUNCTIONS ;;;;
 
   (defun my/find-agenda-file ()
