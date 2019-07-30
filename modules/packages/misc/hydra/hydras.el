@@ -930,8 +930,8 @@
   "
 
    ^Agenda Files^
-   -------------------------------
-   _a_: agenda    _p_: posts
+   ---------------------------------------
+   _a_: agenda    _p_: posts      _h_: archive
    _c_: contacts  _r_: repeated
    _f_: fixed     _t_: tech
    _i_: inactive  _w_: webdev
@@ -954,6 +954,9 @@
   ("t" my/org-agenda-tech-file)
   ("w" my/org-agenda-webdev-file)
   ("g" org-capture-goto-last-stored)
+  ("r" my/org-agenda-repeated-file)
+  ("h" my/org-goto-archive)
+
   )
 
 

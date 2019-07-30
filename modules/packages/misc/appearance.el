@@ -67,6 +67,9 @@
   :init
   (setq custom-safe-themes t))
 
+(use-package badwolf-theme
+  :ensure t)
+
 (use-package kaolin-themes
   :defer t
   :ensure t)

@@ -7,7 +7,6 @@
   (add-hook 'org-agenda-mode-hook
             (lambda ()
               (hl-line-mode)
-              (delete-other-windows)
               (setq display-line-numbers nil)
               (setq truncate-lines t)
               (olivetti-mode +1)))
@@ -73,6 +72,14 @@
   (general-unbind 'org-agenda-mode-map
     :with 'my/agenda-return
     [remap evil-ret])
+
+  (general-unbind 'org-agenda-mode-map
+    :with 'org-agenda-previous-item
+    [remap org-agenda-previous-line])
+
+  (general-unbind 'org-agenda-mode-map
+    :with 'org-agenda-next-item
+    [remap org-agenda-next-line])
 
   (general-define-key
    :keymaps 'org-agenda-mode-map
@@ -355,6 +362,10 @@
   (defun my/org-agenda-links-file ()
     (interactive)
     (find-file "~/org/Data/links.org"))
+
+  (defun my/org-goto-archive ()
+    (interactive)
+    (find-file "~/org/Data/archive.org"))
 
   (defun my/org-agenda-contacts-file ()
     (interactive)
