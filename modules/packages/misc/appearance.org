@@ -74,25 +74,54 @@
   (setq doom-themes-enable-bold 't)
   (setq custom-safe-themes t)
   :config
-  (load-theme 'doom-dracula))
+  (load-theme 'doom-dracula t))
 #+END_SRC
-
 ** poet-theme
 #+BEGIN_SRC emacs-lisp
 (use-package poet-theme
   :defer t
   :ensure t
   :init
-  (setq custom-safe-themes t))
+  (setq custom-safe-themes t)
+  :config
+  ;; https://emacs.stackexchange.com/a/45404
+  (cl-loop for face in (face-list) do
+           (unless (eq face 'default)
+             (set-face-attribute face nil :height 1.0))))
+#+END_SRC
+** cyberpunk-theme
+#+BEGIN_SRC emacs-lisp
+(use-package cyberpunk-theme
+  :defer t
+  :ensure t
+  :config
+  (load-theme 'cyberpunk)
+  ;; https://emacs.stackexchange.com/a/45404
+  (cl-loop for face in (face-list) do
+           (unless (eq face 'default)
+             (set-face-attribute face nil :height 1.0))))
   #+END_SRC
-* badwolf-themes
+
+** badwolf-themes
 #+BEGIN_SRC emacs-lisp
 (use-package badwolf-theme
-  :ensure t)
-  #+END_SRC
-* kaolin-themes
+  :defer t
+  :ensure t
+  :config
+  ;; https://emacs.stackexchange.com/a/45404
+  (cl-loop for face in (face-list) do
+           (unless (eq face 'default)
+             (set-face-attribute face nil :height 1.0))))
+#+END_SRC
+
+** kaolin-themes
 #+BEGIN_SRC emacs-lisp
 (use-package kaolin-themes
   :defer t
-  :ensure t)
-  #+END_SRC
+  :ensure t
+  :config
+  ;; https://emacs.stackexchange.com/a/45404
+  (cl-loop for face in (face-list) do
+           (unless (eq face 'default)
+             (set-face-attribute face nil :height 1.0))))
+#+END_SRC

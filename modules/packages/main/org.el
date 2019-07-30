@@ -149,6 +149,7 @@
   (setq org-lowest-priority 73)
   (setq org-default-priority 65)
   (setq org-agenda-show-all-dates nil)
+  (setq org-agenda-show-outline-path nil)
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-timestamp-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)

@@ -18,15 +18,6 @@
     :with 'hs-show-all
     [remap outline-show-all]))
 #+END_SRC
-* filesets
-#+BEGIN_SRC emacs-lisp
-(use-package filesets
-  :ensure nil
-  :config
-  (load-file "~/.emacs.d/modules/settings/filesets.el")
-  (filesets-init))
-#+END_SRC
-
 * select
 #+BEGIN_SRC emacs-lisp
 ;; (use-package select

@@ -1,2 +1,0 @@
-* Notes
-** TODO Another note. [[file:/home/dotfiles/emacs/em/modules/packages/main/org/org_setqs.el::(setq%20org-capture-templates]]

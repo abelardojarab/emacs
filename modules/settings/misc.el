@@ -1,6 +1,6 @@
 (defun my/save-all ()
   (interactive)
-  (setq current-prefix-arg '(4))
+  (setq current-prefix-arg '(4)
   (call-interactively 'save-some-buffers))
 
 (defun my/quiet-save-buffer () (interactive)
@@ -47,3 +47,8 @@
 (defun my/disable-cursor ()
   (interactive)
   (setq-local cursor-type nil))
+
+;; https://emacs.stackexchange.com/a/45404
+(cl-loop for face in (face-list) do
+         (unless (eq face 'default)
+           (set-face-attribute face nil :height 1.0)))

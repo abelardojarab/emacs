@@ -28,7 +28,7 @@
 (setq initial-buffer-choice nil)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
-(setq default-frame-alist '((font . "Input Mono Light 12")))
+(setq default-frame-alist '((font . "Input Mono Light 13")))
 (require 'bind-key)
 (require 'use-package)
 

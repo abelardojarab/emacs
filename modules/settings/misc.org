@@ -6,7 +6,7 @@
 #+BEGIN_SRC emacs-lisp
 (defun my/save-all ()
   (interactive)
-  (setq current-prefix-arg '(4))
+  (setq current-prefix-arg '(4)
   (call-interactively 'save-some-buffers))
 #+END_SRC
 ** quiet save
@@ -68,4 +68,11 @@
 (defun my/disable-cursor ()
   (interactive)
   (setq-local cursor-type nil))
+#+END_SRC
+* disable font variance
+#+BEGIN_SRC emacs-lisp
+;; https://emacs.stackexchange.com/a/45404
+(cl-loop for face in (face-list) do
+         (unless (eq face 'default)
+           (set-face-attribute face nil :height 1.0)))
 #+END_SRC
