@@ -286,12 +286,11 @@
 
   (setq org-capture-templates
         '(
-
           ("a" "Agenda" entry
            (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
           ("f" "Fixed" entry
-           (file+headline "~/org/Agenda/active/fixed.org" "Fixed") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline "~/org/Agenda/active/fixed.org" "Fixed") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("m" "Math" entry
            (file+headline "~/org/Agenda/active/math.org" "Math") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
@@ -300,10 +299,10 @@
            (file+headline "~/org/Agenda/active/posts.org" "Posts") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("r" "Repeated" entry
-           (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("w" "WebDev Tasks" entry
-           (file+headline "~/org/Agenda/active/webdev.org" "Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline "~/org/Agenda/active/webdev.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("e" "WebDev Notes" entry
            (file+headline "~/org/Agenda/active/webdev.org" "Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
@@ -315,6 +314,8 @@
            (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
 
   (org-babel-do-load-languages
+   : t
+
    'org-babel-load-languages
    '((python . t)))
 

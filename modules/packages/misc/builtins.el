@@ -14,12 +14,6 @@
     :with 'hs-show-all
     [remap outline-show-all]))
 
-(use-package filesets
-  :ensure nil
-  :config
-  (load-file "~/.emacs.d/modules/settings/filesets.el")
-  (filesets-init))
-
 ;; (use-package select
 ;;   :if (not window-system)
 ;;   :ensure nil
@@ -1067,12 +1061,11 @@
   (defun my/eval-buffer ()
     (interactive)
     (progn
-    (save-excursion
-      (my/save-all)
-      (indent-buffer)
-      (eval-buffer)
-      (my/quiet-save-buffer)
-      (message " buffer evaluated"))))
+      (save-excursion
+        (eval-buffer)
+        (indent-buffer)
+        (my/save-all)
+        (message " buffer evaluated"))))
 
   (defun my/eval-buffer-no-save ()
     (interactive)

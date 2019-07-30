@@ -26,14 +26,13 @@
 
 (defun tangle-and-eval-block ()
   (interactive)
-  (save-excursion
-    (let ((inhibit-message t))
-      ;; (org-narrow-to-subtree)
+  (shut-up
+    (save-excursion
       (xah-clean-empty-lines)
       (org-babel-execute-src-block)
       (org-babel-remove-result)
-      (tangle-py-all-quiet))
-    (message " block evaluated")))
+      (sp "tangle init" nil "~/.e/ntangle-all")
+      (message " block evaluated"))))
 
 (defun tangle-py-all-recompile ()
   (interactive)

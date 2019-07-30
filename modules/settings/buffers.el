@@ -366,8 +366,6 @@ rotate entire document."
       (kill-new filename))))
 
 
-
-
 (defun rename-file-and-buffer ()
   "Rename the current buffer and file it is visiting."
   (interactive)

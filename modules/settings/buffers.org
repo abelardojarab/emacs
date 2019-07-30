@@ -403,8 +403,6 @@ Copy file path to the clipboard.
     (when filename
       (kill-new filename))))
 
-
-
 #+END_SRC
 * rename both
 #+BEGIN_SRC emacs-lisp
@@ -457,6 +455,7 @@ Copy file path to the clipboard.
     (delete-other-windows)
     (message " all buffers killed")))
 #+END_SRC
+
 * toggle transparence
 #+BEGIN_SRC emacs-lisp
 (defun my/toggle-transparency ()

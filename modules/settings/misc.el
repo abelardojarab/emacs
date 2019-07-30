@@ -1,6 +1,6 @@
 (defun my/save-all ()
   (interactive)
-  (setq current-prefix-arg '(4)
+  (universal-argument)
   (call-interactively 'save-some-buffers))
 
 (defun my/quiet-save-buffer () (interactive)
