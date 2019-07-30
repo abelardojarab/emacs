@@ -54,10 +54,10 @@
     "C-M-n" 'org-journal-open-next-entry))
 
 (use-package org-pomodoro
-  :defer t
+  :after org
   :ensure t
   :config
-
+  (setq org-pomodoro-manual-break nil)
   ;; (setq org-pomodoro-length 40)            ;; 100%
   ;; (setq org-pomodoro-short-break-length 8) ;; 20%
   ;; (setq org-pomodoro-long-break-length 32) ;; 80%
@@ -66,6 +66,8 @@
   (setq org-pomodoro-short-break-length 5) ;; 20%
   (setq org-pomodoro-long-break-length 20) ;; 80%
   (setq org-pomodoro-format "P: %s")
+  (setq org-pomodoro-short-break-format "S: %s")
+  (setq org-pomodoro-long-break-format "L: %s")
 
   (defun org-pomodoro-update-mode-line ()
     "Set the modeline accordingly to the current state."

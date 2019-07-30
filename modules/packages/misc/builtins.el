@@ -2,6 +2,11 @@
   :ensure nil
   :config
 
+  ;; (defun my/my-hs-toogle-hiding ()
+  ;;   (interactive)
+  ;;   (beginning-of-line)
+  ;;   (hs-toggle-hiding))
+
   (general-unbind 'hs-minor-mode-map
     :with 'hs-toggle-hiding
     [remap evil-toggle-fold])
@@ -624,8 +629,7 @@
     (hs-minor-mode +1)
     (hl-line-mode +1)
     (comment-auto-fill)
-    (evil-swap-keys-swap-double-single-quotes)
-    (my/company-idle-one-prefix-one-quiet))
+    (evil-swap-keys-swap-double-single-quotes))
 
   ;; https://www.emacswiki.org/emacs/AutoFillMode
   (defun comment-auto-fill ()

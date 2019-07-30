@@ -452,9 +452,8 @@
        _q_: elec operator
        _f_: auto fill
        _a_: agg fill
-
+       _s_: hl sentence
        "
-
   ("<escape>" nil)
 
   ("c" company-mode)
@@ -463,7 +462,8 @@
   ("p" counsel-projectile-mode)
   ("q" electric-operator-mode)
   ("f" auto-fill-mode)
-  ("a" aggressive-fill-paragraph-mode))
+  ("a" aggressive-fill-paragraph-mode)
+  ("s" hl-sentence-mode))
 
 (defhydra hydra-eval (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -842,7 +842,7 @@
    _l_: last     _s_: started  _p_: pomodoro
    _y_: display  _t_: todo     _x_: counsel context
    _r_: report   _d_: done     _h_: counsel history
-                           _g_: counsel goto
+               _w_: timers   _g_: counsel goto
   "
   ("q" nil)
   ("<escape>" nil)
@@ -863,6 +863,7 @@
   ("g" counsel-org-clock-goto)
   ("h" counsel-org-clock-history)
   ("p" org-pomodoro)
+  ("w" hydra-org-timer/body)
   )
 
 (defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
@@ -963,6 +964,35 @@
   ("h" my/org-goto-archive)
 
   )
+
+(defhydra hydra-org-timer (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Org Timer^
+   ------------------
+   _e_: set timer
+   _s_: start
+   _t_: stop
+   _p_: play/pause
+   _r_: remaining
+   _c_: change
+   _i_: insert
+   _d_: insert desc.
+  "
+
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("e" org-timer-set-timer)
+  ("s" org-timer-start)
+  ("t" org-timer-stop)
+  ("p" org-timer-pause-or-continue)
+  ("r" org-timer-show-remaining-time)
+  ("c" org-timer-change-times-in-region)
+
+  ;; insert
+  ("i" org-timer)
+  ("d" org-timer-item))
 
 
 (defhydra hydra-info-mode (:color blue :hint nil :foreign-keys nil)

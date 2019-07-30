@@ -144,6 +144,9 @@
     [remap org-agenda-goto-today])
 
 ;;;; SETTINGS ;;;;
+
+  (setq org-timer-display nil)
+
   (require 'org-tempo)
   (add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
   (setq org-lowest-priority 73)

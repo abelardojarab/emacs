@@ -523,9 +523,8 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
        _q_: elec operator
        _f_: auto fill
        _a_: agg fill
-
+       _s_: hl sentence
        "
-
   ("<escape>" nil)
 
   ("c" company-mode)
@@ -534,7 +533,8 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("p" counsel-projectile-mode)
   ("q" electric-operator-mode)
   ("f" auto-fill-mode)
-  ("a" aggressive-fill-paragraph-mode))
+  ("a" aggressive-fill-paragraph-mode)
+  ("s" hl-sentence-mode))
 #+END_SRC
 
 ** Eval
@@ -952,7 +952,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
    _l_: last     _s_: started  _p_: pomodoro
    _y_: display  _t_: todo     _x_: counsel context
    _r_: report   _d_: done     _h_: counsel history
-                           _g_: counsel goto
+               _w_: timers   _g_: counsel goto
   "
   ("q" nil)
   ("<escape>" nil)
@@ -973,6 +973,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("g" counsel-org-clock-goto)
   ("h" counsel-org-clock-history)
   ("p" org-pomodoro)
+  ("w" hydra-org-timer/body)
   )
 #+END_SRC
 
@@ -1082,6 +1083,38 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("h" my/org-goto-archive)
 
   )
+#+END_SRC
+
+*** Org Timer
+#+BEGIN_SRC emacs-lisp
+(defhydra hydra-org-timer (:color blue :hint nil :exit nil :foreign-keys nil)
+  "
+
+   ^Org Timer^
+   ------------------
+   _e_: set timer
+   _s_: start
+   _t_: stop
+   _p_: play/pause
+   _r_: remaining
+   _c_: change
+   _i_: insert
+   _d_: insert desc.
+  "
+
+  ("q" nil)
+  ("<escape>" nil)
+
+  ("e" org-timer-set-timer)
+  ("s" org-timer-start)
+  ("t" org-timer-stop)
+  ("p" org-timer-pause-or-continue)
+  ("r" org-timer-show-remaining-time)
+  ("c" org-timer-change-times-in-region)
+
+  ;; insert
+  ("i" org-timer)
+  ("d" org-timer-item))
 #+END_SRC
 
 ** Info Mode

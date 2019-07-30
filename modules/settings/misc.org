@@ -77,10 +77,9 @@
          (unless (eq face 'default)
            (set-face-attribute face nil :height 1.0)))
 #+END_SRC
-* erase kill ring
-** my/function
+** my/erase-kill-ring
 #+BEGIN_SRC emacs-lisp :tangle ~/.emacs.d/functions.el
-(defun my/function ()
+(defun my/erase-kill-ring ()
   (interactive)
-  )
+  (setq kill-ring nil))
   #+END_SRC

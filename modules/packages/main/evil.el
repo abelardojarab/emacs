@@ -45,7 +45,7 @@
 (general-nvmap
   :prefix "SPC"
   :keymaps 'override
-  "ç" 'fill-buffer
+  "ç" 'hydra-org-timer/body
   "H" 'evil-window-move-far-left
   "K" 'evil-window-move-very-top
   "L" 'evil-window-move-far-right
