@@ -52,3 +52,36 @@
 
     "C-M-p" 'org-journal-open-previous-entry
     "C-M-n" 'org-journal-open-next-entry))
+
+(use-package org-pomodoro
+  :defer t
+  :ensure t
+  :config
+
+  ;; (setq org-pomodoro-length 40)            ;; 100%
+  ;; (setq org-pomodoro-short-break-length 8) ;; 20%
+  ;; (setq org-pomodoro-long-break-length 32) ;; 80%
+
+  (setq org-pomodoro-length 25)            ;; 100%
+  (setq org-pomodoro-short-break-length 5) ;; 20%
+  (setq org-pomodoro-long-break-length 20) ;; 80%
+  (setq org-pomodoro-format "P: %s")
+
+  (defun org-pomodoro-update-mode-line ()
+    "Set the modeline accordingly to the current state."
+    (let ((s (cl-case org-pomodoro-state
+               (:pomodoro
+                (propertize org-pomodoro-format 'face 'org-pomodoro-mode-line))
+               (:overtime
+                (propertize org-pomodoro-overtime-format
+                            'face 'org-pomodoro-mode-line-overtime))
+               (:short-break
+                (propertize org-pomodoro-short-break-format
+                            'face 'org-pomodoro-mode-line-break))
+               (:long-break
+                (propertize org-pomodoro-long-break-format
+                            'face 'org-pomodoro-mode-line-break)))))
+      (setq org-pomodoro-mode-line
+            (when (and (org-pomodoro-active-p) (> (length s) 0))
+              (list " " (format s (org-pomodoro-format-seconds)) " |"))))
+    (force-mode-line-update t)))

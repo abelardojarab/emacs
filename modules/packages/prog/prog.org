@@ -223,16 +223,16 @@ Company Ispell Portuguese fix: *set-buffer-file-coding-system* and chose *utf-8*
 
 (general-define-key
  :keymaps 'company-active-map
- "1" 'company-complete-number
- "2" 'company-complete-number
- "3" 'company-complete-number
- "4" 'company-complete-number
- "5" 'company-complete-number
- "6" 'company-complete-number
- "7" 'company-complete-number
- "8" 'company-complete-number
- "9" 'company-complete-number
- "0" 'company-complete-number
+ "M-1" 'company-complete-number
+ "M-2" 'company-complete-number
+ "M-3" 'company-complete-number
+ "M-4" 'company-complete-number
+ "M-5" 'company-complete-number
+ "M-6" 'company-complete-number
+ "M-7" 'company-complete-number
+ "M-8" 'company-complete-number
+ "M-9" 'company-complete-number
+ "M-0" 'company-complete-number
  "M-d" 'my/company-complete-paren
  "M-r" 'my/company-yasnippet
  "M-k" nil

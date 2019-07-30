@@ -67,10 +67,7 @@
   "C-v " nil)
 
 (general-nvmap
-  :keymaps 'text-mode-map
-  "ç" 'fill-paragraph)
-
-(general-nvmap
+  "ç" 'fill-paragraph
   "Q" 'save-buffers-kill-terminal
   "C-," 'helpful-at-point
   "C-." 'helpful-variable

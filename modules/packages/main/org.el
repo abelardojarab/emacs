@@ -304,15 +304,19 @@
           ("w" "WebDev Tasks" entry
            (file+headline "~/org/Agenda/active/webdev.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
-          ("e" "WebDev Notes" entry
+          ("n" "WebDev Notes" entry
            (file+headline "~/org/Agenda/active/webdev.org" "Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("i" "Inactive" entry
            (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("t" "Tech" entry
-           (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")))
+           (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
+          ("e" "Emacs" entry
+           (file+headline "~/org/Data/emacs.org" "Emacs Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+
+          ))
 
 ;;;; FUNCTIONS ;;;;
 
@@ -671,6 +675,10 @@
     (org-capture t "w"))
 
   (defun my/org-capture-webdev-notes ()
+    (interactive)
+    (org-capture t "n"))
+
+  (defun my/org-capture-emacs-notes ()
     (interactive)
     (org-capture t "e"))
 

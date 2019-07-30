@@ -839,9 +839,10 @@
    --------------------------------------------
    _i_: in       _m_: recent   _e_: effort
    _o_: out      _c_: cancel   _a_: estimate
-   _l_: last     _s_: started  _h_: counsel history
+   _l_: last     _s_: started  _p_: pomodoro
    _y_: display  _t_: todo     _x_: counsel context
-   _r_: report   _d_: done     _g_: counsel goto
+   _r_: report   _d_: done     _h_: counsel history
+                           _g_: counsel goto
   "
   ("q" nil)
   ("<escape>" nil)
@@ -860,7 +861,9 @@
   ("t" my/org-todo)
   ("x" counsel-org-clock-context)
   ("g" counsel-org-clock-goto)
-  ("h" counsel-org-clock-history))
+  ("h" counsel-org-clock-history)
+  ("p" org-pomodoro)
+  )
 
 (defhydra hydra-org-agenda (:color blue :hint nil :exit nil :foreign-keys nil)
   "
@@ -904,8 +907,9 @@
    _c_: contacts  _r_: repeated
    _f_: fixed     _t_: tech
    _i_: inactive  _w_: webdev tasks
-   _m_: math      _e_: webdev notes
-   _._: files     _g_: goto last
+   _m_: math      _n_: webdev notes
+   _e_: em notes  _g_: goto last
+   _._: files
 
   "
   ("q" nil)
@@ -918,12 +922,13 @@
   ("f" my/org-capture-fixed)
   ("i" my/org-capture-inactive)
   ("m" my/org-capture-math)
+  ("e" my/org-capture-emacs-notes)
 
   ("p" my/org-capture-posts)
   ("r" my/org-capture-repeated)
   ("t" my/org-capture-tech)
   ("w" my/org-capture-webdev-tasks)
-  ("e" my/org-capture-webdev-notes)
+  ("n" my/org-capture-webdev-notes)
   ("g" org-capture-goto-last-stored))
 
 (defhydra hydra-org-agenda-files (:color blue :hint nil :exit nil :foreign-keys nil)

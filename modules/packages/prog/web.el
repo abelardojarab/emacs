@@ -21,9 +21,11 @@
       (progn
         (emmet-mode +1)
         (flycheck-mode +1)
+        (electric-pair-local-mode +1)
         (evil-swap-keys-swap-double-single-quotes)
         (olivetti-mode +1)
         (olivetti-set-width 100)
+        (aggressive-fill-paragraph-mode +1)
         (my/company-idle-one-prefix-one-quiet))))
 
   (general-nvmap

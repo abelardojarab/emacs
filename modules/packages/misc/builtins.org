@@ -666,10 +666,8 @@
   (defun my/prog-mode-hooks ()
     (interactive)
     (company-mode +1)
-    (electric-pair-local-mode +1)
     (tab-jump-out-mode +1)
     (hs-minor-mode +1)
-    (flycheck-mode +1)
     (hl-line-mode +1)
     (comment-auto-fill)
     (evil-swap-keys-swap-double-single-quotes)
@@ -1136,7 +1134,7 @@
   (setq-default fringe-indicator-alist (assq-delete-all 'truncation fringe-indicator-alist))
   (setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
 
-  (setq-default fill-column 79)
+  (setq-default fill-column 69)
   (setq-default display-line-numbers nil)
 
   (setq auto-fill-mode t)

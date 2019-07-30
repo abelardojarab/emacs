@@ -115,7 +115,8 @@
                                             "*blacken-error*"
                                             "*Org PDF LaTeX Output*"
                                             "*quickrun*"
-                                            "*Disabled Command*"))
+                                            "*Disabled Command*"
+                                            "*Org Agenda*"))
 
 (setq projectile-project-search-path nil)
 

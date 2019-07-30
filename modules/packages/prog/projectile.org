@@ -8,6 +8,7 @@
   :config
   (load-file "~/.emacs.d/modules/packages/prog/projectile/projectile_settings.el"))
 #+END_SRC
+
 * counsel projectile
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile

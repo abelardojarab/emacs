@@ -343,10 +343,9 @@ DEADLINE: <2019-07-13 Sat -14d>
            (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("e" "Emacs" entry
-           (file+headline "~/org/Data/emacs.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline "~/org/Data/emacs.org" "Emacs Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
-))
-
+          ))
 
 ;;;; FUNCTIONS ;;;;
 
@@ -705,6 +704,10 @@ DEADLINE: <2019-07-13 Sat -14d>
     (org-capture t "w"))
 
   (defun my/org-capture-webdev-notes ()
+    (interactive)
+    (org-capture t "n"))
+
+  (defun my/org-capture-emacs-notes ()
     (interactive)
     (org-capture t "e"))
 
