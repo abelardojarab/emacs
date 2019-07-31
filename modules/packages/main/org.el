@@ -146,6 +146,13 @@
 ;;;; SETTINGS ;;;;
 
   (setq org-timer-display nil)
+  (setq org-show-notification-handler nil)
+
+  (defun my/org-timer-done-hooks ()
+    (interactive)
+    (play-sound-file "~/Sounds/cuckoo-short.aiff"))
+
+  (add-hook 'org-timer-done-hook 'my/org-timer-done-hooks)
 
   (require 'org-tempo)
   (add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
@@ -190,7 +197,7 @@
   ;;;; ORG CLOCK ;;;;
 
   (org-clock-persistence-insinuate)
-  (setq org-clock-sound "~/george/Music/S/Sounds/cuckoo.au")
+  (setq org-clock-sound "~/Sounds/cuckoo.au")
   (setq org-clock-persist t)
   (setq org-clock-in-resume t)
   (setq org-clock-persist-query-resume t)
@@ -290,34 +297,58 @@
   (setq org-capture-templates
         '(
           ("a" "Agenda" entry
-           (file+headline "~/org/Agenda/active/agenda.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
+           (file+headline
+            "~/org/Agenda/active/agenda.org" "Tasks")
+           "* TODO %i%^{1|Title}\nDEADLINE: %^t%?")
 
           ("f" "Fixed" entry
-           (file+headline "~/org/Agenda/active/fixed.org" "Fixed") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
+           (file+headline "~/org/Agenda/active/fixed.org" "Fixed")
+           "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("m" "Math" entry
-           (file+headline "~/org/Agenda/active/math.org" "Math") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/active/math.org" "Math")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("p" "Posts" entry
-           (file+headline "~/org/Agenda/active/posts.org" "Posts") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/active/posts.org" "Posts")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("r" "Repeated" entry
-           (file+headline "~/org/Agenda/active/repeated.org" "Repeated Tasks") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/active/repeated.org" "Repeated Tasks")
+           "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("w" "WebDev Tasks" entry
-           (file+headline "~/org/Agenda/active/webdev.org" "Tasks") "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/active/webdev.org" "Tasks")
+           "* TODO %i%^{1|Title}\nDEADLINE: \%^t\n:from:\n%f\n:end:%?")
 
           ("n" "WebDev Notes" entry
-           (file+headline "~/org/Agenda/active/webdev.org" "Notes") "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/active/webdev.org" "Notes")
+           "* %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("i" "Inactive" entry
-           (file+headline "~/org/Agenda/inactive.org" "Inactive") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Agenda/inactive.org" "Inactive")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("t" "Tech" entry
-           (file+headline "~/org/Data/tech.org" "Tech Notes") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Data/tech.org" "Tech Notes")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+
+          ("s" "Personal" entry
+           (file+headline
+            "~/org/Agenda/active/personal.org" "Personal")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ("e" "Emacs" entry
-           (file+headline "~/org/Data/emacs.org" "Emacs Tasks") "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
+           (file+headline
+            "~/org/Data/emacs.org" "Emacs Tasks")
+           "* TODO %i%^{1|Title}\n\%u\n:from:\n%f\n:end:%?")
 
           ))
 
@@ -684,6 +715,10 @@
   (defun my/org-capture-webdev-notes ()
     (interactive)
     (org-capture t "n"))
+
+  (defun my/org-capture-personal-notes ()
+    (interactive)
+    (org-capture t "s"))
 
   (defun my/org-capture-emacs-notes ()
     (interactive)

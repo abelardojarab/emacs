@@ -1025,8 +1025,8 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
    _f_: fixed     _t_: tech
    _i_: inactive  _w_: webdev tasks
    _m_: math      _n_: webdev notes
-   _e_: em notes  _g_: goto last
-   _._: files
+   _e_: em notes  _s_: personal
+   _._: files     _g_: goto last
 
   "
   ("q" nil)
@@ -1046,6 +1046,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("t" my/org-capture-tech)
   ("w" my/org-capture-webdev-tasks)
   ("n" my/org-capture-webdev-notes)
+  ("s" my/org-capture-personal-notes)
   ("g" org-capture-goto-last-stored))
 #+END_SRC
 

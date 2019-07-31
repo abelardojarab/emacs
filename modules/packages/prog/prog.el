@@ -76,7 +76,6 @@
        (escape insert)
        (additional-movement normal visual motion)))))
 
-
 (use-package quickrun
   :defer t
   :ensure t

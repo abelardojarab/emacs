@@ -909,8 +909,8 @@
    _f_: fixed     _t_: tech
    _i_: inactive  _w_: webdev tasks
    _m_: math      _n_: webdev notes
-   _e_: em notes  _g_: goto last
-   _._: files
+   _e_: em notes  _s_: personal
+   _._: files     _g_: goto last
 
   "
   ("q" nil)
@@ -930,6 +930,7 @@
   ("t" my/org-capture-tech)
   ("w" my/org-capture-webdev-tasks)
   ("n" my/org-capture-webdev-notes)
+  ("s" my/org-capture-personal-notes)
   ("g" org-capture-goto-last-stored))
 
 (defhydra hydra-org-agenda-files (:color blue :hint nil :exit nil :foreign-keys nil)

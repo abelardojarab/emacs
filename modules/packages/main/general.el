@@ -6,7 +6,7 @@
   (interactive)
   (kill-buffer (last-buffer)))
 
-(define-key key-translation-map (kbd "<f12>") (kbd "C-c"))
+;; (define-key key-translation-map (kbd "<f12>") (kbd "C-c"))
 
 (general-create-definer leader
   :prefix "SPC")

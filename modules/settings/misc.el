@@ -1,7 +1,7 @@
 (defun my/save-all ()
   (interactive)
-  (universal-argument)
-  (call-interactively 'save-some-buffers))
+  (let ((current-prefix-arg 4))
+  (call-interactively 'save-some-buffers)))
 
 (defun my/quiet-save-buffer () (interactive)
        (save-excursion

@@ -79,24 +79,43 @@
 (use-package engine-mode
   :ensure t
   :config
-  (defadvice browse-url (after browse-url-after activate) (my/focus-chrome-delayed))
-  (defengine google "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
-  (defengine devdocs-io "https://devdocs.io/#q=%s")
-  (defengine emacs-wiki "https://duckduckgo.com/?q=%s site:emacswiki.org")
-  (defengine github "https://github.com/search?ref=simplesearch&q=%s")
-  (defengine stack-overflow "https://stackoverflow.com/search?q=%s")
-  (defengine reddit "https://old.reddit.com/search?q=%s")
-  (defengine dic-informal "https://www.dicionarioinformal.com.br/sinonimos/%s")
-  (defengine michaelis "https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/%s")
-  (defengine asimov-wikia "http://asimov.wikia.com/wiki/Special:Search?query=%s")
-  (defengine wiki-en "https://en.wikipedia.org/wiki/%s")
-  (defengine wiki-pt "https://pt.wikipedia.org/wiki/%s")
-  (defengine plato "https://plato.stanford.edu/search/searcher.py?query=%s")
-  (defengine translate "https://translate.google.com/?source=osdd#view=home&op=translate&sl=auto&tl=pt&text=%s")
-  (defengine urban-dictionary "https://www.urbandictionary.com/define.php?term=%s")
-  (defengine the-free-dictionary "https://www.thefreedictionary.com/%s")
-  (defengine MDN "https://developer.mozilla.org/en-US/search?q=%s")
 
+  (defadvice browse-url
+      (after browse-url-after activate) (my/focus-chrome-delayed))
+
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
+
+  (defengine devdocs-io
+    "https://devdocs.io/#q=%s")
+  (defengine emacs-wiki
+    "https://duckduckgo.com/?q=%s site:emacswiki.org")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s")
+  (defengine reddit
+    "https://old.reddit.com/search?q=%s")
+  (defengine dic-informal
+    "https://www.dicionarioinformal.com.br/sinonimos/%s")
+  (defengine michaelis
+    "https://michaelis.uol.com.br/moderno-portugues/busca/portugues-brasileiro/%s")
+  (defengine asimov-wikia
+    "http://asimov.wikia.com/wiki/Special:Search?query=%s")
+  (defengine wiki-en
+    "https://en.wikipedia.org/wiki/%s")
+  (defengine wiki-pt
+    "https://pt.wikipedia.org/wiki/%s")
+  (defengine plato
+    "https://plato.stanford.edu/search/searcher.py?query=%s")
+  (defengine translate
+    "https://translate.google.com/?source=osdd#view=home&op=translate&sl=auto&tl=pt&text=%s")
+  (defengine urban-dictionary
+    "https://www.urbandictionary.com/define.php?term=%s")
+  (defengine the-free-dictionary
+    "https://www.thefreedictionary.com/%s")
+  (defengine MDN
+    "https://developer.mozilla.org/en-US/search?q=%s")
   (engine-mode t))
 #+END_SRC
 

@@ -37,6 +37,7 @@
       (org-babel-execute-src-block)
       (org-babel-remove-result)
       (sp "tangle init" nil "~/.e/ntangle-all")
+      (my/save-all)
       (message " block evaluated"))))
 
 (defun tangle-py-all-recompile ()

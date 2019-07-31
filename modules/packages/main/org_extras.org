@@ -87,6 +87,7 @@ To see journal entries do =M-x calendar=. Bindings available in the
   (org-journal-dir "~/org/Agenda/journal")
   (org-journal-date-format "%A, %B %m, %Y")
   (org-journal-file-format "%d-%m-%Y")
+  (add-hook 'org-journal-mode-hook 'my/hl-only-sentences)
   :config
 
   (setq org-journal-find-file 'find-file)
