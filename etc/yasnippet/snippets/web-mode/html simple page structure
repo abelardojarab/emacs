@@ -1,11 +1,9 @@
-# key: 111
-# name: html page structure
+# key: 11
+# name: html simple page structure
 # --
 <!DOCTYPE html>
-<html lang="${1:$$(yas-choose-value '("en" "pt"))}">
 
         <head>
-                <meta charset="UTF-8" />
                 <title>${2:Document Title}</title>
         </head>
 
