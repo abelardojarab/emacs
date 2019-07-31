@@ -343,6 +343,10 @@
     (interactive)
     (find-file "~/org/Agenda/active/repeated.org"))
 
+  (defun my/org-agenda-emacs-file ()
+    (interactive)
+    (find-file "~/org/Data/emacs.org"))
+
   (defun my/org-agenda-posts-file ()
     (interactive)
     (find-file "~/org/Agenda/active/posts.org"))

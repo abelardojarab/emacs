@@ -1055,13 +1055,14 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   "
 
    ^Agenda Files^
-   ---------------------------------------
-   _a_: agenda    _p_: posts      _h_: archive
-   _c_: contacts  _r_: repeated
-   _f_: fixed     _t_: tech
-   _i_: inactive  _w_: webdev
-   _m_: math      _g_: goto last
+   --------------------------------------
+   _a_: agenda    _e_: emacs   _g_: goto last
+   _c_: contacts  _p_: posts   _h_: archive
+   _f_: fixed     _r_: repeat
+   _i_: inactive  _t_: tech
+   _m_: math      _w_: webdev
   "
+
   ("q" nil)
   ("<escape>" nil)
 
@@ -1080,6 +1081,7 @@ From: https://gist.github.com/anachronic/7af88c62db136727cd1fed17ee0a662f
   ("w" my/org-agenda-webdev-file)
   ("g" org-capture-goto-last-stored)
   ("r" my/org-agenda-repeated-file)
+  ("e" my/org-agenda-emacs-file)
   ("h" my/org-goto-archive)
 
   )
