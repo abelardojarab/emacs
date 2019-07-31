@@ -156,17 +156,19 @@
 
   (require 'org-tempo)
   (add-to-list 'org-src-lang-modes '("i3" . i3wm-config))
+
   (setq org-lowest-priority 73)
   (setq org-default-priority 65)
   (setq org-agenda-show-all-dates nil)
   (setq org-agenda-show-outline-path nil)
-  (setq org-agenda-skip-deadline-if-done t)
-  (setq org-agenda-skip-timestamp-if-done t)
-  (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-timestamp-if-deadline-is-shown t)
   (setq org-agenda-skip-unavailable-files 't)
   (setq org-agenda-skip-additional-timestamps-same-entry 't)
-  (setq org-agenda-skip-archived-trees 't)
+
+  (setq org-agenda-skip-archived-trees nil)
+  (setq org-agenda-skip-deadline-if-done nil)
+  (setq org-agenda-skip-timestamp-if-done nil)
+  (setq org-agenda-skip-scheduled-if-done nil)
 
   ;; (setq org-footnote-section "Notas")
   (setq org-footnote-auto-adjust 't)
@@ -179,7 +181,8 @@
 ;;; http://bit.ly/2KJHooJ
   (setq org-agenda-files (apply 'append
                                 (mapcar
-                                 (lambda (directory)
+                                 (lambda
+                                   (directory)
                                    (directory-files-recursively
                                     directory org-agenda-file-regexp))
                                  '("~/org/Agenda"))))
@@ -188,7 +191,7 @@
   (setq org-refile-targets '((nil :maxlevel . 3)
                              (org-agenda-files :maxlevel . 3)))
 
-  (setq org-deadline-warning-days 7)
+  (setq org-deadline-warning-days 14)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-link-file-path-type 'relative)
   (setq org-export-with-toc nil)
@@ -236,7 +239,7 @@
   (setq org-format-latex-options
         (plist-put org-format-latex-options :scale 1.3))
   ;; Archive on other location
-  (setq org-archive-location "~/org/Data/archive.org::datetree/* From %s")
+  (setq org-archive-location "~/org/Agenda/active/archive.org::datetree/* From %s")
 
   ;; Archive on the same file
   ;; (setq org-archive-location "::* Archived %s")
@@ -477,7 +480,16 @@
                                      (directory-files-recursively
                                       directory org-agenda-file-regexp))
                                    '("~/org/Agenda"))))
-    (my/org-agenda))
+    (org-7-days-agenda))
+
+  (defun my/org-done-archive ()
+    (interactive)
+    (save-excursion
+      (org-todo "DONE")
+      (next-line)
+(end-of-visual-line)
+      (org-toggle-timestamp-type)
+      (org-archive-subtree-default)))
 
   (defun my/org-archive ()
     (interactive)
@@ -643,6 +655,10 @@
     (let ((current-prefix-arg 7)
           (org-deadline-warning-days 0))
       (org-agenda t "a")))
+
+  (defun org-todos-agenda ()
+    (interactive)
+    (org-agenda t "t"))
 
   (defun my/agenda-enter ()
     (interactive)

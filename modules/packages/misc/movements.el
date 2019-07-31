@@ -280,60 +280,8 @@ m : modules
 ;;;; INIT ;;;;
   :init
 
-  (setq ivy-ignore-buffers nswbuff-exclude-buffer-regexps)
-
-  ;; (setq ivy-ignore-buffers '(".*Log.*"
-  ;;                            ".*log.*"
-  ;;                            "*Completions*"
-  ;;                            ".*help.*"
-  ;;                            "^#.*#$"
-  ;;                            "*Shell Command Output*"
-  ;;                            "*slime-repl sbcl"
-  ;;                            "*Calculator*"
-  ;;                            "*Calendar*"
-  ;;                            "*Help*"
-  ;;                            "*Calc Trail*"
-  ;;                            "magit-process"
-  ;;                            "magit-diff"
-  ;;                            "*Org-Babel Error Output*"
-  ;;                            "\\`\\*helm"
-  ;;                            "\\`\\*Echo Area"
-  ;;                            "\\`\\*Minibuf"
-  ;;                            "Ibuffer"
-  ;;                            "*cheatsheet*"
-  ;;                            "*Echo Area 0*"
-  ;;                            "*Echo Area 1"
-  ;;                            "*Minibuf 0*"
-  ;;                            "bookmark-default.el"
-  ;;                            "bookmark-default.el"
-  ;;                            "info-history"
-  ;;                            "company-shell-autoloads.el"
-  ;;                            "company-shell-autoloads.el"
-  ;;                            "company.el"
-  ;;                            "company.el"
-  ;;                            "pos-tip-autoloads.el"
-  ;;                            "pos-tip-autoloads.el"
-  ;;                            "*Flycheck error messages*"
-  ;;                            "*company-documentation*"
-  ;;                            "^.archive.org$"
-  ;;                            ".*magit.*"
-  ;;                            ".*elc"
-  ;;                            ".*el"
-  ;;                            "*Bongo Playlist*"
-  ;;                            "*Bongo Library*"
-  ;;                            "text_scratch"
-  ;;                            "markdown_scratch"
-  ;;                            "fundamental_scratch"
-  ;;                            "org_scratch"
-  ;;                            "prog_scratch"
-  ;;                            "*scratch*"
-  ;;                            ;; "*scratch*"
-  ;;                            "*Warning*"
-  ;;                            "*Messages*"
-  ;;                            "i3keys.org"
-  ;;                            "info_keys.org"
-  ;;                            "*Org PDF LaTeX Output*"
-  ;;                            "*Disabled Command*"))
+  (shut-up
+    (defvaralias 'ivy-ignore-buffers 'nswbuff-exclude-buffer-regexps))
 
 ;;;; CONFIG ;;;;
   :config

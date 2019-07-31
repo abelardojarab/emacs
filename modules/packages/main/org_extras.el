@@ -39,6 +39,8 @@
 
 (use-package org-journal
   :ensure t
+  :init
+  (add-hook 'org-journal-mode-hook 'my/hl-only-sentences)
   :custom
   (org-journal-dir "~/org/Agenda/journal")
   (org-journal-date-format "%A, %B %m, %Y")

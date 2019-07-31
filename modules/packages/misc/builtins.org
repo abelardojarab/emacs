@@ -719,6 +719,9 @@
   (add-hook 'help-mode-hook 'hl-line-mode)
   :config
 
+  (add-to-list 'display-buffer-alist
+               '("*Help*" display-buffer-same-window))
+
   (setq help-window-select t)
 
   (general-nmap

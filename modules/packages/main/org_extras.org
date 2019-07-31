@@ -83,11 +83,12 @@ To see journal entries do =M-x calendar=. Bindings available in the
 #+BEGIN_SRC emacs-lisp
 (use-package org-journal
   :ensure t
+  :init
+  (add-hook 'org-journal-mode-hook 'my/hl-only-sentences)
   :custom
   (org-journal-dir "~/org/Agenda/journal")
   (org-journal-date-format "%A, %B %m, %Y")
   (org-journal-file-format "%d-%m-%Y")
-  (add-hook 'org-journal-mode-hook 'my/hl-only-sentences)
   :config
 
   (setq org-journal-find-file 'find-file)
@@ -98,6 +99,7 @@ To see journal entries do =M-x calendar=. Bindings available in the
     "C-M-p" 'org-journal-open-previous-entry
     "C-M-n" 'org-journal-open-next-entry))
 #+END_SRC
+
 * org-pomodoro
 #+BEGIN_SRC emacs-lisp
 (use-package org-pomodoro
