@@ -429,7 +429,7 @@ If the integer is negative, the string will start with \"-\"."
 
   (defun my/org-goto-archive ()
     (interactive)
-    (find-file "~/org/Data/archive.org"))
+    (find-file "~/org/Agenda/active/archive.org"))
 
   (defun my/org-agenda-contacts-file ()
     (interactive)
@@ -456,21 +456,25 @@ If the integer is negative, the string will start with \"-\"."
 
   (defun my/org-started ()
     (interactive)
-    (org-todo "STRT")
-    (org-clock-in))
+    (progn
+      (org-todo "STRT")
+      (org-clock-in)))
 
   (defun my/org-done ()
     (interactive)
-    (org-todo "DONE"))
+    (progn
+      (org-todo "DONE")))
 
   (defun my/org-done-go-below ()
     (interactive)
-    (org-todo "DONE")
-    (org-next-visible-heading 1))
+    (progn
+      (org-todo "DONE")
+      (org-next-visible-heading 1)))
 
   (defun my/org-todo ()
     (interactive)
-    (org-todo "TODO"))
+    (progn
+      (org-todo "TODO")))
 
   (defun my/make-return-python ()
     (interactive)

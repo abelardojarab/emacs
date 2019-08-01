@@ -808,7 +808,7 @@
 
   ("<escape>" nil)
 
-  ("r" my/org-archive)
+  ("r" my/org-done-archive)
   ("R" org-archive-subtree-default)
   ("c" hydra-org-capture/body)
   ("p" org-capture-goto-last-stored)
