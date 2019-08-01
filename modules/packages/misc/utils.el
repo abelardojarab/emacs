@@ -349,7 +349,7 @@
   :ensure t
   :config
   ;; (setq unkillable-buffers '("^\\*scratch\\*$" "webdev.org"))
-  (setq unkillable-buffers '("^\\*scratch\\*$" "agenda.org"))
+  (setq unkillable-buffers '("^\\*scratch\\*$" "agenda.org" "webdev.org"))
   (setq unkillable-scratch-behavior 'bury)
   :config
   (unkillable-scratch))

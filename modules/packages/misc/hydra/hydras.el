@@ -199,8 +199,8 @@
        _d_: file dwin
        _i_: file in dir
        _k_: kill
-       _b_: buffer
-       _p_: project
+       _p_: buffer
+       _b_: project
 
 "
   ("<escape>" nil)
@@ -224,11 +224,11 @@
   ("k" projectile-kill-buffers)
   ("C-k" projectile-kill-buffers)
 
-  ("b" counsel-projectile-switch-to-buffer)
-  ("C-b" counsel-projectile-switch-to-buffer)
+  ("p" counsel-projectile-switch-to-buffer)
+  ("C-p" counsel-projectile-switch-to-buffer)
 
-  ("C-p" counsel-projectile-switch-project)
-  ("p" counsel-projectile-switch-project))
+  ("C-b" counsel-projectile-switch-project)
+  ("b" counsel-projectile-switch-project))
 
 (defhydra hydra-tangle (:color blue :hint nil :exit nil :foreign-keys nil)
   "

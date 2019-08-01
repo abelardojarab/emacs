@@ -1,5 +1,6 @@
 (use-package org
   :ensure nil
+  :delight
   :defer t
   :init
   (add-hook 'org-mode-hook 'my/org-mode-hooks)
@@ -145,8 +146,29 @@
 
 ;;;; SETTINGS ;;;;
 
-  (setq org-timer-display nil)
+;;;; ORG TIMER ;;;;
+
+  (setq org-timer-display 'mode-line)
   (setq org-show-notification-handler nil)
+  (setq org-timer-format "%s ")
+
+  (defun org-timer-secs-to-hms (s)
+    "Convert integer S into h:mm:ss.
+If the integer is negative, the string will start with \"-\"."
+    (let (sign m h)
+      (setq sign (if (< s 0) "-" "")
+            s (abs s)
+            m (/ s 60) s (- s (* 60 m))
+            h (/ m 60) m (- m (* 60 h)))
+      (format "%s%d:%02d" sign h m)))
+
+  (defun org-timer-update-mode-line ()
+    "Update the timer time in the mode line."
+    (if org-timer-pause-time
+        nil
+      (setq org-timer-mode-line-string
+            (concat " " (substring (org-timer-value-string) 0 -1) " |"))
+      (force-mode-line-update)))
 
   (defun my/org-timer-done-hooks ()
     (interactive)
@@ -487,7 +509,7 @@
     (save-excursion
       (org-todo "DONE")
       (next-line)
-(end-of-visual-line)
+      (end-of-visual-line)
       (org-toggle-timestamp-type)
       (org-archive-subtree-default)))
 

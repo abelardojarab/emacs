@@ -55,8 +55,8 @@
     (counsel-M-x "^projectile- "))
 
   ;;;; KEYBINDINGS ;;;;
-  (general-nvmap
-    "M-r" 'counsel-projectile-switch-to-buffer)
+  ;; (general-nvmap
+  ;;   "M-r" 'counsel-projectile-switch-to-buffer)
 
   (general-define-key
    :keymaps 'projectile-mode-map
