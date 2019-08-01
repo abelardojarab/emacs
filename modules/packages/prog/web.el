@@ -24,7 +24,7 @@
         (electric-pair-local-mode +1)
         (evil-swap-keys-swap-double-single-quotes)
         (olivetti-mode +1)
-        (olivetti-set-width 100)
+        (olivetti-set-width 120)
         (aggressive-fill-paragraph-mode +1)
         (my/company-idle-one-prefix-one-quiet))))
 
@@ -76,10 +76,11 @@
     (interactive)
     (shut-up
       (web-beautify-html)
-      (my/quiet-save-buffer)
-      (olivetti-mode +1)))
+      (my/quiet-save-buffer))
+    (olivetti-mode -1))
 
   (setq web-beautify-args '("--indent-inner-html" "--indent-size 4" "--file"  "-")))
+
 
 (use-package emmet-mode
   :defer t

@@ -1,5 +1,28 @@
 (use-package delight
-  :ensure t)
+  :ensure t
+  :config
+  (delight '(
+             (projectile-mode nil)
+             (sh-mode " sh " "Shell-script[bash]")
+             (org-mode "" "Org")
+             (Org-Src "" "OrgSrc")
+             (overwrite-mode " Ovl" t)
+             (special-mode " special" "special")
+             (message-mode " messages" "Messages")
+             (markdown-mode " md" "Markdown")
+             (emacs-lisp-mode "" "*Org.**")
+             (fundamental-mode " fund" "Fundamental")
+             (web-mode " web" "Web")
+             (undo-tree-mode " " "Undo-Tree")
+             (super-save-mode "" "super-save")
+             (counsel-mode "" "counsel")
+             (abbrev-mode "" "Abbrev")
+             (evil-org-mode "" " EvilOrg")
+             (elmacro-mode " " "elmacro")
+             (ivy-mode "" "ivy")
+             (python-mode " Py" " Python")
+             (emacs-lisp-mode " elisp" "Emacs-Lisp")
+             (lisp-interaction-mode " lisp int" "Lisp Interaction"))))
 
 (use-package dimmer
   :unless window-system

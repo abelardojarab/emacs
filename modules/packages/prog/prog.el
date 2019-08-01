@@ -173,7 +173,7 @@
  "M-q" 'my/company-complete-first
  "M-w" 'company-filter-candidates
  "<escape>" 'company-abort
- ;; "<return>" 'company-complete
+ "<return>" 'company-complete
  "M-j" 'my/company-complete-first-add-space
  "M-o" 'my/company-yasnippet)
 
